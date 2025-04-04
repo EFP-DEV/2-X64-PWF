@@ -52,6 +52,8 @@ Dans le fichier `script.js`, écris du code qui :
    - Ajoute l’élément `<li>` dans la liste `<ul>`
    - Vide le champ de saisie
 
+[Instructions supplémentaires](step3.md)
+
 ---
 
 ### Étape 4 : Empêcher les tâches vides
