@@ -1,0 +1,19 @@
+* {
+    font-family: "courier";
+}
+
+body{
+    display:flex;
+    gap:2rem;
+    overflow: auto;
+}
+div{
+    border: 1px solid black;
+    margin: 1rem;
+}
+div strong{
+    display:block;
+    background: gray;
+    padding:0.5rem;
+    text-align: center;
+}
