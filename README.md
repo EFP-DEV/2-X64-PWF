@@ -55,3 +55,24 @@ Vos progrès seront évalués à travers :
 ---
 
 Ce module s’inscrit dans une progression pédagogique après les modules DSP et EXP, pour que vous puissiez avancer efficacement dans votre parcours. Nous avons hâte de commencer cette aventure avec vous !
+
+
+---
+
+## Répartition de matière - Module PWF (Programmation web frontend)
+
+## Répartition de matière - Module PWF (Programmation web frontend)
+
+| N° | Intitulé du cours | Date X64-A | Date X64-B |
+|---:|-------------------|:----------:|:----------:|
+| 1 | [Introduction et fondement algorithmique](./session_1.md) | | |
+| 2 | [Structure conditionnelle](./session_2.md) | | |
+| 3 | [Structure iterative](./session_3.md) | | |
+| 4 | [Introduction javascript](./session_4.md) | | |
+| 5 | [JS-Devinette](./session_5.md) | | |
+| 6 | [JS-Calendar](./session_6.md) | | |
+| 7 | [Fonctions, tableaux, chaines de caractere](./session_7.md) | | |
+| 8 | [JS-Crypto](./session_8.md) | | |
+| 9 | [DOM & Event listeners](./session_9.md) | | |
+| 10 | [JS-DOM](./session_10.md) | | |
+| 11 | Examen final | | |
