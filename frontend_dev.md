@@ -1,57 +1,62 @@
+# Développement Front-End : Découvrez le Métier
 
-# Développeur Front-End : Découvrez le Métier
+## Pourquoi choisir le développement Front-End ?
 
-## 🌟 Pourquoi devenir Développeur Front-End ?
-Le Développeur Front-End est la passerelle entre la créativité des designers et la technologie des développeurs. Si vous aimez créer des expériences visuelles attractives et interactives tout en donnant vie à vos designs, ce métier est fait pour vous.
+Le développement Front-End représente l’interface entre la créativité du design et la technicité du code.
+Il permet de concevoir des expériences visuelles attractives et interactives, en donnant vie à des maquettes graphiques.
 
-Contrairement au travail des Développeurs Back-End (souvent invisible), votre travail en tant que Développeur Front-End sera vu et expérimenté par chaque utilisateur d’un site web. Vous serez la personne qui transforme des idées en interfaces fonctionnelles, esthétiques et engageantes.
+Contrairement au développement Back-End (souvent invisible pour l’utilisateur), le Front-End est directement perçu et utilisé. Il transforme des idées en interfaces fonctionnelles, esthétiques et engageantes.
 
----
 
-## 🎯 Vos Missions en tant que Développeur Front-End
-- **Transformer des maquettes en réalité** : Utilisez vos compétences en HTML, CSS et JavaScript pour donner vie à des designs.
-- **Garantir une expérience utilisateur fluide** : Rendez les sites web accessibles, rapides et ergonomiques.
-- **Créer des sites responsives** : Adaptez les designs pour qu’ils soient parfaits sur ordinateur, tablette et smartphone.
-- **Améliorer la performance** : Optimisez le chargement et l’accessibilité des pages.
-- **Innover en continu** : Suivez les évolutions technologiques et testez de nouvelles idées.
+## Missions principales
 
----
+* **Transformer des maquettes en pages web** : coder en **HTML**, **CSS** et **JavaScript** pour donner vie aux designs.
+* **Assurer une expérience fluide** : rendre les sites accessibles, rapides et ergonomiques.
+* **Adapter les sites aux supports** : garantir un affichage responsive sur ordinateur, tablette et smartphone.
+* **Optimiser la performance** : améliorer la vitesse de chargement et l’accessibilité.
+* **Innover en continu** : suivre les évolutions technologiques et expérimenter de nouvelles solutions.
 
-## 🚀 Les Compétences Clés pour Réussir
-### 🖌️ Langages de base :
-- **HTML5** : Structurez le contenu de vos pages.
-- **CSS3** : Stylisez vos interfaces et ajoutez des animations.
-- **JavaScript** : Ajoutez des interactions et dynamisez vos créations.
 
-### 🛠️ Outils et frameworks utiles :
-- **jQuery**, **React**, **Vue.js**, **AngularJS** : Pour simplifier vos développements et aller plus loin.
-- **Normes W3C** : Respectez les standards pour assurer la compatibilité et l’accessibilité.
+## Compétences clés
 
-### 🧠 Qualités importantes :
-- **Rigueur** : Pour un code propre et fonctionnel.
-- **Créativité** : Pour imaginer des designs uniques.
-- **Curiosité** : Pour rester à jour et explorer de nouvelles technologies.
+### Langages de base
 
----
+* **HTML5** : structurer le contenu des pages.
+* **CSS3** : styliser les interfaces et créer des animations.
+* **JavaScript** : dynamiser et enrichir l’interactivité.
 
-## 💡 Profil Type
-Vous êtes peut-être un(e) **designer graphique** cherchant à enrichir vos compétences en développement ou un(e) **développeur débutant(e)** passionné(e) par le côté visuel et interactif du web. Quelle que soit votre origine, ce métier est accessible avec :
-- Une formation type **BTS/DUT informatique** ou équivalent.
-- Une curiosité et une volonté d’apprendre les langages de programmation.
+### Outils et frameworks
 
-Avec de l’expérience, vous pouvez évoluer vers des postes de Développeur Back-End, Chef de Projet ou même Architecte Web.
+* **jQuery**, **React**, **Vue.js**, **Angular** : bibliothèques et frameworks pour accélérer le développement.
+* **Normes W3C** : respect des standards pour compatibilité et accessibilité.
 
----
+### Qualités importantes
 
-## 💰 Combien Gagne un Développeur Front-End ?
-- **Débutant** : environ 28 000 € à 36 000 € brut par an.
-- **Confirmé** : environ 38 000 € à 45 000 € brut par an.
-- **Senior** : environ 50 000 € à 60 000 € brut par an.
+* **Rigueur** : code clair et fiable.
+* **Créativité** : solutions originales et esthétiques.
+* **Curiosité** : veille technologique permanente.
 
----
 
-## 🌍 Pourquoi ce Métier est Essentiel ?
-Le Développeur Front-End est bien plus qu’un simple codeur. Vous jouez un rôle crucial pour :
-- Améliorer l’image de marque grâce à des interfaces modernes et engageantes.
-- Créer des expériences utilisateur uniques.
-- Faire le lien entre le design et la technique.
+## Parcours type à l’EFP
+
+Le Front-End est accessible depuis différents horizons :
+
+* une formation en **design graphique** orientée vers le web,
+* un parcours en **informatique** ou en autodidacte.
+
+Les formations de l'EFP permettent de se spécialiser pas à pas. 
+Avec l’expérience, il est possible d’évoluer vers le Back-End, 
+la gestion de projet ou l’architecture web.
+
+
+## Salaire indicatif en Belgique
+
+* **Début de carrière** : 28 000 € à 35 000 € brut/an.
+* **Niveau intermédiaire** : 36 000 € à 45 000 € brut/an.
+* **Expérimenté** : 50 000 € à 60 000 € brut/an.
+
+
+## Un rôle essentiel
+
+Le développement Front-End dépasse la simple écriture de code.
+Il valorise l’image d’une entreprise ou d’un projet, propose des interfaces modernes et engageantes, et assure la liaison entre design et technique.
