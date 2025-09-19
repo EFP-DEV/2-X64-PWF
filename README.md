@@ -1,4 +1,4 @@
-# Module : Programmation Web : Frontend (PWF)
+# Programmation Web : Frontend (PWF)
 
 ## Bienvenue dans le module
 
