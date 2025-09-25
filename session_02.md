@@ -1,12 +1,15 @@
 # Session 2 : STITI
 
-## Objectif (partie 1)
+> Stocker, Transformer, Interagir, Tester, Iterer
+
+# Objectif (partie 1)
 
 Poser les bases d’un minuteur en console : **déclarer**, **assigner**, **vérifier**, **formater**, **incrémenter**, **réassigner**, puis **simuler manuellement**.
 
-## Préparation
+# Préparation
 
 Ouvrir la **console** du navigateur (F12 → Console).
+
 Tous les extraits s’exécutent **dans la console**.
 
 

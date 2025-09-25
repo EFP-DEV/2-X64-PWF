@@ -1,5 +1,7 @@
 # Session 2 : STITI
 
+> Stocker, Transformer, Interagir, Tester, Iterer
+
 ## Objectif (partie 2)
 
 Passer de la **console** à un **projet de fichiers**, apprendre les **structures de contrôle** (`if`, `while`), et **simuler** un minuteur.
