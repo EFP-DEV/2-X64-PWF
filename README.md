@@ -1,9 +1,4 @@
-Voici une version harmonisée et sans écriture genrée de ton module **Programmation Web : Frontend (PWF)**.
-J’ai corrigé les petites fautes d’orthographe, fluidifié certaines formulations et uniformisé le style pédagogique.
-
----
-
-# Module : Programmation Web : Frontend (PWF)
+# Programmation Web : Frontend (PWF)
 
 ## Bienvenue dans le module
 
@@ -119,4 +114,3 @@ Vous y apprendrez à :
 | 11 | **Examen final**                                          | Évaluation                                                                                                                                                                       |
 
 **Total : 44 heures**
-
