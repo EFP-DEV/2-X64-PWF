@@ -36,7 +36,7 @@
       m = m + 1;
 
       // Affichage
-      console.log(h, ":", m); // 13 : 38
+      console.log(h, m); // 13 38
     </script>
   </body>
 </html>
