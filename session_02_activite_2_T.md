@@ -43,7 +43,7 @@
 ```
 
 > Chargez le fichier dans le navigateur, ouvrez la console (F12 → Console)
-> Vérifiez que l’affichage est correct : `13 : 38`.
+> Vérifiez que l’affichage est correct : `13 38`.
 
 ---
 
