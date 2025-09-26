@@ -126,7 +126,23 @@ m = m + 1;
 > Lecture : “remplace `m` par (`m` actuel + 1)”.
 
 
-
 ## Simuler (répéter manuellement)
 
 Appuyez sur **↑** dans la console pour répéter la dernière ligne **`m = m + 1;`** encore et encore, jusqu’à ce que vous ayez devine, vu ou que vous etes le dernier a continuer.
+
+
+# Notions clés
+
+**Expression** — produit une valeur, **sans effet** sur l’état si elle est écrite seule.
+Exemples : `2 + 3`, `m + 1`, `"13" + ":" + m`, `h == 13`.
+
+> Astuce : dans la console, taper une expression **affiche** sa valeur.
+
+**Instruction** — une commande que le moteur exécute ; **peut modifier l’état**.
+Exemples : `let m = 37;`, `m = m + 1;`, `if (m == 60) { m = 0; h = h + 1; }`
+
+> Une instruction peut **utiliser** des expressions : dans `m = m + 1;`, l’expression `m + 1` est évaluée puis **assignée** à `m`.
+
+**État** — l’**ensemble des variables et leurs valeurs** à un instant donné.
+Exemple : avant l’instruction, état = `{ h: 13, m: 37 }` ; après `m = m + 1;`, nouvel état = `{ h: 13, m: 38 }`.
+
