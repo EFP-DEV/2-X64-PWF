@@ -1,25 +1,25 @@
 # Session 2 : STITI
 
-> Stocker, Transformer, Interagir, **Tester**, Iterer
+> Stocker, Transformer, Interagir, **Tester**, Itérer
 
-## Objectif 
+## Objectif
 
-1. Passer de la **console** à un **projet de fichiers**, 
+1. Passer de la **console** à un **projet de fichiers**
 2. Détecter et corriger l’anomalie avec `if` (structure de contrôle conditionnelle)
-3. Imbriquer des `if` 
-
+3. Imbriquer des `if`
 
 ---
-## 1. Passer de la console a la balise `<script>`
+
+## 1) Passer de la console à la balise `<script>`
 
 **But** : écrire dans une balise `<script>` le code qu’on a fait en console.
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>STITI — Partie 2</title>
   </head>
   <body>
@@ -42,17 +42,17 @@
 </html>
 ```
 
-> Charger le fichier dans le navigateur, ouvrir la console (F12 → Console)
->
-> Vérifier que l’affichage est correct : `13 : 38`.
-
+> Chargez le fichier dans le navigateur, ouvrez la console (F12 → Console)
+> Vérifiez que l’affichage est correct : `13 : 38`.
 
 ---
-## 2. Passer de la balise au fichier (HTML + JS)
 
-**But** : créer et lier `tick.js`, et y copier le code de la balise `<script>`:
+## 2) Passer de la balise au fichier (HTML + JS)
 
-### 1. Arborescence
+**But** : créer et lier `tick.js`, et y copier le code de la balise `<script>`.
+
+### Arborescence
+
 ```
 dev
 └── pwf
@@ -61,10 +61,9 @@ dev
         └── tick.js
 ```
 
-### 3. Dans `tick.js`
+### Dans `tick.js`
 
-On copie le code de la balise `<script>` dans `tick.js` :
-#### SANS LA BALISE `<script>` NI `</script>`
+> On copie le code **sans** la balise `<script>`.
 
 ```js
 // Déclaration + assignation (comme en console)
@@ -78,235 +77,212 @@ m = m + 1;
 console.log(h, ":", m); // 13 : 38
 ```
 
-### 2. Dans `index.html`
+### Dans `index.html`
 
-On remplace le `<script>...</script>` et on ajoute un `<script src="tick.js"></script>`.
+> On remplace le `<script>...</script>` par un chargement de fichier.
 
 ```html
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>STITI — Partie 2</title>
-  </head>
-  <body>
-    <main>
-      <h1>STITI — Partie 2</h1>
-      <p>Ouvrez la console (F12 → Console) pour voir le résultat.</p>
-    </main>
-
-    <!-- On charge notre script après le HTML -->
-    <script src="tick.js"></script>
-  </body>
-</html>
+<!-- On charge notre script après le HTML -->
+<script src="tick.js"></script>
 ```
 
+### Vérifier
 
-### 3. Verifier
-
-1. Que vous avez sauvegardé les deux fichiers.
-2. Que vous avez ouvert `index.html` dans le navigateur.
-3. Ouvrir la console (F12 → Console).
-4. Que vous avez rafraichi la page (F5 ou ctrl-r).
-5. Que vous voyez s’afficher :
+1. Sauvegarder les deux fichiers
+2. Ouvrir `index.html` dans le navigateur
+3. Ouvrir la console (F12 → Console)
+4. Rafraîchir la page (F5 ou Ctrl/Cmd-R)
+5. Voir s’afficher :
 
 ```
 13 : 38
 ```
 
-> Si rien ne s’affiche : vérifier le **nom du fichier**, le **chemin** de `<script src="tick.js">`, et l’erreur éventuelle dans la console.
+> Si rien ne s’affiche : vérifier le **nom du fichier**, le **chemin** de `<script src="tick.js">`, et les **erreurs** éventuelles dans la console.
 
+### Méditer
 
-### 4. Mediter
+* **Intuition** : `m = m + 1` “marche” presque tout le temps.
+* **Mesure :**
 
-* **Intuition.** Le geste `m = m + 1` “semble marcher” presque tout le temps.
-* **Mesure:** 
-  - Sur une journée il y a **24 × 60 = 1440** minutes.
-  - Le geste échoue **à chaque fois que m vaut 59** (car on obtient 60, qui est invalide).
-  - Chaque jour, il y a **24** opportunites de rater un bug (00:59, 01:59, ... , 23:59).
-  - **Taux de réussite** = 1416/1440 = **59/60 ≈ 98,33 %**
+  * Une journée = **24 × 60 = 1440** minutes.
+  * Le geste échoue **quand m vaut 59** (car on obtient 60, invalide).
+  * Chaque jour, **24** opportunités de rater un bug (`__:59 → __:60`).
+  * **Taux de réussite** = 1416/1440 = **59/60 ≈ 98,33 %**.
+* Repère d’intuition : Humain ↔ chimpanzé ≈ **98,7–98,8 %** d’ADN en commun.
 
-> Pour se faire une idée : un humain et un chimpanzé partagent environ 98,7–98,8 % de leur ADN.
+### Nommage des variables
 
----
-##  2) Détecter et corriger l’anomalie avec `if`
-
-
-> **Idée clé** : en ajoutant 1 à `m` plusieurs fois, on atteint **60**. Or une minute valide est entre **0** et **59**.
->
->Donc : **détecter** la valeur interdite (60) → **corriger**.
-
-## Énoncer le problème (en français, avant le code)
-
-> « Quand `m` atteint **60**, cette valeur n’est **pas correcte** pour une minute.
-> Je dois **détecter** cette situation et **agir** : remettre `m` à **0** et **avancer l’heure**. »
-
-## Syntaxe `if`
+* `h` → `heures`
+* `m` → `minutes`
 
 ```js
-if ( /* condition vraie ou faux */ ) {
-  // instructions à exécuter 
-  // si la condition est vraie
+let heures = 13;
+let minutes = 37;
+
+minutes = minutes + 1;
+
+console.log(heures, ":", minutes); // 13 : 38
+```
+
+**Sauver, rafraîchir, vérifier** : l’affichage doit rester correct.
+
+---
+
+## 3) Détecter et corriger l’anomalie avec `if`
+
+> **Idée clé** : en ajoutant 1 à `minutes` plusieurs fois, on atteint **60**.
+> Or une minute valide est entre **0** et **59**.
+> Donc : **détecter** `60` → **corriger**.
+
+### Énoncer le problème (en français, avant le code)
+
+> « Quand `minutes` atteint **60**, cette valeur n’est **pas correcte** pour une minute.
+> Je dois **détecter** cette situation et **agir** : remettre `minutes` à **0** et **avancer l’heure**. »
+
+### Syntaxe `if`
+
+```js
+if (/* condition vraie ou fausse */) {
+  // instructions à exécuter si la condition est vraie
 }
 ```
 
-Ici, la **condition** est : “`m` vaut **60** ?”
+### Notion de bloc { }
 
-## Debut de correction
+Un bloc est un groupe d’instructions délimité par des accolades `{ ... }`.
+Il sert à lier plusieurs lignes qui doivent s’exécuter ensemble (ex. le corps d’un `if`, d’une boucle, d’une fonction).
 
-Dans `tick.js`, nous ajotons, après le `m = m + 1` :
+**À quoi ça sert ?**
+
+* **Regrouper** : plusieurs actions déclenchées par une condition.
+* **Structurer** : montrer visuellement la hiérarchie (imbriquer des blocs).
+
+### Début de correction `minutes == 60`
+
+Dans `tick.js`, après `minutes = minutes + 1` :
 
 ```js
 // Détection d'une valeur invalide
-if (m == 60) {
-  m = 0;          //  on remet à zéro
+if (minutes == 60) {
+  minutes = 0; // on remet à zéro
 }
 ```
 
 **Observation** : l’affichage donne `13 : 0`.
-On a corrigé la minute, **mais** le temps **n’avance pas** : on n’a pas **ajouté une heure**.
+On a corrigé la minute, **mais** le temps **n’avance pas** : l’heure n’a pas augmenté.
 
-
-```js
-// Départ (on rejoue la situation finale avec 59)
-let h = 13;
-let m = 59;
-
-// +1 sur la minute
-m = m + 1; // m devient 60
-
-// Détection d'une valeur invalide
-if (m == 60) {
-  m = 0;          //  on remet à zéro
-}
-
-// Affichage pour vérifier
-console.log(h, ":", m);
-```
-Nous avons corrigé la minute, mais nous avons créé une boucle temporelle.. groundhog hour. not that fun.
-
-## Propagation à l’heure
-
-On ajoute l’action manquante : **+1 sur `h`**.
+Exemple ciblé :
 
 ```js
-let h = 13;
-let m = 59;
+let heures = 13;
+let minutes = 59;
 
-m = m + 1; // 60
+minutes = minutes + 1;
 
-if (m == 60) {
-  m = 0;
-  h = h + 1; //  on propage à l'heure
+if (minutes == 60) {
+  minutes = 0; // corrigé
 }
 
-console.log(h, ":", m); // attendu : 14 : 0
+console.log(heures, ":", minutes); // 13 : 0 (bloqué dans l'heure)
 ```
 
-> Ici, on a deux **instructions** dans le `if` : **remettre `m`** et **avancer `h`**.
+### Propagation à l’heure
 
-## Tests manuels rapides
+On ajoute l’action manquante : **+1 sur `heures`**.
 
-Changez le point de départ et vérifiez les cas suivant
+```js
+let heures = 13;
+let minutes = 37;
+
+minutes = minutes + 1;
+
+if (minutes == 60) {
+  minutes = 0;        // on remet à zéro
+  heures = heures + 1; // on avance l'heure
+}
+
+console.log(heures, ":", minutes); // 14 : 0
 ```
-h: 7, m: 37   (devient 7:38),
-h: 7, m: 59   (devient 8:0),
-h: 0, m: 0    (devient 0:1).
-h: 23, m: 59  (devient 24:0).
-h: 23, m: 95  ?
+
+> Ici, on a **deux instructions** dans le `if` : **remettre `minutes`** et **avancer `heures`**.
+
+### Tests manuels rapides
+
+Changez le point de départ et vérifiez :
+
+```
+h: 7,  m: 37  →  7:38
+h: 7,  m: 59  →  8:0
+h: 0,  m: 0   →  0:1
+h: 23, m: 59  →  24:0
+h: 23, m: 95  →  ?
 ```
 
 ---
 
-## 3. Imbriquer des `if` 
+## 4) Encore plus de `if` (imbriquer pour mieux raisonner)
 
-**But** : après avoir corrigé `m == 60`, on constate un **nouveau** problème :
+**But** : après avoir corrigé `minutes == 60`, on constate un **nouveau** problème :
 `23:59` → `24:0` (or, une **heure valide** est entre **0** et **23**).
 
-### 3.1 Constater le bug (rejouer la scène)
+### Première correction (deux `if` successifs)
 
 ```js
-let h = 23;
-let m = 59;
+let heures = 23;
+let minutes = 59;
 
-m = m + 1;      // 60
-if (m == 60) {
-  m = 0;
-  h = h + 1;    // 24
+minutes = minutes + 1;
+
+if (minutes == 60) {
+  minutes = 0;
+  heures = heures + 1;
 }
 
-console.log(h, ":", m); // 24 : 0  ← bug: 24 est invalide
+if (heures == 24) {
+  heures = 0;
+}
+
+console.log(heures, ":", minutes); // 0 : 0  ← OK
 ```
 
-**Observation** : la correction des minutes peut faire passer `h` à **24**.
+**Lecture “fréquence des événements” :**
 
+* En 1 journée, **1440** minutes.
+* Le test `if (heures == 24)` n’est pertinent que quand il y a eu débordement de minute, donc **24** fois.
+* **24 / 1440 = 1/60 ≈ 1,67 %**.
 
-### 3.2 Première correction (deux `if` successifs)
+Dans cette version, on exécute `if (heures == 24)` **100 %** du temps, alors qu’il n’est **pertinent** que **1,67 %** du temps → **bruit cognitif** (et micro-coût CPU).
 
-> Idée : **après** avoir éventuellement incrémenté `h`, on vérifie si `h` est hors borne et on remet à `0`.
+### Meilleure correction (imbriquer)
 
-```js
-let h = 23;
-let m = 59;
-
-m = m + 1;
-if (m == 60) {
-  m = 0;
-  h = h + 1;
-}
-
-// Correction des heures
-if (h == 24) {
-  h = 0;
-}
-
-console.log(h, ":", m); // 0 : 0  ← OK
-```
-
-#### Lire le code… en pensant “combien de fois ça arrive ?”
-
-* En 1 journée, il y a **1440** minutes.
-* Le test `if (h == 24)` n’est **utile** que quand on a débordé les minutes, donc **24 fois** (à chaque passage `__:59 → __:00`).
-* Soit **24 / 1440 = 1/60 ≈ 1,67 %** des cas.
-
-**Problème de lecture** : dans la version “deux `if` successifs”, on exécute *toujours* le test `if (h == 24)` — donc **100 %** du temps — alors qu’il n’est pertinent que **1,67 %** du temps.
-C’est un **bruit cognitif** (et un micro-coût CPU) qu’on peut éviter.
-
-**Comment régler ça ? → Imbrication.**
-On place `if (h == 24)` **dans** le bloc qui ne s’exécute **que** lors du débordement de minute (`if (m == 60) { ... }`).
-Résultat : le test sur `h` ne s’exécute **que** quand il y a une **chance non nulle** qu’il soit vrai — soit ~**1,67 %** du temps — exactement ce qu’on veut.
+On place `if (heures == 24)` **dans** le bloc qui ne s’exécute **que** lors du débordement de minute.
 
 ```js
-let h = 23;
-let m = 59;
+let heures = 23;
+let minutes = 59;
 
-m = m + 1;
+minutes = minutes + 1;
 
-if (m == 60) {       // événement: débordement de minute
-  m = 0;
-  h = h + 1;         // propagation à l'heure
+if (minutes == 60) {    // débordement des minutes
+  minutes = 0;
+  heures = heures + 1;
 
-  if (h == 24) {     // événement: débordement d'heure
-    h = 0;           // remise à zéro (retour à minuit)
+  if (heures == 24) {   // débordement des heures
+    heures = 0;
   }
 }
 
-console.log(h, ":", m); // 0 : 0
+console.log(heures, ":", minutes); // 0 : 0  ← OK
 ```
 
-> Message pédagogique : **la structure du code doit refléter la fréquence des événements**.
+> **Message pédagogique** : la structure du code doit refléter la **fréquence des événements**.
+> Si un test n’a de sens **qu’après** un autre, **imbrique**-le :
 >
-> Si un test n’a de sens qu’après un autre, **imbrique**-le. Tu gagnes en **lisibilité**, en **justesse** logique, et tu réduis les **vérifications inutiles** (de 100 % à 1,67 % ici).
->
->* On **voit** la **chaîne de causes** : minute → heure.
->* Chaque correction est **près** de sa cause (moins d’oubli, moins d’effets de bord).
+> * On **voit** la **chaîne de causes** (minute → heure).
+> * On réduit les vérifications inutiles (de **100 %** à **~1,67 %** ici).
 
----
-
-### 3.4 Vérifications ciblées
-
-Testez manuellement (en ajustant `h`/`m` avant l’incrément) :
+### Vérifications ciblées
 
 ```
 h: 7,  m: 37  →  7:38
@@ -316,15 +292,12 @@ h: 23, m: 59  →  0:0    (débordement en cascade)
 h: 0,  m: 59  →  1:0
 ```
 
-> Que faire si vous démarrez sur une minute **invalide** (ex. `m = 95`), que se passe-t-il et comment le corriger ?
-
----
-
-### 3.5 À retenir (ancrage)
+### À retenir
 
 * Un `if` **détecte** une **situation** précise et **agit**.
 * Les **débords** (minutes → heures) sont des **conséquences** ; placez les corrections **là où elles naissent**.
-* L’**imbrication** rend visible la **hiérarchie des événements**.
-  Ici : *si la minute déborde*, **alors** on *peut* vérifier si l’heure déborde.
+* L’**imbrication** rend visible la **hiérarchie des événements** :
+  *si la minute déborde*, **alors** on *peut* vérifier si l’heure déborde.
 
-> Plus tard, on verra d’autres façons d’écrire cette logique (par ex. en **boucle**, **fonctions** de formatage, voire opérateurs mathématiques). Pour l’instant, l’objectif est de **penser** et **voir** la structure **conditionnelle imbriquée**.
+> Plus tard : on verra les **boucles**, les **fonctions** de formatage, etc.
+> Ici, l’objectif est de **penser** et **voir** la structure **conditionnelle imbriquée**.

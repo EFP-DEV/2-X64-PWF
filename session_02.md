@@ -12,17 +12,17 @@
 
 ## Plan de la séance
 
-* **Activité 0 – Setup projet** (HTML + Console) 
-* **Activité 1 – STI (Console)** (stockage, transformation, interaction) 
-* **Activité 2 – T (Tests `if`)** (corrections & imbrication) 
-* **Activité 3 – I (Itérer)** (boucles, contrôle vs métier) 
+* **[Activité 0 – Setup projet (HTML + Console)](./session_02_activite_0_setup.md)**
+* **[Activité 1 – STI (Console)](./session_02_activite_1_STI.md)** — stockage, transformation, interaction  
+* **[Activité 2 – T (Tests `if`)](./session_02_activite_2_T.md)** — corrections & imbrication  
+* **[Activité 3 – I (Itérer)](./session_02_activite_3_I.md)** — boucles, contrôle vs métier
 
 ## Ce que vous ferez concrètement
 
-* **Utilser la console comme terminal javascript** 
-* **Creer un projet de fichiers HTML + JS** 
-* **Erire des structures conditionnelles (tests)**
-* **Ecrire des structures iteratives (boucles)** 
+* **Utiliser la console** comme terminal JavaScript  
+* **Créer un projet de fichiers** HTML + JS  
+* **Écrire des structures conditionnelles** (tests)  
+* **Écrire des structures itératives** (boucles)
 
 ## Pré-requis & matériel
 
