@@ -45,7 +45,7 @@ console.log(parseInt(age) + 1); // version correcte
 
 > L’objectif est de **tester dans la console** et de bien comprendre la différence.
 
-[Voir le détail de l’activité I/O](./session_03_activite_0_console.md)
+[Voir le détail de l’activité I/O](./session_03/activite/0_console.md)
 ---
 
 ---
@@ -57,7 +57,7 @@ Les tickets sont des **petites missions clients** :
 – progression : **simple → avancé → filtrage**.
 
 
-[Voir tous les tickets](./session_03_activite_1_tickets.md)
+[Voir tous les tickets](./session_03/activite/1_tickets.md)
 ---
 
 ---
