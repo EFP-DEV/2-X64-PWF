@@ -6,12 +6,10 @@
 
 Lors de la session précédente, nous avons découvert la base de JavaScript :
 
-* écrire des instructions simples,
-* utiliser des variables (`let`, `const`),
+* écrire des instructions simples, dans l'ordre
+* utiliser des variables avec `let`,
 * comprendre le rôle de l’opérateur `+` pour concaténer ou additionner,
-* utiliser `parseInt()` pour convertir une saisie en nombre.
-
-> Nous avons donc appris à **manipuler les valeurs** (texte et nombres) et à **afficher un résultat dans la console**.
+* afficher le resultat dans la console
 
 ---
 
