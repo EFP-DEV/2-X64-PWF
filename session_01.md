@@ -101,7 +101,7 @@ C'est la combinaison de ces trois langages qui permet de créer des sites modern
 ## 3. Préparer son environnement de travail
 
 ### Créer un dossier `dev/`
-
+[Creer son dossier de dev](./session_01/activite/0_setup.md)
 Pourquoi un dossier unique ?
 
 * Tous vos projets sont au même endroit.
