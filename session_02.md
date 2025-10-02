@@ -12,10 +12,10 @@
 
 ## Plan de la séance
 
-* **[Activité 0 – Setup projet (HTML + Console)](./session_02_activite_0_setup.md)**
-* **[Activité 1 – STI (Console)](./session_02_activite_1_STI.md)** — stockage, transformation, interaction  
-* **[Activité 2 – T (Tests `if`)](./session_02_activite_2_T.md)** — corrections & imbrication  
-* **[Activité 3 – I (Itérer)](./session_02_activite_3_I.md)** — boucles, contrôle vs métier
+* **[Activité 0 – Setup projet (HTML + Console)](./session_02/activite/0_setup.md)**
+* **[Activité 1 – STI (Console)](./session_02/activite/1_STI.md)** — stockage, transformation, interaction  
+* **[Activité 2 – T (Tests `if`)](./session_02/activite/2_T.md)** — corrections & imbrication  
+* **[Activité 3 – I (Itérer)](./session_02/activite/3_I.md)** — boucles, contrôle vs métier
 
 ## Ce que vous ferez concrètement
 
