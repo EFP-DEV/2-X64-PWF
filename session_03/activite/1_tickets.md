@@ -109,8 +109,9 @@ GreenSense veut enrichir son widget.
 JoinUs lance une expérience de **formulaire gamifié** inspiré de la planète Orbulon.
 
 **Règles :**
-– Utilisateur standard → majeur à 25 ans
-– Zorg → majeur à 30 ans
+>– Utilisateur standard → majeur à 25 ans
+>
+>– Zorg → majeur à 30 ans
 
 **Tâche :**
 Demander "Êtes-vous un Zorg ?" puis l’âge, et afficher si le formulaire complet est débloqué.
