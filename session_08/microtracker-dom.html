@@ -6,14 +6,30 @@
     <style>
       body {
         font-family: sans-serif;
-        max-width: 420px;
+        max-width: 800px;
         margin: 2rem auto;
+        padding: 0 1rem;
       }
+
+      section {
+        display: grid;
+        gap: 1rem;
+
+        /* Intrinsic grid, no breakpoints */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        align-items: start;
+      }
+
       article {
         border: 1px solid #ccc;
         padding: 1rem;
-        margin-bottom: 1rem;
         border-radius: 0.4rem;
+        background: #fafafa;
+      }
+
+      /* These two items take the full width of the grid */
+      .span-all {
+        grid-column: 1 / -1;
       }
     </style>
   </head>
@@ -24,18 +40,21 @@
         <p>Minutes : <strong class="value">0</strong></p>
         <button class="count">+1</button>
       </article>
+
       <article>
         <h2>Eau</h2>
         <p>Verres : <strong class="value">0</strong></p>
         <button class="count">+1</button>
       </article>
+
       <article>
         <h2>Pause</h2>
         <p>Moments : <strong class="value">0</strong></p>
         <button class="count">+1</button>
       </article>
-      <p>Total : <strong id="total">0</strong></p>
-      <button id="reset">Réinitialiser</button>
+
+      <p class="span-all">Total : <strong id="total">0</strong></p>
+      <button id="reset" class="span-all">Réinitialiser</button>
     </section>
   </body>
 </html>
