@@ -101,7 +101,7 @@ Vous y apprendrez à :
 
 | N° | Intitulé du cours                                         | Contenu                                                                                                                                                                                            |
 | -: | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  1 | [Introduction et fondement algorithmique](./session_01.md) | Concepts de base de la programmation web • HTML/CSS pour développeurs • Structure sémantique et sélecteurs CSS • Événements inline • Environnement de développement                                |
-|  2 | [STITI](./session_02.md)                | Stocker, Transformer, Interagir, Tester, Iterer                                                |
+|  1 | [Introduction et fondement algorithmique](./session_1.md) | Concepts de base de la programmation web • HTML/CSS pour développeurs • Structure sémantique et sélecteurs CSS • Événements inline • Environnement de développement                                |
+|  2 | [STITI](./session_2.md)                | Stocker, Transformer, Interagir, Tester, Iterer                                                |
 
 **Total : 44 heures**

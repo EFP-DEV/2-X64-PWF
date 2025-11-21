@@ -101,7 +101,7 @@ C'est la combinaison de ces trois langages qui permet de créer des sites modern
 ## 3. Préparer son environnement de travail
 
 ### Créer un dossier `dev/`
-[Creer son dossier de dev](./session_01/0_setup.md)
+[Creer son dossier de dev](./session_1/0_setup.md)
 Pourquoi un dossier unique ?
 
 * Tous vos projets sont au même endroit.
@@ -132,7 +132,7 @@ Dans `dev/`, créez un dossier par cours ou par projet :
 | `Mon site`     | `mon_site`       | Espaces posent problème sur certains serveurs. |
 | `Site-École`   | `site_ecole`     | Accents non supportés partout.                 |
 | `TP#1`         | `tp1`            | Caractères spéciaux risqués.                   |
-| `Session 01`   | `session_01`     | Espaces gênants.                               |
+| `Session 01`   | `session_1`     | Espaces gênants.                               |
 | `Index.HTML`   | `index.html`     | Majuscules sensibles sur Linux.                |
 | `Ma Page.html` | `ma_page.html`   | Espaces + majuscules = double risque.          |
 | `essai`        | `portfolio_site` | Trop vague, impossible de savoir ce que c’est. |
