@@ -1,6 +1,8 @@
-# Session 2 — **STITI**
+# Session 2 - Stocker, Transformer, Interagir
 
-> **Stocker**, **Transformer**, **Interagir**, **Tester**, **Itérer**
+>**Durée** : 3h30 (avec pause)
+>
+>**Objectif** : découvrir les fondamentaux: Stocker, Transformer, Interagir, Tester, Itérer
 
 ## Objectifs d’apprentissage
 

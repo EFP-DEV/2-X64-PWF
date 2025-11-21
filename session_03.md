@@ -1,4 +1,8 @@
-# Session — Assoir STIT
+# Session 3 - Stocker, Transformer, Interagir, Tester
+
+>**Durée** : 3h30 (avec pause)
+>
+>**Objectif** : Comprendre ce qu’est un test, pourquoi on en a besoin, et comment il fonctionne.
 
 ---
 

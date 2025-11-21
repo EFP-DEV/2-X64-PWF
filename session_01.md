@@ -304,7 +304,7 @@ bouton.addEventListener("click", function() {
 });
 ```
 
-👉 Pour l’instant, recopiez simplement `addEventListener`. Nous expliquerons plus tard ce que signifie “écouter un événement”.
+Pour l’instant, recopiez simplement `addEventListener`. Nous expliquerons plus tard ce que signifie “écouter un événement”.
 
 ---
 

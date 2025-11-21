@@ -14,7 +14,7 @@ Durant ce module, vous serez amené à :
 * **Organiser** et structurer le code de manière professionnelle
 * **Exploiter** les outils de développement du navigateur
 
-👉 Pour en savoir plus sur le métier, voir la [fiche Frontend](frontend_dev.md).
+👉 Pour en savoir plus sur le métier, voir la [fiche Frontend](asset/frontend_dev.md).
 
 ---
 
@@ -101,7 +101,16 @@ Vous y apprendrez à :
 
 | N° | Intitulé du cours                                         | Contenu                                                                                                                                                                                            |
 | -: | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  1 | [Introduction et fondement algorithmique](./session_1.md) | Concepts de base de la programmation web • HTML/CSS pour développeurs • Structure sémantique et sélecteurs CSS • Événements inline • Environnement de développement                                |
-|  2 | [STITI](./session_2.md)                | Stocker, Transformer, Interagir, Tester, Iterer                                                |
+|  1 | [Introduction et fondement algorithmique](./session_01.md) | Introduction et fondement algorithmique   |
+|  2 | [Fondamentaux](./session_02.md)                | Stocker, Transformer, Interagir  |
+|  3 | [Tester](./session_02.md)                | Tester (theorie et exercices)  |
+|  4 | [Tester](./exercices/session_3/1_tickets.md)                | Tester (suite des exercices)  |
+|  5 | [Iterer](./session_05.md)                | Les boucles (structure iterative) |
+|  6 | [Iterer](./exercices/session_5/loops.md)                | Iterer (suite des exercices)  |
+|  7 | [Projet 1](./session_07.md)                | Micro Tracker  |
+|  8 | [Projet 1](./session_08.md)                | Micro Tracker - DOM |
+|  9 | [Projet 2](./session_09.md)                | API |
+|  10 | [Projet 2](./exercices/session_09/cats_and_dogs.md)                | API |
+|  11 | [Examen](./session_11.md)                | Examen |
 
 **Total : 44 heures**

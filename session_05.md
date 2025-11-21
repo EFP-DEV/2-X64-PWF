@@ -1,10 +1,13 @@
-# Session 5 — Introduction aux boucles
+# Session 3 - Stocker, Transformer, Interagir, Tester, Iterer
 
----
+>**Durée** : 3h30 (avec pause)
+>
+>**Objectif** : Comprendre ce qu’est une boucle, pourquoi on en a besoin, et comment elle fonctionne.
+
 
 ## Objectif
 
-Comprendre ce qu’est une boucle, pourquoi on en a besoin, et comment elle fonctionne.
+
 L’objectif n’est pas de résoudre des problèmes complexes, mais de **ressentir** ce que veut dire « répéter une action tant qu’une condition est vraie ».
 
 ---
