@@ -338,8 +338,13 @@ document.addEventListener('click', function(e) {
 Après ces démonstrations vous :
 
 ✓ savez chercher 1 élément
+
 ✓ savez chercher plusieurs éléments
+
 ✓ savez remonter dans le DOM avec closest
+
 ✓ comprenez ce qu’est une NodeList
+
 ✓ savez parcourir des éléments avec while
+
 ✓ avez manipulé le DOM
