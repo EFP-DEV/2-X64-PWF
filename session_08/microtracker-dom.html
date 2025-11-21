@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Micro-Tracker — DOM only</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        max-width: 420px;
+        margin: 2rem auto;
+      }
+      article {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 0.4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <article>
+        <h2>Soleil</h2>
+        <p>Minutes : <strong class="value">0</strong></p>
+        <button class="count">+1</button>
+      </article>
+      <article>
+        <h2>Eau</h2>
+        <p>Verres : <strong class="value">0</strong></p>
+        <button class="count">+1</button>
+      </article>
+      <article>
+        <h2>Pause</h2>
+        <p>Moments : <strong class="value">0</strong></p>
+        <button class="count">+1</button>
+      </article>
+      <p>Total : <strong id="total">0</strong></p>
+      <button id="reset">Réinitialiser</button>
+    </section>
+  </body>
+</html>
