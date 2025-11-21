@@ -270,7 +270,7 @@ allButtons[3]
 
 ## Étape D — Parcourir avec une boucle while
 
-** Créer un fichier sandbox-dom.js **
+**Créer un fichier `sandbox-dom.js`** et le relier.
 
 ```js
 console.log("Script chargé");
