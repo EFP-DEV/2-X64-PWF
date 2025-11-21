@@ -238,7 +238,7 @@ let allButtons = document.querySelectorAll('.btn');
 allButtons
 ```
 
-→ affiche une **NodeList** (ressemble à un array)
+→ affiche une **NodeList** (ressemble à un tableau)
 
 ---
 
