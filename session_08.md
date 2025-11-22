@@ -185,7 +185,7 @@ document.querySelector('.special')
 ### C. Chercher à l’intérieur d’un élément
 
 ```js
-const zone2 = document.querySelector('#zone-2');
+let zone2 = document.querySelector('#zone-2');
 zone2.querySelector('.btn')
 ```
 
@@ -200,7 +200,7 @@ But : revenir du bouton vers son parent logique.
 Dans la console :
 
 ```js
-const btnB2 = document.querySelector('.special');
+let btnB2 = document.querySelector('.special');
 btnB2.closest('section')
 ```
 
@@ -234,11 +234,11 @@ Là, on introduit **progressivement** les listes d’éléments comme un “tabl
 ## Étape A — Récupérer plusieurs éléments
 
 ```js
-const allButtons = document.querySelectorAll('.btn');
+let allButtons = document.querySelectorAll('.btn');
 allButtons
 ```
 
-→ affiche une **NodeList** (ressemble à un array)
+→ affiche une **NodeList** (ressemble à un tableau)
 
 ---
 
@@ -261,11 +261,16 @@ allButtons[0]
 → Bouton A1
 
 ```js
-allButtons[3]
+allButtons[2]
 ```
 
 → Bouton B2 (selon l’ordre du DOM)
 
+→ ?
+
+```js
+allButtons[3]
+```
 ---
 
 ## Étape D — Parcourir avec une boucle while
@@ -276,7 +281,7 @@ allButtons[3]
 console.log("Script chargé");
 
 // On récupère tous les boutons
-const allButtons = document.querySelectorAll('.btn');
+let allButtons = document.querySelectorAll('.btn');
 
 // Boucle simple d’affichage
 let i = 0;
@@ -302,7 +307,7 @@ Changer leur texte pour X/Y, ou X est l'index du bouton dans la liste et Y la qu
 
 ```js
 function colorAll() {
-  const items = document.querySelectorAll('.btn');
+  let items = document.querySelectorAll('.btn');
 
   let i = 0;
   while (i < items.length) {
@@ -325,7 +330,7 @@ colorAll();
 ```js
 document.addEventListener('click', function(e) {
   if (e.target.classList.contains('btn')) {
-    const article = e.target.closest('article');
+    let article = e.target.closest('article');
     console.log("Tu as cliqué sur le bouton dans l’article :", article.querySelector('h3').textContent);
   }
 });
@@ -338,8 +343,13 @@ document.addEventListener('click', function(e) {
 Après ces démonstrations vous :
 
 ✓ savez chercher 1 élément
+
 ✓ savez chercher plusieurs éléments
+
 ✓ savez remonter dans le DOM avec closest
+
 ✓ comprenez ce qu’est une NodeList
+
 ✓ savez parcourir des éléments avec while
+
 ✓ avez manipulé le DOM

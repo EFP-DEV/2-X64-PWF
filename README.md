@@ -80,9 +80,8 @@ Une **application complète de gestion de tâches** comprenant :
 
 ## Évaluation
 
-* **Évaluation notée** sur les boucles et structures de contrôle (Leçon 3)
-* **Projet progressif** développé sur 6 leçons (Leçons 5-10)
-* **Examen final pratique** (Leçon 11)
+* **Projets** développé sur les 4 derniere sessions (6-10)
+* **Examen final pratique** 
 
 ---
 
