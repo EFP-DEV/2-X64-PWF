@@ -15,3 +15,14 @@ document.addEventListener('click', function (event) {
     }
   }
 });
+
+function updateUI()
+{
+  let values = document.querySelectorAll('.value');
+  
+  let sum = 0
+  for (let index = 0; index < values.length; index = index + 1) {
+    sum = sum + parseInt(values[index].textContent)
+  }
+  document.getElementById('total').textContent = sum;
+}
