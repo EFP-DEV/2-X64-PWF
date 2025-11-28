@@ -1,10 +1,23 @@
-document.addEventListener('click', (e) => {
+console.log('coucou');
 
-    console.log('click document');
+document.addEventListener('click', function (event) {
 
-    if (e.target.classList.contains('count')) {
-      let article = e.target.closest('article');
-      let counter = article.querySelector('.counter');
+  if(event.target.classList.contains('count')){
+    console.log('Click +1 ');
+    let btn = event.target;
+    let article = btn.closest('article');
+    let counter = article.querySelector('.value')
+    counter.textContent = 1 + parseInt(counter.textContent);
+  }
+  else if(event.target.getAttribute('id') == 'reset'){
+    console.log('Click reset');
+    let values = document.querySelectorAll('.value');
+    console.log(values);
+    let index = 0;
+    while(index < values.length){
+      values[index].textContent = 0;
+      index = index + 1;
     }
+  }
 
 });
