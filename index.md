@@ -20,23 +20,17 @@ Durant ce module, vous serez amené à :
 
 ## Programme du module
 
-### **Phase 1 : Fondations (Leçons 1-4)**
+### **Phase 1 : Fondations (Leçons 1-5)**
 
 1. **HTML/CSS pour développeurs** : Structure sémantique, sélecteurs CSS, événements inline
 2. **Variables et structures conditionnelles** : Types de données, logique conditionnelle
 3. **Boucles et structures de contrôle** : Itération, logique complexe (**évaluation notée**)
 4. **Fonctions et tableaux** : Organisation du code, manipulation de données
 
-### **Phase 2 : Application Pratique (Leçons 5-10)**
+### **Phase 2 : Application Pratique (Leçons 6-10)**
 
-Projet unique : **Application de Gestion de Tâches**
-
-5. **DOM et événements** : Fondations interactives
-6. **Données et traitement** : Structures JSON, manipulation avancée
-7. **Outils navigateur et stockage** : localStorage, debugging
-8. **Algorithmes complexes et UI** : Recherche, tri, expérience utilisateur
-9. **Intégration et gestion d’erreurs** : Validation, robustesse
-10. **Implémentation finale** : Optimisation, préparation backend
+1. **Application Micro-Tracker**
+2. **Gallerie avec API**
 
 ---
 
