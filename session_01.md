@@ -236,15 +236,15 @@ Dans `dev/`, créez un dossier par cours puis par projet :
 
 ### Bonnes pratiques de nommage
 
-| Mauvais nom    | Bon nom          | Pourquoi éviter ?                              |
-| -------------- | ---------------- | ---------------------------------------------- |
-| `Mon site`     | `mon_site`       | Espaces posent problème sur certains serveurs. |
-| `Site-École`   | `site_ecole`     | Accents non supportés partout.                 |
-| `TP#1`         | `tp1`            | Caractères spéciaux risqués.                   |
-| `Session 01`   | `session_1`      | Espaces gênants.                               |
-| `Index.HTML`   | `index.html`     | Majuscules sensibles sur Linux.                |
-| `Ma Page.html` | `ma_page.html`   | Espaces + majuscules = double risque.          |
-| `essai`        | `portfolio_site` | Trop vague, impossible de savoir ce que c’est. |
+| Mauvais nom    | Pourquoi éviter ?                               | Bon nom          |
+| ---------------| ----------------------------------------------- | ---------------- |
+| `Mon site`     | Espaces posent problème sur certains serveurs.  | `mon_site`       |
+| `Site-École`   | Accents non supportés partout.                  | `site_ecole`     |
+| `TP#1`         | Caractères spéciaux risqués.                    | `tp1`            |
+| `Session 01`   | Espaces gênants.                                | `session_1`      |
+| `Index.HTML`   | Majuscules sensibles sur Linux.                 | `index.html`     |
+| `Ma Page.html` | Espaces + majuscules = double risque.           | `ma_page.html`   |
+| `essai`        | Trop vague, impossible de savoir ce que c’est.  | `portfolio_site` |
 
 ---
 
