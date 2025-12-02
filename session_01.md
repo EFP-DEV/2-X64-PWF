@@ -27,6 +27,10 @@ Très bonne idée : on peut présenter chaque langage sous deux angles — celui
 
 Un site web repose toujours sur trois technologies principales : **HTML**, **CSS** et **JavaScript**. Elles ne sont pas interchangeables, chacune a son rôle propre.
 
+
+![HTML = le corps, CSS = les vêtements, JS = les mouvements](asset/img/html-css-js.jpg)
+
+
 ### **HTML** 
 >*HyperText Markup Language*
 
@@ -70,7 +74,6 @@ _Would you like to know more ?_ :
 - Challenge : [Exercices progressifs JavaScript DOM](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/), [JS30 (30 projets JS sans frameworks)](https://javascript30.com/)
 
 
-![HTML = le corps, CSS = les vêtements, JS = les mouvements](asset/img/html-css-js.jpg)
 
 
 ### À retenir
