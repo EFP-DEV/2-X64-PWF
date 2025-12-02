@@ -105,7 +105,7 @@ C'est la combinaison de ces trois langages qui permet de créer des sites modern
 
   <script>
     // JavaScript = logic/dynamism
-    document.getElementById("btn").onclick = function() {
+    document.getElementById("btn").addEventListener("keydown", (e) => {
       alert("Button clicked!");
     };
   </script>
@@ -113,7 +113,92 @@ C'est la combinaison de ces trois langages qui permet de créer des sites modern
 </html>
 ```
 
+Ce snippet montre comment chaque langage du frontend joue un rôle séparé dans une même page. 
+
+- Le **HTML** sert ici uniquement à placer les éléments : un titre et un bouton. Il décrit la structure de la page, c’est-à-dire *ce qui existe* et *où cela se trouve*, sans décider de l’apparence ni du comportement.
+- Le **CSS**, intégré dans la zone dédiée, modifie l’apparence visuelle du titre. Il gère uniquement le style : couleurs, polices, espacements, mise en page. Rien de ce qu’il contient n’ajoute de contenu ou de logique, il ne fait qu’habiller les éléments déjà créés en HTML.
+- Le **JavaScript**, placé en bas de la page, ajoute l’interactivité. Il réagit aux actions de l’utilisateur — ici, un clic sur le bouton — et déclenche un comportement. Son rôle est de rendre la page dynamique, sans toucher ni à la structure, ni au style.
+
+> Remarquez que si l’exemple regroupe tout dans un seul fichier, il est fortement recommandé de séparer HTML, CSS et JavaScript dans **trois fichiers distincts**. Cela rend le projet plus clair, plus facile à maintenir, et respecte parfaitement le principe de séparation des responsabilités (SoC).
+
+### ⚠️⚠️⚠️ À propos de `alert()`, `prompt()` et `confirm()` ⚠️⚠️⚠️
+
+`alert()`, `prompt()` et `confirm()` sont des **abominations antiques**, des résidus toxiques issus d’une époque où le web ressemblait à un laboratoire clandestin géré par des ingénieurs sous amphétamines.
+Les utiliser aujourd’hui revient à **balancer une sirène anti-émeute** dans la tête de votre utilisateur pour lui demander « Ça va ? ».
+
+Ces fonctions bloquent tout : la page, la navigation, la respiration, la foi en l’humanité. Sur un lecteur d’écran, elles déclenchent une expérience mystique comparable à être enfermé dans un ascenseur avec un perroquet qui hurle son code PIN en boucle.
+Bref : **ce ne sont pas des outils, ce sont des catastrophes naturelles encapsulées dans l’API du navigateur.**
+
+Nous allons pourtant les utiliser, uniquement **pour montrer vite les rudiments des interaction en programmation, sans vous noyer dans de vrais composants HTML/CSS/Javascript**
+
+**C’est la première et la dernière fois que vous employerez ces horreurs.**
+
+Après ces séances, ces fonctions retourneront dans le sarcophage où elles auraient dû rester. Vous, vous apprendrez à faire des interactions modernes, accessibles et civilisées et pas des pop-ups de 1998.
+
 ---
+
+## 3. Accessibilte (a11y)
+
+
+### Description supplémentaire avec `aria-describedby`
+
+
+```html
+<button id="btn" aria-describedby="btn-info">
+  Click this button
+</button>
+<p id="btn-info" class="visually-hidden">
+  This button will display a confirmation message.
+</p>
+```
+
+Le bouton possède maintenant une courte description lisible uniquement par les technologies d’assistance.
+Le lecteur d’écran annoncera *“Click this button. This button will display a confirmation message.”*
+
+---
+
+### Taille du bouton accessible
+
+```css
+button {
+  font-size: 1rem;
+  padding: .5rem 1rem;
+}
+```
+Clickabilité et lisibilité renforcées.
+
+### Lisible mais invisible 
+
+```css
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+```
+C'est la méthode standard (WCAG) pour du texte lu par les lecteurs d’écran mais invisible.
+
+### Activation du clavier
+
+```javascript
+document.getElementById("btn").addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault(); // Space scroll sinon
+    btn.click();
+  }
+});
+```
+---
+
+
+
+
+
 
 ## 3. Préparer son environnement de travail
 
