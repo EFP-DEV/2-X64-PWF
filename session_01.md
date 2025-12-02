@@ -130,26 +130,33 @@ Pourquoi un dossier unique ?
 C:/Users/etudiant/dev/    ← Windows
 ```
 
-Dans `dev/`, créez un dossier par cours ou par projet :
+Dans `dev/`, créez un dossier par cours puis par projet :
 
 ```
 /dev/
     /pwf/                 ← Programmation Web : Frontend
-        /session_1/
-        /session_2/
-        /projet_final/
+        /session_01/      ← Premier cour PWF
+        /session_02/
+        ...
+        /session_10/      ← Dernier cour PWF
+
+    /pwb/                 ← Programmation Web : Frontend
+        /session_1/       ← Premier cour PWB
+        ..
+        /session_3/       ← Dernier cour PWB
+
 ```
 
 ---
 
 ### Bonnes pratiques de nommage
 
-| ❌ Mauvais nom  | ✅ Bon nom        | Pourquoi éviter ?                              |
+| Mauvais nom    | Bon nom          | Pourquoi éviter ?                              |
 | -------------- | ---------------- | ---------------------------------------------- |
 | `Mon site`     | `mon_site`       | Espaces posent problème sur certains serveurs. |
 | `Site-École`   | `site_ecole`     | Accents non supportés partout.                 |
 | `TP#1`         | `tp1`            | Caractères spéciaux risqués.                   |
-| `Session 01`   | `session_1`     | Espaces gênants.                               |
+| `Session 01`   | `session_1`      | Espaces gênants.                               |
 | `Index.HTML`   | `index.html`     | Majuscules sensibles sur Linux.                |
 | `Ma Page.html` | `ma_page.html`   | Espaces + majuscules = double risque.          |
 | `essai`        | `portfolio_site` | Trop vague, impossible de savoir ce que c’est. |
