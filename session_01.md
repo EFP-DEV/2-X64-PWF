@@ -36,6 +36,11 @@ Un site web repose toujours sur trois technologies principales : **HTML**, **CSS
 
 **HTML fonctionne donc comme une grammaire qui définit la place et la fonction de chaque élément dans le document**
 
+_Would you like to know more ?_ :
+- Documentation fiable : [MDN – Guide HTML (Mozilla)](https://developer.mozilla.org/fr/docs/Web/HTML), [HTML Living Standard (WHATWG)](https://html.spec.whatwg.org/multipage/)
+- Guides pédagogiques :   [Web.dev – Cours structuré, moderne, simple](https://web.dev/learn/html/), [Liste des balises HTML avec explications visuelles](https://htmlreference.io/)
+- Jeu: [CSS Diner, utile pour comprendre les sélecteurs et la structure](https://flukeout.github.io/)
+
 ### **CSS** 
 >*Cascading Style Sheets*
 
@@ -45,6 +50,11 @@ Un site web repose toujours sur trois technologies principales : **HTML**, **CSS
 
 **C'est une langue de conventions, qui hiérarchise les priorités (la cascade)**
 
+_Would you like to know more ?_ :
+- Documentation fiable : [MDN – Guide CSS](https://developer.mozilla.org/fr/docs/Web/CSS)
+- Guides pédagogiques :   [Web.dev – Cours gratuit et structuré sur le CSS moderne](https://web.dev/learn/css/), [CSS Tricks – Guides et astuces](https://css-tricks.com/guides/), [Reference complète des propriétés CSS](https://cssreference.io/)
+- Jeux Flexbox et Grid : [Flexbox Froggy](https://flexboxfroggy.com/#fr), [Grid Garden](https://cssgridgarden.com/#fr)
+
 ### **JavaScript** 
 >*ECMAScript*
 
@@ -53,6 +63,12 @@ Un site web repose toujours sur trois technologies principales : **HTML**, **CSS
 **Point de vue linguistique** : JavaScript est un langage impératif. Contrairement au HTML qui déclare, et au CSS qui décrit, JavaScript commande. Quand on écrit `alert("Bonjour");`, on donne un ordre précis : « affiche une alerte ». 
 
 **C'est une langue d'actions, avec une grammaire proche des langages humains qui utilisent les verbes pour exprimer des comportements**
+
+_Would you like to know more ?_ :
+- Documentation fiable : [MDN – Guide JavaScript](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+- Guides pédagogiques : [JavaScript.info – Le cours JS le plus clair du web](https://fr.javascript.info/)
+- Challenge : [Exercices progressifs JavaScript DOM](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/), [JS30 (30 projets JS sans frameworks)](https://javascript30.com/)
+
 
 ![HTML = le corps, CSS = les vêtements, JS = les mouvements](asset/img/html-css-js.jpg)
 
@@ -65,7 +81,6 @@ Un site web repose toujours sur trois technologies principales : **HTML**, **CSS
 
 C'est la combinaison de ces trois langages qui permet de créer des sites modernes, accessibles et interactifs.
 
-### [codepen.io](https://codepen.io/pen/), un outil en ligne pour expérimenter
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -95,7 +110,6 @@ C'est la combinaison de ces trois langages qui permet de créer des sites modern
 </html>
 ```
 
----
 ---
 
 ## 3. Préparer son environnement de travail
