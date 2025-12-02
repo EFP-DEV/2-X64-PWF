@@ -105,7 +105,7 @@ C'est la combinaison de ces trois langages qui permet de créer des sites modern
 
   <script>
     // JavaScript = logic/dynamism
-    document.getElementById("btn").addEventListener("keydown", (e) => {
+    document.getElementById("btn").addEventListener("click", (e) => {
       alert("Button clicked!");
     };
   </script>
