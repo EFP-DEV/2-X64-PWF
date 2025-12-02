@@ -200,7 +200,7 @@ document.getElementById("btn").addEventListener("keydown", (e) => {
 
 
 
-## 3. Préparer son environnement de travail
+## 4. Préparer son environnement de travail
 
 ### Créer un dossier `dev/`
 [Creer son dossier de dev](./session_1/0_setup.md)
@@ -248,62 +248,8 @@ Dans `dev/`, créez un dossier par cours puis par projet :
 
 ---
 
-## 4. Premier fichier HTML
 
-Structure minimale :
-
-```html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Ma première page</title>
-</head>
-<body>
-
-</body>
-</html>
-```
-
-Exercice : ajoutez un **header** (titre), un **main** (texte + image) et un **footer** (copyright).
-
----
-
-## 5. Ajouter du style avec CSS
-
-Exemple simple :
-
-```css
-body {
-  background-color: #f4f4f4;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-img {
-  border: 2px solid black;
-}
-```
-
-Exercice :  Ajoutez une couleur de fond, changez la police du texte, ajoutez une bordure à l’image.
-
----
-
-## 6. Première interaction avec JavaScript
-
-Exemple simple :
-
-```html
-<button onclick="alert('Bienvenue dans le module PWF !')">
-  Cliquer ici
-</button>
-```
-
-Ici, le bouton déclenche une **alerte**.
-Dans la suite, nous utiliserons une méthode plus moderne : **`addEventListener`**.
-
----
-
-## 7. Projet intégré : l’ampoule interactive
+## 5. Projet intégré : l’ampoule interactive
 
 Nous allons maintenant appliquer tout ce que nous avons vu à un **mini-projet complet**.
 
