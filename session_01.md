@@ -363,7 +363,7 @@ Pour l’instant, recopiez simplement `addEventListener`. Nous expliquerons plus
 
 ---
 
-## 8. Bilan de la séance
+## 6. Bilan de la séance
 
 Vous avez appris à :
 
