@@ -30,12 +30,12 @@ Durant ce module, vous serez amené à :
 ### **Phase 2 : Application Pratique (Leçons 5-10)**
 
 Projet unique : **Application de Gestion de Tâches**
-5\. **DOM et événements** : Fondations interactives
-6\. **Données et traitement** : Structures JSON, manipulation avancée
-7\. **Outils navigateur et stockage** : localStorage, debugging
-8\. **Algorithmes complexes et UI** : Recherche, tri, expérience utilisateur
-9\. **Intégration et gestion d’erreurs** : Validation, robustesse
-10\. **Implémentation finale** : Optimisation, préparation backend
+5. **DOM et événements** : Fondations interactives
+6. **Données et traitement** : Structures JSON, manipulation avancée
+7. **Outils navigateur et stockage** : localStorage, debugging
+8. **Algorithmes complexes et UI** : Recherche, tri, expérience utilisateur
+9. **Intégration et gestion d’erreurs** : Validation, robustesse
+10. **Implémentation finale** : Optimisation, préparation backend
 
 ---
 
