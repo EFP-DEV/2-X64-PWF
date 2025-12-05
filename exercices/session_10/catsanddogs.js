@@ -1,5 +1,5 @@
-const btn = document.querySelector('#load');
-const gallery = document.querySelector('#gallery');
+let btn = document.querySelector('#load');
+let gallery = document.querySelector('#gallery');
 
 btn.addEventListener('click', () => {
 
