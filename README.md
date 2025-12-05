@@ -11,27 +11,22 @@ Durant ce module, vous serez amenés à :
 - **Découvrir les différences** entre les librairies et frameworks courants.
 - **Vous initier à la programmation** en abordant la logique, les concepts de base et les outils nécessaires.
 
-## Programme du module
-Voici les sujets que nous aborderons ensemble :
+## Répartition de matière - Module PWF (Programmation web frontend)
 
-1. **Les bases de la programmation :**
-   - Les différents niveaux de langages (bas niveau, haut niveau).
-   - Les principaux langages du développement web (PHP, JavaScript, Java, Python, Ruby, etc.) : leurs usages, avantages et inconvénients.
-   - La logique de programmation et la syntaxe commune :
-     - Variables et constantes.
-     - Structures de contrôle.
-     - Tableaux (arrays).
-     - Commentaires et opérateurs.
+| N° | Intitulé du cours | Date X64-A | Date X64-B |
+|---:|-------------------|:----------:|:----------:|
+| 1 | [Introduction et fondement algorithmique](./session_1.md) | | |
+| 2 | [Structure conditionnelle](./session_2.md) | | |
+| 3 | [Structure iterative](./session_3.md) | | |
+| 4 | [Introduction javascript](./session_4.md) | | |
+| 5 | [JS-Devinette](./session_5.md) | | |
+| 6 | [JS-Calendar](./session_6.md) | | |
+| 7 | [Fonctions, tableaux, chaines de caractere](./session_7.md) | | |
+| 8 | [JS-Crypto](./session_8.md) | | |
+| 9 | [DOM & Event listeners](./session_9.md) | | |
+| 10 | [JS-ToDo](./session_10.md) | | |
+| 11 | Examen final | | |
 
-2. **Programmation procédurale avec JavaScript :**
-   - Les usages de JavaScript.
-   - Sa logique et sa syntaxe.
-   - Son intégration avec une base de données.
-   - Un aperçu des autres paradigmes (orienté objet, fonctionnel, etc.).
-
-3. **Découverte des librairies et frameworks JavaScript :**
-   - Introduction à des outils comme jQuery, Angular, Vue, React, etc.
-   - Leur rôle dans l’amélioration de l’ergonomie et des interfaces web.
 
 ## Ce que vous maîtriserez à la fin du module
 ### Connaissances :
@@ -59,20 +54,3 @@ Ce module s’inscrit dans une progression pédagogique après les modules DSP e
 
 ---
 
-## Répartition de matière - Module PWF (Programmation web frontend)
-
-## Répartition de matière - Module PWF (Programmation web frontend)
-
-| N° | Intitulé du cours | Date X64-A | Date X64-B |
-|---:|-------------------|:----------:|:----------:|
-| 1 | [Introduction et fondement algorithmique](./session_1.md) | | |
-| 2 | [Structure conditionnelle](./session_2.md) | | |
-| 3 | [Structure iterative](./session_3.md) | | |
-| 4 | [Introduction javascript](./session_4.md) | | |
-| 5 | [JS-Devinette](./session_5.md) | | |
-| 6 | [JS-Calendar](./session_6.md) | | |
-| 7 | [Fonctions, tableaux, chaines de caractere](./session_7.md) | | |
-| 8 | [JS-Crypto](./session_8.md) | | |
-| 9 | [DOM & Event listeners](./session_9.md) | | |
-| 10 | [JS-DOM](./session_10.md) | | |
-| 11 | Examen final | | |
