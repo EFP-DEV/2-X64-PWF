@@ -97,7 +97,7 @@ Pour créer du contenu dynamique, on utilise :
 Permet de fabriquer un élément HTML en mémoire :
 
 ```js
-const img = document.createElement('img');
+let img = document.createElement('img');
 ```
 
 ### 5.2 Modifier ses propriétés
