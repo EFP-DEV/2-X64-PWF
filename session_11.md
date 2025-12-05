@@ -1,4 +1,4 @@
-# Session 11 : EXAMEN FINAL PWF
+# Session 11 - EXAMEN FINAL PWF
 
 **Durée : 4 heures**
 **Aucun document autorisé. Aucun framework. Aucune IA. HTML, CSS et JavaScript natif uniquement.**
@@ -133,4 +133,3 @@ Aucun fichier externe autorisé.
 * Toute fonctionnalité manquante entraîne une perte de points.
 * Toute démonstration non fonctionnelle au moment du rendu est considérée comme non réalisée.
 * Le code doit être entièrement de votre main.
-

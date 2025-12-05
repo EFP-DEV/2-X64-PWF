@@ -1,4 +1,4 @@
-# Session 8 : Micro Tracker DOM 
+# Session 8 - Micro Tracker DOM 
 
 ## Introduction
 

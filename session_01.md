@@ -1,4 +1,4 @@
-# Session 1 : Introduction et fondement algorithmique
+# Session 1 - Introduction et fondement algorithmique
 
 >**Durée** : 3h30 (avec pause)
 >

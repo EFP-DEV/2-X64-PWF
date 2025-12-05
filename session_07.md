@@ -1,5 +1,5 @@
 
-# Micro-Tracker
+# Session 7 - Micro-Tracker
 
 ## Objectif général
 
