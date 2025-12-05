@@ -93,18 +93,18 @@ Vous y apprendrez à :
 
 ## Répartition de matière – Module PWF
 
-| N° | Intitulé du cours                                         | Contenu                                                                                                                                                                                            |
-| -: | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  1 | [Introduction et fondement algorithmique](./session_01.md) | Introduction et fondement algorithmique   |
-|  2 | [Fondamentaux](./session_02.md)                | Stocker, Transformer, Interagir  |
-|  3 | [Tester](./session_02.md)                | Tester (theorie et exercices)  |
-|  4 | [Tester](./exercices/session_3/1_tickets.md)                | Tester (suite des exercices)  |
-|  5 | [Iterer](./session_05.md)                | Les boucles (structure iterative) |
-|  6 | [Iterer](./exercices/session_5/loops.md)                | Iterer (suite des exercices)  |
-|  7 | [Projet 1](./session_07.md)                | Micro Tracker  |
-|  8 | [Projet 1](./session_08.md)                | Micro Tracker - DOM |
-|  9 | [Projet 2](./session_09.md)                | API |
-|  10 | [Projet 2](./exercices/session_09/cats_and_dogs.md)                | API |
-|  11 | [Examen](./session_11.md)                | Examen |
+| N°  | Intitulé du cours                    | Cours                         | Exercices                                              |
+|-----|--------------------------------------|------------------------------|--------------------------------------------------------|
+| 1. Introduction et fondement algorithmique | [Support](./session_01.md) | —                                                    |
+| 2. Fondamentaux                            | [Support](./session_02.md) | Activites dans le support     |
+| 3. Tester                                  | [Support](./session_03.md) | Activites dans le support        |
+| 4. Tester                                  | —                          | [Exercice](./exercices/session_03/1_tickets.md)        |
+| 5. Itérer                                  | [Support](./session_05.md) | [Exercice](./exercices/session_05.md)        |
+| 6. Itérer                                  | —                          | [Exercice](./exercices/session_05.md)                |
+| 7. Projet 1 : Tracker                      | [Support](./session_07.md) | —                                                      |
+| 8. Projet 2 : Tracker DOM                  | [Support](./session_08.md) | [Ennonce](./exercices/session_08/microtracker-dom.md) / [HTML](./exercices/session_08/microtracker-dom.html) |
+| 9. Projet 2                                | —                          | —                                                      |
+| 10. Projet 3 : Cats and Dogs API            | [Support](./session_10.md) | [HTML](./exercices/session_10/catsanddogs.html) / [JS](./exercices/session_10/catsanddogs.js) |
+| 11. Examen                                  | [Examen](./session_11.md) | —                                                      |
 
 **Total : 44 heures**
