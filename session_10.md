@@ -16,7 +16,7 @@ Exemple :
 L’API suivante renvoie des images de chats au hasard :
 
 ```
-https://api.thecatapi.com/v1/images/search?limit=5
+https://api.thecatapi.com/v1/images/search?limit=10
 ```
 
 Le paramètre `limit=5` signifie : renvoie 5 images.
