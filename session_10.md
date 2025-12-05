@@ -156,7 +156,6 @@ Sans fonctions, le script est organisé de façon linéaire :
 
 Même si l’exercice concerne l’interactivité, certains points doivent être respectés dans un milieu professionel:
 
-* chaque image doit avoir une valeur `alt` cohérente
 * la galerie doit être dans un élément `<section>`
 * un attribut `aria-live="polite"` peut informer les lecteurs d’écran que le contenu change
 
