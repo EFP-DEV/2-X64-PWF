@@ -93,14 +93,15 @@ Vous y apprendrez à :
 
 ## Répartition de matière – Module PWF
 
-| N°  | Intitulé du cours                    | Cours                         | Exercices                                              |
-|-----|--------------------------------------|------------------------------|--------------------------------------------------------|
+| N°   Intitulé du cours                    | Support                         | Exercices                                              |
+|-------------------------------------------|------------------------------|--------------------------------------------------------|
 | 1. Introduction et fondement algorithmique | [Support](./session_01.md) | —                                                    |
 | 2. Fondamentaux                            | [Support](./session_02.md) | Activites dans le support     |
 | 3. Tester                                  | [Support](./session_03.md) | Activites dans le support        |
 | 4. Tester                                  | —                          | [Exercice](./exercices/session_03/1_tickets.md)        |
 | 5. Itérer                                  | [Support](./session_05.md) | [Exercice](./exercices/session_05.md)        |
 | 6. Itérer                                  | —                          | [Exercice](./exercices/session_05.md)                |
+| Extra: [exercices simples](./exercices/STITI_extra.md)  pour renforcer les notions                |
 | 7. Projet 1 : Tracker                      | [Support](./session_07.md) | —                                                      |
 | 8. Projet 2 : Tracker DOM                  | [Support](./session_08.md) | [Ennonce](./exercices/session_08/microtracker-dom.md) / [HTML](./exercices/session_08/microtracker-dom.html) |
 | 9. Projet 2                                | —                          | —                                                      |

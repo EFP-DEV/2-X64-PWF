@@ -21,7 +21,7 @@
 C:/Users/etudiant/dev/    ← Windows
 ```
 
-Dans `dev/`, on créera un dossier par cours puis par projet :
+Dans `dev`, on créera un dossier par cours puis par projet :
 
 ```
 /dev/
@@ -29,14 +29,15 @@ Dans `dev/`, on créera un dossier par cours puis par projet :
         /session_01/      ← Premier cour PWF
         /session_02/
         ...
-        /session_10/      ← Dernier cour PWF
+        /session_11/      ← Dernier cour PWF
 
-    /pwb/                 ← Programmation Web : Frontend
+    /pwb/                 ← Programmation Web : Backend
         /session_1/       ← Premier cour PWB
         ..
         /session_3/       ← Dernier cour PWB
 
 ```
+La structure est claire, consistente, previsible: faible charge mentale a la lecture
 
 ---
 
@@ -100,7 +101,7 @@ Dans `dev/`, on créera un dossier par cours puis par projet :
 
    * Faites un double-clic sur `index.html` dans votre explorateur de fichiers.
    * La page doit s’ouvrir dans votre navigateur.
-   * Ne pas utiliser le live-server
+   * **Ne pas utiliser le live-server**
 
 
 
