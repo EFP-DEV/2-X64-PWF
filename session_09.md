@@ -1,4 +1,4 @@
-# Session 10 - API
+# Session 09 - API
 
 ## Interroger une API et générer une galerie d’images avec le DOM
 
