@@ -104,8 +104,8 @@ Vous y apprendrez à :
 | Extra: [exercices simples](./exercices/STITI_extra.md)  pour renforcer les notions                |
 | 7. Projet 1 : Tracker                      | [Support](./session_07.md) | —                                                      |
 | 8. Projet 2 : Tracker DOM                  | [Support](./session_08.md) | [Ennonce](./exercices/session_08/microtracker-dom.md) / [HTML](./exercices/session_08/microtracker-dom.html) |
-| 9. Projet 2                                | —                          | —                                                      |
-| 10. Projet 3 : Cats and Dogs API            | [Support](./session_10.md) | [HTML](./exercices/session_10/catsanddogs.html) / [JS](./exercices/session_10/catsanddogs.js) |
+| 9. Projet 3 : Cats and Dogs API            | [Support](./session_10.md) | [HTML](./exercices/session_10/catsanddogs.html) / [JS](./exercices/session_10/catsanddogs.js) |
+| 10. Revue et questions                      | — | —                                                      |
 | 11. Examen                                  | [Examen](./session_11.md) | —                                                      |
 
 **Total : 44 heures**
