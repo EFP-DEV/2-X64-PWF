@@ -111,11 +111,15 @@ Nous allons maintenant appliquer tout ce que nous avons vu à un **mini-projet c
 
 ### Étape préparatoire
 
-Vous avez 15 minutes pour préparer deux images :
+Les deux images sont fournies, de même taille (**100 × 180 pixels**) :
 
-* `ampoule_off.png`
-* `ampoule_on.png`
-  Elles doivent être de même taille et superposables.
+* [Télécharger `ampoule_off.gif` — ampoule éteinte](../solutions/session_1/ampoule_off.gif)
+* [Télécharger `ampoule_on.gif` — ampoule allumée](../solutions/session_1/ampoule_on.gif)
+
+1. Ouvrez chaque lien et utilisez **Enregistrer l’image sous…** pour sauvegarder les deux images dans votre dossier `dev/pwf/session_01/`, à côté de `index.html`.
+2. Conservez exactement les noms `ampoule_off.gif` et `ampoule_on.gif`, avec l’extension **`.gif`**.
+3. Dans ce même dossier, créez les fichiers **`style.css`** et **`script.js`**.
+4. Remplacez le contenu de `index.html` par le code ci-dessous, puis copiez le CSS et le JavaScript dans leurs fichiers respectifs. Enregistrez les trois fichiers.
 
 ---
 
@@ -128,6 +132,7 @@ Vous avez 15 minutes pour préparer deux images :
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ampoule interactive</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -136,7 +141,7 @@ Vous avez 15 minutes pour préparer deux images :
     <h1>Ampoule interactive</h1>
 
     <figure>
-      <img id="ampoule" src="ampoule_off.png" alt="Ampoule éteinte">
+      <img id="ampoule" src="ampoule_off.gif" alt="Ampoule éteinte">
       <figcaption>Cliquez sur le bouton pour allumer ou éteindre la lumière.</figcaption>
     </figure>
 
@@ -202,12 +207,12 @@ bouton.addEventListener("click", function() {
   const eteinte = ampoule.src.includes("off");
 
   if (eteinte) {
-    ampoule.src = "ampoule_on.png";
+    ampoule.src = "ampoule_on.gif";
     ampoule.alt = "Ampoule allumée";
     bouton.setAttribute("aria-pressed", "true");
     ampoule.classList.add("on");
   } else {
-    ampoule.src = "ampoule_off.png";
+    ampoule.src = "ampoule_off.gif";
     ampoule.alt = "Ampoule éteinte";
     bouton.setAttribute("aria-pressed", "false");
     ampoule.classList.remove("on");
@@ -224,10 +229,24 @@ Pour l’instant, recopiez simplement `addEventListener`. Nous expliquerons plus
 
 * Vous avez maintenant un dossier organisé comme ceci :
 
+  ```text
+  dev/
+  └── pwf/
+      └── session_01/
+          ├── index.html
+          ├── style.css
+          ├── script.js
+          ├── ampoule_off.gif
+          └── ampoule_on.gif
   ```
-  /dev/
-      /pwf/
-          /session_01/
-              index.html
-  ```
-* Vous êtes prêt à travailler dans un environnement clair et structuré.
+
+### Vérifier le résultat
+
+1. Ouvrez `index.html` dans le navigateur, ou rafraîchissez la page si elle est déjà ouverte : l’ampoule est éteinte.
+2. Cliquez sur **Allumer / Éteindre** : l’ampoule s’allume et une lueur jaune apparaît.
+3. Cliquez à nouveau : l’ampoule s’éteint et la lueur disparaît.
+4. Utilisez **Tab** pour sélectionner le bouton, puis **Entrée** ou **Espace** pour le déclencher au clavier.
+
+Si une image manque, vérifiez son nom, son extension et sa présence à côté de `index.html`. Si le bouton ne réagit pas, ouvrez la console (**F12 → Console**) et vérifiez le chargement de `script.js`.
+
+Le [corrigé complet](../solutions/session_1/index.html) utilise les mêmes fichiers et le même code. Pour l’exécuter depuis une copie locale du dépôt, ouvrez `solutions/session_1/index.html` dans le navigateur.

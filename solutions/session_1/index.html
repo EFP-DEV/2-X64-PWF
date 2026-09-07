@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coucou</title>
-    <link rel="stylesheet" href="ampoule.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ampoule interactive</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Light</h1>
-    </header>
-    <main>
-        <img id="ampoule" src="asset/img/pic_bulboff.gif" alt="Une ampoule qui allume et eteind">
-        <button id="switch">Toggle</button>
-    </main>
-    <footer>&copy; 2025</footer>
-    <script src="asset/js/ampoule.js"></script>
+  <main>
+    <h1>Ampoule interactive</h1>
+
+    <figure>
+      <img id="ampoule" src="ampoule_off.gif" alt="Ampoule éteinte">
+      <figcaption>Cliquez sur le bouton pour allumer ou éteindre la lumière.</figcaption>
+    </figure>
+
+    <button id="toggle" aria-pressed="false">
+      Allumer / Éteindre
+    </button>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>

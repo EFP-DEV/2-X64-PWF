@@ -1,0 +1,34 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+main {
+  text-align: center;
+}
+img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background: #f0c420;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+button:hover {
+  background: #e0b010;
+}
+.on {
+  filter: drop-shadow(0 0 30px yellow);
+  transition: filter 0.3s;
+}
