@@ -561,61 +561,24 @@ if (minutes === 60) {
 
 ### Le report des heures
 
-La valeur `24` ne peut apparaître qu'au moment où les minutes provoquent un report. La seconde condition se place donc dans la première :
+#### Deux bugs corrigés, 1 nouveau bug apparaît
 
-```js
-let hours = 23;
-let minutes = 59;
+Les deux premiers problèmes ont été corrigés
 
-minutes = minutes + 1;
+Seul ou en groupe de trois maximum, vous devez :
 
-if (minutes === 60) {
-  minutes = 0;
-  hours = hours + 1;
+1. trouver le nouveau bug ;
+2. proposer une correction ;
+3. expliquer votre raisonnement.
 
-  if (hours === 24) {
-    hours = 0;
-  }
-}
+--- 
 
-document.write(hours + ":" + minutes);
-```
+## Fin du cours
 
-Le programme avance d'une minute par chargement. Il ne tourne pas automatiquement et ne connaît pas l'heure réelle.
+Le cours est terminé. Le prochain cours se déroulera de la même manière : nous
+alternerons les explications, les manipulations et les recherches en groupes.
 
-### Point de contrôle
-
-L'étudiant doit pouvoir :
-
-1. retrouver un contenu invisible avec l'inspecteur et expliquer le rôle des couleurs du texte et du fond ;
-2. distinguer une valeur de sa représentation ;
-3. décoder un octet binaire en décimal ;
-4. décoder les trois paires de `#RRGGBB` ;
-5. expliquer pourquoi une écriture comme `#RRGGBB` a besoin d'une convention partagée pour être interprétée ;
-6. distinguer `minutes + 1` de `minutes = minutes + 1` ;
-7. prédire les résultats de `13:37`, `13:59` et `23:59`.
-
-## 9. Terminer par ce que `+1` devient
-
-Montrer les résultats finaux des séances à venir, sans demander aux étudiants de construire Pixelator aujourd'hui :
-
-1. quatre pixels qui changent d'état au clic ;
-2. une couleur choisie et un état réversible ;
-3. une grille générée par répétition ;
-4. des fonctions qui organisent les comportements ;
-5. un geste de peinture qui dure dans le temps ;
-6. un dessin représenté par des données puis sauvegardé ;
-7. une collection dans laquelle on crée, lit, modifie et supprime ;
-8. une interface qui réutilise les mêmes règles ;
-9. une galerie alimentée par une API ;
-10. un portfolio ou un écran de commandes alimenté par ses propres données.
-
-Finir avec la chaîne :
-
-```text
-action humaine → +1 → état mémorisé → compteur visible → progrès interprété
-```
-
-Un like n'est pas `+1`. Une vue n'est pas `+1`. La plateforme choisit de représenter ces événements par `+1`, puis de rendre leur accumulation visible.
-
-Le nombre est une représentation. La variable est une représentation. L'horloge est une représentation. Le compteur aussi.
+La seule différence sera qu'il faudra rendre le programme réalisé en fin de
+cours en utilisant **GitHub**. Vous devez donc vous inscrire à GitHub avant le
+prochain cours. Cette inscription est un prérequis pour pouvoir remettre votre
+programme.

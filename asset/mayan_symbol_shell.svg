@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 220" role="img" aria-labelledby="title desc">
+  <title id="title">Mayan shell symbol</title>
+  <desc id="desc">A Mayan shell glyph representing zero.</desc>
+  <g fill="#fff" stroke="#3b1f5e" stroke-width="12" stroke-linejoin="round">
+    <path d="M35 111 Q260 8 485 111 Q260 212 35 111Z"/>
+    <path d="M49 111 Q260 168 471 111 Q260 197 49 111Z"/>
+  </g>
+  <g fill="none" stroke="#3b1f5e" stroke-width="12" stroke-linecap="round">
+    <path d="M220 61 Q202 111 220 161"/>
+    <path d="M260 54 Q242 111 260 168"/>
+    <path d="M300 61 Q282 111 300 161"/>
+  </g>
+</svg>

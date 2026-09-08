@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" role="img" aria-labelledby="title desc">
+  <title id="title">Mayan fourteen symbol</title>
+  <desc id="desc">Four dots above two horizontal bars, representing fourteen.</desc>
+  <g fill="#fff" stroke="#3b1f5e" stroke-width="12">
+    <rect x="32" y="14" width="96" height="96" rx="38"/>
+    <rect x="152" y="14" width="96" height="96" rx="38"/>
+    <rect x="272" y="14" width="96" height="96" rx="38"/>
+    <rect x="392" y="14" width="96" height="96" rx="38"/>
+    <rect x="34" y="116" width="452" height="72" rx="12"/>
+    <rect x="34" y="198" width="452" height="72" rx="12"/>
+  </g>
+</svg>

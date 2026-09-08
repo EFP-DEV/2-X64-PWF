@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" role="img" aria-labelledby="title desc">
+  <title id="title">Mayan four-dot symbol</title>
+  <desc id="desc">Four outlined rounded dots arranged in a horizontal row.</desc>
+  <g fill="#fff" stroke="#3b1f5e" stroke-width="12">
+    <rect x="25" y="35" width="110" height="110" rx="42"/>
+    <rect x="145" y="35" width="110" height="110" rx="42"/>
+    <rect x="265" y="35" width="110" height="110" rx="42"/>
+    <rect x="385" y="35" width="110" height="110" rx="42"/>
+  </g>
+</svg>
