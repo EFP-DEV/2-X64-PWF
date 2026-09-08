@@ -23,28 +23,12 @@
 
 ## 1. Une action visible, une valeur invisible
 
-<details>
-<summary><strong>Préparation — document de départ</strong></summary>
-
-Le [document de départ](./exercices/session_01/let-there-be-light.html) est un fichier HTML autonome à télécharger et à ouvrir dans le navigateur. Il contient le passage anglais ci-dessous, en conservant les trois paragraphes et l'attribution.
-
-Le document est en anglais (`lang="en"`). Dans `main`, un élément `figure` regroupe un `blockquote` contenant trois éléments `p` et un `figcaption` séparé pour l'attribution ; `cite` délimite le titre de l'œuvre. Le CSS définit sur `body` un texte noir (`color: #000`) et un fond noir (`background-color: #000`).
-
-> Whether it be the sweeping eagle in his flight, or the open apple-blossom, the toiling work-horse, the blithe swan, the branching oak, the winding stream at its base, the drifting clouds, over all the coursing sun, form ever follows function, and this is the law. Where function does not change form does not change. The granite rocks, the ever-brooding hills, remain for ages; the lightning lives, comes into shape, and dies in a twinkling.
->
-> It is the pervading law of all things organic and inorganic, of all things physical and metaphysical, of all things human and all things superhuman, of all true manifestations of the head, of the heart, of the soul, that the life is recognizable in its expression, that form ever follows function. This is the law.
->
-> Shall we, then, daily violate this law in our art? Are we so decadent, so imbecile, so utterly weak of eyesight, that we cannot perceive this truth so simple, so very simple?
-
-— Louis H. Sullivan, *The Tall Office Building Artistically Considered*, 1896.
-
-</details>
 
 ### Une page apparemment vide
 
-<a href="./exercices/session_01/let-there-be-light.html" download>Téléchargez le document HTML</a>, puis ouvrez-le dans le navigateur. La page paraît vide : vous ne voyez qu'une surface noire. Cela suffit-il à conclure qu'elle ne contient rien ?
+<a href="./exercices/session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Ouvrez le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : vous ne voyez qu'une surface noire. Cela suffit-il à conclure qu'elle ne contient rien ?
 
-Ouvrez les outils de développement avec **F12**, puis choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution. Quels éléments HTML les structurent ?
+Ouvrez les outils de développement avec **F12**, ou **Ctrl + Shift + i** ou click droit puis **Inspecter**, puis choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution. Quels éléments HTML les structurent ?
 
 Sélectionnez `body` et observez ses règles CSS. Repérez `color` et `background-color` : le texte est noir et le fond aussi. Gardez ces valeurs pendant l'exploration.
 
@@ -258,23 +242,29 @@ Revenez au HTML de la page dans l'inspecteur. Sa première ligne contient une in
 <!DOCTYPE html>
 ```
 
-Retournons dans la console avec ce nouvel indice.
+Avant de revenir à la console, décomposons cette expression. Décomposer consiste
+à séparer un ensemble en parties plus petites pour chercher le sens de chacune :
 
-**À saisir**
-
-```js
-doctype
+```text
+DOC + TYPE + HTML
 ```
 
-Essayons un morceau du mot.
+Cette manière de raisonner est l'une des mécaniques de la programmation. Face à
+un nom, une instruction ou un problème, on peut le décomposer en éléments plus
+simples. On peut ensuite effectuer le mouvement inverse : composer plusieurs
+éléments pour construire une expression plus précise. Nous utiliserons souvent
+ces deux mouvements pour lire et écrire du code.
 
-**À saisir**
+Dans `DOCTYPE HTML`, `TYPE` désigne un type et `HTML` nomme le langage du
+document. `DOC` est une abréviation courante du mot anglais *document*. En
+recomposant ces éléments, on peut donc lire cette ligne comme « document de type
+HTML ».
 
-```js
-doc
-```
-
-Et si on le complétait autrement ?
+Cette décomposition nous donne un nouvel indice : le mot à chercher pourrait
+être `document`. Revenons maintenant dans la console et commençons à le saisir.
+Observez les propositions qui apparaissent pendant la frappe : la console
+reconnaît-elle ce mot ? Lorsqu'elle propose `document`, complétez le mot, puis
+validez-le.
 
 **À saisir**
 
@@ -282,7 +272,22 @@ Et si on le complétait autrement ?
 document
 ```
 
-Que reconnaissez-vous dans la réponse ? Dépliez-la et comparez-la au HTML de la page. Un mot présent dans le HTML est-il nécessairement un nom utilisable tel quel dans la console ?
+La console affiche alors le document HTML tout entier. Comme dans l'inspecteur,
+on y retrouve une structure en arbre : le document contient des éléments qui
+peuvent eux-mêmes en contenir d'autres. Cette organisation forme plusieurs
+niveaux.
+
+Nous pouvons maintenant composer une nouvelle expression à partir de
+`document`. Ajoutez un point, sans encore valider. Le point sert d'élément de
+navigation : il indique que nous voulons partir de `document` pour atteindre le
+niveau suivant. La console peut alors proposer les noms accessibles depuis ce
+point de départ.
+
+**À saisir**
+
+```js
+document.
+```
 
 ### Où chercher la couleur ?
 
