@@ -8,8 +8,6 @@ Nous allons apprendre à **représenter des données, afficher une collection, i
 
 Un panier de courses, un portfolio, une galerie et un écran de commandes pour un chef peuvent partager ces opérations. Les informations affichées, les règles et la présentation changent selon le besoin. Les exercices servent à reconnaître et à réutiliser les mécanismes communs.
 
-Pour situer ces compétences dans le métier : [fiche Frontend](./asset/frontend_dev.md).
-
 ## Frontend et backend
 
 Le **frontend** est la partie d'une application que l'on voit et avec laquelle on interagit : contenus, disposition, formulaires, boutons et réactions aux actions.
@@ -17,6 +15,20 @@ Le **frontend** est la partie d'une application que l'on voit et avec laquelle o
 Le **backend** traite les demandes côté serveur et gère notamment les données enregistrées. Dans une application de restaurant, le frontend peut afficher les commandes au chef ; le backend peut enregistrer les commandes et les transmettre.
 
 Dans ce module, nous apprenons à construire l'interface et son comportement. En Programmation Web : Backend (PWB), nous pourrons créer l'API qui lui fournira nos propres données.
+
+## Le métier et les rémunérations : nos références
+
+Une sélection ancrée en Belgique, avec un regard de praticien et des repères salariaux à consulter à la source.
+
+- **[efp — Développeur web front-end](https://www.efp.be/formations/chef-d-entreprise/efp-2/developpeur-web-front-end.html)** · Bruxelles, français. Le point de départ pour relier notre formation aux missions, à la journée type et aux débouchés du métier.
+- **[Bram.us — Front-of-the-front-end / back-of-the-front-end](https://www.bram.us/2021/02/19/front-of-the-front-end-back-of-the-front-end/)** · Auteur belge, anglais, 2021. Une lecture à discuter : Bramus reprend la distinction de Brad Frost entre les spécialistes de l’interface HTML/CSS et ceux de la logique applicative JavaScript, puis la rapproche des spécialisations du backend. Utile pour comprendre les différents profils que recouvre le titre « frontend ».
+- **[Randstad Belgique — Métier et salaire du développeur front-end](https://www.randstad.be/fr/carriere/metiers/developpeur-front-end/)** · Français. Une fiche de recruteur avec des missions et des estimations de salaire brut mensuel et annuel. À lire pour le profil frontend ; les chiffres sont à recouper avec les autres sources.
+- **[Hays Belgique — Salaires IT 2026](https://www.hays.be/fr/web/hays-belgium/salaire-moyen-en-it-en-belgique-2026)** · Français. Des fourchettes brutes mensuelles, notamment pour les développeurs logiciels juniors et seniors, et un regard de recruteur sur les avantages et le travail indépendant. Le périmètre est plus large que le frontend.
+- **[Robert Half — Salaire d’un Software Developer à Bruxelles](https://www.roberthalf.com/be/fr/details-emploi/software-developer/bruxelles)** · Français. Un repère bruxellois avec les 25e, 50e et 75e percentiles, fondé sur les placements du cabinet. Là aussi, la catégorie couvre le développement logiciel au sens large.
+
+Pour comparer les rémunérations, vérifiez la date des données, la région, l’expérience, le brut mensuel ou annuel et les avantages inclus. Les estimations des recruteurs servent de repères de négociation ; elles ne garantissent pas un salaire à la sortie de formation.
+
+*Liens consultés le 8 septembre 2026.*
 
 ## Commencer le module
 
