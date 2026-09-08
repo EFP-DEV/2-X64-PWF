@@ -8,7 +8,7 @@ La première partie commence dans l'inspecteur, puis se poursuit principalement 
 
 ## 1. Un contenu invisible, une instruction et une variable
 
-<a href="./session_01/let-there-be-light.html" download>Téléchargez le document HTML</a>, puis ouvrez-le dans le navigateur. La page paraît vide, avec son fond noir.
+<a href="./session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Ouvrez le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide, avec son fond noir.
 
 Ouvrez les outils de développement avec **F12** et choisissez **Éléments** ou **Inspecteur**. Dépliez `body`, puis observez les règles CSS qui s'y appliquent, sans les modifier.
 
