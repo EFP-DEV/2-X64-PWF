@@ -293,13 +293,48 @@ Quelle valeur voyez-vous ? Qu'est-ce qui vous manque pour la lire ?
 <details>
   <summary><strong>Révéler les positions et la valeur</strong></summary>
 
-  | Position | Symbole maya | Décomposition | Valeur |
-  |---:|:---:|---:|---:|
-  | 8 000 | — | 0 × 8 000 | 0 |
-  | 400 | <img src="./asset/mayan_symbol_dots.svg" alt="Quatre points mayas" width="120"> | 4 × 400 | 1 600 |
-  | 20 | <img src="./asset/mayan_symbol_shell.svg" alt="Coquillage maya, zéro" width="120"> | 0 × 20 | 0 |
-  | 1 | <img src="./asset/mayan_symbol_fourteen.svg" alt="Quatorze : quatre points et deux barres mayas" width="120"> | 14 × 1 | 14 |
-  | **Total** |  |  | **1 614** |
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Position</th>
+        <th scope="col">Symbole maya</th>
+        <th scope="col">Décomposition</th>
+        <th scope="col">Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>8 000</td>
+        <td>—</td>
+        <td>0 × 8 000</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td><img src="./asset/mayan_symbol_dots.svg" alt="Quatre points mayas" width="120"></td>
+        <td>4 × 400</td>
+        <td>1 600</td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td><img src="./asset/mayan_symbol_shell.svg" alt="Coquillage maya, zéro" width="120"></td>
+        <td>0 × 20</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><img src="./asset/mayan_symbol_fourteen.svg" alt="Quatorze : quatre points et deux barres mayas" width="120"></td>
+        <td>14 × 1</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <th scope="row">Total</th>
+        <td></td>
+        <td></td>
+        <th scope="row">1 614</th>
+      </tr>
+    </tbody>
+  </table>
 </details>
 
 L'objectif n'est pas d'apprendre la numération maya. Cette image rend visible le besoin d'un système partagé : des symboles, des positions et des règles de lecture.
