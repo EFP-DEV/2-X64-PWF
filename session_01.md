@@ -5,15 +5,15 @@
 ## Sommaire
 
 1. **Explorer une page apparemment vide** : retrouver le contenu dans le HTML, observer les règles CSS et rendre le texte visible.
-2. **Valeurs, symboles et représentations** : distinguer une chose de son écriture et découvrir le rôle des conventions.
-3. **Décomposer le décimal** : lire la valeur d'un chiffre selon sa position et comprendre le rôle du zéro.
-4. **Lire les couleurs en hexadécimal** : relier les paires `RR`, `GG` et `BB` aux valeurs RGB.
-5. **Représenter en binaire — prolongement** : compter avec deux symboles et relier bits, octets et hexadécimal.
-6. **Changer une représentation** : modifier une couleur et vérifier ce qui change à l'écran.
+2. **Du nom de couleur à RGB** : partir de `white`, `black` et `#000` pour découvrir trois quantités qui décrivent une couleur.
+3. **Décomposer `255` en décimal** : lire la valeur d'un chiffre selon sa position et comprendre le rôle du zéro.
+4. **Répondre en hexadécimal** : relier `255` à `FF`, puis les paires `RR`, `GG` et `BB` aux valeurs RGB.
+5. **Représenter en binaire — prolongement** : retrouver la même valeur avec deux symboles, des bits et un octet.
+6. **Monter jusqu'à la base 20** : lire une convention maya, puis en retrouver une trace dans le français.
 
 **Interlude — 10 minutes**
 
-7. **Ajouter `1`, puis représenter une horloge** : reprendre le comptage et construire un premier affichage.
+7. **Du système sexagésimal à l'horloge** : démasquer une convention familière, puis construire un premier affichage.
 8. **Faire avancer le temps** : distinguer calcul, affectation et affichage, puis rencontrer la limite des minutes.
 9. **De la console aux fichiers** : conserver les instructions dans `clock.js`, chargé par `index.html`.
 10. **Exprimer les règles avec `if`** : gérer les reports des minutes et des heures.
@@ -29,7 +29,17 @@
 
 <a href="./exercices/session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Ouvrez le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : vous ne voyez qu'une surface noire. Cela suffit-il à conclure qu'elle ne contient rien ?
 
-Ouvrez les outils de développement avec **F12**, **Ctrl + Shift + I** ou un clic droit puis **Inspecter**. Choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution. Quels éléments HTML les structurent ?
+
+Cliquez sur la page et appliquez **Ctrl + A**. L'invisible failli.
+
+Un meilleur outil existe, l'inspecteur web:
+
+1. Ouvrez les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**. 
+2. Choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`. 
+3. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution. 
+
+Quels éléments HTML les structurent ?
+
 
 Sélectionnez `body` et observez ses règles CSS. Repérez `color` et `background-color` : le texte est noir et le fond aussi.
 
@@ -225,7 +235,25 @@ document.body.style.backgroundColor
 
 Comparez `backgroundColor` avec `background-color` en CSS. Où est passé le tiret ? Quelle lettre est devenue majuscule ?
 
-La réponse peut être `""`, une chaîne vide. Cela ne signifie pas que le fond n'a pas de couleur : `.style` donne accès aux déclarations placées directement sur l'élément, dans son attribut `style`. Une couleur définie seulement dans une feuille de style n'y apparaît pas. Les panneaux **Styles** et **Calculé / Computed** de l'inspecteur permettent d'examiner les règles et les valeurs appliquées.
+La réponse peut être `""`, une chaîne vide. Pourtant, le fond est blanc. Pour comprendre cette différence, revenez dans l'inspecteur et ajoutez directement un attribut `style` à l'élément `body` :
+
+```html
+<body style="background-color: white;">
+```
+
+Le fond reste blanc. Revenez dans la console et exécutez à nouveau exactement la même expression.
+
+**À saisir**
+
+```js
+document.body.style.backgroundColor
+```
+
+**À observer**
+
+> `"white"`
+
+Entre les deux essais, la couleur visible n'a pas changé. Seul l'endroit où elle est déclarée a changé. Nous avons ainsi vérifié que `.style` donne accès aux déclarations placées directement sur l'élément, dans son attribut `style`. Une couleur définie seulement dans une feuille de style n'y apparaît pas. Les panneaux **Styles** et **Calculé / Computed** de l'inspecteur permettent d'examiner les règles et les valeurs appliquées.
 
 **À retenir** : dans cette expression, `body` désigne un élément HTML ; `style` et `backgroundColor` donnent accès à son style. Ce ne sont pas deux éléments HTML supplémentaires.
 
@@ -251,13 +279,62 @@ document.body.style.backgroundColor = "white";
 
 Le texte réapparaît. La ligne a modifié une propriété du document. Le point-virgule marque ici la fin de l'instruction.
 
-Revenez dans l'inspecteur : retrouvez la déclaration ajoutée directement sur `body`, dans son attribut `style`.
+Revenez dans l'inspecteur : dans l'attribut `style` de `body`, retrouvez la valeur que JavaScript vient de modifier.
 
 **À vous** : remettez le fond en noir, puis rendez le texte blanc. La propriété CSS qui règle la couleur du texte a déjà été rencontrée. Cherchez son nom et construisez l'instruction sans recopier celle du fond.
 
-## 2. Représenter n'est pas être
+## 2. Du nom de couleur à trois quantités
 
-### Plusieurs écritures, un même résultat
+Dans les règles CSS et les manipulations précédentes, vous avez rencontré plusieurs écritures :
+
+```css
+white
+black
+#000
+```
+
+Pourquoi une couleur peut-elle être écrite avec un mot comme `white`, mais aussi avec quelque chose comme `#000` ?
+
+CSS possède des noms de couleurs prédéfinis. Leur signification est déjà connue du navigateur, notamment :
+
+```text
+white
+black
+red
+blue
+navy
+```
+
+`#000` n'est pas un nom. CSS fournit aussi des manières structurées de représenter une couleur. Ainsi, le blanc peut s'écrire de trois façons :
+
+```css
+white
+rgb(255, 255, 255)
+#ffffff
+```
+
+### RGB : rouge, vert, bleu
+
+Un écran ne mélange pas de la peinture : il émet de la lumière. On peut imaginer trois variateurs, un rouge, un vert et un bleu, dont les lumières se superposent.
+
+Le geste est presque l'inverse de celui d'une personne qui mélange artisanalement des pigments. Ajouter des pigments tend à absorber davantage de lumière et à assombrir le mélange ; sur un écran, ajouter de la lumière rend le résultat plus lumineux. C'est la **synthèse additive**.
+
+`rgb(...)` est composé de trois quantités, toujours placées dans le même ordre :
+
+```text
+red   green   blue
+255   255     255
+```
+
+Chaque quantité indique l'intensité d'un canal : `0` correspond à une absence de cette composante et `255` à son intensité maximale.
+
+```text
+rgb(255, 0, 0)       rouge
+rgb(0, 255, 0)       vert
+rgb(0, 0, 255)       bleu
+rgb(0, 0, 0)         noir
+rgb(255, 255, 255)   blanc
+```
 
 Sur la page de Sullivan, essayez séparément ces trois instructions. Si vous avez rendu le texte blanc, affectez d'abord `"black"` à `document.body.style.color` pour le lire sur le fond blanc.
 
@@ -266,33 +343,201 @@ document.body.style.backgroundColor = "white";
 ```
 
 ```js
-document.body.style.backgroundColor = "#ffffff";
+document.body.style.backgroundColor = "rgb(255, 255, 255)";
 ```
 
 ```js
-document.body.style.backgroundColor = "rgb(255, 255, 255)";
+document.body.style.backgroundColor = "#ffffff";
 ```
 
 Les écritures changent-elles ? La couleur affichée change-t-elle ?
 
-Ces trois valeurs décrivent le même blanc. Une écriture comme `#ffffff` n'est pas la couleur elle-même : c'est une représentation que le navigateur sait interpréter.
+Ces trois valeurs décrivent le même blanc. Alignons les deux écritures structurées, sans encore chercher à lire les lettres :
 
-### Valeurs et conventions
+```text
+rgb(255, 255, 255)
 
-Une quantité n'est pas l'écriture qui permet de la communiquer. Treize objets restent treize objets, que l'on utilise treize marques, `13`, `1101` ou `D` pour les représenter.
+255   255   255
+ FF    FF    FF
 
-Une quantité de treize objets peut notamment être représentée par :
+#ffffff
+```
 
-- treize marques : `|||||||||||||` ;
-- l'écriture décimale `13` ;
-- l'écriture binaire `1101` ;
-- l'écriture hexadécimale `D`.
+La question devient alors :
 
-Ces écritures ne deviennent lisibles que lorsqu'un groupe partage leurs conventions. Pour comprendre `#ffffff`, `1101` ou `D`, il faut donc identifier les symboles employés et les règles qui leur donnent une valeur.
+> Comment `255` et `FF` peuvent-ils représenter la même quantité ?
 
-### Une convention inconnue
+## 3. `255` et `FF` : une même quantité, deux écritures
 
-Observez d'abord l'image sans explication :
+Pour répondre à la question posée par CSS, comparons les deux systèmes employés :
+
+```text
+Décimal                     Hexadécimal
+
+10 symboles                 16 symboles
+0 1 2 3 4 5 6 7 8 9        0 1 2 3 4 5 6 7 8 9 A B C D E F
+```
+
+En hexadécimal, les lettres `A`, `B`, `C`, `D`, `E` et `F` représentent les quantités 10 à 15. Les deux systèmes sont **positionnels** : la valeur d'un symbole dépend de sa position. En décimal, les positions pèsent ici 100, 10 et 1 ; en hexadécimal, elles pèsent 16 et 1.
+
+```text
+Décimal                     Hexadécimal
+
+255                         FF
+
+2 × 100                     15 × 16
++ 5 × 10                    + 15 × 1
++ 5 × 1
+
+= 255                       = 255
+```
+
+Les symboles diffèrent, mais les deux calculs aboutissent à la même quantité :
+
+```text
+255₁₀ = FF₁₆
+```
+
+Les petits indices indiquent le système utilisé : 10 pour le décimal et 16 pour l'hexadécimal. Ils servent ici à lire les exemples, pas à écrire du CSS ou du JavaScript.
+
+## 4. Lire une couleur CSS en hexadécimal
+
+Revenons immédiatement aux deux écritures du blanc :
+
+```text
+rgb(255, 255, 255)
+#ffffff
+```
+
+Dans `rgb(...)`, chaque canal vaut `255`. En hexadécimal, la même quantité s'écrit `FF` :
+
+```text
+rgb(255, 255, 255)
+     FF   FF   FF
+     RR   GG   BB
+```
+
+Une couleur CSS sur six chiffres suit la convention `#RRGGBB` :
+
+| Paire | Signification | Intervalle décimal |
+|---|---|---:|
+| `RR` | Rouge | 0–255 |
+| `GG` | Vert | 0–255 |
+| `BB` | Bleu | 0–255 |
+
+Chaque paire hexadécimale va de `00` à `FF`, comme chaque quantité de `rgb(...)` va de `0` à `255`. Le croisillon `#` annonce cette écriture hexadécimale au navigateur. Les trois paires suivent le même ordre que les canaux de `rgb(...)` : rouge, vert, bleu.
+
+Décomposons `#336699` :
+
+```text
+33₁₆ = 3 × 16 + 3 = 51₁₀
+66₁₆ = 6 × 16 + 6 = 102₁₀
+99₁₆ = 9 × 16 + 9 = 153₁₀
+```
+
+Les valeurs des canaux RGB sont donc `(51, 102, 153)`. Ces deux déclarations CSS décrivent la même couleur :
+
+```css
+color: #336699;
+color: rgb(51, 102, 153);
+```
+
+Dans ce système, `#000000` donne du noir et `#ffffff` donne du blanc. Les lettres hexadécimales peuvent être écrites en minuscules ou en majuscules.
+
+### Pourquoi seulement trois chiffres dans `#000` ?
+
+CSS accepte aussi une écriture abrégée `#RGB`. Chaque chiffre est répété pour retrouver l'écriture à six chiffres :
+
+```text
+#000 = #000000
+#fff = #ffffff
+#369 = #336699
+```
+
+La règle est donc :
+
+```text
+#RGB → #RRGGBB
+```
+
+Ce raccourci suit une règle précise : `#123` signifie `#112233`, pas `#000123`.
+
+**À retenir** : une valeur n'est pas sa représentation. La représentation change ; la valeur représentée peut rester identique.
+
+**À vous** : prédisez ce que représentera `#ff0000`, puis vérifiez en l'affectant au fond de la page. Quelle paire devez-vous modifier pour ajouter du bleu en conservant la valeur du rouge ?
+
+### Changer une représentation
+
+Revenez à la page de Sullivan. Utilisez ce que vous avez découvert pour réaliser les trois manipulations suivantes, sans reprendre une ligne complète du cours :
+
+1. Rendez le texte blanc sur fond noir.
+2. Remplacez l'écriture de ce blanc par une autre écriture équivalente. Vérifiez que le résultat visuel reste identique.
+3. Expliquez à votre voisin quelle propriété vous avez modifiée et pourquoi le texte est visible.
+
+Nous avons relié une convention à une action observable : JavaScript affecte une valeur textuelle à une propriété de style, puis le navigateur interprète cette valeur pour présenter le document.
+
+Avant de poursuivre, **rechargez la page de Sullivan**. Qu'est-ce qui revient à son état de départ ?
+
+Les modifications faites dans l'inspecteur ou dans la console n'ont pas modifié le fichier HTML ni sa feuille de style d'origine. Recharger la page la reconstruit à partir de ses fichiers ; les instructions saisies dans la console ne sont pas rejouées automatiquement.
+
+## 5. Binaire : deux symboles, les mêmes principes — prolongement
+
+Le décimal utilise dix symboles et l'hexadécimal en utilise seize. Un système pourrait-il en utiliser moins ?
+
+Le système binaire n'utilise que deux symboles :
+
+```text
+0 1
+```
+
+Un **bit** est un chiffre binaire. Un **octet** contient huit bits ; interprétés comme un entier non signé, ces huit bits permettent de représenter les valeurs de 0 à 255.
+
+| Position | `2⁷` | `2⁶` | `2⁵` | `2⁴` | `2³` | `2²` | `2¹` | `2⁰` |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Poids | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| Bit | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+
+```text
+11111111₂
+= 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1
+= 255₁₀
+```
+
+Nous retrouvons donc le lien entre les trois systèmes :
+
+```text
+11111111₂ = 255₁₀ = FF₁₆
+```
+
+La même valeur peut être représentée ainsi :
+
+```text
+255
+FF
+11111111
+```
+
+Quatre bits couvrent les valeurs de 0 à 15, comme un chiffre hexadécimal. Huit bits correspondent donc à deux chiffres hexadécimaux. Le binaire prolonge ici notre réponse à la question des couleurs ; il n'est pas nécessaire de savoir effectuer toutes les conversions pour poursuivre.
+
+**À vous** : dans `00000001`, quel bit faut-il changer pour représenter trois ? Expliquez en utilisant les poids des positions.
+
+## 6. Monter jusqu'à la base 20
+
+Nous avons utilisé des systèmes fondés sur des quantités différentes de symboles :
+
+```text
+2 symboles
+10 symboles
+16 symboles
+```
+
+Après être descendus jusqu'à deux, inversons la direction : pourquoi pas vingt ? Un système en **base 20** est appelé vigésimal.
+
+Certaines civilisations comptaient en base 20. On peut imaginer qu'elles utilisaient aussi leurs doigts de pied — les chaussettes n'avaient peut-être pas encore gagné.
+
+### Une convention devenue étrangère
+
+Dans un système positionnel en base 20, les poids des positions sont notamment 1, 20, 400 et 8 000. Observez maintenant cette écriture maya sans chercher à deviner :
 
 <img src="./asset/mayan_number.png" alt="Écriture maya d'un nombre" width="161">
 
@@ -318,138 +563,38 @@ Quelle valeur voyez-vous ? Qu'est-ce qui vous manque pour la lire ?
 
 </details>
 
-L'objectif n'est pas d'apprendre la numération maya. Cette image rend visible le besoin d'un système partagé : des symboles, des positions et des règles de lecture.
+L'objectif n'est pas d'apprendre la numération maya. Ces symboles paraissent étranges parce que nous ne partageons plus la convention qui permet de les lire : des symboles, des positions et des règles de lecture.
 
-## 3. Systèmes de numération
+### Une convention vraiment étrangère ?
 
-Un système de numération définit des symboles et des règles permettant d'écrire des valeurs.
-
-Dans un système positionnel, la valeur portée par un chiffre dépend :
-
-- du chiffre lui-même ;
-- de sa position ;
-- de la base utilisée.
-
-### Base 10
-
-Le système décimal utilise dix chiffres : `0 1 2 3 4 5 6 7 8 9`.
+Comptez maintenant les dizaines en français :
 
 ```text
-847 = 800 + 40 + 7
-847 = 8 × 100 + 4 × 10 + 7 × 1
-847 = 8 × 10² + 4 × 10¹ + 7 × 10⁰
+dix
+vingt
+trente
+quarante
+cinquante
+soixante
+...
+quatre-vingts
 ```
 
-| Position | `10²` | `10¹` | `10⁰` |
-|---|---:|---:|---:|
-| Poids | 100 | 10 | 1 |
-| Chiffre | 8 | 4 | 7 |
-
-Les puissances résument les poids des positions : `10²` vaut 100, `10¹` vaut 10 et `10⁰` vaut 1.
-
-Le zéro ne signifie pas seulement « rien ». Dans `1023`, il maintient la position des centaines et indique qu'il y en a zéro.
-
-**À vous** : dans `407`, quelle valeur le `4` représente-t-il ? Que devient cette valeur si l'on retire le zéro ?
-
-## 4. Hexadécimal : une représentation des couleurs CSS
-
-Le système hexadécimal utilise seize symboles :
+Arrêtons-nous sur ce dernier nom :
 
 ```text
-0 1 2 3 4 5 6 7 8 9 A B C D E F
+quatre × vingt
 ```
 
-Les lettres représentent les valeurs décimales 10 à 15. Deux chiffres hexadécimaux couvrent `00–FF`, soit `0–255` en décimal :
+Écoutons aussi la manière dont le français compose quelques valeurs :
 
 ```text
-FF₁₆ = 15 × 16 + 15 = 255₁₀
+quatre-vingt-dix    quatre × vingt + dix
+quatre-vingt-seize  quatre × vingt + seize
+soixante-dix        soixante + dix
 ```
 
-Les petits indices indiquent la base utilisée ; ils servent ici à lire les exemples au tableau, pas à écrire du JavaScript.
-
-Une couleur CSS sur six chiffres suit la convention `#RRGGBB` :
-
-| Paire | Signification | Intervalle décimal |
-|---|---|---:|
-| `RR` | Rouge | 0–255 |
-| `GG` | Vert | 0–255 |
-| `BB` | Bleu | 0–255 |
-
-Décomposons `#336699` :
-
-```text
-33₁₆ = 3 × 16 + 3 = 51
-66₁₆ = 6 × 16 + 6 = 102
-99₁₆ = 9 × 16 + 9 = 153
-```
-
-Les valeurs des canaux RGB sont donc `(51, 102, 153)`. Ces deux déclarations CSS décrivent la même couleur :
-
-```css
-color: #336699;
-color: rgb(51, 102, 153);
-```
-
-Dans ce système, `#000000` donne du noir et `#ffffff` donne du blanc. Les lettres hexadécimales peuvent être écrites en minuscules ou en majuscules.
-
-### Pourquoi seulement trois chiffres dans `#000` ?
-
-CSS accepte aussi une écriture abrégée `#RGB`. Chaque chiffre est répété pour retrouver l'écriture à six chiffres :
-
-```text
-#000 → #000000
-#fff → #ffffff
-#369 → #336699
-```
-
-Ce raccourci suit une règle précise : `#123` signifie `#112233`, pas `#000123`.
-
-**À vous** : prédisez ce que représentera `#ff0000`, puis vérifiez en l'affectant au fond de la page. Quelle paire devez-vous modifier pour ajouter du bleu en conservant la valeur du rouge ?
-
-## 5. Binaire : deux symboles, les mêmes principes — prolongement
-
-Cette exploration prolonge la lecture des couleurs. Elle peut être reprise plus tard sans empêcher de poursuivre les manipulations de la page et de l'horloge.
-
-Le système binaire utilise `0` et `1`. Un **bit** est un chiffre binaire. Un **octet** contient huit bits ; interprétés comme un entier non signé, ils permettent de représenter les valeurs de 0 à 255.
-
-| Position | `2⁷` | `2⁶` | `2⁵` | `2⁴` | `2³` | `2²` | `2¹` | `2⁰` |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Poids | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
-| Bit | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 0 |
-
-```text
-11001100₂
-= 1×128 + 1×64 + 0×32 + 0×16 + 1×8 + 1×4 + 0×2 + 0×1
-= 204₁₀
-```
-
-Quatre bits couvrent les valeurs de 0 à 15, comme un chiffre hexadécimal. Huit bits correspondent donc à deux chiffres hexadécimaux :
-
-```text
-1100 1100₂ = CC₁₆ = 204₁₀
-```
-
-Le report apparaît clairement quand une position ne peut contenir que zéro ou un :
-
-```text
-00001111 + 1 = 00010000
-```
-
-**À vous** : dans `00000001`, quel bit faut-il changer pour représenter trois ? Expliquez en utilisant les poids des positions.
-
-## 6. Changer une représentation
-
-Revenez à la page de Sullivan. Utilisez ce que vous avez découvert pour réaliser les trois manipulations suivantes, sans reprendre une ligne complète du cours :
-
-1. Rendez le texte blanc sur fond noir.
-2. Remplacez l'écriture de ce blanc par une autre écriture équivalente. Vérifiez que le résultat visuel reste identique.
-3. Expliquez à votre voisin quelle propriété vous avez modifiée et pourquoi le texte est visible.
-
-Nous avons relié une convention à une action observable : JavaScript affecte une valeur textuelle à une propriété de style, puis le navigateur interprète cette valeur pour présenter le document.
-
-Avant de poursuivre, **rechargez la page de Sullivan**. Qu'est-ce qui revient à son état de départ ?
-
-Les modifications faites dans l'inspecteur ou dans la console n'ont pas modifié le fichier HTML ni sa feuille de style d'origine. Recharger la page la reconstruit à partir de ses fichiers ; les instructions saisies dans la console ne sont pas rejouées automatiquement.
+Le français n'est pas un système de numération entièrement en base 20, mais `quatre-vingts` et les nombres qui suivent en conservent des traces. Une structure vigésimale n'est donc pas aussi exotique qu'elle le paraissait dans l'image maya.
 
 ---
 
@@ -457,34 +602,66 @@ Les modifications faites dans l'inspecteur ou dans la console n'ont pas modifié
 
 > **On s'arrête ici pendant 10 minutes.**
 >
-> Éloignez-vous de l'écran, respirez, buvez un peu d'eau. À la reprise, nous passerons à `+1`, puis à sa représentation sous forme d'horloge.
+> Éloignez-vous de l'écran, respirez, buvez un peu d'eau. À la reprise, un dernier système nous mènera à l'horloge et à `+1` minute.
 >
 > **Minuteur : 10:00** · Reprise ensuite avec la section suivante.
 
 ---
 
-## 7. Ajouter `1`, puis représenter une horloge
+## 7. Du système sexagésimal à l'horloge
 
-### Reprendre avec `+1`
+Pour finir, imaginons un système qui semble vraiment absurde : la base 60, ou système **sexagésimal**. Chaque position peut prendre soixante valeurs avant de revenir à zéro et de provoquer un report.
 
-Reprenons rapidement le fil **ensemble au tableau**, sans encore saisir de code. Ajouter une unité fait progresser la valeur ; son écriture dépend du système utilisé.
-
-Commencez en **décimal**, puis recommencez en **hexadécimal**. Si vous avez exploré le prolongement, reprenez aussi le **binaire**.
-
-En décimal :
+Trichons volontairement pendant le comptage. Au lieu d'inventer soixante symboles, écrivons les valeurs de 0 à 59 avec nos chiffres décimaux habituels, puis collons les positions sans séparateur. Cette démonstration produit une suite d'apparence familière, mais de plus en plus ridicule :
 
 ```text
-8 + 1 = 9
-9 + 1 = 10
+1
+2
+...
+9
+10
+11
+...
+19
+20
+...
+50
+51
+...
+59
+100
+101
+...
+159
+200
+...
+559
+1000
+...
+5959
+10000
 ```
 
-Lorsque les symboles disponibles sont épuisés à une position, cette position revient à zéro et le changement se propage à la position voisine. C'est le **report**.
+Après `59`, soudain `100`. Après `159`, soudain `200`. Finalement, `5959` devient `10000`.
 
-Nous allons maintenant appliquer ce principe à une représentation familière.
+> Ce système de numération n'a aucun sens.
 
-### Une horloge est aussi une représentation
+Cette écriture est construite pour exposer la règle positionnelle avec des chiffres connus. Elle ne prétend pas que les numérations babyloniennes historiques étaient littéralement écrites ainsi.
 
-`13:59` n'est pas le temps lui-même. C'est une écriture conventionnelle composée de deux champs séparés par `:`.
+Ajoutons maintenant le séparateur que nous avions volontairement caché :
+
+```text
+13 59 → 13:59
+```
+
+Cette représentation n'est plus étrangère. Chaque jour, nous lisons des minutes et des secondes qui vont de 0 à 59 avant de provoquer un report. Une horloge de 24 heures n'est pas un nombre en base 60 pure : le champ des heures revient à zéro après 23. Elle utilise néanmoins une représentation dérivée du système sexagésimal.
+
+```text
+13:59 + 1 minute → 14:00
+23:59 + 1 minute → 00:00
+```
+
+Une horloge est donc aussi une représentation. `13:59` n'est pas le temps lui-même : c'est une écriture conventionnelle composée de deux champs séparés par `:`.
 
 Notre programme représentera une horloge de **24 heures**. Il partira d'une heure valide et lui ajoutera **exactement une minute**. Il ne cherchera pas l'heure réelle et n'avancera pas automatiquement avec les secondes.
 
@@ -839,64 +1016,85 @@ Après votre recherche, testez les cas suivants. Pour chaque ligne, modifiez les
 
 Pour chaque cas, indiquez quelles conditions sont vraies et quels blocs sont exécutés.
 
+Avant de poursuivre, remettez `hours` à `13` et `minutes` à `37`. Dans `clock.js`, conservez les deux déclarations en haut du fichier et, à leur suite, le bloc qui ajoute une minute, applique les deux reports et met l'affichage à jour.
+
 ### Fermer la boucle
 
 Jusqu'ici, le programme s'exécutait au chargement de la page. Nous allons maintenant permettre à une action de l'utilisateur de le déclencher.
 
-Dans `index.html`, ajoutez un bouton entre le paragraphe et la ligne qui charge le script :
+Pour une personne, `13:37` forme une information. Pour le programme, nous voulons retrouver séparément les deux données qui la composent, sans devoir découper ce texte.
+
+Dans `index.html`, placez les heures et les minutes dans deux éléments distincts. Le paragraphe lui-même déclenchera le comportement lors d'un clic :
 
 ```html
 <body>
-  <p id="clock">13:37</p>
-  <button id="next-minute">+1 minute</button>
+  <p id="clock" onclick="nextMinute()"><span id="clock-hours">13</span>:<span id="clock-minutes">37</span></p>
   <script src="clock.js"></script>
 </body>
 ```
 
-Le HTML contient le bouton, mais pas son comportement. Dans `clock.js`, conservez l'état initial et placez les instructions du programme dans une fonction nommée `nextMinute` :
+Nous pouvons maintenant lire directement le texte de chaque élément :
+
+```js
+document.querySelector("#clock-hours").textContent
+document.querySelector("#clock-minutes").textContent
+```
+
+La console répond `"13"` et `"37"`. `textContent` fournit du texte. Or, nous avons déjà observé que `"37" + 1` produit `"371"`. `Number(...)` permet de convertir ce texte en nombre avant le calcul.
+
+Dans `clock.js`, ajoutez ces deux instructions sous les déclarations de `hours` et `minutes` :
+
+```js
+hours = Number(document.querySelector("#clock-hours").textContent);
+minutes = Number(document.querySelector("#clock-minutes").textContent);
+```
+
+Remplacez aussi l'instruction qui affiche l'heure par ces deux instructions :
+
+```js
+document.querySelector("#clock-hours").textContent = hours;
+document.querySelector("#clock-minutes").textContent = minutes;
+```
+
+Le fichier contient maintenant les deux déclarations, puis un bloc qui lit les données, ajoute une minute, applique les deux reports et met l'affichage à jour. Coupez tout ce bloc, depuis `hours = Number(...)` jusqu'à la seconde instruction d'affichage. Conservez les deux déclarations en haut du fichier.
+
+Ajoutez ensuite une fonction vide nommée `nextMinute` sous les déclarations :
 
 ```js
 let hours = 13;
 let minutes = 37;
 
 function nextMinute() {
-  minutes = minutes + 1;
-
-  if (minutes === 60) {
-    minutes = 0;
-    hours = hours + 1;
-  }
-
-  if (hours === 24) {
-    hours = 0;
-  }
-
-  document.querySelector("#clock").textContent = hours + ":" + minutes;
 }
-
-document.querySelector("#next-minute").onclick = nextMinute;
 ```
 
-JavaScript contient la fonction. La dernière ligne retrouve le bouton et relie son clic à cette fonction.
+Collez le bloc coupé entre les accolades. `nextMinute` est maintenant le nom donné au comportement qui lit l'heure affichée et la fait avancer d'une minute.
 
-Dans cette ligne, `nextMinute` identifie la fonction et la donne au bouton. Avec des parenthèses, `nextMinute()` exécuterait immédiatement la fonction au lieu d'attendre le clic.
+**À retenir pour cette première rencontre avec les fonctions :**
 
-Nous utilisons `.onclick` ici uniquement comme **pont pédagogique**, parce qu'il rend cette première connexion entre le bouton et la fonction particulièrement visible. Ce n'est pas la technique de gestion des événements que le cours retiendra pour développer de véritables applications, ni le modèle recommandé pour du code de production. Le mécanisme normal sera introduit plus tard avec `addEventListener`.
+> Une variable donne un nom à une donnée.
+>
+> Une fonction donne un nom à un comportement.
 
-Enregistrez les deux fichiers et rechargez la page une dernière fois. Cliquez ensuite plusieurs fois sur le bouton. L'heure change maintenant sans modifier le fichier et sans recharger la page entre les clics.
+C'est tout ce qu'il faut retenir des fonctions dans cette première leçon.
+
+Le HTML contient l'heure affichée. JavaScript contient un comportement nommé `nextMinute`. L'attribut `onclick` du paragraphe relie les deux.
+
+Nous utilisons `onclick` ici uniquement comme **pont pédagogique**, parce qu'il rend cette première connexion entre l'heure affichée et la fonction particulièrement visible. Ce n'est pas la technique de gestion des événements que le cours retiendra pour développer de véritables applications, ni le modèle recommandé pour du code de production. Le mécanisme normal sera introduit plus tard avec `addEventListener`.
+
+Enregistrez les deux fichiers et rechargez la page une dernière fois. Avant le premier clic, le HTML affiche déjà `13:37`. Cliquez sur l'heure : l'affichage passe à `13:38`. Cliquez encore : il passe à `13:39`. Chaque exécution lit ainsi le résultat affiché par la précédente.
 
 Le parcours devient visible :
 
 ```text
-action utilisateur
-→ JavaScript
-→ état
-→ règles
-→ affichage
-→ nouvel état visible
+clic sur l'heure
+→ lecture avec textContent
+→ conversion avec Number
+→ comportement nextMinute
+→ écriture avec textContent
 ```
 
-Jusqu'ici, le programme était exécuté lorsque la page se chargeait. Maintenant, une action effectuée par l'utilisateur peut déclencher le programme, modifier son état, appliquer ses règles et mettre à jour l'interface.
+Jusqu'ici, le programme était exécuté lorsque la page se chargeait. Maintenant, un clic sur l'heure déclenche un comportement nommé qui lit les données affichées, applique les règles et met l'interface à jour.
 
 ---
 
@@ -905,7 +1103,7 @@ Jusqu'ici, le programme était exécuté lorsque la page se chargeait. Maintenan
 Réalisez ces trois tâches individuellement. Vous pouvez consulter vos notes, mais construisez vous-même les instructions et les explications.
 
 1. **Modifier une présentation.** Dans l'onglet de Sullivan, rendez le texte noir sur fond `#ffff00`. Expliquez le rôle de chaque instruction et ce que représentent les trois paires de la couleur.
-2. **Prévoir un résultat.** Avec le programme corrigé, partez de `hours = 9` et `minutes = 59`. Écrivez l'affichage attendu et les instructions qui modifieront l'état avant d'exécuter le programme. Vérifiez ensuite votre prédiction.
+2. **Prévoir un résultat.** Avec le programme corrigé, placez `9` et `59` dans les deux éléments HTML de l'horloge. Écrivez l'affichage attendu et les instructions qui modifieront l'état avant d'exécuter le programme. Vérifiez ensuite votre prédiction.
 3. **Distinguer état et affichage.** Sur la page de l'horloge, après son exécution, changez uniquement la variable `minutes` dans la console. Expliquez pourquoi la page conserve son affichage, puis mettez ce dernier à jour sans recharger.
 
 À la mise en commun, montrez votre résultat et expliquez une instruction avec vos propres mots. Si votre prédiction et le résultat diffèrent, identifiez à quelle étape cette différence apparaît.
