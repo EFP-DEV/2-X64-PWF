@@ -1,5 +1,72 @@
 # Programmation Web : Frontend (PWF)
 
+
+## Informatique, information et interface
+
+Quand on demande « Qu'est-ce que l'informatique ? », une réponse classique est :
+
+**Le traitement automatique de l'information.**
+
+Mais pour traiter automatiquement de l'information, de quoi a-t-on absolument besoin ?
+
+On pense immédiatement à répondre :
+
+**D'un ordinateur.**
+
+Mais non.
+
+Il faut d'abord **un humain**.
+
+Un ordinateur manipule des données. Il peut les stocker, les comparer, les trier, les transformer ou les transmettre.
+
+Mais une donnée n'est pas encore une information.
+
+Prenons simplement :
+
+**42**
+
+Pour l'ordinateur, c'est `42`.
+
+Mais pour nous :
+
+* **42 °C de température corporelle** : inquiétude, urgence.
+* **42/50 à un examen** : soulagement, fierté.
+* **42 € à payer alors qu'on en attendait 15** : surprise, irritation.
+* **Le bus 42 qui arrive enfin sous la pluie** : soulagement.
+* **« La réponse à la grande question sur la vie, l'univers et le reste »** : pour certains, un sourire immédiat.
+
+La donnée est pourtant toujours exactement la même :
+
+**42**
+
+Ce qui change, c'est ce qu'elle **signifie**.
+
+La donnée devient information lorsqu'elle est **interprétée**.
+
+Et une information peut provoquer une décision, une action, une émotion.
+
+C'est là que le lien avec l'UX/UI devient particulièrement important.
+
+L'interface se trouve précisément entre le monde humain et le monde de la machine.
+
+Dans un sens :
+
+**Humain → intention → interface → données → machine**
+
+Dans l'autre :
+
+**Machine → données → interface → information → humain**
+
+L'interface est donc beaucoup plus qu'une surface graphique.
+
+**L'interface est l'endroit où la donnée devient information, et où l'intention humaine devient donnée.**
+
+L'informatique n'est donc pas seulement une discipline qui s'intéresse aux ordinateurs.
+
+C'est aussi une discipline de la **représentation** : comment transformer quelque chose qui a du sens pour un humain en quelque chose qu'une machine peut manipuler, puis comment transformer le résultat en quelque chose qui a de nouveau du sens pour un humain.
+
+
+
 ## Un même raisonnement, plusieurs applications
 
 Ce module de **44 heures en 2e année** apprend à programmer des interfaces avec HTML, CSS et JavaScript natif.
@@ -30,19 +97,7 @@ Pour comparer les rémunérations, vérifiez la date des données, la région, l
 
 *Liens consultés le 8 septembre 2026.*
 
-## Commencer le module
 
-La **séance 1** suit une seule idée, `+1`, depuis les systèmes de numération jusqu'aux compteurs visibles dans les interfaces.
-
-Les étudiants distinguent une valeur de sa représentation, décodent le binaire et les couleurs CSS `#RRGGBBAA`, manipulent leurs premières variables dans la console, puis programment le report d'une horloge avec deux variables et des conditions.
-
-Les résultats des séances suivantes sont montrés en fin de cours comme une bande-annonce du module. La construction de Pixelator, ainsi que CSS Grid, le DOM et les événements, commence lors de la séance 2.
-
-[Support de la séance 1](./session_01.md) · [Atelier guidé](./exercices/session_01.md)
-
-[Support de la séance 2](./session_02.md) · [Atelier Pixelator](./exercices/session_02.md) · [Résultat Pixelator](./solutions/pixelator/session_02/index.html)
-
-L’[ampoule interactive](./exercices/ampoule.md) reste disponible comme atelier optionnel, avec son [corrigé](./solutions/session_1/index.html).
 
 ## Progression prévue, séance par séance
 
