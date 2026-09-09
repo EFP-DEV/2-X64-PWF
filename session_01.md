@@ -10,10 +10,10 @@
 4. **Répondre en hexadécimal** : relier `255` à `FF`, puis les paires `RR`, `GG` et `BB` aux valeurs RGB.
 5. **Représenter en binaire — prolongement** : retrouver la même valeur avec deux symboles, des bits et un octet.
 6. **Monter jusqu'à la base 20** : lire une convention maya, puis en retrouver une trace dans le français.
+7. **Un système encore plus étrange ?** : pousser plus loin la logique positionnelle, puis démasquer une convention familière.
 
 **Interlude — 10 minutes**
 
-7. **Du système sexagésimal à l'horloge** : démasquer une convention familière, puis construire un premier affichage.
 8. **Faire avancer le temps** : distinguer calcul, affectation et affichage, puis rencontrer la limite des minutes.
 9. **De la console aux fichiers** : conserver les instructions dans `clock.js`, chargé par `index.html`.
 10. **Exprimer les règles avec `if`** : gérer les reports des minutes et des heures.
@@ -596,19 +596,7 @@ soixante-dix        soixante + dix
 
 Le français n'est pas un système de numération entièrement en base 20, mais `quatre-vingts` et les nombres qui suivent en conservent des traces. Une structure vigésimale n'est donc pas aussi exotique qu'elle le paraissait dans l'image maya.
 
----
-
-## ⏸️ Interlude — pause de 10 minutes
-
-> **On s'arrête ici pendant 10 minutes.**
->
-> Éloignez-vous de l'écran, respirez, buvez un peu d'eau. À la reprise, un dernier système nous mènera à l'horloge et à `+1` minute.
->
-> **Minuteur : 10:00** · Reprise ensuite avec la section suivante.
-
----
-
-## 7. Du système sexagésimal à l'horloge
+## 7. Un système encore plus étrange ?
 
 Pour finir, imaginons un système qui semble vraiment absurde : la base 60, ou système **sexagésimal**. Chaque position peut prendre soixante valeurs avant de revenir à zéro et de provoquer un report.
 
@@ -651,15 +639,26 @@ Cette écriture est construite pour exposer la règle positionnelle avec des chi
 Ajoutons maintenant le séparateur que nous avions volontairement caché :
 
 ```text
-13 59 → 13:59
+1359 → 13:59
 ```
 
-Cette représentation n'est plus étrangère. Chaque jour, nous lisons des minutes et des secondes qui vont de 0 à 59 avant de provoquer un report. Une horloge de 24 heures n'est pas un nombre en base 60 pure : le champ des heures revient à zéro après 23. Elle utilise néanmoins une représentation dérivée du système sexagésimal.
+Cette représentation n'est plus étrangère. Chaque jour, nous lisons des minutes et des secondes qui vont de 0 à 59 avant de provoquer un report.
 
-```text
-13:59 + 1 minute → 14:00
-23:59 + 1 minute → 00:00
-```
+
+---
+
+## ⏸️ Interlude — pause de 10 minutes
+
+> **On s'arrête ici pendant 10 minutes.**
+>
+> Éloignez-vous de l'écran, respirez, buvez un peu d'eau. À la reprise, nous ferons avancer l'horloge de `+1` minute.
+>
+> **Minuteur : 10:00** · Reprise ensuite avec la section suivante.
+
+---
+
+## 8. Faire avancer le temps
+
 
 Une horloge est donc aussi une représentation. `13:59` n'est pas le temps lui-même : c'est une écriture conventionnelle composée de deux champs séparés par `:`.
 
@@ -754,8 +753,6 @@ document.querySelector("#clock").textContent = hours + ":" + minutes;
 ```
 
 </details>
-
-## 8. Faire avancer le temps
 
 ### Calculer n'est pas affecter
 
@@ -1018,57 +1015,179 @@ Pour chaque cas, indiquez quelles conditions sont vraies et quels blocs sont ex�
 
 Avant de poursuivre, remettez `hours` à `13` et `minutes` à `37`. Dans `clock.js`, conservez les deux déclarations en haut du fichier et, à leur suite, le bloc qui ajoute une minute, applique les deux reports et met l'affichage à jour.
 
-### Fermer la boucle
+### L'algorithme
 
-Jusqu'ici, le programme s'exécutait au chargement de la page. Nous allons maintenant permettre à une action de l'utilisateur de le déclencher.
+Nous avons jusqu'ici construit quelque chose en plusieurs étapes.
+
+D'abord, nous avons trouvé une règle :
+
+```text
+ajouter une minute
+
+si les minutes atteignent 60
+→ remettre les minutes à 0
+→ ajouter une heure
+
+si les heures atteignent 24
+→ remettre les heures à 0
+```
+
+Cette suite de règles constitue un **algorithme** : une manière précise de résoudre notre problème, indépendamment du langage utilisé pour l'écrire. Ni HTML ni JavaScript ne sont nécessaires pour formuler cet algorithme.
+
+### Le programme
+
+Nous avons ensuite exprimé cet algorithme en JavaScript :
+
+```js
+let hours = 13;
+let minutes = 37;
+
+minutes = minutes + 1;
+
+if (minutes === 60) {
+  minutes = 0;
+  hours = hours + 1;
+}
+
+if (hours === 24) {
+  hours = 0;
+}
+```
+
+L'algorithme est devenu un **programme** : l'algorithme exprimé sous la forme d'instructions JavaScript que la machine peut exécuter.
+
+Pour construire et tester ce programme, nous avons travaillé avec des données artificielles : `13` et `37`.
+
+**Le programme est terminé.**
+
+Nous allons maintenant cesser de modifier son algorithme et le connecter à une réalité extérieure : notre page web.
+
+## 11. Du programme à l'application
+
+Jusqu'ici :
+
+```text
+13 et 37 → programme
+```
+
+Maintenant :
+
+```text
+HTML → programme → HTML
+```
+
+Une **application** connecte le programme à quelque chose d'extérieur à lui :
+
+```text
+entrée
+  ↓
+programme
+  ↓
+sortie
+```
+
+Dans notre application web, le HTML fournit l'entrée. JavaScript la lit, l'algorithme déjà construit la transforme, puis JavaScript écrit le résultat dans le HTML.
+
+C'est précisément à ce moment que le DOM devient pertinent : il permet au programme de lire les données de l'interface et d'y renvoyer son résultat.
 
 Pour une personne, `13:37` forme une information. Pour le programme, nous voulons retrouver séparément les deux données qui la composent, sans devoir découper ce texte.
 
-Dans `index.html`, placez les heures et les minutes dans deux éléments distincts. Le paragraphe lui-même déclenchera le comportement lors d'un clic :
+Dans `index.html`, placez les heures et les minutes dans deux éléments distincts. À ce stade, aucun clic n'est encore nécessaire :
 
 ```html
 <body>
-  <p id="clock" onclick="nextMinute()"><span id="clock-hours">13</span>:<span id="clock-minutes">37</span></p>
+  <p id="clock"><span id="clock-hours">13</span>:<span id="clock-minutes">37</span></p>
   <script src="clock.js"></script>
 </body>
 ```
 
-Nous pouvons maintenant lire directement le texte de chaque élément :
+`querySelector` retrouve chaque élément et `textContent` permet de lire le texte qu'il contient :
 
 ```js
 document.querySelector("#clock-hours").textContent
 document.querySelector("#clock-minutes").textContent
 ```
 
-La console répond `"13"` et `"37"`. `textContent` fournit du texte. Or, nous avons déjà observé que `"37" + 1` produit `"371"`. `Number(...)` permet de convertir ce texte en nombre avant le calcul.
+La console répond `"13"` et `"37"`. `textContent` fournit du texte. Or, nous avons déjà observé que `"37" + 1` produit `"371"`. `Number(...)` convertit donc cette représentation textuelle en nombre avant le calcul.
 
-Dans `clock.js`, ajoutez ces deux instructions sous les déclarations de `hours` et `minutes` :
+La construction de l'entrée suit ce parcours :
 
-```js
-hours = Number(document.querySelector("#clock-hours").textContent);
-minutes = Number(document.querySelector("#clock-minutes").textContent);
+```text
+HTML → querySelector → textContent → "13" et "37" → Number → 13 et 37
 ```
 
-Remplacez aussi l'instruction qui affiche l'heure par ces deux instructions :
+Le programme commence maintenant directement à partir de cette entrée réelle :
 
 ```js
+let hours = Number(document.querySelector("#clock-hours").textContent);
+let minutes = Number(document.querySelector("#clock-minutes").textContent);
+
+minutes = minutes + 1;
+
+if (minutes === 60) {
+  minutes = 0;
+  hours = hours + 1;
+}
+
+if (hours === 24) {
+  hours = 0;
+}
+
 document.querySelector("#clock-hours").textContent = hours;
 document.querySelector("#clock-minutes").textContent = minutes;
 ```
 
-Le fichier contient maintenant les deux déclarations, puis un bloc qui lit les données, ajoute une minute, applique les deux reports et met l'affichage à jour. Coupez tout ce bloc, depuis `hours = Number(...)` jusqu'à la seconde instruction d'affichage. Conservez les deux déclarations en haut du fichier.
+Après la lecture vient le calcul déjà construit. Les deux dernières instructions constituent la sortie de l'application : elles écrivent les nouvelles valeurs dans les deux éléments HTML.
 
-Ajoutez ensuite une fonction vide nommée `nextMinute` sous les déclarations :
+Enregistrez les deux fichiers et rechargez la page. Le HTML fournit `13` et `37` ; l'application affiche `13:38` après avoir lu ces données et appliqué l'algorithme.
+
+Le parcours complet devient visible :
+
+```text
+HTML
+  ↓ lecture du DOM
+programme JavaScript
+  [application de l'algorithme]
+  ↓ écriture dans le DOM
+HTML mis à jour
+```
+
+L'algorithme lui-même n'a pas changé. Ce qui a changé, c'est que le programme est maintenant connecté à une entrée et à une sortie réelles.
+
+## 12. Donner un nom au comportement
+
+Nous avons maintenant un ensemble d'instructions qui réalise un comportement :
+
+**faire avancer l'horloge d'une minute.**
+
+Comme nous avons donné les noms `hours` et `minutes` à des données, nous allons donner un nom à ce comportement :
+
+`nextMinute`
+
+Dans `clock.js`, plaçons l'ensemble des instructions de l'application dans une fonction portant ce nom :
 
 ```js
-let hours = 13;
-let minutes = 37;
-
 function nextMinute() {
+  let hours = Number(document.querySelector("#clock-hours").textContent);
+  let minutes = Number(document.querySelector("#clock-minutes").textContent);
+
+  minutes = minutes + 1;
+
+  if (minutes === 60) {
+    minutes = 0;
+    hours = hours + 1;
+  }
+
+  if (hours === 24) {
+    hours = 0;
+  }
+
+  document.querySelector("#clock-hours").textContent = hours;
+  document.querySelector("#clock-minutes").textContent = minutes;
 }
 ```
 
-Collez le bloc coupé entre les accolades. `nextMinute` est maintenant le nom donné au comportement qui lit l'heure affichée et la fait avancer d'une minute.
+`nextMinute` est maintenant le nom donné au comportement qui lit l'heure affichée et la fait avancer d'une minute.
 
 **À retenir pour cette première rencontre avec les fonctions :**
 
@@ -1078,7 +1197,20 @@ Collez le bloc coupé entre les accolades. `nextMinute` est maintenant le nom do
 
 C'est tout ce qu'il faut retenir des fonctions dans cette première leçon.
 
-Le HTML contient l'heure affichée. JavaScript contient un comportement nommé `nextMinute`. L'attribut `onclick` du paragraphe relie les deux.
+### Déclencher ce comportement
+
+Notre application possède maintenant une entrée, un traitement et une sortie. Nous avons donné un nom à son comportement. Une question reste ouverte : **qu'est-ce qui déclenche ce comportement ?**
+
+Nous allons choisir un clic sur l'heure. Dans `index.html`, ajoutez l'attribut `onclick` au paragraphe :
+
+```html
+<body>
+  <p id="clock" onclick="nextMinute()"><span id="clock-hours">13</span>:<span id="clock-minutes">37</span></p>
+  <script src="clock.js"></script>
+</body>
+```
+
+Le HTML contient l'heure affichée. JavaScript contient un comportement nommé `nextMinute`. L'attribut `onclick` du paragraphe relie les deux. Plus précisément, le clic ne crée pas l'application : il détermine le moment où son traitement s'exécute.
 
 Nous utilisons `onclick` ici uniquement comme **pont pédagogique**, parce qu'il rend cette première connexion entre l'heure affichée et la fonction particulièrement visible. Ce n'est pas la technique de gestion des événements que le cours retiendra pour développer de véritables applications, ni le modèle recommandé pour du code de production. Le mécanisme normal sera introduit plus tard avec `addEventListener`.
 
@@ -1087,14 +1219,14 @@ Enregistrez les deux fichiers et rechargez la page une dernière fois. Avant le 
 Le parcours devient visible :
 
 ```text
-clic sur l'heure
-→ lecture avec textContent
-→ conversion avec Number
-→ comportement nextMinute
-→ écriture avec textContent
+clic
+  ↓ déclenche
+nextMinute
+  ↓
+lecture → calcul → affichage
 ```
 
-Jusqu'ici, le programme était exécuté lorsque la page se chargeait. Maintenant, un clic sur l'heure déclenche un comportement nommé qui lit les données affichées, applique les règles et met l'interface à jour.
+Nous sommes ainsi passés de l'algorithme au programme, puis du programme à une application munie d'entrées et de sorties. Le clic ajoute enfin l'interaction qui déclenche son comportement.
 
 ---
 
