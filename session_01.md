@@ -699,25 +699,36 @@ Retrouvez le paragraphe dans la réponse. `querySelector` est une fonction acces
 **À saisir**
 
 ```js
+document.querySelector("#clock").textContent
+```
+
+La console répond `"13:37"`. `textContent` permet ici de lire le texte contenu dans ce paragraphe.
+
+**À saisir**
+
+```js
 document.querySelector("#clock").textContent = "13:37";
 ```
 
-`textContent` permet ici de remplacer le texte de ce paragraphe. Observez le résultat **sans recharger la page**.
+Avec une affectation, `textContent` permet de remplacer le texte de ce paragraphe. Observez le résultat **sans recharger la page**.
 
 ### Nommer des valeurs
 
 **À saisir — une seule fois dans cette page chargée**
 
 ```js
-let hours = 13;
-let minutes = 37;
+let hours;
+let minutes;
+
+hours = 13;
+minutes = 37;
 ```
 
-`let` déclare une variable : un nom auquel nous associons une valeur que nous pourrons changer. `hours` et `minutes` sont les noms que nous choisissons. Ici, `13` et `37`, sans guillemets, sont des nombres.
+`let` déclare une variable : un nom auquel nous pourrons associer une valeur et que nous pourrons changer. `hours` et `minutes` sont les noms que nous choisissons. Les deux instructions suivantes leur affectent les nombres `13` et `37`, sans guillemets.
 
 Saisissez `minutes` seul : quelle valeur retrouvez-vous ?
 
-Pour changer ensuite cette variable, utilisez `minutes = 38;`, sans répéter `let`. Pour repartir de zéro, rechargez la page, puis ressaisissez les déclarations. Cela évite les erreurs de redéclaration que certaines consoles signalent quand un nom a déjà été déclaré avec `let`.
+Pour changer ensuite cette variable, utilisez `minutes = 38;`, sans répéter `let`. Pour repartir de zéro, rechargez la page, puis ressaisissez ces instructions. Cela évite les erreurs de redéclaration que certaines consoles signalent quand un nom a déjà été déclaré avec `let`.
 
 ### Composer l'affichage
 
@@ -879,11 +890,14 @@ Remplacez le contenu de `index.html` par cette version. La ligne `script`, plac�
 </html>
 ```
 
-Le fichier `clock.js` contient d'abord deux valeurs valides, puis l'opération et l'affichage :
+Le fichier `clock.js` déclare d'abord deux variables, leur affecte deux valeurs valides, puis contient l'opération et l'affichage :
 
 ```js
-let hours = 13;
-let minutes = 37;
+let hours;
+let minutes;
+
+hours = 13;
+minutes = 37;
 
 minutes = minutes + 1;
 
@@ -920,8 +934,11 @@ Vérifiez les cas `13:37` et `13:59`, puis expliquez pourquoi le bloc doit se tr
 <summary><strong>Vérifier la correction du report des minutes</strong></summary>
 
 ```js
-let hours = 13;
-let minutes = 59;
+let hours;
+let minutes;
+
+hours = 13;
+minutes = 59;
 
 minutes = minutes + 1;
 
@@ -944,8 +961,11 @@ Les deux premiers problèmes ont été corrigés. Il reste un cas limite à déc
 Pour travailler tous sur le même programme, prenez la version ci-dessous comme point de départ dans `clock.js` :
 
 ```js
-let hours = 13;
-let minutes = 59;
+let hours;
+let minutes;
+
+hours = 13;
+minutes = 59;
 
 minutes = minutes + 1;
 
@@ -976,8 +996,11 @@ Que se passe-t-il à la fin de la dernière minute de la journée ?
 <summary><strong>Vérifier le programme après votre recherche</strong></summary>
 
 ```js
-let hours = 23;
-let minutes = 59;
+let hours;
+let minutes;
+
+hours = 23;
+minutes = 59;
 
 minutes = minutes + 1;
 
@@ -1039,8 +1062,11 @@ Cette suite de règles constitue un **algorithme** : une manière précise de r�
 Nous avons ensuite exprimé cet algorithme en JavaScript :
 
 ```js
-let hours = 13;
-let minutes = 37;
+let hours;
+let minutes;
+
+hours = 13;
+minutes = 37;
 
 minutes = minutes + 1;
 
@@ -1119,8 +1145,16 @@ HTML → querySelector → textContent → "13" et "37" → Number → 13 et 37
 Le programme commence maintenant directement à partir de cette entrée réelle :
 
 ```js
-let hours = Number(document.querySelector("#clock-hours").textContent);
-let minutes = Number(document.querySelector("#clock-minutes").textContent);
+let hours;
+let minutes;
+
+hours = document.querySelector("#clock-hours");
+hours = hours.textContent;
+hours = Number(hours);
+
+minutes = document.querySelector("#clock-minutes");
+minutes = minutes.textContent;
+minutes = Number(minutes);
 
 minutes = minutes + 1;
 
@@ -1168,8 +1202,16 @@ Dans `clock.js`, plaçons l'ensemble des instructions de l'application dans une 
 
 ```js
 function nextMinute() {
-  let hours = Number(document.querySelector("#clock-hours").textContent);
-  let minutes = Number(document.querySelector("#clock-minutes").textContent);
+  let hours;
+  let minutes;
+
+  hours = document.querySelector("#clock-hours");
+  hours = hours.textContent;
+  hours = Number(hours);
+
+  minutes = document.querySelector("#clock-minutes");
+  minutes = minutes.textContent;
+  minutes = Number(minutes);
 
   minutes = minutes + 1;
 
