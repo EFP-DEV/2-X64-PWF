@@ -260,10 +260,10 @@ hours;
 minutes;
 ```
 
-Écrivez une représentation de l'heure dans la page :
+Affichez une représentation de l'heure dans la console :
 
 ```js
-document.write(hours + ":" + minutes);
+console.log(hours + ":" + minutes);
 ```
 
 Faites avancer les minutes :
@@ -280,17 +280,17 @@ Enregistrez maintenant le résultat :
 minutes = minutes + 1;
 ```
 
-Écrivez la nouvelle heure :
+Affichez la nouvelle heure dans la console :
 
 ```js
-document.write(hours + ":" + minutes);
+console.log(hours + ":" + minutes);
 ```
 
 ### Constats avant la pause
 
 Répondez sans chercher encore à corriger le programme :
 
-1. Pourquoi deux heures apparaissent-elles ?
+1. Pourquoi deux heures sont-elles affichées dans la console ?
 2. Quelle différence y a-t-il entre `minutes + 1` et `minutes = minutes + 1` ?
 3. Qui fera le prochain `+1` si personne ne saisit une nouvelle instruction ?
 4. Cette heure correspond-elle à l'heure réelle ?
@@ -342,16 +342,16 @@ Dans `script.js` :
 let hours = 13;
 let minutes = 37;
 
-document.write(hours + ":" + minutes);
+console.log(hours + ":" + minutes);
 
 minutes = minutes + 1;
 
-document.write(hours + ":" + minutes);
+console.log(hours + ":" + minutes);
 ```
 
-Ouvrez `index.html` dans le navigateur. Le résultat confirme que deux appels à `document.write` produisent deux sorties.
+Ouvrez `index.html` dans le navigateur, puis ouvrez la console. Le résultat confirme que deux appels à `console.log` produisent deux sorties.
 
-Retirez les deux appels à `document.write`. Nous afficherons uniquement l'état final.
+Retirez les deux appels à `console.log`. Nous afficherons uniquement l'état final.
 
 ## 8. Construire `+1 minute`
 
@@ -363,7 +363,7 @@ let minutes = 37;
 
 minutes = minutes + 1;
 
-document.write(hours + ":" + minutes);
+console.log(hours + ":" + minutes);
 ```
 
 Résultat : `13:38`.
@@ -434,7 +434,7 @@ if (minutes === 60) {
   }
 }
 
-document.write(hours + ":" + minutes);
+console.log(hours + ":" + minutes);
 ```
 
 Le programme avance d'une minute à chaque chargement. Il n'est ni automatique ni synchronisé avec l'heure réelle.
@@ -457,7 +457,7 @@ Expliquez :
 2. pourquoi le premier `if` contient deux affectations ;
 3. pourquoi le second `if` se trouve dans le premier ;
 4. pourquoi les valeurs finales peuvent être justes alors que leur affichage reste incomplet ;
-5. quels mécanismes manquent encore pour remplacer l'affichage, avancer automatiquement et suivre l'heure réelle.
+5. quels mécanismes manquent encore pour afficher l'heure dans la page, avancer automatiquement et suivre l'heure réelle.
 
 ## Conclusion
 

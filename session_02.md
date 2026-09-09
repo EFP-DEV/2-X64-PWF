@@ -1,6 +1,4 @@
 # Session 2 — Pixelator : du document à l'interaction
-
-> **Durée : 3h30, pause comprise.**
 >
 > **Objectif :** construire une grille de quatre pixels et relier un clic à un changement visible en séparant HTML, CSS et JavaScript.
 
