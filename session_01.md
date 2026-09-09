@@ -503,7 +503,7 @@ Gardez la page de Sullivan dans son onglet. Dans un nouveau dossier consacré à
   <title>+1 minute</title>
 </head>
 <body>
-  <p id="clock">L'heure apparaîtra ici.</p>
+  <p id="clock">13:37</p>
 </body>
 </html>
 ```
@@ -699,7 +699,7 @@ Remplacez le contenu de `index.html` par cette version. La ligne `script`, plac�
   <title>+1 minute</title>
 </head>
 <body>
-  <p id="clock">L'heure apparaîtra ici.</p>
+  <p id="clock">13:37</p>
   <script src="clock.js"></script>
 </body>
 </html>
@@ -718,7 +718,7 @@ document.querySelector("#clock").textContent = hours + ":" + minutes;
 
 Enregistrez **les deux fichiers**, puis rechargez la page de l'horloge. Elle doit afficher `13:38`. Rechargez encore : le programme repart des valeurs écrites dans le fichier et produit le même résultat.
 
-À partir de maintenant, modifiez `clock.js`, enregistrez-le et rechargez la page pour chaque essai. La console reste disponible pour lire les erreurs et examiner les valeurs. Si le texte d'attente reste affiché, vérifiez le nom et l'emplacement de `clock.js`, puis les messages de la console.
+À partir de maintenant, modifiez `clock.js`, enregistrez-le et rechargez la page pour chaque essai. La console reste disponible pour lire les erreurs et examiner les valeurs. Si l'heure reste affichée à `13:37`, vérifiez le nom et l'emplacement de `clock.js`, puis les messages de la console.
 
 ## 10. Exprimer les règles avec `if`
 
@@ -847,7 +847,7 @@ Dans `index.html`, ajoutez un bouton entre le paragraphe et la ligne qui charge 
 
 ```html
 <body>
-  <p id="clock">L'heure apparaîtra ici.</p>
+  <p id="clock">13:37</p>
   <button id="next-minute">+1 minute</button>
   <script src="clock.js"></script>
 </body>
