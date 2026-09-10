@@ -2,1288 +2,270 @@
 
 [Programme du module](./index.md)
 
+Ce document conserve le fil du cours : les questions de départ, les notions découvertes et les liens entre elles. Les explorations, démonstrations et exercices se trouvent dans les fiches numérotées. Pour chaque étape, le parcours est le même : **question → activité → bilan → question suivante**.
+
+Le bilan se lit après l’activité et la mise en commun. Il permet ensuite de retrouver les notions sans refaire toutes les manipulations.
+
 ## Sommaire
 
-1. **Explorer une page apparemment vide** : retrouver le contenu dans le HTML, observer les règles CSS et rendre le texte visible.
-2. **Du nom de couleur à RGB** : partir de `white`, `black` et `#000` pour découvrir trois quantités qui décrivent une couleur.
-3. **Décomposer `255` en décimal** : lire la valeur d'un chiffre selon sa position et comprendre le rôle du zéro.
-4. **Répondre en hexadécimal** : relier `255` à `FF`, puis les paires `RR`, `GG` et `BB` aux valeurs RGB.
-5. **Représenter en binaire — prolongement** : retrouver la même valeur avec deux symboles, des bits et un octet.
-6. **Monter jusqu'à la base 20** : lire une convention maya, puis en retrouver une trace dans le français.
-7. **Un système encore plus étrange ?** : pousser plus loin la logique positionnelle, puis démasquer une convention familière.
+1. [Une action visible, une valeur invisible](#1-une-action-visible-une-valeur-invisible) · [Activité 1](./exercices/session_01-1.md)
+2. [Du nom de couleur à trois quantités](#2-du-nom-de-couleur-à-trois-quantités) · [Activité 2](./exercices/session_01-2.md)
+3. [`255` et `FF` : une même quantité, deux écritures](#3-255-et-ff--une-même-quantité-deux-écritures) · [Activité 3](./exercices/session_01-3.md)
+4. [Lire une couleur CSS en hexadécimal](#4-lire-une-couleur-css-en-hexadécimal) · [Activité 4](./exercices/session_01-4.md)
+5. [Binaire — prolongement facultatif](#5-binaire--deux-symboles-les-mêmes-principes--prolongement) · [Activité 5](./exercices/session_01-5.md)
+6. [Monter jusqu’à la base 20](#6-monter-jusquà-la-base-20) · [Activité 6](./exercices/session_01-6.md)
+7. [Un système encore plus étrange ?](#7-un-système-encore-plus-étrange-) · [Activité 7](./exercices/session_01-7.md)
 
 **Interlude — 10 minutes**
 
-8. **Faire avancer le temps** : distinguer calcul, affectation et affichage, puis rencontrer la limite des minutes.
-9. **De la console aux fichiers** : conserver les instructions dans `clock.js`, chargé par `index.html`.
-10. **Exprimer les règles avec `if`** : gérer les reports des minutes et des heures.
-
-**Atelier individuel et fin du cours**
-
-[Exercice +1](./exercices/session_01.md)
-
+8. [Faire avancer le temps](#8-faire-avancer-le-temps) · [Activité 8](./exercices/session_01-8.md)
+9. [De la console aux fichiers](#9-de-la-console-aux-fichiers) · [Activité 9](./exercices/session_01-9.md)
+10. [Exprimer les règles avec `if`](#10-exprimer-les-règles-avec-if) · [Activité 10](./exercices/session_01-10.md)
+11. [Du programme à l’application](#11-du-programme-à-lapplication) · [Activité 11](./exercices/session_01-11.md)
+12. [Donner un nom au comportement](#12-donner-un-nom-au-comportement) · [Activité 12](./exercices/session_01-12.md)
+13. [Réutiliser individuellement](#13-réutiliser-individuellement) · [Activité 13](./exercices/session_01-13.md)
 
 ## 1. Une action visible, une valeur invisible
 
-### Une page apparemment vide
+Une page paraît vide. Cela suffit-il à conclure qu’elle ne contient rien ? Comment retrouver ce qui échappe à l’affichage, puis agir dessus ?
 
-<a href="./exercices/session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Ouvrez le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : vous ne voyez qu'une surface noire. Cela suffit-il à conclure qu'elle ne contient rien ?
+[Activité 1 — Explorer la page, l’inspecteur et la console](./exercices/session_01-1.md)
 
+<a id="bilan-1"></a>
 
-Cliquez sur la page et appliquez **Ctrl + A**. L'invisible failli.
+**Après l’activité.** Ce que l’on voit à l’écran dépend à la fois du contenu et des règles qui le présentent. Le texte était présent dans le HTML, mais sa couleur et celle du fond le rendaient invisible. L’inspecteur permet d’examiner le contenu et les règles CSS pour comprendre ce résultat.
 
-Un meilleur outil existe, l'inspecteur web:
+La console interprète du JavaScript. Un nom inconnu produit une erreur de référence ; une expression mal formée peut produire une erreur de syntaxe. La casse compte : `Window` et `window` ne désignent pas la même chose. Dans la console de cette page, `this` donne accès à l’objet global `window`. Un nom comme `alert` permet de retrouver une fonction ; les parenthèses permettent de l’appeler. Une réponse `undefined` peut accompagner un effet visible.
 
-1. Ouvrez les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**. 
-2. Choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`. 
-3. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution. 
+Décomposer un nom aide à chercher son sens : `DOC + TYPE + HTML` évoque le type d’un document HTML. La déclaration `<!DOCTYPE html>` permet au navigateur d’utiliser son mode de rendu standard. Composer permet ensuite de construire une expression à partir de plusieurs éléments connus.
 
-Quels éléments HTML les structurent ?
+Le navigateur donne accès au document par `document`. Sa structure forme un arbre d’éléments. Dans une expression JavaScript, le point accède à une **propriété** de l’objet situé à gauche ; il ne signifie pas nécessairement descendre dans cet arbre. Dans `document.body.style.backgroundColor`, `body` désigne un élément HTML, mais `style` et `backgroundColor` ne sont pas des éléments supplémentaires.
 
+La propriété `.style` donne accès aux déclarations placées directement dans l’attribut `style` de l’élément. Une couleur définie seulement dans une feuille de style n’y apparaît pas. Les panneaux **Styles** et **Calculé / Computed** permettent d’examiner les règles et les valeurs appliquées. Le nom CSS `background-color` devient `backgroundColor` dans l’accès JavaScript utilisé ici.
 
-Sélectionnez `body` et observez ses règles CSS. Repérez `color` et `background-color` : le texte est noir et le fond aussi.
+Le symbole `=` **affecte** la valeur située à droite à la variable ou à la propriété située à gauche. Les guillemets délimitent une valeur textuelle, appelée **chaîne de caractères**. Le point-virgule marque ici la fin de l’instruction.
 
-Dans les règles affichées par l'inspecteur, remplacez la valeur de `background-color` par `white`. Observez immédiatement la page.
-
-Le texte apparaît-il ? Avez-vous ajouté du contenu ou changé sa présentation ?
-
-Le contenu était présent et lisible dans l'inspecteur, même s'il était invisible sur la page. Une erreur de CSS peut produire cette situation : l'inspecteur permet alors de retrouver le contenu et de chercher ce qui empêche de le voir.
-
-**À retenir** : ce que l'on voit à l'écran dépend à la fois du contenu et des règles qui le présentent. Une page apparemment vide peut contenir du texte.
-
-### Quelqu'un répond ?
-
-Gardez ce document ouvert et passez à la **Console**. Nous allons retrouver cette possibilité de changement à l'aide de JavaScript.
-
-Chaque bloc **À saisir** correspond à un essai séparé. Validez-le avec Entrée, puis observez la réponse avant de poursuivre. Les encadrés **À observer** montrent des réponses ou des éléments à retrouver ; ne les saisissez pas. La présentation exacte des réponses peut varier selon le navigateur.
-
-Commencez par un mot qui vous vient naturellement.
-
-**À saisir**
-
-```js
-hello
-```
-
-**À observer**
-
-> `ReferenceError: hello is not defined`
-
-Essayons autrement.
-
-**À saisir**
-
-```js
-salut
-```
-
-Et avec votre prénom ? Avec `hi` ou `coucou`? Les réponses changent-elles vraiment ? Repérez ce qui reste identique et ce qui reprend le mot saisi. Vous pouvez continuer après une erreur.
-
-Essayons une phrase.
-
-**À saisir**
-
-```js
-is this a trap ?
-```
-
-**À observer**
-
-> `SyntaxError: Unexpected token 'this'`
-
-Cette fois, le message est différent. Il désigne `this`. Essayons le tout seul.
-
-**À saisir**
-
-```js
-this
-```
-
-**À observer**
-
-> `Window { … }`
-
-Dans cette console, quelque chose est accessible avec `this`. Dépliez la réponse. Quels mots reconnaissez-vous ? Les valeurs affichées à côté de ces mots ont-elles toutes la même apparence ?
-
-### Suivre les mots qui apparaissent
-
-La réponse commence par `Window`. Essayons ce nom, avec sa majuscule.
-
-**À saisir**
-
-```js
-Window
-```
-
-**À observer**
-
-> `ƒ Window() { [native code] }`
-
-Retrouvez aussi `window`, avec une minuscule, parmi les propriétés affichées.
-
-**À saisir**
-
-```js
-window
-```
-
-Une seule lettre a changé de casse. Obtenez-vous la même réponse ?
-
-Dans cette liste, un autre nom attire l'attention : `alert`.
-
-**À saisir**
-
-```js
-alert
-```
-
-**À observer**
-
-> `ƒ alert() { [native code] }`
-
-Des parenthèses apparaissent après son nom. Essayons de les reprendre.
-
-**À saisir**
-
-```js
-alert()
-```
-
-Une boîte apparaît-elle ? Fermez-la, puis regardez ce que répond la console.
-
-**À observer**
-
-> `undefined`
-
-Cette réponse peut donc accompagner un effet visible. Essayons de placer entre les parenthèses un élément déjà rencontré.
-
-**À saisir**
-
-```js
-alert(this)
-```
-
-Comparez ce que montre la boîte avec ce que la console montrait pour `this`. Fermez-la, puis reprenez un de vos premiers essais.
-
-**À saisir**
-
-```js
-alert(hello)
-```
-
-Reconnaissez-vous l'erreur ? Ajouter les parenthèses a-t-il suffi à faire reconnaître `hello` ?
-
-### Que dit le HTML ?
-
-Revenez au HTML de la page dans l'inspecteur. Sa première ligne contient une indication comme celle-ci.
-
-**À observer dans le HTML**
-
-```html
-<!DOCTYPE html>
-```
-
-Décomposer consiste à séparer un ensemble en parties plus petites pour chercher le sens de chacune :
-
-```text
-DOC + TYPE + HTML
-```
-
-`DOC` est une abréviation courante du mot anglais *document*. Cette déclaration indique un document HTML ; elle permet aussi au navigateur d'utiliser son mode de rendu standard.
-
-Cette manière de raisonner est l'une des mécaniques de la programmation. Face à un nom, une instruction ou un problème, on peut le décomposer en éléments plus simples. On peut ensuite effectuer le mouvement inverse : composer plusieurs éléments pour construire une expression plus précise.
-
-Le navigateur donne justement accès au document de la page par le nom `document`. Revenez dans la console et commencez à le saisir. Observez les propositions pendant la frappe, puis validez.
-
-**À saisir**
-
-```js
-document
-```
-
-La console donne accès au document de la page. Comme dans l'inspecteur, on y retrouve une structure en arbre : le document contient des éléments qui peuvent eux-mêmes en contenir d'autres.
-
-### Où chercher la couleur ?
-
-Ajoutez un point après `document`, **sans valider cette expression incomplète**, et observez les suggestions.
-
-Le point permet d'accéder à une **propriété** : une information ou une possibilité accessible depuis l'objet situé à gauche. Il ne signifie pas nécessairement « descendre d'un niveau dans l'arbre HTML ».
-
-Vous avez repéré l'élément `body` dans l'inspecteur. Retrouvons-le.
-
-**À saisir**
-
-```js
-document.body
-```
-
-Saisissez ensuite le début `document.body.` et regardez les suggestions. Y trouvez-vous `style` ? Complétez avant de valider.
-
-**À saisir**
-
-```js
-document.body.style
-```
-
-Continuez avec `document.body.style.`. Parcourez les suggestions. Quels noms évoquent le fond ? La couleur ?
-
-**À saisir**
-
-```js
-document.body.style.backgroundColor
-```
-
-Comparez `backgroundColor` avec `background-color` en CSS. Où est passé le tiret ? Quelle lettre est devenue majuscule ?
-
-La réponse peut être `""`, une chaîne vide. Pourtant, le fond est blanc. Pour comprendre cette différence, revenez dans l'inspecteur et ajoutez directement un attribut `style` à l'élément `body` :
-
-```html
-<body style="background-color: white;">
-```
-
-Le fond reste blanc. Revenez dans la console et exécutez à nouveau exactement la même expression.
-
-**À saisir**
-
-```js
-document.body.style.backgroundColor
-```
-
-**À observer**
-
-> `"white"`
-
-Entre les deux essais, la couleur visible n'a pas changé. Seul l'endroit où elle est déclarée a changé. Nous avons ainsi vérifié que `.style` donne accès aux déclarations placées directement sur l'élément, dans son attribut `style`. Une couleur définie seulement dans une feuille de style n'y apparaît pas. Les panneaux **Styles** et **Calculé / Computed** de l'inspecteur permettent d'examiner les règles et les valeurs appliquées.
-
-**À retenir** : dans cette expression, `body` désigne un élément HTML ; `style` et `backgroundColor` donnent accès à son style. Ce ne sont pas deux éléments HTML supplémentaires.
-
-### Affecter une valeur
-
-Nous pouvons maintenant demander au navigateur de changer le fond depuis la console.
-
-JavaScript utilise le symbole `=` pour **affecter** la valeur située à droite à la variable ou à la propriété située à gauche. Ici, `"black"` est une valeur textuelle que le navigateur sait interpréter comme une couleur.
-
-**À saisir**
-
-```js
-document.body.style.backgroundColor = "black";
-```
-
-Le fond redevient noir. Le texte noir disparaît à nouveau.
-
-**À saisir**
-
-```js
-document.body.style.backgroundColor = "white";
-```
-
-Le texte réapparaît. La ligne a modifié une propriété du document. Le point-virgule marque ici la fin de l'instruction.
-
-Revenez dans l'inspecteur : dans l'attribut `style` de `body`, retrouvez la valeur que JavaScript vient de modifier.
-
-**À vous** : remettez le fond en noir, puis rendez le texte blanc. La propriété CSS qui règle la couleur du texte a déjà été rencontrée. Cherchez son nom et construisez l'instruction sans recopier celle du fond.
+Nous pouvons agir sur une couleur. Mais pourquoi cette couleur peut-elle s’écrire avec un mot ou avec des chiffres ?
 
 ## 2. Du nom de couleur à trois quantités
 
-Dans les règles CSS et les manipulations précédentes, vous avez rencontré plusieurs écritures :
+Dans le CSS, nous rencontrons `white`, `black` et `#000`. Quelles conventions permettent au navigateur de comprendre ces écritures ?
 
-```css
-white
-black
-#000
-```
+[Activité 2 — Changer l’écriture du blanc et explorer RGB](./exercices/session_01-2.md)
 
-Pourquoi une couleur peut-elle être écrite avec un mot comme `white`, mais aussi avec quelque chose comme `#000` ?
+<a id="bilan-2"></a>
 
-CSS possède des noms de couleurs prédéfinis. Leur signification est déjà connue du navigateur, notamment :
+**Après l’activité.** CSS possède des noms de couleurs prédéfinis, comme `white`, `black`, `red`, `blue` et `navy`. Il propose aussi des représentations structurées. Le blanc peut être décrit par `white`, `rgb(255, 255, 255)` ou `#ffffff`.
 
-```text
-white
-black
-red
-blue
-navy
-```
+Un écran émet de la lumière. On peut imaginer trois variateurs, un rouge, un vert et un bleu, dont les lumières se superposent : c’est la **synthèse additive**. Ajouter des pigments tend à absorber davantage de lumière ; ajouter de la lumière sur un écran rend le résultat plus lumineux.
 
-`#000` n'est pas un nom. CSS fournit aussi des manières structurées de représenter une couleur. Ainsi, le blanc peut s'écrire de trois façons :
+Dans la représentation RGB utilisée ici, les trois quantités suivent toujours l’ordre **rouge, vert, bleu**. Pour chaque canal, `0` représente l’absence de cette composante et `255` son maximum. Trois canaux à zéro donnent du noir ; trois canaux au maximum donnent du blanc.
 
-```css
-white
-rgb(255, 255, 255)
-#ffffff
-```
-
-### RGB : rouge, vert, bleu
-
-Un écran ne mélange pas de la peinture : il émet de la lumière. On peut imaginer trois variateurs, un rouge, un vert et un bleu, dont les lumières se superposent.
-
-Le geste est presque l'inverse de celui d'une personne qui mélange artisanalement des pigments. Ajouter des pigments tend à absorber davantage de lumière et à assombrir le mélange ; sur un écran, ajouter de la lumière rend le résultat plus lumineux. C'est la **synthèse additive**.
-
-`rgb(...)` est composé de trois quantités, toujours placées dans le même ordre :
-
-```text
-red   green   blue
-255   255     255
-```
-
-Chaque quantité indique l'intensité d'un canal : `0` correspond à une absence de cette composante et `255` à son intensité maximale.
-
-```text
-rgb(255, 0, 0)       rouge
-rgb(0, 255, 0)       vert
-rgb(0, 0, 255)       bleu
-rgb(0, 0, 0)         noir
-rgb(255, 255, 255)   blanc
-```
-
-Sur la page de Sullivan, essayez séparément ces trois instructions. Si vous avez rendu le texte blanc, affectez d'abord `"black"` à `document.body.style.color` pour le lire sur le fond blanc.
-
-```js
-document.body.style.backgroundColor = "white";
-```
-
-```js
-document.body.style.backgroundColor = "rgb(255, 255, 255)";
-```
-
-```js
-document.body.style.backgroundColor = "#ffffff";
-```
-
-Les écritures changent-elles ? La couleur affichée change-t-elle ?
-
-Ces trois valeurs décrivent le même blanc. Alignons les deux écritures structurées, sans encore chercher à lire les lettres :
-
-```text
-rgb(255, 255, 255)
-
-255   255   255
- FF    FF    FF
-
-#ffffff
-```
-
-La question devient alors :
-
-> Comment `255` et `FF` peuvent-ils représenter la même quantité ?
+La comparaison du blanc rapproche trois valeurs `255` de trois paires `FF`. Comment peuvent-elles représenter les mêmes quantités ?
 
 ## 3. `255` et `FF` : une même quantité, deux écritures
 
-Pour répondre à la question posée par CSS, comparons les deux systèmes employés :
+Peut-on conserver une quantité tout en changeant les symboles qui servent à l’écrire ?
+
+[Activité 3 — Décomposer `255` et `FF`](./exercices/session_01-3.md)
+
+<a id="bilan-3"></a>
+
+**Après l’activité.** Le système décimal utilise dix symboles, de `0` à `9`. Le système hexadécimal en utilise seize : les mêmes chiffres, puis `A`, `B`, `C`, `D`, `E` et `F`, qui représentent les quantités 10 à 15.
+
+Les deux systèmes sont **positionnels** : la contribution d’un chiffre dépend de sa position. Les poids sont des puissances de la base : 1, 10, 100… en décimal ; 1, 16, 256… en hexadécimal.
 
 ```text
-Décimal                     Hexadécimal
-
-10 symboles                 16 symboles
-0 1 2 3 4 5 6 7 8 9        0 1 2 3 4 5 6 7 8 9 A B C D E F
-```
-
-En hexadécimal, les lettres `A`, `B`, `C`, `D`, `E` et `F` représentent les quantités 10 à 15. Les deux systèmes sont **positionnels** : la valeur d'un symbole dépend de sa position. En décimal, les positions pèsent ici 100, 10 et 1 ; en hexadécimal, elles pèsent 16 et 1.
-
-```text
-Décimal                     Hexadécimal
-
-255                         FF
-
-2 × 100                     15 × 16
-+ 5 × 10                    + 15 × 1
-+ 5 × 1
-
-= 255                       = 255
-```
-
-Les symboles diffèrent, mais les deux calculs aboutissent à la même quantité :
-
-```text
+255₁₀ = 2 × 100 + 5 × 10 + 5 × 1
+FF₁₆  = 15 × 16 + 15 × 1
 255₁₀ = FF₁₆
 ```
 
-Les petits indices indiquent le système utilisé : 10 pour le décimal et 16 pour l'hexadécimal. Ils servent ici à lire les exemples, pas à écrire du CSS ou du JavaScript.
+Les petits indices indiquent le système utilisé pour lire ces exemples. Ils ne font pas partie de la syntaxe CSS ou JavaScript.
+
+Nous savons maintenant lire une paire hexadécimale. Il reste à comprendre comment CSS organise les trois paires d’une couleur.
 
 ## 4. Lire une couleur CSS en hexadécimal
 
-Revenons immédiatement aux deux écritures du blanc :
+Comment passer d’une écriture comme `#336699` aux trois quantités RGB ? Et pourquoi certaines couleurs ne comportent-elles que trois chiffres ?
 
-```text
-rgb(255, 255, 255)
-#ffffff
-```
+[Activité 4 — Décoder, prédire et modifier des couleurs](./exercices/session_01-4.md)
 
-Dans `rgb(...)`, chaque canal vaut `255`. En hexadécimal, la même quantité s'écrit `FF` :
+<a id="bilan-4"></a>
 
-```text
-rgb(255, 255, 255)
-     FF   FF   FF
-     RR   GG   BB
-```
+**Après l’activité.** Une couleur CSS sur six chiffres suit la convention `#RRGGBB`. Les paires représentent, dans cet ordre, le rouge, le vert et le bleu. Chacune va de `00` à `FF`, soit de 0 à 255. Le croisillon annonce cette écriture au navigateur ; les lettres peuvent être en minuscules ou en majuscules.
 
-Une couleur CSS sur six chiffres suit la convention `#RRGGBB` :
+L’écriture abrégée `#RGB` répète chaque chiffre pour retrouver `#RRGGBB`. Ainsi, `#123` signifie `#112233`, pas `#000123`.
 
-| Paire | Signification | Intervalle décimal |
-|---|---|---:|
-| `RR` | Rouge | 0–255 |
-| `GG` | Vert | 0–255 |
-| `BB` | Bleu | 0–255 |
+**Une valeur n’est pas sa représentation.** La représentation peut changer sans changer la valeur représentée. JavaScript affecte ici du texte à une propriété de style ; le navigateur interprète ensuite ce texte comme une couleur.
 
-Chaque paire hexadécimale va de `00` à `FF`, comme chaque quantité de `rgb(...)` va de `0` à `255`. Le croisillon `#` annonce cette écriture hexadécimale au navigateur. Les trois paires suivent le même ordre que les canaux de `rgb(...)` : rouge, vert, bleu.
+Les modifications réalisées dans l’inspecteur et dans la console n’ont pas changé les fichiers d’origine. Un rechargement reconstruit la page depuis ces fichiers ; les instructions de la console ne sont pas rejouées automatiquement.
 
-Décomposons `#336699` :
-
-```text
-33₁₆ = 3 × 16 + 3 = 51₁₀
-66₁₆ = 6 × 16 + 6 = 102₁₀
-99₁₆ = 9 × 16 + 9 = 153₁₀
-```
-
-Les valeurs des canaux RGB sont donc `(51, 102, 153)`. Ces deux déclarations CSS décrivent la même couleur :
-
-```css
-color: #336699;
-color: rgb(51, 102, 153);
-```
-
-Dans ce système, `#000000` donne du noir et `#ffffff` donne du blanc. Les lettres hexadécimales peuvent être écrites en minuscules ou en majuscules.
-
-### Pourquoi seulement trois chiffres dans `#000` ?
-
-CSS accepte aussi une écriture abrégée `#RGB`. Chaque chiffre est répété pour retrouver l'écriture à six chiffres :
-
-```text
-#000 = #000000
-#fff = #ffffff
-#369 = #336699
-```
-
-La règle est donc :
-
-```text
-#RGB → #RRGGBB
-```
-
-Ce raccourci suit une règle précise : `#123` signifie `#112233`, pas `#000123`.
-
-**À retenir** : une valeur n'est pas sa représentation. La représentation change ; la valeur représentée peut rester identique.
-
-**À vous** : prédisez ce que représentera `#ff0000`, puis vérifiez en l'affectant au fond de la page. Quelle paire devez-vous modifier pour ajouter du bleu en conservant la valeur du rouge ?
-
-### Changer une représentation
-
-Revenez à la page de Sullivan. Utilisez ce que vous avez découvert pour réaliser les trois manipulations suivantes, sans reprendre une ligne complète du cours :
-
-1. Rendez le texte blanc sur fond noir.
-2. Remplacez l'écriture de ce blanc par une autre écriture équivalente. Vérifiez que le résultat visuel reste identique.
-3. Expliquez à votre voisin quelle propriété vous avez modifiée et pourquoi le texte est visible.
-
-Nous avons relié une convention à une action observable : JavaScript affecte une valeur textuelle à une propriété de style, puis le navigateur interprète cette valeur pour présenter le document.
-
-Avant de poursuivre, **rechargez la page de Sullivan**. Qu'est-ce qui revient à son état de départ ?
-
-Les modifications faites dans l'inspecteur ou dans la console n'ont pas modifié le fichier HTML ni sa feuille de style d'origine. Recharger la page la reconstruit à partir de ses fichiers ; les instructions saisies dans la console ne sont pas rejouées automatiquement.
+Le décimal et l’hexadécimal utilisent des nombres différents de symboles. Jusqu’où peut-on réduire ce nombre ?
 
 ## 5. Binaire : deux symboles, les mêmes principes — prolongement
 
-Le décimal utilise dix symboles et l'hexadécimal en utilise seize. Un système pourrait-il en utiliser moins ?
+Deux symboles suffiraient-ils pour retrouver les mêmes valeurs ? Ce prolongement est facultatif et n’est pas nécessaire pour construire l’horloge.
 
-Le système binaire n'utilise que deux symboles :
+[Activité 5 — Retrouver une valeur avec des bits](./exercices/session_01-5.md)
 
-```text
-0 1
-```
+<a id="bilan-5"></a>
 
-Un **bit** est un chiffre binaire. Un **octet** contient huit bits ; interprétés comme un entier non signé, ces huit bits permettent de représenter les valeurs de 0 à 255.
+**Après l’activité.** Le binaire utilise les chiffres `0` et `1`. Un **bit** est un chiffre binaire ; un **octet** contient huit bits. Interprétés comme un entier non signé, ces huit bits représentent les valeurs de 0 à 255.
 
-| Position | `2⁷` | `2⁶` | `2⁵` | `2⁴` | `2³` | `2²` | `2¹` | `2⁰` |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| Poids | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
-| Bit | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
-
-```text
-11111111₂
-= 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1
-= 255₁₀
-```
-
-Nous retrouvons donc le lien entre les trois systèmes :
+Les poids successifs sont 1, 2, 4, 8, 16, 32, 64 et 128. Quatre bits couvrent les valeurs de 0 à 15, comme un chiffre hexadécimal ; huit bits correspondent donc à deux chiffres hexadécimaux.
 
 ```text
 11111111₂ = 255₁₀ = FF₁₆
 ```
 
-La même valeur peut être représentée ainsi :
-
-```text
-255
-FF
-11111111
-```
-
-Quatre bits couvrent les valeurs de 0 à 15, comme un chiffre hexadécimal. Huit bits correspondent donc à deux chiffres hexadécimaux. Le binaire prolonge ici notre réponse à la question des couleurs ; il n'est pas nécessaire de savoir effectuer toutes les conversions pour poursuivre.
-
-**À vous** : dans `00000001`, quel bit faut-il changer pour représenter trois ? Expliquez en utilisant les poids des positions.
+Les mêmes principes fonctionnent avec deux, dix ou seize symboles. Pourquoi pas vingt ?
 
 ## 6. Monter jusqu'à la base 20
 
-Nous avons utilisé des systèmes fondés sur des quantités différentes de symboles :
+Une convention qui nous est inconnue paraît difficile à lire. Est-ce le nombre qui est étrange, ou la manière de le représenter ?
 
-```text
-2 symboles
-10 symboles
-16 symboles
-```
+[Activité 6 — Déchiffrer une écriture maya, puis écouter le français](./exercices/session_01-6.md)
 
-Après être descendus jusqu'à deux, inversons la direction : pourquoi pas vingt ? Un système en **base 20** est appelé vigésimal.
+<a id="bilan-6"></a>
 
-Certaines civilisations comptaient en base 20. On peut imaginer qu'elles utilisaient aussi leurs doigts de pied — les chaussettes n'avaient peut-être pas encore gagné.
+**Après l’activité.** Un système en base 20 est appelé **vigésimal**. Dans la convention positionnelle de l’exemple, les poids successifs sont 1, 20, 400 et 8 000. Lire l’écriture suppose de connaître les symboles, leur valeur, les positions et le sens de lecture. Le zéro conserve une position même lorsque sa contribution au total est nulle.
 
-### Une convention devenue étrangère
+L’objectif n’est pas d’apprendre la numération maya, mais de reconnaître ce qui permet de comprendre une représentation. Le français n’est pas entièrement vigésimal, mais `quatre-vingts` et les nombres qui suivent conservent des traces de cette organisation.
 
-Dans un système positionnel en base 20, les poids des positions sont notamment 1, 20, 400 et 8 000. Observez maintenant cette écriture maya sans chercher à deviner :
-
-<img src="./asset/mayan_number.png" alt="Écriture maya d'un nombre" width="161">
-
-Quelle valeur voyez-vous ? Qu'est-ce qui vous manque pour la lire ?
-
-<details>
-<summary><strong>Révéler les positions et la valeur</strong></summary>
-
-<p>Pour cet exemple de numération positionnelle en base 20, les positions valent successivement 1, 20, 400 et 8 000.</p>
-
-<table>
-  <thead>
-    <tr><th scope="col">Position</th><th scope="col">Symbole maya</th><th scope="col">Décomposition</th><th scope="col">Valeur</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>8 000</td><td>Position non écrite</td><td>0 × 8 000</td><td>0</td></tr>
-    <tr><td>400</td><td><img src="./asset/mayan_symbol_dots.svg" alt="Quatre points mayas" width="120"></td><td>4 × 400</td><td>1 600</td></tr>
-    <tr><td>20</td><td><img src="./asset/mayan_symbol_shell.svg" alt="Coquillage maya, zéro" width="120"></td><td>0 × 20</td><td>0</td></tr>
-    <tr><td>1</td><td><img src="./asset/mayan_symbol_fourteen.svg" alt="Quatorze : quatre points et deux barres mayas" width="120"></td><td>14 × 1</td><td>14</td></tr>
-    <tr><th scope="row">Total</th><td></td><td></td><td><strong>1 614</strong></td></tr>
-  </tbody>
-</table>
-
-</details>
-
-L'objectif n'est pas d'apprendre la numération maya. Ces symboles paraissent étranges parce que nous ne partageons plus la convention qui permet de les lire : des symboles, des positions et des règles de lecture.
-
-### Une convention vraiment étrangère ?
-
-Comptez maintenant les dizaines en français :
-
-```text
-dix
-vingt
-trente
-quarante
-cinquante
-soixante
-...
-quatre-vingts
-```
-
-Arrêtons-nous sur ce dernier nom :
-
-```text
-quatre × vingt
-```
-
-Écoutons aussi la manière dont le français compose quelques valeurs :
-
-```text
-quatre-vingt-dix    quatre × vingt + dix
-quatre-vingt-seize  quatre × vingt + seize
-soixante-dix        soixante + dix
-```
-
-Le français n'est pas un système de numération entièrement en base 20, mais `quatre-vingts` et les nombres qui suivent en conservent des traces. Une structure vigésimale n'est donc pas aussi exotique qu'elle le paraissait dans l'image maya.
+Une base peut donc sembler étrangère tout en laissant des traces dans nos usages. En utilisons-nous une plus grande encore ?
 
 ## 7. Un système encore plus étrange ?
 
-Pour finir, imaginons un système qui semble vraiment absurde : la base 60, ou système **sexagésimal**. Chaque position peut prendre soixante valeurs avant de revenir à zéro et de provoquer un report.
+Que se passerait-il si une position pouvait prendre soixante valeurs avant de provoquer un report ?
 
-Trichons volontairement pendant le comptage. Au lieu d'inventer soixante symboles, écrivons les valeurs de 0 à 59 avec nos chiffres décimaux habituels, puis collons les positions sans séparateur. Cette démonstration produit une suite d'apparence familière, mais de plus en plus ridicule :
+[Activité 7 — Démasquer une convention familière](./exercices/session_01-7.md)
 
-```text
-1
-2
-...
-9
-10
-11
-...
-19
-20
-...
-50
-51
-...
-59
-100
-101
-...
-159
-200
-...
-559
-1000
-...
-5959
-10000
-```
+<a id="bilan-7"></a>
 
-Après `59`, soudain `100`. Après `159`, soudain `200`. Finalement, `5959` devient `10000`.
+**Après l’activité.** Un système en base 60 est appelé **sexagésimal**. Les minutes et les secondes de nos représentations du temps utilisent un report après 59. Nous lisons déjà ces champs sans devoir inventer soixante nouveaux symboles : nous les écrivons avec les chiffres décimaux et les séparons.
 
-> Ce système de numération n'a aucun sens.
+Le séparateur rend lisible l’organisation des champs. Le report dépend de la convention choisie. Le comptage artificiel de l’activité illustre cette règle ; il ne reproduit pas une écriture babylonienne historique.
 
-Cette écriture est construite pour exposer la règle positionnelle avec des chiffres connus. Elle ne prétend pas que les numérations babyloniennes historiques étaient littéralement écrites ainsi.
-
-Ajoutons maintenant le séparateur que nous avions volontairement caché :
-
-```text
-1359 → 13:59
-```
-
-Cette représentation n'est plus étrangère. Chaque jour, nous lisons des minutes et des secondes qui vont de 0 à 59 avant de provoquer un report.
-
-
----
+Nous allons appliquer cette idée à une horloge de 24 heures. La limite de ses minutes sera 60 et celle de ses heures sera 24.
 
 ## ⏸️ Interlude — pause de 10 minutes
 
-> **On s'arrête ici pendant 10 minutes.**
->
-> Éloignez-vous de l'écran, respirez, buvez un peu d'eau. À la reprise, nous ferons avancer l'horloge de `+1` minute.
->
-> **Minuteur : 10:00** · Reprise ensuite avec la section suivante.
-
----
+La reprise commence avec l’activité 8 : représenter une heure par deux valeurs nommées.
 
 ## 8. Faire avancer le temps
 
+`13:59` n’est pas le temps lui-même : c’est une représentation composée de deux champs. Comment nommer leurs valeurs et les réunir dans une écriture lisible ?
 
-Une horloge est donc aussi une représentation. `13:59` n'est pas le temps lui-même : c'est une écriture conventionnelle composée de deux champs séparés par `:`.
+[Activité 8 — Nommer les heures et les minutes dans la console](./exercices/session_01-8.md)
 
-Notre programme représentera une horloge de **24 heures**. Il partira d'une heure valide et lui ajoutera **exactement une minute**. Il ne cherchera pas l'heure réelle et n'avancera pas automatiquement avec les secondes.
+<a id="bilan-8"></a>
 
-Pour commencer, `7:5` sera accepté comme représentation de 7 heures et 5 minutes. Nous distinguerons ensuite ces valeurs de leur présentation sur deux chiffres, `07:05`.
+**Après l’activité.** `let` déclare une variable : un nom auquel nous pouvons associer une valeur et que nous pouvons changer. Déclarer le nom et lui affecter une valeur sont deux opérations distinctes. Une nouvelle affectation suffit pour changer une variable déjà déclarée.
 
-### Préparer un endroit où afficher l'heure
+Avec deux nombres, `+` effectue une addition. Dans les expressions de cette séance, lorsqu’un opérande est une chaîne de caractères, il assemble du texte : c’est la **concaténation**. Le nombre est alors converti en texte.
 
-Gardez la page de Sullivan dans son onglet. Dans un nouveau dossier consacré à l'horloge, créez un fichier `index.html` contenant :
+La console interactive montre la valeur de l’expression saisie. Un fichier JavaScript ne montre pas spontanément le résultat de chacune de ses expressions. Comment conserver nos essais et continuer à observer leurs résultats ?
 
-```html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>+1 minute</title>
-</head>
-<body>
-  <p id="clock">13:37</p>
-</body>
-</html>
-```
+## 9. De la console aux fichiers
 
-Enregistrez le fichier, puis ouvrez-le dans le navigateur. Ouvrez la console de **cet onglet**.
+Comment transformer les essais de la console en un programme conservé dans des fichiers ? Et suffit-il d’écrire `+ 1` pour faire avancer une horloge ?
 
-Le paragraphe `p` fournit un emplacement pour l'affichage. Son attribut `id="clock"` permet de le retrouver.
+[Activité 9 — Créer `clock.js`, observer l’état et trouver une limite](./exercices/session_01-9.md)
 
-**À saisir**
+<a id="bilan-9"></a>
 
-```js
-document.querySelector("#clock")
-```
+**Après l’activité.** L’attribut `src` de la balise `script` indique le fichier JavaScript à charger. `console.log(...)` demande explicitement d’écrire une valeur dans la console. Les chaînes peuvent y apparaître sans guillemets : leur nature n’a pas changé.
 
-Retrouvez le paragraphe dans la réponse. `querySelector` est une fonction accessible depuis `document`. Les parenthèses servent à l'appeler ; nous lui passons le texte `"#clock"`, un sélecteur qui désigne l'élément dont l'identifiant est `clock`.
+`minutes + 1` calcule un résultat. L’affectation `minutes = minutes + 1` conserve ce résultat dans la variable. Au rechargement, le programme repart des valeurs initiales écrites dans son fichier.
 
-**À saisir**
-
-```js
-document.querySelector("#clock").textContent
-```
-
-La console répond `"13:37"`. `textContent` permet ici de lire le texte contenu dans ce paragraphe.
-
-**À saisir**
-
-```js
-document.querySelector("#clock").textContent = "13:37";
-```
-
-Avec une affectation, `textContent` permet de remplacer le texte de ce paragraphe. Observez le résultat **sans recharger la page**.
-
-### Nommer des valeurs
-
-**À saisir — une seule fois dans cette page chargée**
-
-```js
-let hours;
-let minutes;
-
-hours = 13;
-minutes = 37;
-```
-
-`let` déclare une variable : un nom auquel nous pourrons associer une valeur et que nous pourrons changer. `hours` et `minutes` sont les noms que nous choisissons. Les deux instructions suivantes leur affectent les nombres `13` et `37`, sans guillemets.
-
-Saisissez `minutes` seul : quelle valeur retrouvez-vous ?
-
-Pour changer ensuite cette variable, utilisez `minutes = 38;`, sans répéter `let`. Pour repartir de zéro, rechargez la page, puis ressaisissez ces instructions. Cela évite les erreurs de redéclaration que certaines consoles signalent quand un nom a déjà été déclaré avec `let`.
-
-### Composer l'affichage
-
-Avant de réunir les heures et les minutes, essayez séparément :
-
-```js
-37 + 1
-```
-
-```js
-"37" + 1
-```
-
-```js
-"13" + ":" + "37"
-```
-
-**À observer**
-
-> Les résultats sont respectivement `38`, `"371"` et `"13:37"`.
-
-**À retenir** : avec deux nombres, `+` effectue une addition. Lorsqu'un des deux opérandes est une chaîne de caractères, il assemble du texte : c'est la **concaténation**. Dans nos exemples, le nombre est alors converti en texte.
-
-Prédisez maintenant le résultat de `hours + minutes`, puis de `hours + ":" + minutes`. Vérifiez dans la console.
-
-**À vous** : remplacez la valeur fixe `"13:37"` de l'instruction d'affichage par une expression qui utilise `hours`, `minutes` et le séparateur `":"`.
-
-<details>
-<summary><strong>Vérifier l'instruction après votre essai</strong></summary>
-
-```js
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-</details>
-
-### Calculer n'est pas affecter
-
-Pour partir tous du même état, saisissez ces instructions dans la console de l'horloge. Les variables ont déjà été déclarées dans la section précédente.
-
-```js
-hours = 13;
-minutes = 37;
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-**À saisir**
-
-```js
-minutes + 1
-```
-
-La console calcule `38`. Saisissez maintenant `minutes` seul : la variable contient-elle `37` ou `38` ?
-
-Pour conserver le résultat dans la variable, il faut une affectation.
-
-**À saisir**
-
-```js
-minutes = minutes + 1;
-```
-
-Le côté droit utilise la valeur actuelle de `minutes` et lui ajoute un. Le résultat remplace ensuite la valeur associée au nom situé à gauche. Saisissez à nouveau `minutes` pour le vérifier.
-
-### Affecter n'est pas afficher
-
-Regardez maintenant la page. Pourquoi indique-t-elle encore `13:37`, alors que `minutes` vaut `38` ?
-
-La variable a changé, mais nous n'avons pas demandé au navigateur de remplacer le texte du paragraphe. L'instruction d'affichage avait utilisé les valeurs disponibles au moment de son exécution ; elle n'a pas créé de liaison automatique avec les variables.
-
-**À vous** : exécutez à nouveau l'instruction qui affiche l'heure. Vérifiez que la page montre maintenant `13:38`.
-
-**À retenir** : nous distinguons l'**état** du programme, les **règles** qui le modifient et l'**affichage** que nous construisons à partir de cet état.
-
-| Ce que nous manipulons | Dans notre horloge |
+| Responsabilité | Dans cette étape |
 |---|---|
-| État | Les valeurs de `hours` et de `minutes` |
-| Règles | Ajouter une minute, puis gérer les limites des champs |
-| Affichage | Composer un texte et le placer dans le paragraphe |
+| HTML | Décrire la structure du document et charger le programme |
+| CSS | Présenter les éléments ; aucune mise en forme n’est nécessaire ici |
+| JavaScript | Représenter l’état, appliquer les règles et produire des résultats |
 
-### Une valeur, plusieurs présentations
+Cette **séparation des responsabilités** concerne ce que chaque partie prend en charge. Des fichiers séparés aident à l’organiser. Dans JavaScript, nous distinguons déjà l’état, le calcul et son observation.
 
-Saisissez :
+Une valeur numérique et sa présentation restent distinctes : les zéros de `07:05` concernent l’affichage. Notre exercice accepte `7:5` et ne demande pas le format sur deux chiffres.
 
-```js
-hours = 7;
-minutes = 5;
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-L'affichage indique `7:5`. Faudrait-il changer les nombres stockés pour afficher `07:05` ?
-
-Les zéros supplémentaires concernent la présentation : les valeurs restent 7 heures et 5 minutes. Le choix d'une représentation lisible fait partie du travail sur l'interface. Dans cet exercice, nous gardons l'affichage simple ; le format sur deux chiffres n'est pas demandé.
-
-### Trouver la limite
-
-Nous allons maintenant avancer d'une minute à partir de différentes heures. À chaque essai, choisissez deux valeurs de départ valides : `hours` entre 0 et 23, `minutes` entre 0 et 59.
-
-Exécutez le bloc complet pour chaque essai, en changeant uniquement ses deux premières valeurs :
-
-```js
-hours = 13;
-minutes = 37;
-
-minutes = minutes + 1;
-
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-1. `+ 1` fonctionne-t-il de la même manière avec toutes les valeurs de `minutes` ?
-2. Toutes les valeurs affichées sont-elles correctes pour une horloge ?
-3. Pouvez-vous trouver une valeur de départ qui fait que le programme ne se comporte plus comme une horloge ?
-4. L'addition s'est-elle trompée, ou manque-t-il une règle propre à notre représentation du temps ?
-
-<details>
-<summary><strong>Révéler le résultat de l'observation</strong></summary>
-
-Avec 59 minutes au départ, l'addition produit 60. Le calcul est correct, mais ce résultat dépasse la limite du champ des minutes de notre horloge. Les heures restent inchangées.
-
-</details>
-
-<details>
-<summary><strong>Révéler le bilan</strong></summary>
-
-Le programme présente donc deux problèmes liés : les minutes peuvent dépasser `59` et les heures ne changent jamais. Pour se comporter comme une horloge, le changement des heures doit dépendre de la valeur atteinte par les minutes.
-
-</details>
-
-## 9. Un programme dans deux fichiers
-
-Jusqu'ici, les instructions JavaScript ont été saisies directement dans la console. Nous allons les conserver dans un fichier `clock.js`, placé **dans le même dossier** que `index.html`.
-
-Reprenons les responsabilités des trois langages :
-
-| Langage | Responsabilité | Dans notre horloge |
-|---|---|---|
-| **HTML** | Décrire les éléments et la structure du document | Fournir le paragraphe et charger le programme |
-| **CSS** | Définir la présentation des éléments | Pourrait régler la typographie, les couleurs et la disposition |
-| **JavaScript** | Représenter l'état, appliquer les règles et provoquer les changements | Conserver les heures et les minutes, effectuer `+1` et mettre à jour le texte |
-
-Cette distinction introduit la **séparation des responsabilités** (*Separation of Concerns*, ou SoC). Des fichiers séparés aident à organiser le travail, mais la séparation concerne d'abord ce que chaque partie prend en charge. Dans le même fichier JavaScript, nous pouvons déjà distinguer l'initialisation de l'état, le calcul et l'affichage.
-
-Notre première horloge utilise la présentation par défaut du navigateur ; nous n'ajoutons pas encore de règles CSS.
-
-Remplacez le contenu de `index.html` par cette version. La ligne `script`, placée après le paragraphe, charge le programme quand l'élément à modifier existe déjà dans le document :
-
-```html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>+1 minute</title>
-</head>
-<body>
-  <p id="clock">13:37</p>
-  <script src="clock.js"></script>
-</body>
-</html>
-```
-
-Le fichier `clock.js` déclare d'abord deux variables, leur affecte deux valeurs valides, puis contient l'opération et l'affichage :
-
-```js
-let hours;
-let minutes;
-
-hours = 13;
-minutes = 37;
-
-minutes = minutes + 1;
-
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-Enregistrez **les deux fichiers**, puis rechargez la page de l'horloge. Elle doit afficher `13:38`. Rechargez encore : le programme repart des valeurs écrites dans le fichier et produit le même résultat.
-
-À partir de maintenant, modifiez `clock.js`, enregistrez-le et rechargez la page pour chaque essai. La console reste disponible pour lire les erreurs et examiner les valeurs. Si l'heure reste affichée à `13:37`, vérifiez le nom et l'emplacement de `clock.js`, puis les messages de la console.
+L’addition seule peut produire 60 minutes sans changer les heures. Le calcul est juste, mais la représentation du temps demande une règle supplémentaire.
 
 ## 10. Exprimer les règles avec `if`
 
-### Le report des minutes
+Comment exécuter certaines instructions seulement lorsqu’une limite est atteinte ? Quelle autre limite apparaît une fois les minutes corrigées ?
 
-Reprenez le cas qui a révélé le problème : 13 heures et 59 minutes.
+[Activité 10 — Découvrir les reports et vérifier les cas limites](./exercices/session_01-10.md)
 
-Nous voulons appliquer une règle seulement lorsque les minutes atteignent 60. JavaScript permet de l'exprimer avec `if` :
+<a id="bilan-10"></a>
 
-```js
-if (minutes === 60) {
-  // Les instructions de ce bloc s'exécutent si la condition est vraie.
-}
-```
+**Après l’activité.** `if` exécute un bloc lorsque sa condition est vraie. Les accolades délimitent ce bloc. `===` teste une égalité stricte, tandis que `=` affecte une valeur. Une comparaison produit `true` ou `false`. Les lignes commençant par `//` sont des commentaires.
 
-`===` compare deux valeurs par égalité stricte ; ici, nous comparons deux nombres. Le résultat est `true` lorsque la condition est vraie, `false` lorsqu'elle est fausse. Les accolades délimitent le bloc à exécuter si elle est vraie. Une ligne commençant par `//` est un commentaire, pas une instruction exécutée.
+Le report des minutes peut modifier les heures ; leur limite doit donc être vérifiée après ce premier report. L’affichage vient après les deux vérifications. Le test d’égalité avec 60 convient ici parce que les valeurs de départ sont valides et que l’on ajoute exactement une minute.
 
-**À retenir** : `=` affecte une valeur ; `===` teste une égalité.
-
-Placez le bloc **après l'ajout d'une minute et avant l'affichage**. À l'intérieur, écrivez les deux instructions nécessaires : faire revenir les minutes à zéro et ajouter une heure. Vous connaissez déjà les opérations utiles.
-
-Vérifiez les cas `13:37` et `13:59`, puis expliquez pourquoi le bloc doit se trouver à cet endroit.
-
-<details>
-<summary><strong>Vérifier la correction du report des minutes</strong></summary>
-
-```js
-let hours;
-let minutes;
-
-hours = 13;
-minutes = 59;
-
-minutes = minutes + 1;
-
-if (minutes === 60) {
-  minutes = 0;
-  hours = hours + 1;
-}
-
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-L'affichage donne `14:0`, soit 14 heures et 0 minute. Cette présentation sans zéro supplémentaire est acceptée dans notre exercice.
-
-</details>
-
-### Le report des heures
-
-Les deux premiers problèmes ont été corrigés. Il reste un cas limite à découvrir.
-
-Pour travailler tous sur le même programme, prenez la version ci-dessous comme point de départ dans `clock.js` :
-
-```js
-let hours;
-let minutes;
-
-hours = 13;
-minutes = 59;
-
-minutes = minutes + 1;
-
-if (minutes === 60) {
-  minutes = 0;
-  hours = hours + 1;
-}
-
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-Seul ou en groupe de trois maximum, vous devez :
-
-1. trouver une heure de départ valide pour laquelle le programme produit encore une heure incorrecte ;
-2. proposer une correction ;
-3. expliquer votre raisonnement et l'ordre des instructions.
-
-Rappel : l'horloge utilise des heures de 0 à 23 et des minutes de 0 à 59. Le programme ajoute exactement une minute. L'affichage sur deux chiffres n'est pas demandé.
-
-<details>
-<summary><strong>Révéler un indice</strong></summary>
-
-Que se passe-t-il à la fin de la dernière minute de la journée ?
-
-</details>
-
-<details>
-<summary><strong>Vérifier le programme après votre recherche</strong></summary>
-
-```js
-let hours;
-let minutes;
-
-hours = 23;
-minutes = 59;
-
-minutes = minutes + 1;
-
-if (minutes === 60) {
-  minutes = 0;
-  hours = hours + 1;
-}
-
-if (hours === 24) {
-  hours = 0;
-}
-
-document.querySelector("#clock").textContent = hours + ":" + minutes;
-```
-
-Le report des minutes peut modifier les heures. Nous vérifions donc la limite des heures après ce premier report. L'affichage vient après les deux vérifications.
-
-Le test `minutes === 60` convient à notre exercice parce que les valeurs de départ sont valides et que nous ajoutons exactement une minute.
-
-</details>
-
-### Vérifier les limites
-
-Après votre recherche, testez les cas suivants. Pour chaque ligne, modifiez les deux valeurs de départ dans `clock.js`, enregistrez et rechargez la page.
-
-| Heure de départ | Heure attendue après une minute | Affichage attendu dans notre programme |
-|---|---|---|
-| 13 h 37 | 13 h 38 | `13:38` |
-| 13 h 59 | 14 h 00 | `14:0` |
-| 23 h 58 | 23 h 59 | `23:59` |
-| 23 h 59 | 00 h 00 | `0:0` |
-| 07 h 05 | 07 h 06 | `7:6` |
-
-Pour chaque cas, indiquez quelles conditions sont vraies et quels blocs sont exécutés.
-
-Avant de poursuivre, remettez `hours` à `13` et `minutes` à `37`. Dans `clock.js`, conservez les deux déclarations en haut du fichier et, à leur suite, le bloc qui ajoute une minute, applique les deux reports et met l'affichage à jour.
-
-### L'algorithme
-
-Nous avons jusqu'ici construit quelque chose en plusieurs étapes.
-
-D'abord, nous avons trouvé une règle :
+La suite de règles forme un **algorithme**, indépendant du langage utilisé pour l’exprimer :
 
 ```text
 ajouter une minute
-
-si les minutes atteignent 60
-→ remettre les minutes à 0
-→ ajouter une heure
-
-si les heures atteignent 24
-→ remettre les heures à 0
+si les minutes atteignent 60 : les remettre à 0 et ajouter une heure
+si les heures atteignent 24 : les remettre à 0
 ```
 
-Cette suite de règles constitue un **algorithme** : une manière précise de résoudre notre problème, indépendamment du langage utilisé pour l'écrire. Ni HTML ni JavaScript ne sont nécessaires pour formuler cet algorithme.
+Son expression en instructions JavaScript forme notre **programme**. Les données artificielles et la console nous ont permis de le construire et de le vérifier.
 
-### Le programme
-
-Nous avons ensuite exprimé cet algorithme en JavaScript :
-
-```js
-let hours;
-let minutes;
-
-hours = 13;
-minutes = 37;
-
-minutes = minutes + 1;
-
-if (minutes === 60) {
-  minutes = 0;
-  hours = hours + 1;
-}
-
-if (hours === 24) {
-  hours = 0;
-}
-```
-
-L'algorithme est devenu un **programme** : l'algorithme exprimé sous la forme d'instructions JavaScript que la machine peut exécuter.
-
-Pour construire et tester ce programme, nous avons travaillé avec des données artificielles : `13` et `37`.
-
-**Le programme est terminé.**
-
-Nous allons maintenant cesser de modifier son algorithme et le connecter à une réalité extérieure : notre page web.
+L’algorithme est maintenant terminé. Comment lui donner une entrée et une sortie dans la page web ?
 
 ## 11. Du programme à l'application
 
-Jusqu'ici :
+Jusqu’ici, le programme part de deux nombres écrits dans JavaScript et produit une sortie console. Comment lui faire lire l’heure affichée, puis modifier cette même interface ?
+
+[Activité 11 — Relier l’algorithme au HTML](./exercices/session_01-11.md)
+
+<a id="bilan-11"></a>
+
+**Après l’activité.** Le DOM, déjà rencontré avec les couleurs, permet de retrouver les éléments et leur contenu. `querySelector` reçoit un sélecteur ; un sélecteur commençant par `#` désigne ici l’élément portant l’identifiant correspondant. `textContent` permet de lire ou de remplacer son texte.
+
+La lecture fournit du texte. `Number(...)` le convertit en nombre avant l’addition, pour éviter une concaténation. L’application suit maintenant ce parcours :
 
 ```text
-13 et 37 → programme
+HTML → lecture du DOM → texte → conversion en nombres
+     → calcul → écriture dans le DOM → HTML mis à jour
 ```
 
-Maintenant :
+L’algorithme n’a pas changé. Nous avons remplacé les valeurs artificielles et l’observation console par une entrée et une sortie dans l’interface.
 
-```text
-HTML → programme → HTML
-```
-
-Une **application** connecte le programme à quelque chose d'extérieur à lui :
-
-```text
-entrée
-  ↓
-programme
-  ↓
-sortie
-```
-
-Dans notre application web, le HTML fournit l'entrée. JavaScript la lit, l'algorithme déjà construit la transforme, puis JavaScript écrit le résultat dans le HTML.
-
-C'est précisément à ce moment que le DOM devient pertinent : il permet au programme de lire les données de l'interface et d'y renvoyer son résultat.
-
-Pour une personne, `13:37` forme une information. Pour le programme, nous voulons retrouver séparément les deux données qui la composent, sans devoir découper ce texte.
-
-Dans `index.html`, placez les heures et les minutes dans deux éléments distincts. À ce stade, aucun clic n'est encore nécessaire :
-
-```html
-<body>
-  <p id="clock"><span id="clock-hours">13</span>:<span id="clock-minutes">37</span></p>
-  <script src="clock.js"></script>
-</body>
-```
-
-`querySelector` retrouve chaque élément et `textContent` permet de lire le texte qu'il contient :
-
-```js
-document.querySelector("#clock-hours").textContent
-document.querySelector("#clock-minutes").textContent
-```
-
-La console répond `"13"` et `"37"`. `textContent` fournit du texte. Or, nous avons déjà observé que `"37" + 1` produit `"371"`. `Number(...)` convertit donc cette représentation textuelle en nombre avant le calcul.
-
-La construction de l'entrée suit ce parcours :
-
-```text
-HTML → querySelector → textContent → "13" et "37" → Number → 13 et 37
-```
-
-Le programme commence maintenant directement à partir de cette entrée réelle :
-
-```js
-let hours;
-let minutes;
-
-hours = document.querySelector("#clock-hours");
-hours = hours.textContent;
-hours = Number(hours);
-
-minutes = document.querySelector("#clock-minutes");
-minutes = minutes.textContent;
-minutes = Number(minutes);
-
-minutes = minutes + 1;
-
-if (minutes === 60) {
-  minutes = 0;
-  hours = hours + 1;
-}
-
-if (hours === 24) {
-  hours = 0;
-}
-
-document.querySelector("#clock-hours").textContent = hours;
-document.querySelector("#clock-minutes").textContent = minutes;
-```
-
-Après la lecture vient le calcul déjà construit. Les deux dernières instructions constituent la sortie de l'application : elles écrivent les nouvelles valeurs dans les deux éléments HTML.
-
-Enregistrez les deux fichiers et rechargez la page. Le HTML fournit `13` et `37` ; l'application affiche `13:38` après avoir lu ces données et appliqué l'algorithme.
-
-Le parcours complet devient visible :
-
-```text
-HTML
-  ↓ lecture du DOM
-programme JavaScript
-  [application de l'algorithme]
-  ↓ écriture dans le DOM
-HTML mis à jour
-```
-
-L'algorithme lui-même n'a pas changé. Ce qui a changé, c'est que le programme est maintenant connecté à une entrée et à une sortie réelles.
+Pour l’instant, le programme s’exécute au chargement. Comment nommer ce comportement et choisir le moment de son exécution ?
 
 ## 12. Donner un nom au comportement
 
-Nous avons maintenant un ensemble d'instructions qui réalise un comportement :
+Nous avons nommé des données. Pouvons-nous aussi donner un nom à l’ensemble des instructions qui fait avancer l’horloge ?
 
-**faire avancer l'horloge d'une minute.**
+[Activité 12 — Définir `nextMinute` et déclencher son exécution au clic](./exercices/session_01-12.md)
 
-Comme nous avons donné les noms `hours` et `minutes` à des données, nous allons donner un nom à ce comportement :
+<a id="bilan-12"></a>
 
-`nextMinute`
+**Après l’activité.** Une variable donne un nom à une donnée ; une fonction donne un nom à un comportement. `nextMinute` regroupe la lecture, la conversion, le calcul et l’affichage. Définir cette fonction ne l’exécute pas. Un appel déclenche son comportement.
 
-Dans `clock.js`, plaçons l'ensemble des instructions de l'application dans une fonction portant ce nom :
+L’attribut `onclick` établit ici le lien entre le clic et l’appel de la fonction. Il sert de **pont pédagogique** pour cette première rencontre. La gestion des événements avec `addEventListener` sera introduite plus tard.
 
-```js
-function nextMinute() {
-  let hours;
-  let minutes;
-
-  hours = document.querySelector("#clock-hours");
-  hours = hours.textContent;
-  hours = Number(hours);
-
-  minutes = document.querySelector("#clock-minutes");
-  minutes = minutes.textContent;
-  minutes = Number(minutes);
-
-  minutes = minutes + 1;
-
-  if (minutes === 60) {
-    minutes = 0;
-    hours = hours + 1;
-  }
-
-  if (hours === 24) {
-    hours = 0;
-  }
-
-  document.querySelector("#clock-hours").textContent = hours;
-  document.querySelector("#clock-minutes").textContent = minutes;
-}
-```
-
-`nextMinute` est maintenant le nom donné au comportement qui lit l'heure affichée et la fait avancer d'une minute.
-
-**À retenir pour cette première rencontre avec les fonctions :**
-
-> Une variable donne un nom à une donnée.
->
-> Une fonction donne un nom à un comportement.
-
-C'est tout ce qu'il faut retenir des fonctions dans cette première leçon.
-
-### Déclencher ce comportement
-
-Notre application possède maintenant une entrée, un traitement et une sortie. Nous avons donné un nom à son comportement. Une question reste ouverte : **qu'est-ce qui déclenche ce comportement ?**
-
-Nous allons choisir un clic sur l'heure. Dans `index.html`, ajoutez l'attribut `onclick` au paragraphe :
-
-```html
-<body>
-  <p id="clock" onclick="nextMinute()"><span id="clock-hours">13</span>:<span id="clock-minutes">37</span></p>
-  <script src="clock.js"></script>
-</body>
-```
-
-Le HTML contient l'heure affichée. JavaScript contient un comportement nommé `nextMinute`. L'attribut `onclick` du paragraphe relie les deux. Plus précisément, le clic ne crée pas l'application : il détermine le moment où son traitement s'exécute.
-
-Nous utilisons `onclick` ici uniquement comme **pont pédagogique**, parce qu'il rend cette première connexion entre l'heure affichée et la fonction particulièrement visible. Ce n'est pas la technique de gestion des événements que le cours retiendra pour développer de véritables applications, ni le modèle recommandé pour du code de production. Le mécanisme normal sera introduit plus tard avec `addEventListener`.
-
-Enregistrez les deux fichiers et rechargez la page une dernière fois. Avant le premier clic, le HTML affiche déjà `13:37`. Cliquez sur l'heure : l'affichage passe à `13:38`. Cliquez encore : il passe à `13:39`. Chaque exécution lit ainsi le résultat affiché par la précédente.
-
-Le parcours devient visible :
+Chaque exécution relit l’heure affichée par la précédente. Les variables locales servent au calcul de cet appel ; les éléments HTML conservent le résultat que l’appel suivant relira.
 
 ```text
-clic
-  ↓ déclenche
-nextMinute
-  ↓
-lecture → calcul → affichage
+clic → appel de nextMinute → lecture → calcul → affichage
 ```
 
-Nous sommes ainsi passés de l'algorithme au programme, puis du programme à une application munie d'entrées et de sorties. Le clic ajoute enfin l'interaction qui déclenche son comportement.
+Le clic choisit le moment de l’exécution. L’horloge n’avance pas automatiquement et ne cherche pas l’heure réelle. Nous pouvons maintenant vérifier que ces mécanismes sont réutilisables sans suivre les étapes guidées.
 
----
+## 13. Réutiliser individuellement
 
-## Atelier individuel — réutiliser sans suivre les étapes
+Quels mécanismes pouvons-nous mobiliser seuls, et expliquer avec nos propres mots ?
 
-Réalisez ces trois tâches individuellement. Vous pouvez consulter vos notes, mais construisez vous-même les instructions et les explications.
+[Activité 13 — Atelier individuel et bilan de l’apprentissage](./exercices/session_01-13.md)
 
-1. **Modifier une présentation.** Dans l'onglet de Sullivan, rendez le texte noir sur fond `#ffff00`. Expliquez le rôle de chaque instruction et ce que représentent les trois paires de la couleur.
-2. **Prévoir un résultat.** Avec le programme corrigé, placez `9` et `59` dans les deux éléments HTML de l'horloge. Écrivez l'affichage attendu et les instructions qui modifieront l'état avant d'exécuter le programme. Vérifiez ensuite votre prédiction.
-3. **Distinguer état et affichage.** Sur la page de l'horloge, après son exécution, changez uniquement la variable `minutes` dans la console. Expliquez pourquoi la page conserve son affichage, puis mettez ce dernier à jour sans recharger.
+<a id="bilan-13"></a>
 
-À la mise en commun, montrez votre résultat et expliquez une instruction avec vos propres mots. Si votre prédiction et le résultat diffèrent, identifiez à quelle étape cette différence apparaît.
+**Après l’activité.** La mise en commun relie les manipulations aux notions de la séance : représentation, état, affectation, condition, entrée, sortie et déclenchement. Une différence entre une prédiction et un résultat permet de repérer une étape encore mal comprise.
 
 ## Fin du cours
 
-Le cours est terminé. Le prochain cours se déroulera de la même manière : nous alternerons les explications, les manipulations et les recherches en groupes.
-
-La seule différence sera qu'il faudra rendre le programme réalisé en fin de cours en utilisant **GitHub**. Vous devez donc vous inscrire à GitHub avant le prochain cours. Cette inscription est un prérequis pour pouvoir remettre votre programme.
+Le prochain cours alternera lui aussi explications, manipulations et recherches en groupes. Il faudra rendre l’application réalisée en fin de cours en utilisant **GitHub**. La création d’un compte avant cette prochaine séance est donc un prérequis pour remettre le programme. Aucun dépôt n’est demandé pour cette séance.
