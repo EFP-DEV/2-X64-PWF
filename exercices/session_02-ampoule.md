@@ -13,13 +13,13 @@ Vous recevez un programme inachevé : **un clic sur l’image allume l’ampoule
 Le dossier [ampoule](./ampoule/index.html) contient le HTML, le CSS, le JavaScript à compléter et les deux images. Ouvrez sa copie locale dans votre éditeur, puis `index.html` dans le navigateur.
 
 - [index.html](./ampoule/index.html)
-- [style.css](./ampoule/style.css)
-- [script.js](./ampoule/script.js)
+- [dark-room.css](./ampoule/dark-room.css)
+- [bulb-switch.js](./ampoule/bulb-switch.js)
 - [ampoule_off.png](./ampoule/ampoule_off.png) et [ampoule_on.png](./ampoule/ampoule_on.png)
 
 ## 1. Retrouver la console et les couleurs
 
-La page s’ouvre sur un fond noir. Retrouvez dans `style.css` la déclaration `background-color: #000000;`. Que représentent les trois paires de chiffres ?
+La page s’ouvre sur un fond noir. Retrouvez dans `dark-room.css` la déclaration `background-color: #000000;`. Que représentent les trois paires de chiffres ?
 
 Comme lors de la première séance, ouvrez **F12 → Console** et changez la couleur du fond avec JavaScript. **Choisissez vous-même une couleur claire**, en écrivant son code hexadécimal `#RRGGBB` ou son triplet `rgb(r, g, b)`.
 
@@ -51,7 +51,7 @@ Décrivez le problème en une phrase, puis formulez en français la règle que l
 
 ## 3. Diagnostiquer et terminer le code
 
-Ouvrez `script.js`. Le code qui déclenche la fonction au clic est déjà fourni. Vous pouvez l’utiliser sans devoir l’expliquer à cette étape. Retrouvez ce que vous connaissez : une condition, des blocs et des affectations.
+Ouvrez `bulb-switch.js`. Le code qui déclenche la fonction au clic est déjà fourni. Vous pouvez l’utiliser sans devoir l’expliquer à cette étape. Retrouvez ce que vous connaissez : une condition, des blocs et des affectations.
 
 Suivez les instructions exécutées au premier clic, puis au deuxième :
 
