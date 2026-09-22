@@ -9,6 +9,11 @@ body {
   color: #f4f4f4;
 }
 
+.light-room {
+  background-color: #f4f4f4;
+  color: #222222;
+}
+
 main {
   padding: 1rem;
   text-align: center;

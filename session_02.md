@@ -14,11 +14,13 @@ Reprenez le défi de minuit de la séance 1 : corriger le passage de `23:59` à 
 
 Vous recevez un programme inachevé : l’ampoule est éteinte au chargement, un clic sur son image l’allume, puis elle reste bloquée. Reproduisez le problème et formulez le comportement attendu : chaque clic doit permettre de changer d’état.
 
-Reprenez aussi la console de la première séance : le fond est noir dans le CSS. Choisissez une couleur claire en hexadécimal ou en RGB, puis affectez-la à `document.body.style.backgroundColor`. Vérifiez ce que le rechargement conserve.
-
 Le HTML, le CSS, les images et le JavaScript incomplet sont fournis. **Examinez le code, expliquez le blocage, puis corrigez et complétez le programme.** Appuyez-vous sur les conditions, les blocs et les affectations déjà rencontrés dans l’horloge.
 
 Le code qui déclenche le programme au clic est déjà en place. Vous pouvez l’utiliser sans devoir l’expliquer à cette étape. Vérifiez votre correction sur plusieurs clics, puis après un rechargement, en observant l’image et le texte de l’état.
+
+**Une fois l’ampoule fonctionnelle, faites varier le fond.** Choisissez un triplet de couleur claire et sa représentation (`rgb(r, g, b)` ou `#RRGGBB`), puis modifiez le fond de `.light-room` dans le CSS. Essayez `document.body.classList.add("light-room")` et `document.body.classList.remove("light-room")` dans la console, puis placez ces instructions dans les blocs correspondants du programme. Vérifiez que le fond suit l’état de l’ampoule.
+
+**CSS définit l’apparence ; JavaScript décide quand l’appliquer.** La classe regroupe le fond et le texte ; les couleurs se modifient dans le CSS et le retrait de la classe rétablit l’apparence initiale.
 
 [Consignes et fichiers de l’exercice](./exercices/session_02-ampoule.md)
 
