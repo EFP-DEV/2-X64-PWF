@@ -1,13 +1,14 @@
-function changerEtat() {
-  let ampoule = document.querySelector("#ampoule");
+document.querySelector("#ampoule").addEventListener("click", toggle);
+
+function toggle(event) {
   let etat = document.querySelector("#etat");
-
-  if (/* À compléter : remplacer false par la condition. */ false) {
-    // À compléter : changer l’image et le texte pour allumer l’ampoule.
+  
+  /* À modifier: remplacer false par une condition */
+  if (true) {
+    event.target.setAttribute("src", "ampoule_on.png");
+    etat.textContent = "allumée";
   } else {
-    ampoule.src = "ampoule_off.gif";
-    etat.textContent = "éteinte";
-  }
 
-  ampoule.alt = "Ampoule " + etat.textContent;
+  }
+  event.target.setAttribute("alt", "Ampoule " + etat.textContent);
 }
