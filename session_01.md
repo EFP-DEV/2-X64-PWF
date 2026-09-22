@@ -1,39 +1,42 @@
 # Session +1
 
-[Programme du module](./index.md)
+Ce document conserve le fil du cours : les questions de départ, les notions découvertes et les liens entre elles. Les manipulations sont regroupées dans trois fiches :
 
-Ce document conserve le fil du cours : les questions de départ, les notions découvertes et les liens entre elles. Les explorations, démonstrations et exercices se trouvent dans les fiches numérotées. Pour chaque étape, le parcours est le même : **question → activité → bilan → question suivante**.
+- [Exploration — la page, l’inspecteur et la console](./exercices/session_01-exploration.md)
+- [Couleurs — une valeur, plusieurs écritures](./exercices/session_01-couleurs.md)
+- [Horloge — ajouter une minute](./exercices/session_01-horloge.md)
 
-Le bilan se lit après l’activité et la mise en commun. Il permet ensuite de retrouver les notions sans refaire toutes les manipulations.
+Chaque fiche rassemble les consignes de son parcours. Les explorations de numération se font directement dans ce document. Les bilans se lisent après les manipulations et la mise en commun ; ils permettent ensuite de retrouver les notions.
+
+La séance se termine avec l’horloge : nous écrivons le programme ensemble, corrigeons le passage de `13:59` à `14:00`, puis terminons par un défi : régler les heures à `23` et les minutes à `59`, et corriger le comportement obtenu.
 
 ## Sommaire
 
-1. [Une action visible, une valeur invisible](#1-une-action-visible-une-valeur-invisible) · [Activité 1](./exercices/session_01-1.md)
-2. [Du nom de couleur à trois quantités](#2-du-nom-de-couleur-à-trois-quantités) · [Activité 2](./exercices/session_01-2.md)
-3. [`255` et `FF` : une même quantité, deux écritures](#3-255-et-ff--une-même-quantité-deux-écritures) · [Activité 3](./exercices/session_01-3.md)
-4. [Lire une couleur CSS en hexadécimal](#4-lire-une-couleur-css-en-hexadécimal) · [Activité 4](./exercices/session_01-4.md)
-5. [Binaire — prolongement facultatif](#5-binaire--deux-symboles-les-mêmes-principes--prolongement) · [Activité 5](./exercices/session_01-5.md)
-6. [Monter jusqu’à la base 20](#6-monter-jusquà-la-base-20) · [Activité 6](./exercices/session_01-6.md)
-7. [Un système encore plus étrange ?](#7-un-système-encore-plus-étrange-) · [Activité 7](./exercices/session_01-7.md)
+1. [Une action visible, une valeur invisible](#1-une-action-visible-une-valeur-invisible)
+2. [Du nom de couleur à trois quantités](#2-du-nom-de-couleur-à-trois-quantités)
+3. [`255` et `FF` : une même quantité, deux écritures](#3-255-et-ff--une-même-quantité-deux-écritures)
+4. [Lire une couleur CSS en hexadécimal](#4-lire-une-couleur-css-en-hexadécimal)
+5. [Binaire — prolongement facultatif](#5-binaire--deux-symboles-les-mêmes-principes--prolongement)
+6. [Monter jusqu’à la base 20](#6-monter-jusquà-la-base-20)
+7. [Un système encore plus étrange ?](#7-un-système-encore-plus-étrange-)
 
 **Interlude — 10 minutes**
 
-8. [Faire avancer le temps](#8-faire-avancer-le-temps) · [Activité 8](./exercices/session_01-8.md)
-9. [De la console aux fichiers](#9-de-la-console-aux-fichiers) · [Activité 9](./exercices/session_01-9.md)
-10. [Exprimer les règles avec `if`](#10-exprimer-les-règles-avec-if) · [Activité 10](./exercices/session_01-10.md)
-11. [Du programme à l’application](#11-du-programme-à-lapplication) · [Activité 11](./exercices/session_01-11.md)
-12. [Donner un nom au comportement](#12-donner-un-nom-au-comportement) · [Activité 12](./exercices/session_01-12.md)
-13. [Réutiliser individuellement](#13-réutiliser-individuellement) · [Activité 13](./exercices/session_01-13.md)
+8. [Faire avancer le temps](#8-faire-avancer-le-temps)
+9. [De la console aux fichiers](#9-de-la-console-aux-fichiers)
+10. [Exprimer les règles avec `if`](#10-exprimer-les-règles-avec-if)
+
+[Fin du cours — le défi de minuit](#fin-du-cours)
 
 ## 1. Une action visible, une valeur invisible
 
 Une page paraît vide. Cela suffit-il à conclure qu’elle ne contient rien ? Comment retrouver ce qui échappe à l’affichage, puis agir dessus ?
 
-[Activité 1 — Explorer la page, l’inspecteur et la console](./exercices/session_01-1.md)
+[Exploration — la page, l’inspecteur et la console](./exercices/session_01-exploration.md)
 
 <a id="bilan-1"></a>
 
-**Après l’activité.** Ce que l’on voit à l’écran dépend à la fois du contenu et des règles qui le présentent. Le texte était présent dans le HTML, mais sa couleur et celle du fond le rendaient invisible. L’inspecteur permet d’examiner le contenu et les règles CSS pour comprendre ce résultat.
+**Bilan.** Ce que l’on voit à l’écran dépend à la fois du contenu et des règles qui le présentent. Le texte était présent dans le HTML, mais sa couleur et celle du fond le rendaient invisible. L’inspecteur permet d’examiner le contenu et les règles CSS pour comprendre ce résultat.
 
 La console interprète du JavaScript. Un nom inconnu produit une erreur de référence ; une expression mal formée peut produire une erreur de syntaxe. La casse compte : `Window` et `window` ne désignent pas la même chose. Dans la console de cette page, `this` donne accès à l’objet global `window`. Un nom comme `alert` permet de retrouver une fonction ; les parenthèses permettent de l’appeler. Une réponse `undefined` peut accompagner un effet visible.
 
@@ -51,11 +54,11 @@ Nous pouvons agir sur une couleur. Mais pourquoi cette couleur peut-elle s’éc
 
 Dans le CSS, nous rencontrons `white`, `black` et `#000`. Quelles conventions permettent au navigateur de comprendre ces écritures ?
 
-[Activité 2 — Changer l’écriture du blanc et explorer RGB](./exercices/session_01-2.md)
+[Fiche couleurs — du nom aux trois canaux RGB](./exercices/session_01-couleurs.md#rgb)
 
 <a id="bilan-2"></a>
 
-**Après l’activité.** CSS possède des noms de couleurs prédéfinis, comme `white`, `black`, `red`, `blue` et `navy`. Il propose aussi des représentations structurées. Le blanc peut être décrit par `white`, `rgb(255, 255, 255)` ou `#ffffff`.
+**Bilan.** CSS possède des noms de couleurs prédéfinis, comme `white`, `black`, `red`, `blue` et `navy`. Il propose aussi des représentations structurées. Le blanc peut être décrit par `white`, `rgb(255, 255, 255)` ou `#ffffff`.
 
 Un écran émet de la lumière. On peut imaginer trois variateurs, un rouge, un vert et un bleu, dont les lumières se superposent : c’est la **synthèse additive**. Ajouter des pigments tend à absorber davantage de lumière ; ajouter de la lumière sur un écran rend le résultat plus lumineux.
 
@@ -67,11 +70,11 @@ La comparaison du blanc rapproche trois valeurs `255` de trois paires `FF`. Comm
 
 Peut-on conserver une quantité tout en changeant les symboles qui servent à l’écrire ?
 
-[Activité 3 — Décomposer `255` et `FF`](./exercices/session_01-3.md)
+[Fiche couleurs — comprendre l’hexadécimal](./exercices/session_01-couleurs.md#hexadecimal)
 
 <a id="bilan-3"></a>
 
-**Après l’activité.** Le système décimal utilise dix symboles, de `0` à `9`. Le système hexadécimal en utilise seize : les mêmes chiffres, puis `A`, `B`, `C`, `D`, `E` et `F`, qui représentent les quantités 10 à 15.
+**Bilan.** Le système décimal utilise dix symboles, de `0` à `9`. Le système hexadécimal en utilise seize : les mêmes chiffres, puis `A`, `B`, `C`, `D`, `E` et `F`, qui représentent les quantités 10 à 15.
 
 Les deux systèmes sont **positionnels** : la contribution d’un chiffre dépend de sa position. Les poids sont des puissances de la base : 1, 10, 100… en décimal ; 1, 16, 256… en hexadécimal.
 
@@ -89,11 +92,11 @@ Nous savons maintenant lire une paire hexadécimale. Il reste à comprendre comm
 
 Comment passer d’une écriture comme `#336699` aux trois quantités RGB ? Et pourquoi certaines couleurs ne comportent-elles que trois chiffres ?
 
-[Activité 4 — Décoder, prédire et modifier des couleurs](./exercices/session_01-4.md)
+[Fiche couleurs — lire et modifier une couleur CSS](./exercices/session_01-couleurs.md#couleurs-css)
 
 <a id="bilan-4"></a>
 
-**Après l’activité.** Une couleur CSS sur six chiffres suit la convention `#RRGGBB`. Les paires représentent, dans cet ordre, le rouge, le vert et le bleu. Chacune va de `00` à `FF`, soit de 0 à 255. Le croisillon annonce cette écriture au navigateur ; les lettres peuvent être en minuscules ou en majuscules.
+**Bilan.** Une couleur CSS sur six chiffres suit la convention `#RRGGBB`. Les paires représentent, dans cet ordre, le rouge, le vert et le bleu. Chacune va de `00` à `FF`, soit de 0 à 255. Le croisillon annonce cette écriture au navigateur ; les lettres peuvent être en minuscules ou en majuscules.
 
 L’écriture abrégée `#RGB` répète chaque chiffre pour retrouver `#RRGGBB`. Ainsi, `#123` signifie `#112233`, pas `#000123`.
 
@@ -105,13 +108,49 @@ Le décimal et l’hexadécimal utilisent des nombres différents de symboles. J
 
 ## 5. Binaire : deux symboles, les mêmes principes — prolongement
 
-Deux symboles suffiraient-ils pour retrouver les mêmes valeurs ? Ce prolongement est facultatif et n’est pas nécessaire pour construire l’horloge.
+Deux symboles suffiraient-ils pour retrouver les mêmes valeurs ? Ce prolongement facultatif se fait dans vos notes ; il n’est pas nécessaire pour construire l’horloge.
 
-[Activité 5 — Retrouver une valeur avec des bits](./exercices/session_01-5.md)
+### Garder les poids des positions actives
+
+La démonstration utilise les poids suivants :
+
+| Position | `2⁷` | `2⁶` | `2⁵` | `2⁴` | `2³` | `2²` | `2¹` | `2⁰` |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Poids | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+
+Placez les bits sous leurs poids, retenez ceux placés sous un `1`, puis additionnez ces poids.
+
+| Binaire | Somme des poids retenus | Valeur décimale |
+|---|---|---|
+| `00000001` | | |
+| `00000011` | | |
+| `11111111` | | |
+
+Quel bit faut-il changer pour passer de un à trois ?
+
+### Retrouver le lien avec les couleurs
+
+Complétez :
+
+```text
+11111111₂ = ___₁₀ = ___₁₆
+```
+
+<details>
+<summary><strong>Vérifier le total des huit poids</strong></summary>
+
+```text
+128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+11111111₂ = 255₁₀ = FF₁₆
+```
+
+</details>
+
+Quel intervalle peut-on représenter avec quatre bits ? Pourquoi huit bits suffisent-ils pour les valeurs de 0 à 255 d’un canal de couleur ?
 
 <a id="bilan-5"></a>
 
-**Après l’activité.** Le binaire utilise les chiffres `0` et `1`. Un **bit** est un chiffre binaire ; un **octet** contient huit bits. Interprétés comme un entier non signé, ces huit bits représentent les valeurs de 0 à 255.
+**Bilan.** Le binaire utilise les chiffres `0` et `1`. Un **bit** est un chiffre binaire ; un **octet** contient huit bits. Interprétés comme un entier non signé, ces huit bits représentent les valeurs de 0 à 255.
 
 Les poids successifs sont 1, 2, 4, 8, 16, 32, 64 et 128. Quatre bits couvrent les valeurs de 0 à 15, comme un chiffre hexadécimal ; huit bits correspondent donc à deux chiffres hexadécimaux.
 
@@ -125,11 +164,72 @@ Les mêmes principes fonctionnent avec deux, dix ou seize symboles. Pourquoi pas
 
 Une convention qui nous est inconnue paraît difficile à lire. Est-ce le nombre qui est étrange, ou la manière de le représenter ?
 
-[Activité 6 — Déchiffrer une écriture maya, puis écouter le français](./exercices/session_01-6.md)
+Explorez cette représentation avec la démonstration et vos notes.
+
+### Une convention devenue étrangère
+
+Observez cette écriture maya avant d’ouvrir la décomposition :
+
+<img src="./asset/mayan_number.png" alt="Écriture maya d'un nombre" width="161">
+
+Quelle valeur voyez-vous ? Qu'est-ce qui vous manque pour la lire ?
+
+<details>
+<summary><strong>Révéler les positions et la valeur</strong></summary>
+
+<p>Pour cet exemple de numération positionnelle en base 20, les positions valent successivement 1, 20, 400 et 8 000.</p>
+
+<table>
+  <thead>
+    <tr><th scope="col">Position</th><th scope="col">Symbole maya</th><th scope="col">Décomposition</th><th scope="col">Valeur</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>8 000</td><td>Position non écrite</td><td>0 × 8 000</td><td>0</td></tr>
+    <tr><td>400</td><td><img src="./asset/mayan_symbol_dots.svg" alt="Quatre points mayas" width="120"></td><td>4 × 400</td><td>1 600</td></tr>
+    <tr><td>20</td><td><img src="./asset/mayan_symbol_shell.svg" alt="Coquillage maya, zéro" width="120"></td><td>0 × 20</td><td>0</td></tr>
+    <tr><td>1</td><td><img src="./asset/mayan_symbol_fourteen.svg" alt="Quatorze : quatre points et deux barres mayas" width="120"></td><td>14 × 1</td><td>14</td></tr>
+    <tr><th scope="row">Total</th><td></td><td></td><td><strong>1 614</strong></td></tr>
+  </tbody>
+</table>
+
+</details>
+
+Après la révélation, identifiez les symboles, les poids, le sens de lecture et le rôle du zéro. Quelles conventions vous manquaient ?
+
+### Une convention vraiment étrangère ?
+
+Comptez maintenant les dizaines en français :
+
+```text
+dix
+vingt
+trente
+quarante
+cinquante
+soixante
+...
+quatre-vingts
+```
+
+Arrêtons-nous sur ce dernier nom :
+
+```text
+quatre × vingt
+```
+
+Écoutons aussi la manière dont le français compose quelques valeurs :
+
+```text
+quatre-vingt-dix    quatre × vingt + dix
+quatre-vingt-seize  quatre × vingt + seize
+soixante-dix        soixante + dix
+```
+
+Quelle trace de la base 20 reconnaissez-vous ? Le français utilise-t-il pour autant exclusivement cette base ?
 
 <a id="bilan-6"></a>
 
-**Après l’activité.** Un système en base 20 est appelé **vigésimal**. Dans la convention positionnelle de l’exemple, les poids successifs sont 1, 20, 400 et 8 000. Lire l’écriture suppose de connaître les symboles, leur valeur, les positions et le sens de lecture. Le zéro conserve une position même lorsque sa contribution au total est nulle.
+**Bilan.** Un système en base 20 est appelé **vigésimal**. Dans la convention positionnelle de l’exemple, les poids successifs sont 1, 20, 400 et 8 000. Lire l’écriture suppose de connaître les symboles, leur valeur, les positions et le sens de lecture. Le zéro conserve une position même lorsque sa contribution au total est nulle.
 
 L’objectif n’est pas d’apprendre la numération maya, mais de reconnaître ce qui permet de comprendre une représentation. Le français n’est pas entièrement vigésimal, mais `quatre-vingts` et les nombres qui suivent conservent des traces de cette organisation.
 
@@ -139,11 +239,69 @@ Une base peut donc sembler étrangère tout en laissant des traces dans nos usag
 
 Que se passerait-il si une position pouvait prendre soixante valeurs avant de provoquer un report ?
 
-[Activité 7 — Démasquer une convention familière](./exercices/session_01-7.md)
+Gardez la révélation fermée pendant la première partie de la démonstration.
+
+### Un comptage inhabituel
+
+Imaginons que chaque position puisse prendre les valeurs de 0 à 59. Pour la démonstration, nous les écrivons en décimal : le groupe de gauche n’a pas de zéro initial, les groupes suivants ont deux chiffres. Nous collons les groupes sans séparateur.
+
+Observez la suite :
+
+```text
+1
+2
+...
+9
+10
+11
+...
+59
+100
+101
+...
+159
+200
+...
+559
+600
+...
+959
+1000
+...
+5959
+10000
+```
+
+Repérez les reports. Pourquoi `59` est-il suivi de `100` ? Que devient `559` après une unité supplémentaire ? Et `959` ? Cette écriture vous semble-t-elle lisible ?
+
+Cette convention sert à la démonstration ; elle ne prétend pas reproduire une écriture babylonienne historique.
+
+### Ajouter ce qui manque
+
+<details>
+<summary><strong>Révéler le séparateur après la discussion</strong></summary>
+
+```text
+1359 → 13:59
+```
+
+Reconnaissez-vous une représentation familière ? Que désignent les deux champs quand nous lisons cette écriture comme une heure ?
+
+</details>
+
+Pour les heures suivantes, prédisez l’écriture obtenue après une minute, sans JavaScript :
+
+| Départ | Après une minute | Quel champ change ? |
+|---|---|---|
+| `05:58` | | |
+| `05:59` | | |
+| `09:59` | | |
+
+Pourquoi faut-il connaître la limite des minutes pour répondre ? À quoi sert le séparateur `:` ? Distinguez le comptage artificiel de la démonstration d’une horloge dont les heures sont limitées à 23.
 
 <a id="bilan-7"></a>
 
-**Après l’activité.** Un système en base 60 est appelé **sexagésimal**. Les minutes et les secondes de nos représentations du temps utilisent un report après 59. Nous lisons déjà ces champs sans devoir inventer soixante nouveaux symboles : nous les écrivons avec les chiffres décimaux et les séparons.
+**Bilan.** Un système en base 60 est appelé **sexagésimal**. Les minutes et les secondes de nos représentations du temps utilisent un report après 59. Nous lisons déjà ces champs sans devoir inventer soixante nouveaux symboles : nous les écrivons avec les chiffres décimaux et les séparons.
 
 Le séparateur rend lisible l’organisation des champs. Le report dépend de la convention choisie. Le comptage artificiel de l’activité illustre cette règle ; il ne reproduit pas une écriture babylonienne historique.
 
@@ -151,17 +309,17 @@ Nous allons appliquer cette idée à une horloge de 24 heures. La limite de ses 
 
 ## ⏸️ Interlude — pause de 10 minutes
 
-La reprise commence avec l’activité 8 : représenter une heure par deux valeurs nommées.
+La reprise commence avec la [fiche horloge](./exercices/session_01-horloge.md) : représenter une heure par deux valeurs nommées.
 
 ## 8. Faire avancer le temps
 
 `13:59` n’est pas le temps lui-même : c’est une représentation composée de deux champs. Comment nommer leurs valeurs et les réunir dans une écriture lisible ?
 
-[Activité 8 — Nommer les heures et les minutes dans la console](./exercices/session_01-8.md)
+[Fiche horloge — nommer une heure dans la console](./exercices/session_01-horloge.md#variables)
 
 <a id="bilan-8"></a>
 
-**Après l’activité.** `let` déclare une variable : un nom auquel nous pouvons associer une valeur et que nous pouvons changer. Déclarer le nom et lui affecter une valeur sont deux opérations distinctes. Une nouvelle affectation suffit pour changer une variable déjà déclarée.
+**Bilan.** `let` déclare une variable : un nom auquel nous pouvons associer une valeur et que nous pouvons changer. Déclarer le nom et lui affecter une valeur sont deux opérations distinctes. Une nouvelle affectation suffit pour changer une variable déjà déclarée.
 
 Avec deux nombres, `+` effectue une addition. Dans les expressions de cette séance, lorsqu’un opérande est une chaîne de caractères, il assemble du texte : c’est la **concaténation**. Le nombre est alors converti en texte.
 
@@ -171,11 +329,11 @@ La console interactive montre la valeur de l’expression saisie. Un fichier Jav
 
 Comment transformer les essais de la console en un programme conservé dans des fichiers ? Et suffit-il d’écrire `+ 1` pour faire avancer une horloge ?
 
-[Activité 9 — Créer `clock.js`, observer l’état et trouver une limite](./exercices/session_01-9.md)
+[Fiche horloge — conserver le programme dans des fichiers](./exercices/session_01-horloge.md#fichiers)
 
 <a id="bilan-9"></a>
 
-**Après l’activité.** L’attribut `src` de la balise `script` indique le fichier JavaScript à charger. `console.log(...)` demande explicitement d’écrire une valeur dans la console. Les chaînes peuvent y apparaître sans guillemets : leur nature n’a pas changé.
+**Bilan.** L’attribut `src` de la balise `script` indique le fichier JavaScript à charger. `console.log(...)` demande explicitement d’écrire une valeur dans la console. Les chaînes peuvent y apparaître sans guillemets : leur nature n’a pas changé.
 
 `minutes + 1` calcule un résultat. L’affectation `minutes = minutes + 1` conserve ce résultat dans la variable. Au rechargement, le programme repart des valeurs initiales écrites dans son fichier.
 
@@ -187,7 +345,7 @@ Comment transformer les essais de la console en un programme conservé dans des 
 
 Cette **séparation des responsabilités** concerne ce que chaque partie prend en charge. Des fichiers séparés aident à l’organiser. Dans JavaScript, nous distinguons déjà l’état, le calcul et son observation.
 
-Une valeur numérique et sa présentation restent distinctes : les zéros de `07:05` concernent l’affichage. Notre exercice accepte `7:5` et ne demande pas le format sur deux chiffres.
+Une valeur numérique et sa présentation restent distinctes : les zéros de `07:05` concernent l’affichage. À cette étape, nous observons les nombres tels quels ; la suite de la fiche horloge travaillera l’affichage des minutes sur deux chiffres.
 
 L’addition seule peut produire 60 minutes sans changer les heures. Le calcul est juste, mais la représentation du temps demande une règle supplémentaire.
 
@@ -195,77 +353,35 @@ L’addition seule peut produire 60 minutes sans changer les heures. Le calcul e
 
 Comment exécuter certaines instructions seulement lorsqu’une limite est atteinte ? Quelle autre limite apparaît une fois les minutes corrigées ?
 
-[Activité 10 — Découvrir les reports et vérifier les cas limites](./exercices/session_01-10.md)
+[Fiche horloge — corriger les minutes et leur affichage](./exercices/session_01-horloge.md#conditions)
 
 <a id="bilan-10"></a>
 
-**Après l’activité.** `if` exécute un bloc lorsque sa condition est vraie. Les accolades délimitent ce bloc. `===` teste une égalité stricte, tandis que `=` affecte une valeur. Une comparaison produit `true` ou `false`. Les lignes commençant par `//` sont des commentaires.
+**Après le travail collectif.** `if` exécute un bloc lorsque sa condition est vraie. Les accolades délimitent ce bloc. `===` teste une égalité stricte, tandis que `=` affecte une valeur. Une comparaison produit `true` ou `false`. Les lignes commençant par `//` sont des commentaires.
 
-Le report des minutes peut modifier les heures ; leur limite doit donc être vérifiée après ce premier report. L’affichage vient après les deux vérifications. Le test d’égalité avec 60 convient ici parce que les valeurs de départ sont valides et que l’on ajoute exactement une minute.
+En partant de `13:59`, l’addition produit d’abord 60 minutes. Le bloc conditionnel remet les minutes à zéro et ajoute une heure. Le programme affiche alors `14:0`. Le test d’égalité avec 60 convient ici parce que les valeurs de départ sont valides et que l’on ajoute exactement une minute.
 
-La suite de règles forme un **algorithme**, indépendant du langage utilisé pour l’exprimer :
+Pour afficher `14:00`, nous préparons séparément le texte des minutes : si leur valeur est inférieure à 10, nous ajoutons un `"0"` devant. L’opérateur `<` compare deux valeurs ; `"0" + minutes` assemble du texte. La variable `minutes` conserve sa valeur numérique pour les calculs.
+
+La suite d’étapes forme un **algorithme**, indépendant du langage utilisé pour l’exprimer :
 
 ```text
 ajouter une minute
 si les minutes atteignent 60 : les remettre à 0 et ajouter une heure
-si les heures atteignent 24 : les remettre à 0
+préparer l’affichage des minutes sur deux chiffres
+afficher les heures et les minutes
 ```
 
-Son expression en instructions JavaScript forme notre **programme**. Les données artificielles et la console nous ont permis de le construire et de le vérifier.
-
-L’algorithme est maintenant terminé. Comment lui donner une entrée et une sortie dans la page web ?
-
-## 11. Du programme à l'application
-
-Jusqu’ici, le programme part de deux nombres écrits dans JavaScript et produit une sortie console. Comment lui faire lire l’heure affichée, puis modifier cette même interface ?
-
-[Activité 11 — Relier l’algorithme au HTML](./exercices/session_01-11.md)
-
-<a id="bilan-11"></a>
-
-**Après l’activité.** Le DOM, déjà rencontré avec les couleurs, permet de retrouver les éléments et leur contenu. `querySelector` reçoit un sélecteur ; un sélecteur commençant par `#` désigne ici l’élément portant l’identifiant correspondant. `textContent` permet de lire ou de remplacer son texte.
-
-La lecture fournit du texte. `Number(...)` le convertit en nombre avant l’addition, pour éviter une concaténation. L’application suit maintenant ce parcours :
-
-```text
-HTML → lecture du DOM → texte → conversion en nombres
-     → calcul → écriture dans le DOM → HTML mis à jour
-```
-
-L’algorithme n’a pas changé. Nous avons remplacé les valeurs artificielles et l’observation console par une entrée et une sortie dans l’interface.
-
-Pour l’instant, le programme s’exécute au chargement. Comment nommer ce comportement et choisir le moment de son exécution ?
-
-## 12. Donner un nom au comportement
-
-Nous avons nommé des données. Pouvons-nous aussi donner un nom à l’ensemble des instructions qui fait avancer l’horloge ?
-
-[Activité 12 — Définir `nextMinute` et déclencher son exécution au clic](./exercices/session_01-12.md)
-
-<a id="bilan-12"></a>
-
-**Après l’activité.** Une variable donne un nom à une donnée ; une fonction donne un nom à un comportement. `nextMinute` regroupe la lecture, la conversion, le calcul et l’affichage. Définir cette fonction ne l’exécute pas. Un appel déclenche son comportement.
-
-L’attribut `onclick` établit ici le lien entre le clic et l’appel de la fonction. Il sert de **pont pédagogique** pour cette première rencontre. La gestion des événements avec `addEventListener` sera introduite plus tard.
-
-Chaque exécution relit l’heure affichée par la précédente. Les variables locales servent au calcul de cet appel ; les éléments HTML conservent le résultat que l’appel suivant relira.
-
-```text
-clic → appel de nextMinute → lecture → calcul → affichage
-```
-
-Le clic choisit le moment de l’exécution. L’horloge n’avance pas automatiquement et ne cherche pas l’heure réelle. Nous pouvons maintenant vérifier que ces mécanismes sont réutilisables sans suivre les étapes guidées.
-
-## 13. Réutiliser individuellement
-
-Quels mécanismes pouvons-nous mobiliser seuls, et expliquer avec nos propres mots ?
-
-[Activité 13 — Atelier individuel et bilan de l’apprentissage](./exercices/session_01-13.md)
-
-<a id="bilan-13"></a>
-
-**Après l’activité.** La mise en commun relie les manipulations aux notions de la séance : représentation, état, affectation, condition, entrée, sortie et déclenchement. Une différence entre une prédiction et un résultat permet de repérer une étape encore mal comprise.
+Son expression en instructions JavaScript forme notre **programme**. Nous l’avons écrit ensemble dans un fichier et observé dans la console. Le passage de `13:59` à `14:00` fonctionne ; il reste à éprouver le programme avec une autre heure de départ.
 
 ## Fin du cours
+
+**Le défi de clôture : « Réglez les heures à `23`, les minutes à `59`, puis corrigez le programme. »**
+
+[Défi et cas de vérification dans la fiche horloge](./exercices/session_01-horloge.md#defi-minuit)
+
+Prédisez le résultat attendu après une minute, puis enregistrez et rechargez. Comparez votre prédiction à la sortie console et cherchez la règle manquante. Gardez votre fichier et vos essais pour la reprise.
+
+À ce stade, vous pouvez expliquer la différence entre un calcul et une affectation, le rôle du `if` pour le report des minutes et la différence entre la valeur `0` et son affichage `"00"`. Le cas de minuit constitue la recherche finale de la séance.
 
 Le prochain cours alternera lui aussi explications, manipulations et recherches en groupes. Il faudra rendre l’application réalisée en fin de cours en utilisant **GitHub**. La création d’un compte avant cette prochaine séance est donc un prérequis pour remettre le programme. Aucun dépôt n’est demandé pour cette séance.

@@ -1,10 +1,10 @@
-# Activité 1 — Une action visible, une valeur invisible
+# Exploration — la page, l’inspecteur et la console
 
 [Question de départ](../session_01.md#1-une-action-visible-une-valeur-invisible) · [Sommaire du cours](../session_01.md#sommaire)
 
 Les emplacements `___` sont à compléter avant d’exécuter les blocs concernés.
 
-**Point de départ :** la page de Sullivan dans son état initial. Si vous l’avez déjà modifiée, rechargez-la. Chaque bloc **À saisir** est un essai de console ; les blocs **À observer** ne sont pas à recopier.
+**Point de départ :** la page de Sullivan dans son état initial. Si vous l’avez déjà modifiée, rechargez-la.
 
 ## Une page apparemment vide
 
@@ -14,9 +14,9 @@ Cliquez sur la page et appliquez **Ctrl + A**. Que révèle la sélection ?
 
 Un meilleur outil existe, l'inspecteur web:
 
-1. Ouvrez les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**. 
-2. Choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`. 
-3. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution. 
+1. Ouvrez les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**.
+2. Choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`.
+3. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution.
 
 Quels éléments HTML les structurent ?
 
@@ -251,8 +251,8 @@ document.body.style.backgroundColor = "___";
 document.body.style.___ = "white";
 ```
 
-Expliquez ce qui change dans l’attribut `style` et ce que la lecture de `.style` vous a permis d’observer. `style` et `backgroundColor` sont-ils des éléments HTML ? Gardez la page ouverte, texte blanc sur fond noir, pour l’activité 2.
+Expliquez ce qui change dans l’attribut `style` et ce que la lecture de `.style` vous a permis d’observer. `style` et `backgroundColor` sont-ils des éléments HTML ? Gardez la page ouverte, texte blanc sur fond noir, pour la recherche sur les couleurs.
 
 ---
 
-[Retour au bilan 1 dans le cours](../session_01.md#bilan-1) · [Après le bilan : activité 2](./session_01-2.md)
+[Bilan de l’exploration dans le cours](../session_01.md#bilan-1) · [Poursuivre avec les couleurs](./session_01-couleurs.md)

@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+main {
+  padding: 1rem;
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  background: #f0c420;
+  color: #333;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e0b010;
+}

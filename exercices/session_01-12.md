@@ -28,7 +28,7 @@ Ce premier branchement utilise `onclick`. La suite du cours introduira `addEvent
 
 Enregistrez les deux fichiers et rechargez. Notez l’heure avant tout clic, après un clic, puis après un second clic. Pourquoi le deuxième clic poursuit-il le calcul à partir du résultat du premier ?
 
-Reprenez les six départs du [tableau de l’activité 10](./session_01-10.md#prédire-vérifier-expliquer), cette fois en modifiant les textes des deux spans **dans le fichier HTML**. À chaque essai, enregistrez, rechargez, puis cliquez une fois. Comparez les résultats à ceux du programme en console. Terminez en remettant le HTML à `13` et `37` et rechargez.
+Reprenez les six départs du [tableau de la fiche horloge](./session_01-horloge.md#verification), cette fois en modifiant les textes des deux spans **dans le fichier HTML**. À chaque essai, enregistrez, rechargez, puis cliquez une fois. Comparez les résultats à ceux du programme en console. Terminez en remettant le HTML à `13` et `37` et rechargez.
 
 <details>
 <summary><strong>Vérifier la fonction après les essais</strong></summary>

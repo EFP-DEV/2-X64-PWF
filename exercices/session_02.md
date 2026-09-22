@@ -1,6 +1,6 @@
 # Atelier 2 — Pixelator
 
-[Support de la séance](../session_02.md) · [Programme](../index.md)
+[Support de la séance](../session_02.md)
 
 **Objectif :** construire quatre pixels en HTML et CSS, puis utiliser le DOM et les événements pour peindre chaque pixel au clic.
 
@@ -242,4 +242,3 @@ Le [résultat final](../solutions/pixelator/session_02/index.html) utilise les m
 ## Pour la suite
 
 Le programme applique toujours la classe `painted`. La prochaine décision sera : si le pixel est déjà peint, faut-il retirer cette classe ?
-
