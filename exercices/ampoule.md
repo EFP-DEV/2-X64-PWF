@@ -1,8 +1,12 @@
-# Redémarrage — L’ampoule interactive
+# Exercice 2 — Résoudre l’ampoule
 
 [Séance 2](../session_02.md)
 
-**Durée : 15 minutes.** Réutiliser la lecture du DOM, les conditions, les affectations et l’appel d’une fonction vus en séance 1.
+**Durée : 15 minutes.** Après l’horloge, retrouver les conditions et les affectations connues dans un programme interactif fourni, puis compléter les deux emplacements en respectant l’ordre des instructions.
+
+## Observer la démonstration
+
+L’enseignant montre le programme terminé. Observez l’état initial de l’ampoule, puis les changements d’image et de texte au premier et au deuxième clic. Formulez la règle en français avant de lire le code à compléter.
 
 ## Fichiers fournis
 
@@ -13,27 +17,30 @@ Le dossier [ampoule](./ampoule/index.html) contient le HTML, le CSS, le JavaScri
 - [script.js](./ampoule/script.js)
 - [ampoule_off.gif](./ampoule/ampoule_off.gif) et [ampoule_on.gif](./ampoule/ampoule_on.gif)
 
-## 1. Lire le code avant de le modifier
+## 1. Retrouver ce que vous connaissez
 
-Dans le HTML et le JavaScript, retrouvez :
+Ouvrez `script.js`. Le code qui relie le clic au programme est fourni et prêt à l’emploi. Laissez-le en place : vous pouvez résoudre cet exercice en vous concentrant sur les instructions déjà rencontrées dans l’horloge.
 
-1. L’image et le texte qui indiquent l’état initial de l’ampoule.
-2. Le bouton, la fonction qu’il appelle et le fichier qui la définit.
-3. Les deux éléments retrouvés avec `querySelector` et les propriétés utilisées.
+Repérez :
 
-Au départ, le bouton ne change rien : la condition provisoire vaut `false` et les deux blocs sont vides.
+1. Le `if`, sa condition provisoire `false` et les accolades de son bloc vide.
+2. Les affectations avec `=` dans le bloc `else` déjà écrit.
+3. L’ordre de ces instructions et les blocs auxquels elles appartiennent.
 
-## 2. Compléter les trois emplacements
+`else` signifie « sinon » : son bloc s’exécute lorsque la condition du `if` est fausse. Avec la condition provisoire `false`, chaque clic exécute donc les instructions qui remettent l’ampoule à l’état éteint.
 
-Modifiez uniquement `script.js` :
+**Deux repères pour compléter le code :** `etat.textContent` contient le texte de l’état ; `ampoule.src` contient le chemin de l’image. Les affectations du `else` montrent comment les modifier.
+
+## 2. Compléter les deux emplacements
+
+Modifiez uniquement les deux emplacements signalés dans `script.js`, en gardant les instructions fournies dans leur ordre et dans leurs blocs :
 
 1. Remplacez le `false` provisoire par une **condition** qui vérifie si le texte de l’état est `"éteinte"`.
 2. Complétez le **bloc du `if`** pour afficher l’image allumée et écrire `"allumée"` dans l’état.
-3. Complétez le **bloc du `else`** pour afficher l’image éteinte et écrire `"éteinte"` dans l’état.
 
-`else` signifie « sinon » : son bloc s’exécute lorsque la condition du `if` est fausse.
+Utilisez les affectations du `else` comme modèle pour écrire celles qui allument l’ampoule. Le test doit lire l’état actuel avant que le bloc choisi le modifie.
 
-**Repères :** `textContent` lit ou remplace le texte d’un élément ; `src` indique le chemin de l’image à afficher. Les deux fichiers d’image sont à côté de `index.html`. La dernière ligne de la fonction met déjà à jour le texte alternatif à partir de l’état affiché.
+Les deux fichiers d’image sont à côté de `index.html`. La dernière ligne de la fonction met déjà à jour le texte alternatif à partir de l’état affiché.
 
 ## 3. Prédire, vérifier, expliquer
 
@@ -47,4 +54,6 @@ Avant chaque action, annoncez l’état attendu, puis vérifiez :
 | Troisième clic | Image allumée et texte « allumée » |
 | Recharger après le troisième clic | Retour à l’état éteint |
 
-Expliquez quelle branche s’exécute au premier clic, puis au deuxième, et pourquoi la fonction tient compte du résultat du clic précédent.
+Expliquez quelle condition vous avez écrite, quelle branche s’exécute au premier clic, puis au deuxième, et comment les affectations changent le résultat du test au clic suivant.
+
+[Exercice suivant — commencer Pixelator](./session_02.md)

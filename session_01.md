@@ -287,7 +287,6 @@ Cette convention sert à la démonstration ; elle ne prétend pas reproduire une
 
 Reconnaissez-vous une représentation familière ? Que désignent les deux champs quand nous lisons cette écriture comme une heure ?
 
-</details>
 
 Pour les heures suivantes, prédisez l’écriture obtenue après une minute, sans JavaScript :
 
@@ -298,6 +297,7 @@ Pour les heures suivantes, prédisez l’écriture obtenue après une minute, sa
 | `09:59` | | |
 
 Pourquoi faut-il connaître la limite des minutes pour répondre ? À quoi sert le séparateur `:` ? Distinguez le comptage artificiel de la démonstration d’une horloge dont les heures sont limitées à 23.
+</details>
 
 <a id="bilan-7"></a>
 

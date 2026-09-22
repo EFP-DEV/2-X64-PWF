@@ -1,8 +1,10 @@
-# Atelier 2 — Pixelator
+# Exercice 3 — Commencer Pixelator
 
 [Support de la séance](../session_02.md)
 
-**Objectif :** construire quatre pixels en HTML et CSS, puis utiliser le DOM et les événements pour peindre chaque pixel au clic.
+**Objectif :** installer le HTML et le CSS fournis pour quatre pixels, puis utiliser le DOM et les événements pour peindre chaque pixel au clic.
+
+Dans l’ampoule, vous avez complété une condition dans un programme dont le déclenchement au clic était déjà fourni. Vous allez maintenant retrouver vous-même un élément de la page, modifier son apparence, puis déclencher cette modification au clic.
 
 ## 1. Votre dossier `dev`
 
@@ -237,7 +239,7 @@ clic → événement → bloc JavaScript → classe HTML → règle CSS → coul
 
 Utilisez **F12 → Console** pour lire les erreurs. Après chaque correction, enregistrez puis rafraîchissez.
 
-Le [résultat final](../solutions/pixelator/session_02/index.html) utilise les mêmes trois fichiers.
+Le [résultat final](../legacy_solutions/pixelator/session_02/index.html) utilise les mêmes trois fichiers.
 
 ## Pour la suite
 
