@@ -39,7 +39,7 @@ Le test doit se faire **après l’augmentation des heures et avant leur afficha
 if (minutes === 60) {
   minutes = 0;
   hours = hours + 1;
-  // DÉBUT de la zone possible : les heures ont été augmentées.
+  // DÉBUT de la zone possible : les données ont été modifiées.
 }
 
 let displayedMinutes;
@@ -49,7 +49,7 @@ if (minutes < 10) {
   displayedMinutes = "0" + minutes;
 }
 
-// FIN de la zone possible : il faut corriger avant la ligne suivante.
+// FIN de la zone possible : il faut corriger avant l'affichage.
 console.log(hours + ":" + displayedMinutes);
 ```
 

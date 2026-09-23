@@ -41,7 +41,11 @@ Suivez les instructions exécutées au premier clic, puis au deuxième :
 
 Expliquez la cause du blocage, puis **corrigez et complétez le programme** en vous appuyant sur les instructions déjà présentes. L’image et le texte doivent toujours décrire le même état.
 
-Les deux fichiers d’image sont à côté de `index.html`. La dernière ligne de la fonction met déjà à jour le texte alternatif à partir de l’état affiché. Enregistrez et rechargez la page pour essayer votre correction.
+Les deux fichiers d’image sont à côté de `index.html`. La dernière ligne de la fonction construit le texte alternatif à partir de `etat.textContent`. Si elle était exécutée avant le `if`, quel état décrirait-elle après le clic ? Suivez les valeurs pour le premier clic, puis pour le deuxième.
+
+**Le nouvel état doit exister avant de construire le texte qui le décrit.** Une modification ultérieure de l’état ne change pas le texte déjà construit. La ligne placée après le `if` / `else` utilise l’état obtenu, quel que soit le bloc exécuté.
+
+Enregistrez et rechargez la page pour essayer votre correction.
 
 ## 3. Prédire, vérifier, expliquer
 

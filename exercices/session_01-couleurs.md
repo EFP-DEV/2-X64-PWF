@@ -57,6 +57,10 @@ Hexadécimal   0 1 2 3 4 5 6 7 8 9 A B C D E F
 
 Pour lire les lettres, utilisez cette correspondance : `A = 10`, `B = 11`, `C = 12`, `D = 13`, `E = 14`, `F = 15`.
 
+Comparez l’ajout d’une unité en décimal, `9 → 10`, et en hexadécimal, `F → 10`. Pourquoi faut-il une position supplémentaire à ces moments précis ? L’écriture `10` représente-t-elle la même quantité dans les deux systèmes ?
+
+Quand une position atteint son dernier symbole, l’unité suivante la ramène à `0` et provoque un **report** à gauche. La position suivante compte donc les groupes de dix en décimal, de seize en hexadécimal : son poids dépend du seuil qui provoque le report.
+
 Dans vos notes, complétez les décompositions. En décimal, les poids utilisés sont 100, 10 et 1 ; pour cette paire hexadécimale, ce sont 16 et 1.
 
 ```text

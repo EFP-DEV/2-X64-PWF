@@ -150,6 +150,8 @@ variable pixel1
     → règle CSS appliquée : __________
 ```
 
+Nous voulons maintenant que le pixel reste rose jusqu’au clic. Quelles instructions peuvent s’exécuter dès le chargement ? Quelle modification doit attendre l’action de l’utilisateur ?
+
 Retirez l’instruction qui ajoute la classe avant de continuer ; conservez la sélection du pixel.
 
 ## 5. Peindre au clic
@@ -165,6 +167,8 @@ function paintPixel(event) {
 
 pixel1.addEventListener("click", paintPixel);
 ```
+
+Au chargement, la sélection du pixel et l’enregistrement de l’écouteur préparent la réaction. **Le clic déclenche l’exécution de la fonction** : l’ajout de la classe se trouve dans son bloc pour attendre cet événement.
 
 Les accolades délimitent les instructions de la fonction. Comme dans l’ampoule, le navigateur fournit `event` au moment du clic. La fonction ajoute la classe à `event.target`, le carré cliqué.
 

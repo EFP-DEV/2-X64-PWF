@@ -117,7 +117,9 @@ Enregistrez et rechargez. Le programme affiche maintenant `14:0`. Expliquez la d
 
 ### De `14:0` à `14:00`
 
-Le nombre de minutes est correct. Comment présenter le zéro sur deux chiffres ? Gardez `minutes` numérique et préparez son affichage dans une autre variable. Remplacez le `console.log` final par :
+Le nombre de minutes est correct. Comparez les nombres `9` et `10` : combien de chiffres faut-il pour écrire chacun ? À partir de quelle valeur le zéro ajouté devant les minutes devient-il inutile ?
+
+Gardez `minutes` numérique et préparez son affichage dans une autre variable. Remplacez le `console.log` final par :
 
 ```js
 let displayedMinutes;
@@ -130,11 +132,11 @@ if (minutes < ___) {
 console.log(hours + ":" + displayedMinutes);
 ```
 
-L’opérateur `<` signifie « est inférieur à ». Quelle limite permet d’ajouter un zéro devant les minutes qui n’ont qu’un chiffre ? Pourquoi les guillemets autour de `"0"` changent-ils le rôle de `+` ?
+L’opérateur `<` signifie « est inférieur à ». Complétez la condition à partir de la limite repérée. Pourquoi les guillemets autour de `"0"` changent-ils le rôle de `+` ?
 
-Le départ `13:59` doit maintenant produire `14:00`. Vérifiez aussi `13:37` et `13:04` en changeant uniquement les valeurs initiales. Pour quatre minutes, écrivez le nombre `4` dans JavaScript.
+Le départ `13:59` doit maintenant produire `14:00`. Prédisez puis vérifiez les sorties pour les départs `13:08` et `13:09` : vous devez obtenir `13:09` et `13:10`. Vérifiez aussi `13:37` et `13:04` en changeant uniquement les valeurs initiales. Pour quatre minutes, écrivez le nombre `4` dans JavaScript.
 
-La variable `minutes` sert au calcul ; `displayedMinutes` prépare la sortie console. Nous travaillons ici l’affichage des minutes sur deux chiffres.
+Le seuil de **10** concerne l’écriture des minutes sur deux chiffres ; celui de **60** déclenche le report vers les heures. La variable `minutes` sert au calcul ; `displayedMinutes` prépare la sortie console.
 
 <details>
 <summary><strong>Retrouver le programme construit ensemble, avant le défi</strong></summary>
