@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md)
 
-**Durée : 30 minutes.** Consacrez les 15 premières minutes au diagnostic, à la correction et aux vérifications des étapes 1 à 3 ; les 15 suivantes aux classes CSS et à la vérification finale de l’étape 4.
+**Travail sur le programme : 30 minutes.** Consacrez les 15 premières minutes au diagnostic, à la correction et aux vérifications des étapes 1 à 3 ; les 15 suivantes aux classes CSS et à la vérification finale de l’étape 4. Déposez ensuite votre travail sur GitHub à l’étape 5, avant de commencer Pixelator.
 
 ## Votre mission
 
@@ -112,10 +112,60 @@ Enregistrez, rechargez et reprenez les vérifications de l’étape 3. Vérifiez
 - Une seule classe applique ensemble le fond clair et le texte sombre, pour garder le texte lisible.
 - Pour revenir à la pièce sombre, JavaScript retire la classe : il n’a pas à recopier les couleurs initiales.
 
-### Avant de passer à Pixelator
+### Vérification finale
 
 Montrez plusieurs clics successifs : l’image, le texte et le fond doivent toujours décrire le même état. Rechargez ensuite la page et montrez le retour à l’ampoule éteinte et au fond noir.
 
-Expliquez ce que `classList.add("light-room")` et `classList.remove("light-room")` changent dans le HTML, puis comment le CSS détermine l’apparence obtenue. Ce fonctionnement vérifié et expliqué sera le point de départ de Pixelator.
+Expliquez ce que `classList.add("light-room")` et `classList.remove("light-room")` changent dans le HTML, puis comment le CSS détermine l’apparence obtenue.
 
-[Exercice suivant — commencer Pixelator](./session_02-pixelator.md)
+<a id="depot-github"></a>
+
+## 5. Déposer l’ampoule sur GitHub
+
+Votre ampoule fonctionne. Enregistrez tous vos fichiers, puis utilisez le compte GitHub préparé après la séance 1 pour y déposer votre travail depuis le navigateur.
+
+### Créer le dépôt
+
+Un **dépôt** rassemble les fichiers d’un projet et l’historique de leurs versions.
+
+1. Connectez-vous à [GitHub](https://github.com/), puis ouvrez [la page de création d’un dépôt](https://github.com/new).
+2. Choisissez votre compte personnel comme propriétaire et nommez le dépôt `ampoule-session-02`.
+3. Choisissez sa visibilité : `Public` rend le dépôt visible par tous ; `Private` limite l’accès à vous et aux personnes invitées.
+4. Laissez les options README, `.gitignore` et licence désactivées pour créer un dépôt vide, puis cliquez sur **Create repository**.
+
+Si vous avez déjà créé ce dépôt pour l’ampoule, ouvrez-le pour y ajouter votre travail.
+
+[Aide GitHub — créer un dépôt](https://docs.github.com/fr/repositories/creating-and-managing-repositories/creating-a-new-repository)
+
+### Envoyer les cinq fichiers
+
+Dans le dépôt vide, suivez le lien **uploading an existing file**. S’il contient déjà des fichiers, utilisez **Add file → Upload files**.
+
+Sélectionnez les cinq fichiers de votre version terminée. Placez-les côte à côte à la racine du dépôt :
+
+```text
+ampoule-session-02/
+├── index.html
+├── dark-room.css
+├── bulb-switch.js
+├── ampoule_off.png
+└── ampoule_on.png
+```
+
+Attendez la fin du chargement des fichiers. Saisissez un message, par exemple `Ajouter l’ampoule fonctionnelle`, puis validez avec **Commit changes**. Un **commit** enregistre une version du projet avec un message qui décrit le changement. Si un choix de branche apparaît, conservez la branche principale de votre dépôt personnel.
+
+Vérifiez que les cinq fichiers sont visibles dans le dépôt, y compris les deux images.
+
+[Aide GitHub — ajouter des fichiers](https://docs.github.com/fr/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)
+
+### Vérifier la version déposée
+
+Depuis la page principale du dépôt, choisissez **Code → Download ZIP**. Extrayez l’archive dans un autre dossier et ouvrez son `index.html` dans le navigateur. Vous testez ainsi la copie récupérée depuis GitHub.
+
+Reprenez les vérifications de l’ampoule : état éteint au chargement, alternance à chaque clic, cohérence entre l’image, le texte et le fond, puis retour à l’état éteint au rechargement.
+
+Si vous corrigez un fichier local, envoyez de nouveau sa version modifiée au même endroit sur GitHub et validez un nouveau commit. Les modifications locales ne sont pas envoyées automatiquement. Téléchargez et vérifiez à nouveau la copie déposée.
+
+[Aide GitHub — télécharger une archive](https://docs.github.com/fr/repositories/working-with-files/using-files/downloading-source-code-archives)
+
+Conservez l’adresse de votre dépôt, de la forme `https://github.com/votre-compte/ampoule-session-02`. Une fois le dépôt vérifié, faites une **pause de 10 minutes**, puis passez à [Pixelator](./session_02-pixelator.md).

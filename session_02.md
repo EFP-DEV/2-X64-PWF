@@ -1,6 +1,8 @@
-# Séance 2 — De l’horloge à Pixelator
+# Séance 2 — L’horloge, l’ampoule et Pixelator
 
-Trois exercices, dans cet ordre : **terminer l’horloge**, **résoudre l’ampoule**, puis **commencer Pixelator**.
+La séance se déroule dans cet ordre : **terminer l’horloge**, **résoudre l’ampoule**, **déposer l’ampoule sur GitHub**, **faire une pause de 10 minutes**, puis **peindre un motif avec Pixelator**.
+
+Utilisez le compte GitHub dont la création était demandée à la fin de la séance 1. Le dépôt de l’ampoule se fait après sa vérification et avant de commencer Pixelator.
 
 **Les 45 premières minutes :**
 
@@ -9,8 +11,6 @@ Trois exercices, dans cet ordre : **terminer l’horloge**, **résoudre l’ampo
 | 0–15 min | Terminer l’horloge et vérifier le passage de minuit |
 | 15–30 min | Diagnostiquer l’ampoule, compléter ses deux états et vérifier les clics |
 | 30–45 min | Manipuler les classes CSS, relier le fond à l’état et vérifier l’ensemble |
-
-Après Pixelator, réservez **20 minutes pour déposer le projet sur GitHub et remettre son lien sur la plateforme du cours**, avant le bilan final.
 
 ## 1. Terminer l’horloge · 15 minutes
 
@@ -32,30 +32,26 @@ Le code qui déclenche le programme au clic est déjà en place. Vous pouvez l�
 
 **CSS définit l’apparence ; JavaScript décide quand l’appliquer.** La classe regroupe le fond et le texte ; les couleurs se modifient dans le CSS et le retrait de la classe rétablit l’apparence initiale.
 
-**Avant Pixelator :** montrez plusieurs clics successifs avec une image, un texte et un fond cohérents, puis le retour à l’état initial au rechargement. Expliquez ce que l’ajout et le retrait de `light-room` changent dans le HTML et dans l’apparence.
+**Vérification de l’ampoule :** montrez plusieurs clics successifs avec une image, un texte et un fond cohérents, puis le retour à l’état initial au rechargement. Expliquez ce que l’ajout et le retrait de `light-room` changent dans le HTML et dans l’apparence.
 
 [Consignes et fichiers de l’exercice](./exercices/session_02-ampoule.md)
 
-## 3. Commencer Pixelator
+## 3. Déposer l’ampoule sur GitHub
 
-**Première étape du mini-projet :** rendre interactive une grille de quatre pixels. Après l’ampoule, reprenez le déclenchement au clic qui était fourni : rôle et anatomie d’un écouteur, fonction appelée par le navigateur et élément désigné par `event.target`. Le HTML et le CSS de Pixelator sont fournis ; vous réutilisez `querySelector` et `classList.add` pour construire l’interaction.
+Déposez votre version terminée de l’ampoule dans un dépôt personnel nommé `ampoule-session-02`, depuis le navigateur. Les cinq fichiers nécessaires doivent être présents : `index.html`, `dark-room.css`, `bulb-switch.js`, `ampoule_off.png` et `ampoule_on.png`.
 
-[Consignes — démarrer Pixelator](./exercices/session_02-pixelator.md)
+Téléchargez ensuite la version déposée et vérifiez que l’image, le texte et le fond changent ensemble à chaque clic, puis reviennent à l’état éteint au rechargement. Conservez l’adresse du dépôt. **Terminez cette vérification avant de passer à Pixelator.**
 
-1. Installer la page et vérifier les quatre carrés roses.
-2. Retrouver un pixel dans le DOM et le peindre avec `classList.add("painted")`.
-3. Placer cette instruction dans `paintPixel(event)`, qui agit sur `event.target`, puis enregistrer la fonction avec `addEventListener`.
-4. Utiliser la même fonction avec quatre écouteurs explicites, un par pixel.
-5. Vérifier le résultat et expliquer la chaîne : **clic → fonction appelée avec event → classe ajoutée à event.target → apparence**.
+[Consignes — déposer et vérifier l’ampoule sur GitHub](./exercices/session_02-ampoule.md#depot-github)
 
-**Résultat attendu :** chaque pixel rose devient violet au clic. Un deuxième clic le laisse violet ; le rechargement rétablit les couleurs initiales.
+## ⏸️ Interlude — pause de 10 minutes
 
-## 4. Remettre Pixelator avec GitHub · 20 minutes
+La reprise commence avec la [fiche Pixelator](./exercices/session_02-pixelator.md) : peindre un motif avec une seule couleur sur quatre pixels.
 
-Enregistrez et vérifiez votre projet, puis déposez ses trois fichiers dans votre dépôt personnel public `pixelator-session-02`, depuis le navigateur. Téléchargez la version déposée pour vérifier son fonctionnement, puis remettez **le lien du dépôt sur la plateforme du cours avant la fin de la séance**.
+## 4. Pixelator — Peindre un motif
 
-[Consignes — déposer et remettre Pixelator](./exercices/session_02-pixelator.md#remise-github)
+Le HTML et le CSS sont fournis. La page de départ contient quatre pixels, chacun avec un identifiant unique. Créez uniquement `pixelator.js` : choisissez une seule couleur, en hexadécimal ou sous la forme `rgb(r, g, b)`, puis peignez les cases de votre choix avec des instructions directes utilisant `querySelector` et `.style.backgroundColor`. Le motif apparaît au chargement de la page.
 
-## Bilan après la remise
+Passez ensuite à la page fournie de huit pixels. Dans le même fichier JavaScript, ajoutez quatre instructions pour peindre les quatre nouvelles cases avec la même couleur.
 
-**Fin de séance :** imaginez huit, seize, puis beaucoup plus de carrés. Combien de sélections et d’enregistrements d’écouteur faudrait-il recopier ? À partir de quand cette répétition devient-elle fastidieuse ? La fonction de peinture est commune, mais il nous faut aussi **un système dans le code** pour organiser ce travail répétitif. La solution ouvrira la prochaine leçon.
+[Consignes et fichiers — Pixelator, première leçon](./exercices/session_02-pixelator.md)

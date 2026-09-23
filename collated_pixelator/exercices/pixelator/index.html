@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixelator</title>
+  <link rel="stylesheet" href="pixelator-layout.css">
+  <script src="pixel-grid.js" defer></script>
+</head>
+<body>
+  <main>
+    <section id="grid" aria-label="Grille de pixels"></section>
+    <aside>
+      <h1>Pixelator</h1>
+      <label for="color">Couleur</label>
+      <input id="color" type="color" value="#800080" autocomplete="off">
+
+      <label for="size">Taille de la grille : <output id="size-label" for="size">16 × 16</output></label>
+      <input id="size" type="range" min="2" max="32" value="16" autocomplete="off">
+    </aside>
+  </main>
+</body>
+</html>

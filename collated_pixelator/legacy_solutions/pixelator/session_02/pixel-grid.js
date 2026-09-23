@@ -4,7 +4,8 @@ let pixel3 = document.querySelector("#pixel3");
 let pixel4 = document.querySelector("#pixel4");
 
 function paintPixel(event) {
-  event.target.classList.add("painted");
+  let clickedPixel = event.target;
+  clickedPixel.classList.add("painted");
 }
 
 pixel1.addEventListener("click", paintPixel);
