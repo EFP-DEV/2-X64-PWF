@@ -2,6 +2,8 @@
 
 [Séance 2](../session_02.md)
 
+**Durée : 15 minutes.** Terminer le défi de minuit, expliquer la place de la correction et vérifier les trois cas proposés.
+
 Ouvrez votre programme de la séance 1 et reprenez le [défi de minuit](./session_01-horloge.md#defi-minuit). Relisez les étapes : **valeurs initiales → ajout d’une minute → report des minutes → préparation de l’affichage → sortie console**.
 
 ## « Ordinateur » : penser à l’ordre

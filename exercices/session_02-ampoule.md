@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md)
 
-**Durée : 15 minutes.** Diagnostiquer et terminer le programme de l’ampoule, puis faire varier le fond avec une classe CSS.
+**Durée : 30 minutes.** Consacrez les 15 premières minutes au diagnostic, à la correction et aux vérifications des étapes 1 à 3 ; les 15 suivantes aux classes CSS et à la vérification finale de l’étape 4.
 
 ## Votre mission
 
@@ -107,5 +107,11 @@ Enregistrez, rechargez et reprenez les vérifications de l’étape 3. Vérifiez
 - Pour changer la couleur de la pièce claire, vous modifiez uniquement le CSS.
 - Une seule classe applique ensemble le fond clair et le texte sombre, pour garder le texte lisible.
 - Pour revenir à la pièce sombre, JavaScript retire la classe : il n’a pas à recopier les couleurs initiales.
+
+### Avant de passer à Pixelator
+
+Montrez plusieurs clics successifs : l’image, le texte et le fond doivent toujours décrire le même état. Rechargez ensuite la page et montrez le retour à l’ampoule éteinte et au fond noir.
+
+Expliquez ce que `classList.add("light-room")` et `classList.remove("light-room")` changent dans le HTML, puis comment le CSS détermine l’apparence obtenue. Ce fonctionnement vérifié et expliqué sera le point de départ de Pixelator.
 
 [Exercice suivant — commencer Pixelator](./session_02-pixelator.md)

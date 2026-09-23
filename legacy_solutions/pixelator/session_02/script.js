@@ -1,20 +1,13 @@
-let pixel1 = document.getElementById("pixel1");
-let pixel2 = document.getElementById("pixel2");
-let pixel3 = document.getElementById("pixel3");
-let pixel4 = document.getElementById("pixel4");
+let pixel1 = document.querySelector("#pixel1");
+let pixel2 = document.querySelector("#pixel2");
+let pixel3 = document.querySelector("#pixel3");
+let pixel4 = document.querySelector("#pixel4");
 
-pixel1.addEventListener("click", function () {
-  pixel1.className = "painted";
-});
+function paintPixel(event) {
+  event.target.classList.add("painted");
+}
 
-pixel2.addEventListener("click", function () {
-  pixel2.className = "painted";
-});
-
-pixel3.addEventListener("click", function () {
-  pixel3.className = "painted";
-});
-
-pixel4.addEventListener("click", function () {
-  pixel4.className = "painted";
-});
+pixel1.addEventListener("click", paintPixel);
+pixel2.addEventListener("click", paintPixel);
+pixel3.addEventListener("click", paintPixel);
+pixel4.addEventListener("click", paintPixel);
