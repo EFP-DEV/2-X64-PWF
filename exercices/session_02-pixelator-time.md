@@ -2,217 +2,208 @@
 
 [Séance 2](../session_02.md) · [Fiche précédente — peindre un motif](./session_02-pixelator-sequence.md)
 
-## Notre mission
+<a id="notre-mission"></a>
 
-Nous avons peint un motif fixe sur quatre pixels. Nous allons maintenant faire circuler **une seule case colorée autour du carré**, avec notre unique couleur de peinture. Nous construirons ensemble cette rotation pendant **15 minutes**, puis consacrerons **15 minutes à d’autres animations**, avant d’agrandir le parcours à huit puis seize pixels.
+## Objectif
 
-Nous réutilisons les pages HTML, le CSS et notre fichier `pixelator.js`. Le mécanisme de répétition est fourni ; nous travaillons sur les instructions qui effacent et peignent les cases, puis sur leur ordre.
+Un motif fixe est peint sur quatre pixels. On va maintenant faire circuler **une seule case colorée autour du carré**, avec l’unique couleur de peinture choisie. On construit ensemble cette rotation pendant **15 minutes**, puis on consacre **15 minutes à d’autres animations**, avant d’agrandir le parcours à huit puis seize pixels.
 
-## 1. Reprendre nos quatre pixels
+On écrit une séquence d’instructions : **peindre → attendre → effacer → peindre la case suivante**. Elle s’exécute une seule fois, du haut vers le bas. On recharge la page pour la rejouer.
 
-Nous ouvrons `quatre-pixels.html` et notre fichier `pixelator.js`. Si nécessaire, nous retrouvons les fichiers de départ dans la [fiche Séquence](./session_02-pixelator-sequence.md#1-préparer-les-fichiers).
+<a id="1-reprendre-nos-quatre-pixels"></a>
 
-Nous conservons notre couleur, puis **remplaçons le programme du motif fixe** par le squelette de l’étape suivante. Nous gardons un seul programme dans `pixelator.js` et un seul appel à `setInterval`. Nous effectuons nos essais en enregistrant le fichier, puis en rechargeant la page.
+## 1. Reprendre les quatre pixels
+
+On ouvre directement `quatre-pixels.html` dans le navigateur, par un double-clic sur le fichier, puis `pixelator.js` dans l’éditeur. Aucun serveur n’est nécessaire. Si nécessaire, on retrouve les fichiers de départ dans la [fiche Séquence](./session_02-pixelator-sequence.md#1-préparer-les-fichiers).
+
+On vérifie que [pixelator-attente.js](./pixelator/pixelator-attente.js) se trouve dans le même dossier que le HTML, le CSS et `pixelator.js`. La page fournie charge cet outil d’attente avant le programme. On le conserve tel quel.
+
+On garde la couleur choisie, puis **remplace le programme du motif fixe** par le squelette de l’étape suivante. Pour chaque essai, on enregistre le fichier, puis recharge la page.
 
 ## 2. Ensemble — construire une rotation · 15 minutes
 
 ### Prévoir les étapes
 
-Nous retrouvons cette disposition dans le HTML :
+Les cases sont disposées ainsi dans le HTML :
 
 | | Colonne de gauche | Colonne de droite |
 |---|---|---|
 | Première ligne | `pixel1` | `pixel2` |
 | Deuxième ligne | `pixel3` | `pixel4` |
 
-Pour tourner dans le sens des aiguilles d’une montre, nous suivons **`pixel1 → pixel2 → pixel4 → pixel3 → pixel1`**. L’ordre du parcours diffère de l’ordre des identifiants dans le HTML.
+Pour tourner dans le sens des aiguilles d’une montre, on suit **`pixel1 → pixel2 → pixel4 → pixel3 → pixel1`**. L’ordre du parcours diffère de l’ordre des identifiants dans le HTML.
 
-| Étape | Case colorée | Moment de l’affichage |
+| Affichage | Case colorée | Moment prévu |
 |---|---|---|
-| 1 | `pixel1` | Dès le chargement |
-| 2 | `pixel2` | Au premier déclenchement de la minuterie |
-| 3 | `pixel4` | Au deuxième déclenchement |
-| 4 | `pixel3` | Au troisième déclenchement |
-| 1 | `pixel1` | Au quatrième déclenchement : le cycle recommence |
+| Départ | `pixel1` | Au chargement, sans attente initiale |
+| Après la première attente | `pixel2` | Environ 1 seconde après le départ |
+| Après la deuxième attente | `pixel4` | Environ 2 secondes après le départ |
+| Après la troisième attente | `pixel3` | Environ 3 secondes après le départ |
+| Retour au départ | `pixel1` | Environ 4 secondes après le départ ; la séquence est terminée |
 
-À chaque étape, nous effaçons la peinture précédente avant de peindre la case suivante. Nous obtenons ainsi un déplacement apparent, sans déplacer les éléments HTML.
+Chaque case reste visible pendant une seconde avant son effacement et la peinture de la suivante. Cette succession crée un déplacement apparent, sans déplacer les éléments HTML. À la fin, `pixel1` reste coloré jusqu’au prochain rechargement.
 
 ### Compléter le squelette fourni
 
-Nous recopions ce squelette dans `pixelator.js`. Nous remplaçons le violet par notre couleur et complétons les trois emplacements indiqués par des commentaires. Chaque emplacement reçoit une instruction directe avec `document.querySelector(...)` et `.style.backgroundColor`.
+On recopie ce squelette dans `pixelator.js`, puis remplace le violet par la couleur choisie. Le premier affichage et le passage de `pixel1` à `pixel2` sont déjà écrits. On complète les trois passages indiqués par des commentaires, **avant la dernière ligne `});`**.
 
 ```js
-let etape = 1;
+window.addEventListener("load", async function () {
+  document.querySelector("#pixel1").style.backgroundColor = "#800080";
 
-function afficherEtape() {
+  await attendre(1000);
   document.querySelector("#pixel1").style.backgroundColor = "";
-  document.querySelector("#pixel2").style.backgroundColor = "";
-  document.querySelector("#pixel3").style.backgroundColor = "";
-  document.querySelector("#pixel4").style.backgroundColor = "";
+  document.querySelector("#pixel2").style.backgroundColor = "#800080";
 
-  if (etape === 1) {
-    document.querySelector("#pixel1").style.backgroundColor = "#800080";
-  } else if (etape === 2) {
-    // Nous peignons pixel2 avec la même couleur.
-  } else if (etape === 3) {
-    // Nous peignons pixel4 avec la même couleur.
-  } else if (etape === 4) {
-    // Nous peignons pixel3 avec la même couleur.
-  }
+  // On attend, efface pixel2, puis peint pixel4.
 
-  etape = etape + 1;
-  if (etape > 4) {
-    etape = 1;
-  }
-}
+  // On attend, efface pixel4, puis peint pixel3.
 
-afficherEtape();
-setInterval(afficherEtape, 1000);
+  // On attend, efface pixel3, puis peint pixel1 pour terminer.
+});
 ```
 
-Nous lisons les quatre premières instructions : attribuer `""` à `.style.backgroundColor` retire la couleur appliquée par JavaScript. Nous retrouvons alors le fond blanc défini dans `pixelator-layout.css`. Cet effacement ne demande pas une deuxième couleur de peinture.
+On garde la première et la dernière ligne telles quelles : ce cadre fourni démarre la séquence au chargement de la page et permet les attentes. On travaille uniquement sur les instructions placées à l’intérieur.
 
-Nous retrouvons ensuite les conditions de l’horloge et de l’ampoule. `else if` nous permet de tester une autre étape lorsque les conditions précédentes sont fausses. Nous n’exécutons qu’un seul bloc de peinture par appel.
+Pour chaque passage à compléter, on écrit trois instructions dans cet ordre :
 
-Nous conservons **l’incrément après les blocs de peinture**. `etape` indique d’abord l’étape à afficher, puis augmente pour préparer l’appel suivant. Après l’étape 4, elle passe à 5 ; le test `etape > 4` la ramène à 1. Nous réutilisons ainsi le principe du retour à zéro de l’horloge, avec un cycle qui commence ici à 1.
+1. On attend avec `await attendre(1000);`.
+2. On efface la case actuellement colorée avec une instruction directe utilisant `document.querySelector(...)` et `.style.backgroundColor = "";`.
+3. On peint la case suivante avec une instruction directe utilisant `document.querySelector(...)` et la couleur choisie.
 
-### Distinguer maintenant et plus tard
+### Lire la séquence du haut vers le bas
 
-Nous utilisons la fonction fournie `afficherEtape` pour regrouper les instructions à répéter. Sa définition décrit ces instructions ; elle ne les exécute pas immédiatement.
+Avec `await attendre(1000);`, on laisse passer environ une seconde **avant de poursuivre à la ligne suivante**. On lit `1000` en millisecondes : 1 000 ms correspondent à une seconde. Le navigateur reste disponible pour afficher la case pendant cette attente ; la durée réelle peut être un peu plus longue.
 
-- Avec `afficherEtape();`, nous appelons la fonction immédiatement : la première case apparaît dès le chargement.
-- Avec `setInterval(afficherEtape, 1000);`, nous demandons au navigateur de rappeler cette fonction à intervalles réguliers. Nous transmettons **son nom, sans parenthèses**, pour qu’il puisse l’appeler plus tard.
-- Nous lisons `1000` en **millisecondes** : 1 000 ms correspondent à une seconde. Le navigateur peut déclencher un appel plus tard que prévu ; nous utilisons ici ce délai pour régler la cadence de l’animation.
+On conserve les deux mots `await attendre` ensemble. Sans `await`, les instructions suivantes continueraient immédiatement : on n’obtiendrait plus les pauses prévues.
 
-Nous gardons `setInterval` **après la définition de la fonction, en dehors de ses accolades**. Il installe une seule minuterie ; les déclenchements successifs rappellent ensuite `afficherEtape`.
+En attribuant `""` à `.style.backgroundColor`, on retire la peinture appliquée par JavaScript. On retrouve le fond blanc défini dans `pixelator-layout.css` ; cet effacement ne demande pas une deuxième couleur de peinture.
+
+On place l’attente **avant l’effacement** pour garder la case visible. L’effacement et la peinture suivante se suivent, sans attente entre les deux. On lit ainsi le parcours directement dans l’ordre des instructions.
 
 ### Vérifier, puis changer la cadence
 
-Nous enregistrons et rechargeons la page. Nous suivons au moins deux tours complets : une seule case reste colorée à chaque étape, le parcours suit le bord du carré et la rotation revient à `pixel1`.
+On enregistre le fichier, puis recharge la page. On suit un tour complet : `pixel1`, `pixel2`, `pixel4`, `pixel3`, puis `pixel1`. Une seule case reste colorée à chaque affichage. On attend encore quelques secondes après le retour : la séquence est terminée, `pixel1` reste coloré.
 
-Nous remplaçons ensuite `1000` par `500`, enregistrons et rechargeons. Le délai demandé passe à une demi-seconde : nous observons la même succession de cases, à une cadence plus rapide. Nous revenons à `1000` pour lire facilement les étapes suivantes.
+On recharge pour refaire un essai. On peut aussi recharger pendant le parcours : la nouvelle séquence repart de `pixel1`.
 
-Si les couleurs s’accumulent, nous vérifions les quatre effacements au début de la fonction. Si une étape reste blanche, nous vérifions l’instruction de peinture dans son bloc. Si le parcours saute d’un coin à l’autre, nous comparons les identifiants avec le tableau.
+On remplace ensuite **les quatre durées `1000` par `500`**, enregistre et recharge. Chaque attente dure environ une demi-seconde ; on observe le même parcours, deux fois plus rapide. On revient à `1000` pour lire facilement la suite.
+
+Si les couleurs s’accumulent, on vérifie que chaque passage efface la case précédente. Si toute la grille reste blanche pendant une pause, on vérifie que l’attente précède l’effacement. Si le parcours est presque instantané, on cherche un `await` manquant. Si la séquence ne démarre pas ou s’arrête trop tôt, on consulte la console et vérifie le nom du fichier `pixelator-attente.js`, les identifiants ciblés et les deux lignes du cadre fourni.
 
 <a id="rotation-reference"></a>
 
 <details>
-<summary><strong>Retrouver notre rotation de référence à quatre pixels</strong></summary>
+<summary><strong>Retrouver la rotation de référence à quatre pixels</strong></summary>
 
-Nous retrouvons ci-dessous le programme complété avec le violet d’exemple. Nous conservons notre couleur en remplaçant les quatre occurrences de `#800080`.
+Le programme ci-dessous est complété avec le violet d’exemple. On conserve la couleur choisie en remplaçant les cinq occurrences de `#800080` : on peint `pixel1` au départ et au retour.
 
 ```js
-let etape = 1;
+window.addEventListener("load", async function () {
+  document.querySelector("#pixel1").style.backgroundColor = "#800080";
 
-function afficherEtape() {
+  await attendre(1000);
   document.querySelector("#pixel1").style.backgroundColor = "";
+  document.querySelector("#pixel2").style.backgroundColor = "#800080";
+
+  await attendre(1000);
   document.querySelector("#pixel2").style.backgroundColor = "";
-  document.querySelector("#pixel3").style.backgroundColor = "";
+  document.querySelector("#pixel4").style.backgroundColor = "#800080";
+
+  await attendre(1000);
   document.querySelector("#pixel4").style.backgroundColor = "";
+  document.querySelector("#pixel3").style.backgroundColor = "#800080";
 
-  if (etape === 1) {
-    document.querySelector("#pixel1").style.backgroundColor = "#800080";
-  } else if (etape === 2) {
-    document.querySelector("#pixel2").style.backgroundColor = "#800080";
-  } else if (etape === 3) {
-    document.querySelector("#pixel4").style.backgroundColor = "#800080";
-  } else if (etape === 4) {
-    document.querySelector("#pixel3").style.backgroundColor = "#800080";
-  }
-
-  etape = etape + 1;
-  if (etape > 4) {
-    etape = 1;
-  }
-}
-
-afficherEtape();
-setInterval(afficherEtape, 1000);
+  await attendre(1000);
+  document.querySelector("#pixel3").style.backgroundColor = "";
+  document.querySelector("#pixel1").style.backgroundColor = "#800080";
+});
 ```
 
 </details>
 
 ## 3. Explorer d’autres animations · 15 minutes
 
-Nous choisissons une variante. Avant de modifier le code, nous écrivons la succession des cases colorées et le nombre d’étapes de notre cycle.
+On choisit une variante. Avant de modifier le code, on écrit la succession complète des affichages, jusqu’au retour au motif de départ.
 
-| Variante | Succession des cases colorées | Nombre d’étapes |
+| Variante | Succession des cases colorées | Nombre d’attentes |
 |---|---|---|
-| Sens inverse | `pixel1 → pixel3 → pixel4 → pixel2`, puis retour à `pixel1` | 4 |
-| Aller-retour sur le parcours | `pixel1 → pixel2 → pixel4 → pixel3 → pixel4 → pixel2`, puis retour à `pixel1` | 6 |
-| Alternance des diagonales | `pixel1` et `pixel4` ensemble, puis `pixel2` et `pixel3` ensemble | 2 |
+| Sens inverse | `pixel1 → pixel3 → pixel4 → pixel2 → pixel1` | 4 |
+| Aller-retour sur le parcours | `pixel1 → pixel2 → pixel4 → pixel3 → pixel4 → pixel2 → pixel1` | 6 |
+| Alternance des diagonales | `pixel1` et `pixel4`, puis `pixel2` et `pixel3`, puis `pixel1` et `pixel4` | 2 |
 
-Nous conservons les quatre effacements au début de la fonction, puis adaptons les blocs de peinture. Pour l’aller-retour, nous ajoutons les conditions des étapes 5 et 6. Pour les diagonales, nous gardons deux blocs, avec deux instructions de peinture dans chacun.
+On remplace les instructions à l’intérieur du cadre fourni par la nouvelle séquence. Pour l’aller-retour, on écrit davantage de passages. Pour les diagonales, on peint les deux premières cases sans attente entre elles ; après chaque attente, on efface les deux cases précédentes et peint les deux suivantes.
 
-Nous adaptons aussi **la limite du cycle** : `etape > 4`, `etape > 6` ou `etape > 2`, selon notre choix. Nous gardons l’incrément et le retour à 1 après tous les blocs de peinture.
+On garde une attente avant chaque changement d’affichage, avec la même couleur pour toutes les peintures. Dans la variante des diagonales, on voit deux cases colorées ensemble.
 
-Nous comparons notre prévision à au moins deux cycles observés. Nous pouvons ensuite essayer une autre cadence ou une autre variante, en rechargeant après chaque modification. Nous utilisons toujours notre unique couleur ; la variante des diagonales colore deux cases à la fois.
+On enregistre et recharge, puis compare la prévision au parcours observé et au motif final. On vérifie que ce motif reste immobile une fois la séquence terminée. On recharge pour rejouer, ou essaie une autre cadence ou une autre variante.
 
 ## 4. Agrandir le parcours à huit pixels
 
-Nous reprenons la [rotation de référence à quatre pixels](#rotation-reference) dans `pixelator.js`, avec notre couleur et un délai de 1 000 ms. Nous remplaçons notre variante par cette rotation avant de l’agrandir.
+On reprend la [rotation de référence à quatre pixels](#rotation-reference) dans `pixelator.js`, avec la couleur choisie et des attentes de 1 000 ms. On remplace la variante par cette rotation avant de l’agrandir.
 
-Nous récupérons [huit-pixels.html](./pixelator/huit-pixels.html) et le plaçons à côté de `quatre-pixels.html`, de `pixelator-layout.css` et de `pixelator.js`. Nous ouvrons désormais `huit-pixels.html` pour nos essais. La page charge le même programme et présente deux colonnes de quatre cases.
+On récupère [huit-pixels.html](./pixelator/huit-pixels.html) et le place à côté de `quatre-pixels.html`, de `pixelator-layout.css`, de `pixelator-attente.js` et de `pixelator.js`. On ouvre directement `huit-pixels.html` pour les essais. Cette page charge les mêmes fichiers et présente deux colonnes de quatre cases.
 
-Avant nos modifications, nous retrouvons la petite rotation sur les quatre premières cases. Nous allons étendre le parcours au bord du rectangle : **`pixel1 → pixel2 → pixel4 → pixel6 → pixel8 → pixel7 → pixel5 → pixel3 → pixel1`**.
+Avant les modifications, on retrouve la petite rotation sur les quatre premières cases. On va étendre le parcours au bord du rectangle : **`pixel1 → pixel2 → pixel4 → pixel6 → pixel8 → pixel7 → pixel5 → pixel3 → pixel1`**.
 
-| Étape | Case à peindre |
+| Affichage | Case à peindre |
 |---|---|
-| 1 | `pixel1` |
-| 2 | `pixel2` |
-| 3 | `pixel4` |
-| 4 | `pixel6` |
-| 5 | `pixel8` |
-| 6 | `pixel7` |
-| 7 | `pixel5` |
-| 8 | `pixel3` |
+| Départ | `pixel1` |
+| Après l’attente 1 | `pixel2` |
+| Après l’attente 2 | `pixel4` |
+| Après l’attente 3 | `pixel6` |
+| Après l’attente 4 | `pixel8` |
+| Après l’attente 5 | `pixel7` |
+| Après l’attente 6 | `pixel5` |
+| Après l’attente 7 | `pixel3` |
+| Après l’attente 8 | `pixel1` — fin |
 
-Nous modifions trois parties du programme :
+On conserve le départ et les deux premiers passages, jusqu’à `pixel4`. On remplace ensuite l’ancienne fin par les passages vers `pixel6`, `pixel8`, `pixel7`, `pixel5`, `pixel3`, puis `pixel1`. Pour chacun, on écrit **attendre, effacer la case précédente, peindre la suivante**. Tous ces passages restent avant la dernière ligne `});`.
 
-1. Nous ajoutons les quatre effacements de `pixel5` à `pixel8`, à la suite des premiers et avant les conditions.
-2. Nous adaptons les blocs de peinture au tableau. Le bloc de l’étape 4 change lui aussi : il peint maintenant `pixel6`. Nous ajoutons les quatre blocs `else if` des étapes 5 à 8, avant l’incrément.
-3. Nous remplaçons `etape > 4` par `etape > 8` pour revenir à 1 après la huitième étape.
+On enregistre et recharge. On descend par la colonne de droite, puis remonte par celle de gauche, avec une seule case colorée à chaque affichage. Après les huit attentes, on retrouve `pixel1`, qui reste coloré. On recharge pour refaire le parcours.
 
-Nous conservons un seul appel immédiat à `afficherEtape()` et un seul `setInterval`, en dehors de la fonction. Nous enregistrons, rechargeons et vérifions deux tours : nous descendons par la colonne de droite, puis remontons par celle de gauche, avec une seule case colorée.
-
-Nous poursuivons nos essais sur `huit-pixels.html`. Le programme cible maintenant huit identifiants ; les quatre nouveaux n’existent pas dans `quatre-pixels.html`.
+On poursuit les essais sur `huit-pixels.html`. Notre programme cible maintenant huit identifiants ; les quatre nouveaux n’existent pas dans `quatre-pixels.html`.
 
 ## 5. Doubler encore le parcours : seize pixels
 
-Nous récupérons [seize-pixels.html](./pixelator/seize-pixels.html) et le plaçons dans le même dossier. Nous ouvrons cette page pour la suite. Elle utilise les mêmes fichiers CSS et JavaScript, conserve les deux colonnes et ajoute quatre lignes : les nouvelles cases portent les identifiants `pixel9` à `pixel16`.
+On récupère [seize-pixels.html](./pixelator/seize-pixels.html) et le place dans le même dossier. On ouvre directement cette page pour la suite. Elle utilise les mêmes fichiers CSS et JavaScript, conserve les deux colonnes et ajoute quatre lignes : les nouvelles cases portent les identifiants `pixel9` à `pixel16`.
 
-Nous prolongeons le parcours jusqu’au bas de cette grille, puis remontons par la gauche : **`pixel1 → pixel2 → pixel4 → pixel6 → pixel8 → pixel10 → pixel12 → pixel14 → pixel16 → pixel15 → pixel13 → pixel11 → pixel9 → pixel7 → pixel5 → pixel3 → pixel1`**.
+On prolonge le parcours jusqu’au bas de cette grille, puis remonte par la gauche : **`pixel1 → pixel2 → pixel4 → pixel6 → pixel8 → pixel10 → pixel12 → pixel14 → pixel16 → pixel15 → pixel13 → pixel11 → pixel9 → pixel7 → pixel5 → pixel3 → pixel1`**.
 
-| Étape | Case à peindre |
+| Affichage | Case à peindre |
 |---|---|
-| 1 | `pixel1` |
-| 2 | `pixel2` |
-| 3 | `pixel4` |
-| 4 | `pixel6` |
-| 5 | `pixel8` |
-| 6 | `pixel10` |
-| 7 | `pixel12` |
-| 8 | `pixel14` |
-| 9 | `pixel16` |
-| 10 | `pixel15` |
-| 11 | `pixel13` |
-| 12 | `pixel11` |
-| 13 | `pixel9` |
-| 14 | `pixel7` |
-| 15 | `pixel5` |
-| 16 | `pixel3` |
+| Départ | `pixel1` |
+| Après l’attente 1 | `pixel2` |
+| Après l’attente 2 | `pixel4` |
+| Après l’attente 3 | `pixel6` |
+| Après l’attente 4 | `pixel8` |
+| Après l’attente 5 | `pixel10` |
+| Après l’attente 6 | `pixel12` |
+| Après l’attente 7 | `pixel14` |
+| Après l’attente 8 | `pixel16` |
+| Après l’attente 9 | `pixel15` |
+| Après l’attente 10 | `pixel13` |
+| Après l’attente 11 | `pixel11` |
+| Après l’attente 12 | `pixel9` |
+| Après l’attente 13 | `pixel7` |
+| Après l’attente 14 | `pixel5` |
+| Après l’attente 15 | `pixel3` |
+| Après l’attente 16 | `pixel1` — fin |
 
-Nous reprenons les trois modifications : huit effacements supplémentaires pour `pixel9` à `pixel16`, seize blocs de peinture conformes au tableau, et une limite remplacée par `etape > 16`. Nous adaptons aussi les blocs existants des étapes 6 à 8 ; ajouter des blocs à la fin ne suffit pas à prolonger le parcours.
+On conserve le début jusqu’à `pixel8`, puis réécrit la suite conformément au tableau. On doit changer l’ancien passage de `pixel8` à `pixel7` pour descendre vers `pixel10` : ajouter des instructions après l’ancien retour à `pixel1` ne suffit pas à prolonger correctement le parcours.
 
-Nous gardons l’incrément après tous les blocs de peinture et conservons notre unique minuterie. Nous enregistrons et rechargeons `seize-pixels.html`, puis suivons deux tours complets. Nous utilisons désormais cette page, qui contient tous les identifiants ciblés par notre programme.
+Chaque passage contient le même groupe de trois instructions : une attente, un effacement, une peinture. On garde le cadre fourni autour de toute la séquence. On enregistre et recharge `seize-pixels.html`, puis suit le tour complet jusqu’à son arrêt sur `pixel1`, après environ seize secondes.
+
+On recharge pour refaire le parcours. On utilise désormais cette page, qui contient tous les identifiants ciblés par le programme.
 
 ## Vérification finale
 
-- Nous retrouvons `pixel1` coloré dès le chargement, puis les cases suivantes dans l’ordre prévu.
-- Nous observons une seule case colorée à chaque étape de la rotation de référence ; les autres retrouvent leur fond initial.
-- Nous revenons à `pixel1` après seize étapes, puis retrouvons le même parcours au cycle suivant.
-- Nous vérifions qu’un rechargement relance le parcours au début.
-- Nous changeons le délai et observons une cadence différente, avec le même parcours.
-- Nous pouvons expliquer l’effacement, le choix de la case, l’incrément et le retour à la première étape.
+- On retrouve `pixel1` coloré au chargement, sans attente initiale.
+- On observe une seule case colorée à chaque affichage de la rotation de référence ; les autres retrouvent leur fond initial.
+- On suit le parcours prévu, avec une pause avant chaque changement.
+- On revient à `pixel1` après seize attentes, puis constate que la séquence est terminée : cette case reste colorée.
+- On vérifie qu’un rechargement, pendant ou après l’animation, relance le parcours au début.
+- On change les durées d’attente et observe une cadence différente, avec le même parcours.
+- On peut expliquer pourquoi on attend avant d’effacer, et comment l’ordre des instructions détermine l’animation.
 
-Nous avons agrandi notre animation en répétant des instructions d’effacement et des blocs de peinture. Nous constatons que le programme s’allonge avec le parcours : cette répétition nous donne une raison concrète d’aborder les boucles dans la suite du cours.
+L’animation s’est agrandie par ajout d’instructions dans l’ordre du parcours. Le même groupe — attendre, effacer, peindre — revient plusieurs fois : cette répétition donne une raison concrète d’aborder les boucles dans la suite du cours.

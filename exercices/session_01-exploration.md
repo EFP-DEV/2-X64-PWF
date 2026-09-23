@@ -4,37 +4,37 @@
 
 Les emplacements `___` sont à compléter avant d’exécuter les blocs concernés.
 
-**Point de départ :** la page de Sullivan dans son état initial. Si nous l’avons déjà modifiée, nous la rechargeons.
+**Point de départ :** la page de Sullivan dans son état initial. Si elle a déjà été modifiée, on la recharge.
 
 ## Une page apparemment vide
 
-<a href="./session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Nous ouvrons le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : nous ne voyons qu'une surface noire.
+<a href="./session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">On ouvre le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : seule une surface noire est visible.
 
-Nous cliquons sur la page et appliquons **Ctrl + A**. La sélection révèle le texte présent dans la page.
+On clique sur la page, puis on utilise **Ctrl + A**. La sélection révèle le texte présent dans la page.
 
-Nous examinons sa structure avec l’inspecteur web :
+On examine sa structure avec l’inspecteur web :
 
-1. Nous ouvrons les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**.
-2. Nous choisissons **Éléments** ou **Inspecteur**, selon le navigateur. Nous déplions le contenu de `body`.
-3. Nous retrouvons le texte de Louis H. Sullivan, ses trois paragraphes et son attribution.
+1. On ouvre les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**.
+2. On choisit **Éléments** ou **Inspecteur**, selon le navigateur, puis on déplie le contenu de `body`.
+3. Le texte de Louis H. Sullivan, ses trois paragraphes et son attribution apparaissent.
 
-Nous retrouvons les trois éléments `p` dans un `blockquote`, puis l’attribution dans un `figcaption`. Un élément `figure` rassemble la citation et son attribution.
+Les trois éléments `p` se trouvent dans un `blockquote`, puis l’attribution dans un `figcaption`. Un élément `figure` rassemble la citation et son attribution.
 
-Nous sélectionnons `body` et observons ses règles CSS. Nous repérons `color` et `background-color` : le texte est noir et le fond aussi.
+On sélectionne `body` pour observer ses règles CSS. Les propriétés `color` et `background-color` expliquent le résultat : le texte est noir et le fond aussi.
 
-Dans les règles affichées par l'inspecteur, nous remplaçons la valeur de `background-color` par `white`. Nous observons immédiatement la page.
+Dans les règles affichées par l’inspecteur, on remplace la valeur de `background-color` par `white`, puis on observe immédiatement la page.
 
-Le texte devient visible sur le fond blanc. Nous avons changé sa présentation ; le contenu HTML était déjà présent.
+Le texte devient visible sur le fond blanc. Sa présentation a changé ; le contenu HTML était déjà présent.
 
 <a id="quelquun-répond-"></a>
 
 ## Premiers essais dans la console
 
-Nous gardons ce document ouvert et passons à la **Console**. Nous allons retrouver cette possibilité de changement à l'aide de JavaScript.
+On garde ce document ouvert et on passe à la **Console**. On va retrouver cette possibilité de changement à l’aide de JavaScript.
 
-Chaque bloc **À saisir** correspond à un essai séparé. Nous le validons avec Entrée, puis observons la réponse avant de poursuivre. Les encadrés **À observer** montrent des réponses ou des éléments à retrouver ; nous ne les saisissons pas. La présentation exacte des réponses peut varier selon le navigateur.
+Chaque bloc **À saisir** correspond à un essai séparé. On le valide avec Entrée, puis on observe la réponse avant de poursuivre. Les encadrés **À observer** montrent des réponses ou des éléments à retrouver ; ils ne sont pas à saisir. La présentation exacte des réponses peut varier selon le navigateur.
 
-Nous commençons par un mot qui nous vient naturellement.
+On commence par une salutation.
 
 **À saisir**
 
@@ -46,7 +46,7 @@ hello
 
 > `ReferenceError: hello is not defined`
 
-Essayons autrement.
+On essaie autrement.
 
 **À saisir**
 
@@ -54,9 +54,9 @@ Essayons autrement.
 salut
 ```
 
-Nous essayons aussi `hi` ou `coucou`. Pour ces noms inconnus, le message reste une `ReferenceError` et reprend le nom saisi. Nous pouvons continuer après une erreur.
+On essaie aussi `hi` ou `coucou`. Pour ces noms inconnus, le message reste une `ReferenceError` et reprend le nom saisi. On peut continuer après une erreur.
 
-Essayons une phrase.
+On essaie une phrase.
 
 **À saisir**
 
@@ -68,7 +68,7 @@ is this a trap ?
 
 > `SyntaxError: Unexpected token 'this'`
 
-Cette fois, le message est différent. Il désigne `this`. Essayons le tout seul.
+Cette fois, le message est différent. Il désigne `this`. On essaie ce mot tout seul.
 
 **À saisir**
 
@@ -80,11 +80,11 @@ this
 
 > `Window { … }`
 
-Dans cette console, `this` donne accès à l’objet global de la page. Nous déplions la réponse : nous découvrons une liste de propriétés dont les valeurs prennent plusieurs formes, notamment des nombres, du texte, des objets et des fonctions.
+Dans cette console, `this` donne accès à l’objet global de la page. On déplie la réponse : une liste de propriétés apparaît. Leurs valeurs prennent plusieurs formes, notamment des nombres, du texte, des objets et des fonctions.
 
 ## Suivre les mots qui apparaissent
 
-La réponse commence par `Window`. Essayons ce nom, avec sa majuscule.
+La réponse commence par `Window`. On essaie ce nom, avec sa majuscule.
 
 **À saisir**
 
@@ -96,7 +96,7 @@ Window
 
 > `ƒ Window() { [native code] }`
 
-Nous retrouvons aussi `window`, avec une minuscule, parmi les propriétés affichées.
+Le nom `window`, avec une minuscule, figure aussi parmi les propriétés affichées.
 
 **À saisir**
 
@@ -118,7 +118,7 @@ alert
 
 > `ƒ alert() { [native code] }`
 
-Des parenthèses apparaissent après son nom. Essayons de les reprendre.
+Des parenthèses apparaissent après son nom. On essaie de les reprendre.
 
 **À saisir**
 
@@ -126,13 +126,13 @@ Des parenthèses apparaissent après son nom. Essayons de les reprendre.
 alert()
 ```
 
-Une boîte de dialogue apparaît. Nous la fermons, puis regardons ce que répond la console.
+Une boîte de dialogue apparaît. On la ferme, puis on regarde ce que répond la console.
 
 **À observer**
 
 > `undefined`
 
-Cette réponse peut donc accompagner un effet visible. Essayons de placer entre les parenthèses un élément déjà rencontré.
+Cette réponse peut donc accompagner un effet visible. On essaie de placer entre les parenthèses un élément déjà rencontré.
 
 **À saisir**
 
@@ -140,7 +140,7 @@ Cette réponse peut donc accompagner un effet visible. Essayons de placer entre 
 alert(this)
 ```
 
-Nous comparons ce que montre la boîte avec ce que la console montrait pour `this`. Nous la fermons, puis reprenons un de nos premiers essais.
+On compare ce que montre la boîte avec ce que la console montrait pour `this`. On la ferme, puis on reprend un des premiers essais.
 
 **À saisir**
 
@@ -148,13 +148,13 @@ Nous comparons ce que montre la boîte avec ce que la console montrait pour `thi
 alert(hello)
 ```
 
-Nous retrouvons la `ReferenceError` : `hello` reste un nom inconnu. L’erreur survient avant l’appel à `alert`, donc aucune boîte ne s’ouvre.
+La `ReferenceError` réapparaît : `hello` reste un nom inconnu. L’erreur survient avant l’appel à `alert`, donc aucune boîte ne s’ouvre.
 
 <a id="que-dit-le-html-"></a>
 
 ## Du HTML au document
 
-Nous revenons au HTML de la page dans l'inspecteur. Sa première ligne contient une indication comme celle-ci.
+On revient au HTML de la page dans l’inspecteur. Sa première ligne contient une indication comme celle-ci.
 
 **À observer dans le HTML**
 
@@ -162,13 +162,13 @@ Nous revenons au HTML de la page dans l'inspecteur. Sa première ligne contient 
 <!DOCTYPE html>
 ```
 
-Nous décomposons ce nom pour retrouver l’idée de type d’un document HTML :
+On décompose ce nom pour retrouver l’idée de type d’un document HTML :
 
 ```text
 DOC + TYPE + HTML
 ```
 
-Le navigateur donne justement accès au document de la page par le nom `document`. Nous revenons dans la console et commençons à le saisir. Nous observons les propositions pendant la frappe, puis validons.
+Le navigateur donne justement accès au document de la page par le nom `document`. On revient dans la console pour commencer à le saisir. On observe les propositions pendant la frappe, puis on valide.
 
 **À saisir**
 
@@ -180,9 +180,9 @@ document
 
 ## Accéder aux propriétés de style
 
-Nous ajoutons un point après `document`, **sans valider cette expression incomplète**, et observons les suggestions.
+On ajoute un point après `document`, **sans valider cette expression incomplète**, puis on observe les suggestions.
 
-Nous avons repéré l'élément `body` dans l'inspecteur. Retrouvons-le.
+L’élément `body` a déjà été repéré dans l’inspecteur. On le retrouve dans la console.
 
 **À saisir**
 
@@ -190,7 +190,7 @@ Nous avons repéré l'élément `body` dans l'inspecteur. Retrouvons-le.
 document.body
 ```
 
-Nous saisissons ensuite le début `document.body.` et repérons `style` dans les suggestions. Nous complétons avant de valider.
+On saisit ensuite le début `document.body.`. Le nom `style` apparaît dans les suggestions ; on complète l’expression avant de valider.
 
 **À saisir**
 
@@ -198,7 +198,7 @@ Nous saisissons ensuite le début `document.body.` et repérons `style` dans les
 document.body.style
 ```
 
-Nous continuons avec `document.body.style.`. Dans les suggestions, nous repérons `color` pour la couleur du texte et `backgroundColor` pour celle du fond.
+On continue avec `document.body.style.`. Les suggestions contiennent `color` pour la couleur du texte et `backgroundColor` pour celle du fond.
 
 **À saisir**
 
@@ -206,15 +206,15 @@ Nous continuons avec `document.body.style.`. Dans les suggestions, nous repéron
 document.body.style.backgroundColor
 ```
 
-Nous comparons les deux écritures : `background-color` en CSS devient `backgroundColor` en JavaScript. Le tiret disparaît et le mot suivant commence par une majuscule.
+On compare les deux écritures : `background-color` en CSS devient `backgroundColor` en JavaScript. Le tiret disparaît et le mot suivant commence par une majuscule.
 
-La réponse peut être `""`, une chaîne vide. Pourtant, le fond est blanc. Pour comprendre cette différence, nous revenons dans l'inspecteur et ajoutons directement un attribut `style` à l'élément `body` :
+La réponse peut être `""`, une chaîne vide. Pourtant, le fond est blanc. Pour comprendre cette différence, on revient dans l’inspecteur pour ajouter directement un attribut `style` à l’élément `body` :
 
 ```html
 <body style="background-color: white;">
 ```
 
-Le fond reste blanc. Nous revenons dans la console et exécutons à nouveau exactement la même expression.
+Le fond reste blanc. On revient dans la console pour exécuter à nouveau exactement la même expression.
 
 **À saisir**
 
@@ -228,7 +228,7 @@ document.body.style.backgroundColor
 
 ## Affecter une valeur
 
-Nous pouvons maintenant demander au navigateur de changer le fond depuis la console.
+On peut maintenant demander au navigateur de changer le fond depuis la console.
 
 **À saisir**
 
@@ -244,22 +244,23 @@ Le fond redevient noir. Le texte noir disparaît à nouveau.
 document.body.style.backgroundColor = "white";
 ```
 
-Le texte réapparaît sur le fond blanc. Nous avons affecté la valeur `"white"`, placée à droite de `=`, à la propriété `backgroundColor`.
+Le texte réapparaît sur le fond blanc. La valeur `"white"`, placée à droite de `=`, a été affectée à la propriété `backgroundColor`.
 
-Nous revenons dans l'inspecteur : dans l'attribut `style` de `body`, nous retrouvons la valeur que JavaScript vient de modifier.
+On revient dans l’inspecteur : l’attribut `style` de `body` contient la valeur que JavaScript vient de modifier.
 
 <a id="à-vous-de-compléter"></a>
+<a id="nous-complétons"></a>
 
-## Nous complétons
+## Compléter les instructions
 
-Nous remettons le fond en noir, puis rendons le texte blanc. Nous complétons avant d’exécuter ; la propriété du texte a déjà été rencontrée dans le CSS.
+On remet le fond en noir, puis on rend le texte blanc. On complète les instructions avant de les exécuter ; la propriété du texte a déjà été rencontrée dans le CSS.
 
 ```js
 document.body.style.backgroundColor = "___";
 document.body.style.___ = "white";
 ```
 
-Nous vérifions le résultat dans la page et dans l’attribut `style` de `body` : le texte est blanc sur fond noir. `.style` donne accès aux déclarations de cet attribut ; `backgroundColor` est l’une de ses propriétés. Ces deux noms ne désignent pas des éléments HTML supplémentaires. Nous gardons la page ouverte pour la recherche sur les couleurs.
+On vérifie le résultat dans la page et dans l’attribut `style` de `body` : le texte est blanc sur fond noir. `.style` donne accès aux déclarations de cet attribut ; `backgroundColor` est l’une de ses propriétés. Ces deux noms ne désignent pas des éléments HTML supplémentaires. On garde la page ouverte pour la recherche sur les couleurs.
 
 ---
 
