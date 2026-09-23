@@ -4,35 +4,35 @@
 
 Les emplacements `___` sont à compléter avant d’exécuter les blocs concernés.
 
-**Point de départ :** la page de Sullivan dans son état initial. Si vous l’avez déjà modifiée, rechargez-la.
+**Point de départ :** la page de Sullivan dans son état initial. Si nous l’avons déjà modifiée, nous la rechargeons.
 
 ## Une page apparemment vide
 
-<a href="./session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Ouvrez le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : vous ne voyez qu'une surface noire. Cela suffit-il à conclure qu'elle ne contient rien ?
+<a href="./session_01/let-there-be-light.html" target="_blank" rel="noopener noreferrer">Nous ouvrons le document HTML dans un nouvel onglet, en vue scindée</a>. La page paraît vide : nous ne voyons qu'une surface noire. Cela suffit-il à conclure qu'elle ne contient rien ?
 
-Cliquez sur la page et appliquez **Ctrl + A**. Que révèle la sélection ?
+Nous cliquons sur la page et appliquons **Ctrl + A**. Que révèle la sélection ?
 
 Un meilleur outil existe, l'inspecteur web:
 
-1. Ouvrez les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**.
-2. Choisissez **Éléments** ou **Inspecteur**, selon le navigateur. Dépliez le contenu de `body`.
-3. Retrouvez le texte de Louis H. Sullivan, ses trois paragraphes et son attribution.
+1. Nous ouvrons les outils de développement avec **F12** ou **Ctrl + Shift + I** ou un clic droit puis **Inspecter**.
+2. Nous choisissons **Éléments** ou **Inspecteur**, selon le navigateur. Nous déplions le contenu de `body`.
+3. Nous retrouvons le texte de Louis H. Sullivan, ses trois paragraphes et son attribution.
 
 Quels éléments HTML les structurent ?
 
-Sélectionnez `body` et observez ses règles CSS. Repérez `color` et `background-color` : le texte est noir et le fond aussi.
+Nous sélectionnons `body` et observons ses règles CSS. Nous repérons `color` et `background-color` : le texte est noir et le fond aussi.
 
-Dans les règles affichées par l'inspecteur, remplacez la valeur de `background-color` par `white`. Observez immédiatement la page.
+Dans les règles affichées par l'inspecteur, nous remplaçons la valeur de `background-color` par `white`. Nous observons immédiatement la page.
 
-Le texte apparaît-il ? Avez-vous ajouté du contenu ou changé sa présentation ?
+Le texte apparaît-il ? Avons-nous ajouté du contenu ou changé sa présentation ?
 
 ## Quelqu'un répond ?
 
-Gardez ce document ouvert et passez à la **Console**. Nous allons retrouver cette possibilité de changement à l'aide de JavaScript.
+Nous gardons ce document ouvert et passons à la **Console**. Nous allons retrouver cette possibilité de changement à l'aide de JavaScript.
 
-Chaque bloc **À saisir** correspond à un essai séparé. Validez-le avec Entrée, puis observez la réponse avant de poursuivre. Les encadrés **À observer** montrent des réponses ou des éléments à retrouver ; ne les saisissez pas. La présentation exacte des réponses peut varier selon le navigateur.
+Chaque bloc **À saisir** correspond à un essai séparé. Nous le validons avec Entrée, puis observons la réponse avant de poursuivre. Les encadrés **À observer** montrent des réponses ou des éléments à retrouver ; nous ne les saisissons pas. La présentation exacte des réponses peut varier selon le navigateur.
 
-Commencez par un mot qui vous vient naturellement.
+Nous commençons par un mot qui nous vient naturellement.
 
 **À saisir**
 
@@ -52,7 +52,7 @@ Essayons autrement.
 salut
 ```
 
-Et avec votre prénom ? Avec `hi` ou `coucou`? Les réponses changent-elles vraiment ? Repérez ce qui reste identique et ce qui reprend le mot saisi. Vous pouvez continuer après une erreur.
+Et avec notre prénom ? Avec `hi` ou `coucou`? Les réponses changent-elles vraiment ? Nous repérons ce qui reste identique et ce qui reprend le mot saisi. Nous pouvons continuer après une erreur.
 
 Essayons une phrase.
 
@@ -78,7 +78,7 @@ this
 
 > `Window { … }`
 
-Dans cette console, quelque chose est accessible avec `this`. Dépliez la réponse. Quels mots reconnaissez-vous ? Les valeurs affichées à côté de ces mots ont-elles toutes la même apparence ?
+Dans cette console, quelque chose est accessible avec `this`. Nous déplions la réponse. Quels mots reconnaissons-nous ? Les valeurs affichées à côté de ces mots ont-elles toutes la même apparence ?
 
 ## Suivre les mots qui apparaissent
 
@@ -94,7 +94,7 @@ Window
 
 > `ƒ Window() { [native code] }`
 
-Retrouvez aussi `window`, avec une minuscule, parmi les propriétés affichées.
+Nous retrouvons aussi `window`, avec une minuscule, parmi les propriétés affichées.
 
 **À saisir**
 
@@ -102,7 +102,7 @@ Retrouvez aussi `window`, avec une minuscule, parmi les propriétés affichées.
 window
 ```
 
-Une seule lettre a changé de casse. Obtenez-vous la même réponse ?
+Une seule lettre a changé de casse. Obtenons-nous la même réponse ?
 
 Dans cette liste, un autre nom attire l'attention : `alert`.
 
@@ -124,7 +124,7 @@ Des parenthèses apparaissent après son nom. Essayons de les reprendre.
 alert()
 ```
 
-Une boîte apparaît-elle ? Fermez-la, puis regardez ce que répond la console.
+Une boîte apparaît-elle ? Nous la fermons, puis regardons ce que répond la console.
 
 **À observer**
 
@@ -138,7 +138,7 @@ Cette réponse peut donc accompagner un effet visible. Essayons de placer entre 
 alert(this)
 ```
 
-Comparez ce que montre la boîte avec ce que la console montrait pour `this`. Fermez-la, puis reprenez un de vos premiers essais.
+Nous comparons ce que montre la boîte avec ce que la console montrait pour `this`. Nous la fermons, puis reprenons un de nos premiers essais.
 
 **À saisir**
 
@@ -146,11 +146,11 @@ Comparez ce que montre la boîte avec ce que la console montrait pour `this`. Fe
 alert(hello)
 ```
 
-Reconnaissez-vous l'erreur ? Ajouter les parenthèses a-t-il suffi à faire reconnaître `hello` ?
+Reconnaissons-nous l'erreur ? Ajouter les parenthèses a-t-il suffi à faire reconnaître `hello` ?
 
 ## Que dit le HTML ?
 
-Revenez au HTML de la page dans l'inspecteur. Sa première ligne contient une indication comme celle-ci.
+Nous revenons au HTML de la page dans l'inspecteur. Sa première ligne contient une indication comme celle-ci.
 
 **À observer dans le HTML**
 
@@ -158,13 +158,13 @@ Revenez au HTML de la page dans l'inspecteur. Sa première ligne contient une in
 <!DOCTYPE html>
 ```
 
-Quels mots reconnaissez-vous dans cette décomposition ?
+Quels mots reconnaissons-nous dans cette décomposition ?
 
 ```text
 DOC + TYPE + HTML
 ```
 
-Le navigateur donne justement accès au document de la page par le nom `document`. Revenez dans la console et commencez à le saisir. Observez les propositions pendant la frappe, puis validez.
+Le navigateur donne justement accès au document de la page par le nom `document`. Nous revenons dans la console et commençons à le saisir. Nous observons les propositions pendant la frappe, puis validons.
 
 **À saisir**
 
@@ -174,9 +174,9 @@ document
 
 ## Où chercher la couleur ?
 
-Ajoutez un point après `document`, **sans valider cette expression incomplète**, et observez les suggestions.
+Nous ajoutons un point après `document`, **sans valider cette expression incomplète**, et observons les suggestions.
 
-Vous avez repéré l'élément `body` dans l'inspecteur. Retrouvons-le.
+Nous avons repéré l'élément `body` dans l'inspecteur. Retrouvons-le.
 
 **À saisir**
 
@@ -184,7 +184,7 @@ Vous avez repéré l'élément `body` dans l'inspecteur. Retrouvons-le.
 document.body
 ```
 
-Saisissez ensuite le début `document.body.` et regardez les suggestions. Y trouvez-vous `style` ? Complétez avant de valider.
+Nous saisissons ensuite le début `document.body.` et regardons les suggestions. Y trouvons-nous `style` ? Nous complétons avant de valider.
 
 **À saisir**
 
@@ -192,7 +192,7 @@ Saisissez ensuite le début `document.body.` et regardez les suggestions. Y trou
 document.body.style
 ```
 
-Continuez avec `document.body.style.`. Parcourez les suggestions. Quels noms évoquent le fond ? La couleur ?
+Nous continuons avec `document.body.style.`. Nous parcourons les suggestions. Quels noms évoquent le fond ? La couleur ?
 
 **À saisir**
 
@@ -200,15 +200,15 @@ Continuez avec `document.body.style.`. Parcourez les suggestions. Quels noms év
 document.body.style.backgroundColor
 ```
 
-Comparez `backgroundColor` avec `background-color` en CSS. Où est passé le tiret ? Quelle lettre est devenue majuscule ?
+Nous comparons `backgroundColor` avec `background-color` en CSS. Où est passé le tiret ? Quelle lettre est devenue majuscule ?
 
-La réponse peut être `""`, une chaîne vide. Pourtant, le fond est blanc. Pour comprendre cette différence, revenez dans l'inspecteur et ajoutez directement un attribut `style` à l'élément `body` :
+La réponse peut être `""`, une chaîne vide. Pourtant, le fond est blanc. Pour comprendre cette différence, nous revenons dans l'inspecteur et ajoutons directement un attribut `style` à l'élément `body` :
 
 ```html
 <body style="background-color: white;">
 ```
 
-Le fond reste blanc. Revenez dans la console et exécutez à nouveau exactement la même expression.
+Le fond reste blanc. Nous revenons dans la console et exécutons à nouveau exactement la même expression.
 
 **À saisir**
 
@@ -238,20 +238,22 @@ Le fond redevient noir. Le texte noir disparaît à nouveau.
 document.body.style.backgroundColor = "white";
 ```
 
-Le texte réapparaît-il ? Identifiez la propriété modifiée et la valeur placée à droite de `=`.
+Le texte réapparaît-il ? Nous identifions la propriété modifiée et la valeur placée à droite de `=`.
 
-Revenez dans l'inspecteur : dans l'attribut `style` de `body`, retrouvez la valeur que JavaScript vient de modifier.
+Nous revenons dans l'inspecteur : dans l'attribut `style` de `body`, nous retrouvons la valeur que JavaScript vient de modifier.
 
-## À vous de compléter
+<a id="à-vous-de-compléter"></a>
 
-Remettez le fond en noir, puis rendez le texte blanc. Complétez avant d’exécuter ; la propriété du texte a déjà été rencontrée dans le CSS.
+## Nous complétons
+
+Nous remettons le fond en noir, puis rendons le texte blanc. Nous complétons avant d’exécuter ; la propriété du texte a déjà été rencontrée dans le CSS.
 
 ```js
 document.body.style.backgroundColor = "___";
 document.body.style.___ = "white";
 ```
 
-Expliquez ce qui change dans l’attribut `style` et ce que la lecture de `.style` vous a permis d’observer. `style` et `backgroundColor` sont-ils des éléments HTML ? Gardez la page ouverte, texte blanc sur fond noir, pour la recherche sur les couleurs.
+Nous expliquons ce qui change dans l’attribut `style` et ce que la lecture de `.style` nous a permis d’observer. `style` et `backgroundColor` sont-ils des éléments HTML ? Nous gardons la page ouverte, texte blanc sur fond noir, pour la recherche sur les couleurs.
 
 ---
 

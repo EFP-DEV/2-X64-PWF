@@ -4,13 +4,13 @@
 
 Nous partons de deux valeurs dans la console, écrivons ensemble un programme dans un fichier, puis corrigeons le passage de `13:59` à `14:00`. Le défi final sera de faire fonctionner le programme à partir de `23:59`.
 
-Complétez les emplacements `___` avant d’exécuter les instructions. Dans les fichiers, enregistrez puis rechargez la page après chaque modification. Les essais utilisent des heures de 0 à 23 et des minutes de 0 à 59 ; le programme ajoute exactement une minute.
+Nous complétons les emplacements `___` avant d’exécuter les instructions. Dans les fichiers, nous enregistrons puis rechargeons la page après chaque modification. Les essais utilisent des heures de 0 à 23 et des minutes de 0 à 59 ; le programme ajoute exactement une minute.
 
 <a id="variables"></a>
 
 ## 1. Nommer une heure dans la console
 
-Reprenez la console de la page de Sullivan. Déclarez les deux variables et affectez-leur les nombres `13` et `37` :
+Nous reprenons la console de la page de Sullivan. Nous déclarons les deux variables et leur affectons les nombres `13` et `37` :
 
 ```js
 let hours;
@@ -20,9 +20,9 @@ hours = ___;
 minutes = ___;
 ```
 
-Si ces noms sont déjà déclarés, réutilisez-les avec les deux affectations, sans répéter `let`. Un rechargement permet de repartir de zéro.
+Si ces noms sont déjà déclarés, nous les réutilisons avec les deux affectations, sans répéter `let`. Un rechargement permet de repartir de zéro.
 
-Prédisez, puis saisissez séparément les expressions suivantes :
+Nous prédisons, puis saisissons séparément les expressions suivantes :
 
 | Expression | Prédiction | Observation | Nombre ou texte ? |
 |---|---|---|---|
@@ -32,13 +32,13 @@ Prédisez, puis saisissez séparément les expressions suivantes :
 | `hours + minutes` | | | |
 | `hours + ":" + minutes` | | | |
 
-Quelle différence les guillemets introduisent-ils ? Expliquez pourquoi le même opérateur `+` ne produit pas toujours une addition.
+Quelle différence les guillemets introduisent-ils ? Nous expliquons pourquoi le même opérateur `+` ne produit pas toujours une addition.
 
 <a id="fichiers"></a>
 
 ## 2. Conserver le programme dans des fichiers
 
-<a href="./session_01/clock.html" download="clock.html">Téléchargez le document de départ `clock.html`</a>. Enregistrez-le dans un dossier consacré à l’horloge et créez un fichier vide `clock.js` à côté. Si ces deux fichiers existent déjà, réutilisez-les.
+<a href="./session_01/clock.html" download="clock.html">Nous téléchargeons le document de départ `clock.html`</a>. Nous l’enregistrons dans un dossier consacré à l’horloge et créons un fichier vide `clock.js` à côté. Si ces deux fichiers existent déjà, nous les réutilisons.
 
 ```text
 session_01/
@@ -46,11 +46,11 @@ session_01/
 └── clock.js
 ```
 
-Retrouvez `<script src="clock.js"></script>` à la fin de `body`. Quel fichier cette balise charge-t-elle ?
+Nous retrouvons `<script src="clock.js"></script>` à la fin de `body`. Quel fichier cette balise charge-t-elle ?
 
 ### Rendre les résultats observables
 
-Écrivez ensemble ce programme dans `clock.js`. Complétez les appels à `console.log` pour retrouver les résultats du tableau :
+Nous écrivons ensemble ce programme dans `clock.js`. Nous complétons les appels à `console.log` pour retrouver les résultats du tableau :
 
 ```js
 let hours;
@@ -66,11 +66,11 @@ console.___(hours + minutes);
 console.___(hours + ":" + minutes);
 ```
 
-Enregistrez, ouvrez `clock.html` dans le navigateur, puis sa console. Comparez les sorties à vos observations précédentes. Pourquoi faut-il écrire `console.log(...)` dans le fichier ? Pourquoi la page elle-même reste-t-elle vide ?
+Nous enregistrons, ouvrons `clock.html` dans le navigateur, puis sa console. Nous comparons les sorties à nos observations précédentes. Pourquoi faut-il écrire `console.log(...)` dans le fichier ? Pourquoi la page elle-même reste-t-elle vide ?
 
 ### Calculer n’est pas affecter
 
-Conservez les déclarations et les valeurs initiales. Remplacez seulement les cinq appels précédents par :
+Nous conservons les déclarations et les valeurs initiales. Nous remplaçons seulement les cinq appels précédents par :
 
 ```js
 console.log(hours + ":" + minutes);
@@ -83,20 +83,20 @@ console.log(minutes);
 console.log(hours + ":" + minutes);
 ```
 
-Complétez l’affectation pour ajouter une minute et conserver le résultat. Prédisez les cinq sorties, puis vérifiez. Quel appel montre que le calcul seul ne change pas la variable ? Quelle instruction conserve le nouvel état ? Pourquoi un rechargement reproduit-il la même suite ?
+Nous complétons l’affectation pour ajouter une minute et conserver le résultat. Nous prédisons les cinq sorties, puis vérifions. Quel appel montre que le calcul seul ne change pas la variable ? Quelle instruction conserve le nouvel état ? Pourquoi un rechargement reproduit-il la même suite ?
 
-Essayez temporairement `7` heures et `5` minutes. Faut-il modifier les nombres pour présenter l’heure sur deux chiffres ? Nous travaillerons l’affichage après avoir corrigé le calcul. Associez HTML, CSS et JavaScript à leurs responsabilités dans cette étape.
+Nous essayons temporairement `7` heures et `5` minutes. Faut-il modifier les nombres pour présenter l’heure sur deux chiffres ? Nous travaillerons l’affichage après avoir corrigé le calcul. Nous associons HTML, CSS et JavaScript à leurs responsabilités dans cette étape.
 
 ### Trouver la limite
 
-Remettez les valeurs initiales à `13` et `37`. Gardez les déclarations et ces valeurs, puis simplifiez la suite pour ne conserver que l’addition affectée et l’affichage final :
+Nous remettons les valeurs initiales à `13` et `37`. Nous gardons les déclarations et ces valeurs, puis simplifions la suite pour ne conserver que l’addition affectée et l’affichage final :
 
 ```js
 minutes = minutes + 1;
 console.log(hours + ":" + minutes);
 ```
 
-Vérifiez le résultat, puis changez les valeurs initiales pour `13` heures et `59` minutes. Le programme affiche `13:60`. L’addition est-elle fausse ou manque-t-il une règle ? Formulez cette règle en français.
+Nous vérifions le résultat, puis changeons les valeurs initiales pour `13` heures et `59` minutes. Le programme affiche `13:60`. L’addition est-elle fausse ou manque-t-il une règle ? Nous formulons cette règle en français.
 
 <a id="conditions"></a>
 
@@ -104,7 +104,7 @@ Vérifiez le résultat, puis changez les valeurs initiales pour `13` heures et `
 
 ### Le report des minutes
 
-Complétez ensemble ce bloc `if`. Placez-le **après l’addition et avant l’affichage** :
+Nous complétons ensemble ce bloc `if`. Nous le plaçons **après l’addition et avant l’affichage** :
 
 ```js
 if (minutes === ___) {
@@ -113,13 +113,13 @@ if (minutes === ___) {
 }
 ```
 
-Enregistrez et rechargez. Le programme affiche maintenant `14:0`. Expliquez la différence entre `=` et `===`, puis justifiez la position du bloc. Pourquoi comparer les minutes à exactement 60 suffit-il quand le départ est valide et que l’on ajoute exactement une minute ?
+Nous enregistrons et rechargeons. Le programme affiche maintenant `14:0`. Nous expliquons la différence entre `=` et `===`, puis justifions la position du bloc. Pourquoi comparer les minutes à exactement 60 suffit-il quand le départ est valide et que l’on ajoute exactement une minute ?
 
 ### De `14:0` à `14:00`
 
-Le nombre de minutes est correct. Comparez les nombres `9` et `10` : combien de chiffres faut-il pour écrire chacun ? À partir de quelle valeur le zéro ajouté devant les minutes devient-il inutile ?
+Le nombre de minutes est correct. Nous comparons les nombres `9` et `10` : combien de chiffres faut-il pour écrire chacun ? À partir de quelle valeur le zéro ajouté devant les minutes devient-il inutile ?
 
-Gardez `minutes` numérique et préparez son affichage dans une autre variable. Remplacez le `console.log` final par :
+Nous gardons `minutes` numérique et préparons son affichage dans une autre variable. Nous remplaçons le `console.log` final par :
 
 ```js
 let displayedMinutes;
@@ -132,9 +132,9 @@ if (minutes < ___) {
 console.log(hours + ":" + displayedMinutes);
 ```
 
-L’opérateur `<` signifie « est inférieur à ». Complétez la condition à partir de la limite repérée. Pourquoi les guillemets autour de `"0"` changent-ils le rôle de `+` ?
+L’opérateur `<` signifie « est inférieur à ». Nous complétons la condition à partir de la limite repérée. Pourquoi les guillemets autour de `"0"` changent-ils le rôle de `+` ?
 
-Le départ `13:59` doit maintenant produire `14:00`. Prédisez puis vérifiez les sorties pour les départs `13:08` et `13:09` : vous devez obtenir `13:09` et `13:10`. Vérifiez aussi `13:37` et `13:04` en changeant uniquement les valeurs initiales. Pour quatre minutes, écrivez le nombre `4` dans JavaScript.
+Le départ `13:59` doit maintenant produire `14:00`. Nous prédisons puis vérifions les sorties pour les départs `13:08` et `13:09` : nous devons obtenir `13:09` et `13:10`. Nous vérifions aussi `13:37` et `13:04` en changeant uniquement les valeurs initiales. Pour quatre minutes, nous écrivons le nombre `4` dans JavaScript.
 
 Le seuil de **10** concerne l’écriture des minutes sur deux chiffres ; celui de **60** déclenche le report vers les heures. La variable `minutes` sert au calcul ; `displayedMinutes` prépare la sortie console.
 
@@ -165,7 +165,7 @@ if (minutes < 10) {
 console.log(hours + ":" + displayedMinutes);
 ```
 
-Repérez l’état initial, le calcul, le report et la préparation de l’affichage. Après le report, `minutes` vaut le nombre `0`, tandis que `displayedMinutes` contient le texte `"00"`.
+Nous repérons l’état initial, le calcul, le report et la préparation de l’affichage. Après le report, `minutes` vaut le nombre `0`, tandis que `displayedMinutes` contient le texte `"00"`.
 
 </details>
 
@@ -173,20 +173,20 @@ Repérez l’état initial, le calcul, le report et la préparation de l’affic
 
 ## 4. Défi de clôture — `23:59`
 
-**Réglez les heures à `23`, les minutes à `59`, puis corrigez le programme.**
+**Nous réglons les heures à `23`, les minutes à `59`, puis corrigeons le programme.**
 
-Prédisez l’heure attendue après une minute avant de vérifier. Comparez-la à la sortie console. Quelle règle manque encore ? Écrivez-la et vérifiez votre proposition, en conservant le report des minutes et leur affichage sur deux chiffres.
+Nous prédisons l’heure attendue après une minute avant de vérifier. Nous la comparons à la sortie console. Quelle règle manque encore ? Nous l’écrivons et vérifions notre proposition, en conservant le report des minutes et leur affichage sur deux chiffres.
 
-Gardez votre fichier et vos essais pour la reprise : ce défi termine la séance.
+Nous gardons notre fichier et nos essais pour la reprise : ce défi termine la séance.
 
 <details>
-<summary><strong>Des cas pour vérifier votre proposition</strong></summary>
+<summary><strong>Des cas pour vérifier notre proposition</strong></summary>
 
 <a id="verification"></a>
 
 ### Prédire, vérifier, expliquer
 
-Remplissez les prédictions avant de tester. Changez uniquement les valeurs initiales entre les essais, puis enregistrez et rechargez.
+Nous remplissons les prédictions avant de tester. Nous changeons uniquement les valeurs initiales entre les essais, puis enregistrons et rechargeons.
 
 | Départ | Sortie prédite | Sortie observée | Conditions vraies et blocs exécutés |
 |---|---|---|---|
@@ -197,7 +197,7 @@ Remplissez les prédictions avant de tester. Changez uniquement les valeurs init
 | `07:05` | | | |
 | `00:00` | | | |
 
-Les heures peuvent rester affichées sur un chiffre : `7:06` convient pour le départ `07:05`. Si une observation diffère de votre prédiction, identifiez l’instruction concernée et expliquez l’ordre des conditions.
+Les heures peuvent rester affichées sur un chiffre : `7:06` convient pour le départ `07:05`. Si une observation diffère de notre prédiction, nous identifions l’instruction concernée et expliquons l’ordre des conditions.
 
 </details>
 

@@ -108,7 +108,7 @@ Le décimal et l’hexadécimal utilisent des nombres différents de symboles. J
 
 ## 5. Binaire : deux symboles, les mêmes principes — prolongement
 
-Deux symboles suffiraient-ils pour retrouver les mêmes valeurs ? Ce prolongement facultatif se fait dans vos notes ; il n’est pas nécessaire pour construire l’horloge.
+Deux symboles suffiraient-ils pour retrouver les mêmes valeurs ? Ce prolongement facultatif se fait dans nos notes ; il n’est pas nécessaire pour construire l’horloge.
 
 ### Garder les poids des positions actives
 
@@ -118,7 +118,7 @@ La démonstration utilise les poids suivants :
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Poids | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
 
-Placez les bits sous leurs poids, retenez ceux placés sous un `1`, puis additionnez ces poids.
+Nous plaçons les bits sous leurs poids, retenons ceux placés sous un `1`, puis additionnons ces poids.
 
 | Binaire | Somme des poids retenus | Valeur décimale |
 |---|---|---|
@@ -130,7 +130,7 @@ Quel bit faut-il changer pour passer de un à trois ?
 
 ### Retrouver le lien avec les couleurs
 
-Complétez :
+Nous complétons :
 
 ```text
 11111111₂ = ___₁₀ = ___₁₆
@@ -164,15 +164,15 @@ Les mêmes principes fonctionnent avec deux, dix ou seize symboles. Pourquoi pas
 
 Une convention qui nous est inconnue paraît difficile à lire. Est-ce le nombre qui est étrange, ou la manière de le représenter ?
 
-Explorez cette représentation avec la démonstration et vos notes.
+Nous explorons cette représentation avec la démonstration et nos notes.
 
 ### Une convention devenue étrangère
 
-Observez cette écriture maya avant d’ouvrir la décomposition :
+Nous observons cette écriture maya avant d’ouvrir la décomposition :
 
 <img src="./asset/mayan_number.png" alt="Écriture maya d'un nombre" width="161">
 
-Quelle valeur voyez-vous ? Qu'est-ce qui vous manque pour la lire ?
+Quelle valeur voyons-nous ? Qu'est-ce qui nous manque pour la lire ?
 
 <details>
 <summary><strong>Révéler les positions et la valeur</strong></summary>
@@ -194,11 +194,11 @@ Quelle valeur voyez-vous ? Qu'est-ce qui vous manque pour la lire ?
 
 </details>
 
-Après la révélation, identifiez les symboles, les poids, le sens de lecture et le rôle du zéro. Quelles conventions vous manquaient ?
+Après la révélation, nous identifions les symboles, les poids, le sens de lecture et le rôle du zéro. Quelles conventions nous manquaient ?
 
 ### Une convention vraiment étrangère ?
 
-Comptez maintenant les dizaines en français :
+Nous comptons maintenant les dizaines en français :
 
 ```text
 dix
@@ -225,7 +225,7 @@ quatre-vingt-seize  quatre × vingt + seize
 soixante-dix        soixante + dix
 ```
 
-Quelle trace de la base 20 reconnaissez-vous ? Le français utilise-t-il pour autant exclusivement cette base ?
+Quelle trace de la base 20 reconnaissons-nous ? Le français utilise-t-il pour autant exclusivement cette base ?
 
 <a id="bilan-6"></a>
 
@@ -239,13 +239,13 @@ Une base peut donc sembler étrangère tout en laissant des traces dans nos usag
 
 Que se passerait-il si une position pouvait prendre soixante valeurs avant de provoquer un report ?
 
-Gardez la révélation fermée pendant la première partie de la démonstration.
+Nous gardons la révélation fermée pendant la première partie de la démonstration.
 
 ### Un comptage inhabituel
 
 Imaginons que chaque position puisse prendre les valeurs de 0 à 59. Pour la démonstration, nous les écrivons en décimal : le groupe de gauche n’a pas de zéro initial, les groupes suivants ont deux chiffres. Nous collons les groupes sans séparateur.
 
-Observez la suite :
+Nous observons la suite :
 
 ```text
 1
@@ -272,7 +272,7 @@ Observez la suite :
 10000
 ```
 
-Repérez les reports. Pourquoi `59` est-il suivi de `100` ? Que devient `559` après une unité supplémentaire ? Et `959` ? Cette écriture vous semble-t-elle lisible ?
+Nous repérons les reports. Pourquoi `59` est-il suivi de `100` ? Que devient `559` après une unité supplémentaire ? Et `959` ? Cette écriture nous semble-t-elle lisible ?
 
 Cette convention sert à la démonstration ; elle ne prétend pas reproduire une écriture babylonienne historique.
 
@@ -285,10 +285,10 @@ Cette convention sert à la démonstration ; elle ne prétend pas reproduire une
 1359 → 13:59
 ```
 
-Reconnaissez-vous une représentation familière ? Que désignent les deux champs quand nous lisons cette écriture comme une heure ?
+Reconnaissons-nous une représentation familière ? Que désignent les deux champs quand nous lisons cette écriture comme une heure ?
 
 
-Pour les heures suivantes, prédisez l’écriture obtenue après une minute, sans JavaScript :
+Pour les heures suivantes, nous prédisons l’écriture obtenue après une minute, sans JavaScript :
 
 | Départ | Après une minute | Quel champ change ? |
 |---|---|---|
@@ -296,7 +296,7 @@ Pour les heures suivantes, prédisez l’écriture obtenue après une minute, sa
 | `05:59` | | |
 | `09:59` | | |
 
-Pourquoi faut-il connaître la limite des minutes pour répondre ? À quoi sert le séparateur `:` ? Distinguez le comptage artificiel de la démonstration d’une horloge dont les heures sont limitées à 23.
+Pourquoi faut-il connaître la limite des minutes pour répondre ? À quoi sert le séparateur `:` ? Nous distinguons le comptage artificiel de la démonstration d’une horloge dont les heures sont limitées à 23.
 </details>
 
 <a id="bilan-7"></a>
@@ -376,12 +376,12 @@ Son expression en instructions JavaScript forme notre **programme**. Nous l’av
 
 ## Fin du cours
 
-**Le défi de clôture : « Réglez les heures à `23`, les minutes à `59`, puis corrigez le programme. »**
+**Le défi de clôture : « Nous réglons les heures à `23`, les minutes à `59`, puis corrigeons le programme. »**
 
 [Défi et cas de vérification dans la fiche horloge](./exercices/session_01-horloge.md#defi-minuit)
 
-Prédisez le résultat attendu après une minute, puis enregistrez et rechargez. Comparez votre prédiction à la sortie console et cherchez la règle manquante. Gardez votre fichier et vos essais pour la reprise.
+Nous prédisons le résultat attendu après une minute, puis enregistrons et rechargeons. Nous comparons notre prédiction à la sortie console et cherchons la règle manquante. Nous gardons notre fichier et nos essais pour la reprise.
 
-À ce stade, vous pouvez expliquer la différence entre un calcul et une affectation, le rôle du `if` pour le report des minutes et la différence entre la valeur `0` et son affichage `"00"`. Le cas de minuit constitue la recherche finale de la séance.
+À ce stade, nous pouvons expliquer la différence entre un calcul et une affectation, le rôle du `if` pour le report des minutes et la différence entre la valeur `0` et son affichage `"00"`. Le cas de minuit constitue la recherche finale de la séance.
 
 Le prochain cours alternera lui aussi explications, manipulations et recherches en groupes. Il faudra rendre l’application réalisée en fin de cours en utilisant **GitHub**. La création d’un compte avant cette prochaine séance est donc un prérequis pour remettre le programme. Aucun dépôt n’est demandé pour cette séance.
