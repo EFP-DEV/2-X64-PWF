@@ -23,35 +23,33 @@ Le dossier [ampoule](./ampoule/index.html) contient le HTML, le CSS, le JavaScri
 
 Avant de modifier le programme :
 
-1. Nous rechargeons la page et notons l’image et le texte de l’état initial.
-2. Nous cliquons directement sur l’image de l’ampoule. Qu’est-ce qui change ?
-3. Nous cliquons une deuxième fois, puis une troisième. Nous comparons ce qui se passe à ce que nous attendions.
+1. Nous rechargeons la page : l’image et le texte indiquent une ampoule éteinte.
+2. Nous cliquons directement sur l’image : l’ampoule s’allume et le texte devient « allumée ».
+3. Nous cliquons une deuxième fois, puis une troisième : l’ampoule reste allumée.
 
-Nous décrivons le problème en une phrase, puis formulons en français la règle que le programme devrait appliquer à chaque clic.
+Nous avons reproduit le blocage. Notre objectif est d’obtenir une alternance : allumée au premier clic, éteinte au deuxième, puis allumée au troisième.
 
 ## 2. Diagnostiquer et terminer le code
 
-Nous ouvrons `bulb-switch.js`. Le code qui déclenche la fonction au clic est déjà fourni. Nous pouvons l’utiliser sans devoir l’expliquer à cette étape. Nous retrouvons ce que nous connaissons : une condition, des blocs et des affectations.
+Nous ouvrons `bulb-switch.js`. Le code qui déclenche la fonction au clic est déjà fourni ; nous l’utilisons pour essayer nos modifications. Nous retrouvons ce que nous connaissons : une condition, des blocs et des affectations.
 
-Nous suivons les instructions exécutées au premier clic, puis au deuxième :
-
-- Qu’est-ce qui décide du bloc exécuté ? Cette décision tient-elle compte de l’état de l’ampoule ?
-- Quelles instructions expliquent ce que nous avons observé ?
-- Que manque-t-il pour obtenir l’autre état ?
+Nous suivons les instructions au premier clic, puis au deuxième, en repérant la condition et les affectations exécutées. Nous comparons le contenu des deux blocs avec les deux états à obtenir.
 
 **Repères de lecture :** `etat.textContent` contient le texte de l’état. `event.target` désigne ici l’image cliquée ; `setAttribute("src", ...)` change son fichier image. `else` signifie « sinon » : son bloc s’exécute lorsque la condition du `if` est fausse.
 
-Nous expliquons la cause du blocage, puis **corrigeons et complétons le programme** en nous appuyant sur les instructions déjà présentes. L’image et le texte doivent toujours décrire le même état.
+Nous **corrigeons et complétons le programme** en nous appuyant sur les instructions déjà présentes. À chaque clic, l’image et le texte doivent changer ensemble pour décrire le nouvel état.
 
-Les deux fichiers d’image sont à côté de `index.html`. La dernière ligne de la fonction construit le texte alternatif à partir de `etat.textContent`. Si elle était exécutée avant le `if`, quel état décrirait-elle après le clic ? Nous suivons les valeurs pour le premier clic, puis pour le deuxième.
+Les deux fichiers d’image sont à côté de `index.html`. Nous suivons aussi la dernière ligne de la fonction : elle construit le texte alternatif à partir de `etat.textContent`. Placée avant le `if`, elle utiliserait l’état précédant le clic et décrirait ensuite l’ancienne image.
 
 **Le nouvel état doit exister avant de construire le texte qui le décrit.** Une modification ultérieure de l’état ne change pas le texte déjà construit. La ligne placée après le `if` / `else` utilise l’état obtenu, quel que soit le bloc exécuté.
 
 Nous enregistrons et rechargeons la page pour essayer notre correction.
 
-## 3. Prédire, vérifier, expliquer
+<a id="3-prédire-vérifier-expliquer"></a>
 
-Avant chaque action, nous annonçons l’état attendu, puis vérifions :
+## 3. Vérifier l’alternance des états
+
+Nous effectuons les actions dans l’ordre du tableau et comparons l’image et le texte aux résultats attendus :
 
 | Action | Résultat attendu |
 |---|---|
@@ -61,7 +59,7 @@ Avant chaque action, nous annonçons l’état attendu, puis vérifions :
 | Troisième clic sur l’image | Image allumée et texte « allumée » |
 | Recharger après le troisième clic | Retour à l’état éteint |
 
-Nous expliquons pourquoi le programme initial restait bloqué et comment notre correction permet de changer d’état à chaque clic. Nous appuyons notre explication sur les blocs exécutés et les valeurs modifiées.
+Si l’alternance échoue, nous suivons à nouveau la condition et les affectations pour le clic concerné. Nous corrigeons le programme, puis reprenons les essais depuis le rechargement.
 
 ## 4. Faire varier le fond avec une classe CSS
 
@@ -106,7 +104,9 @@ Dans `bulb-switch.js`, nous ajoutons la classe `light-room` au `body` dans le bl
 
 Nous enregistrons, rechargeons et reprenons les vérifications de l’étape 3. Nous vérifions aussi que le fond devient clair quand l’ampoule s’allume et redevient noir quand elle s’éteint ou après un rechargement.
 
-### Pourquoi séparer CSS et JavaScript ?
+<a id="pourquoi-séparer-css-et-javascript-"></a>
+
+### CSS définit l’apparence, JavaScript applique la classe
 
 **CSS définit l’apparence ; JavaScript décide quand l’appliquer.** Cette séparation des responsabilités (*SoC*, pour *Separation of Concerns*) a des effets concrets ici :
 
@@ -116,9 +116,9 @@ Nous enregistrons, rechargeons et reprenons les vérifications de l’étape 3. 
 
 ### Vérification finale
 
-Nous montrons plusieurs clics successifs : l’image, le texte et le fond doivent toujours décrire le même état. Nous rechargeons ensuite la page et montrons le retour à l’ampoule éteinte et au fond noir.
+Nous effectuons plusieurs clics successifs : l’image, le texte et le fond doivent toujours décrire le même état. Nous rechargeons ensuite la page et vérifions le retour à l’ampoule éteinte et au fond noir.
 
-Nous expliquons ce que `classList.add("light-room")` et `classList.remove("light-room")` changent dans le HTML, puis comment le CSS détermine l’apparence obtenue.
+Dans l’inspecteur, nous retrouvons la classe `light-room` sur `body` quand l’ampoule est allumée. Au clic suivant, la classe est retirée et les couleurs initiales s’appliquent à nouveau.
 
 <a id="depot-github"></a>
 
@@ -170,4 +170,4 @@ Si nous corrigeons un fichier local, nous envoyons de nouveau sa version modifi�
 
 [Aide GitHub — télécharger une archive](https://docs.github.com/fr/repositories/working-with-files/using-files/downloading-source-code-archives)
 
-Nous conservons l’adresse de notre dépôt, de la forme `https://github.com/notre-compte/ampoule-session-02`. Une fois le dépôt vérifié, nous faisons une **pause de 10 minutes**, puis passons à [Pixelator](./session_02-pixelator.md).
+Nous conservons l’adresse de notre dépôt, de la forme `https://github.com/notre-compte/ampoule-session-02`. Une fois le dépôt vérifié, nous faisons une **pause de 10 minutes**, puis passons à [Pixelator — Séquence](./session_02-pixelator-sequence.md).

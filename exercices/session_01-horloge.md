@@ -22,17 +22,17 @@ minutes = ___;
 
 Si ces noms sont déjà déclarés, nous les réutilisons avec les deux affectations, sans répéter `let`. Un rechargement permet de repartir de zéro.
 
-Nous prédisons, puis saisissons séparément les expressions suivantes :
+Nous saisissons séparément les expressions suivantes et retrouvons les résultats du tableau. Les guillemets indiquent ici les résultats textuels ; leur affichage dans la console dépend du navigateur.
 
-| Expression | Prédiction | Observation | Nombre ou texte ? |
-|---|---|---|---|
-| `37 + 1` | | | |
-| `"37" + 1` | | | |
-| `"13" + ":" + "37"` | | | |
-| `hours + minutes` | | | |
-| `hours + ":" + minutes` | | | |
+| Expression | Résultat attendu | Type |
+|---|---|---|
+| `37 + 1` | `38` | Nombre |
+| `"37" + 1` | `"371"` | Texte |
+| `"13" + ":" + "37"` | `"13:37"` | Texte |
+| `hours + minutes` | `50` | Nombre |
+| `hours + ":" + minutes` | `"13:37"` | Texte |
 
-Quelle différence les guillemets introduisent-ils ? Nous expliquons pourquoi le même opérateur `+` ne produit pas toujours une addition.
+Nous observons deux usages de `+` : avec deux nombres, il additionne ; dans ces expressions, dès qu’un opérande est du texte, il assemble les valeurs sous forme de texte. Les guillemets délimitent une chaîne de caractères.
 
 <a id="fichiers"></a>
 
@@ -46,7 +46,7 @@ session_01/
 └── clock.js
 ```
 
-Nous retrouvons `<script src="clock.js"></script>` à la fin de `body`. Quel fichier cette balise charge-t-elle ?
+Nous retrouvons `<script src="clock.js"></script>` à la fin de `body`. Son attribut `src` indique au navigateur de charger le fichier `clock.js` situé à côté du document HTML.
 
 ### Rendre les résultats observables
 
@@ -66,7 +66,7 @@ console.___(hours + minutes);
 console.___(hours + ":" + minutes);
 ```
 
-Nous enregistrons, ouvrons `clock.html` dans le navigateur, puis sa console. Nous comparons les sorties à nos observations précédentes. Pourquoi faut-il écrire `console.log(...)` dans le fichier ? Pourquoi la page elle-même reste-t-elle vide ?
+Nous enregistrons, ouvrons `clock.html` dans le navigateur, puis sa console. Nous retrouvons les résultats du tableau : `console.log(...)` les écrit explicitement dans la console. Un fichier JavaScript n’affiche pas spontanément le résultat de chaque expression. La page reste vide, car nos instructions ne modifient pas son contenu.
 
 ### Calculer n’est pas affecter
 
@@ -83,9 +83,9 @@ console.log(minutes);
 console.log(hours + ":" + minutes);
 ```
 
-Nous complétons l’affectation pour ajouter une minute et conserver le résultat. Nous prédisons les cinq sorties, puis vérifions. Quel appel montre que le calcul seul ne change pas la variable ? Quelle instruction conserve le nouvel état ? Pourquoi un rechargement reproduit-il la même suite ?
+Nous complétons l’affectation pour ajouter une minute et conserver le résultat. Après enregistrement et rechargement, nous devons retrouver les cinq sorties : `13:37`, `38`, `37`, `38`, puis `13:38`. Le troisième affichage montre que le calcul seul a laissé `minutes` à `37`. Après l’affectation, la variable contient `38`. Un rechargement reproduit la même suite à partir des valeurs initiales du fichier.
 
-Nous essayons temporairement `7` heures et `5` minutes. Faut-il modifier les nombres pour présenter l’heure sur deux chiffres ? Nous travaillerons l’affichage après avoir corrigé le calcul. Nous associons HTML, CSS et JavaScript à leurs responsabilités dans cette étape.
+Nous essayons temporairement `7` heures et `5` minutes. La sortie finale est `7:6` : les zéros initiaux concernent la présentation, pas les valeurs utilisées pour calculer. Nous travaillerons l’affichage après avoir corrigé le calcul. Ici, le HTML charge le programme ; JavaScript calcule et écrit dans la console. Le CSS servira à présenter les éléments de la page.
 
 ### Trouver la limite
 
@@ -96,7 +96,7 @@ minutes = minutes + 1;
 console.log(hours + ":" + minutes);
 ```
 
-Nous vérifions le résultat, puis changeons les valeurs initiales pour `13` heures et `59` minutes. Le programme affiche `13:60`. L’addition est-elle fausse ou manque-t-il une règle ? Nous formulons cette règle en français.
+Nous obtenons `13:38`, puis changeons les valeurs initiales pour `13` heures et `59` minutes. Le programme affiche `13:60`. L’addition fonctionne ; le report vers les heures reste à programmer. Nous allons compléter le programme pour obtenir `14:00`.
 
 <a id="conditions"></a>
 
@@ -113,11 +113,11 @@ if (minutes === ___) {
 }
 ```
 
-Nous enregistrons et rechargeons. Le programme affiche maintenant `14:0`. Nous expliquons la différence entre `=` et `===`, puis justifions la position du bloc. Pourquoi comparer les minutes à exactement 60 suffit-il quand le départ est valide et que l’on ajoute exactement une minute ?
+Nous enregistrons et rechargeons. Le programme affiche maintenant `14:0`. Le bloc teste les minutes avec `===`, puis change les valeurs avec `=`. Placé après l’addition et avant l’affichage, il corrige l’état avant de le montrer. Les minutes de départ vont de 0 à 59 et nous ajoutons exactement une minute : la seule valeur à corriger est donc 60.
 
 ### De `14:0` à `14:00`
 
-Le nombre de minutes est correct. Nous comparons les nombres `9` et `10` : combien de chiffres faut-il pour écrire chacun ? À partir de quelle valeur le zéro ajouté devant les minutes devient-il inutile ?
+Le nombre de minutes est correct. Nous comparons `9` et `10` : le premier s’écrit avec un chiffre, le second avec deux. Nous ajoutons donc un zéro devant les valeurs inférieures à 10 pour leur présentation.
 
 Nous gardons `minutes` numérique et préparons son affichage dans une autre variable. Nous remplaçons le `console.log` final par :
 
@@ -132,9 +132,9 @@ if (minutes < ___) {
 console.log(hours + ":" + displayedMinutes);
 ```
 
-L’opérateur `<` signifie « est inférieur à ». Nous complétons la condition à partir de la limite repérée. Pourquoi les guillemets autour de `"0"` changent-ils le rôle de `+` ?
+L’opérateur `<` signifie « est inférieur à ». Nous complétons la condition à partir de la limite repérée. Les guillemets font de `"0"` une chaîne : `+` assemble alors ce texte avec les minutes, au lieu d’ajouter le nombre zéro.
 
-Le départ `13:59` doit maintenant produire `14:00`. Nous prédisons puis vérifions les sorties pour les départs `13:08` et `13:09` : nous devons obtenir `13:09` et `13:10`. Nous vérifions aussi `13:37` et `13:04` en changeant uniquement les valeurs initiales. Pour quatre minutes, nous écrivons le nombre `4` dans JavaScript.
+Le départ `13:59` doit maintenant produire `14:00`. Nous vérifions `13:08 → 13:09` et `13:09 → 13:10`, puis `13:37 → 13:38` et `13:04 → 13:05`, en changeant uniquement les valeurs initiales. Pour quatre minutes, nous écrivons le nombre `4` dans JavaScript.
 
 Le seuil de **10** concerne l’écriture des minutes sur deux chiffres ; celui de **60** déclenche le report vers les heures. La variable `minutes` sert au calcul ; `displayedMinutes` prépare la sortie console.
 
@@ -175,7 +175,7 @@ Nous repérons l’état initial, le calcul, le report et la préparation de l�
 
 **Nous réglons les heures à `23`, les minutes à `59`, puis corrigeons le programme.**
 
-Nous prédisons l’heure attendue après une minute avant de vérifier. Nous la comparons à la sortie console. Quelle règle manque encore ? Nous l’écrivons et vérifions notre proposition, en conservant le report des minutes et leur affichage sur deux chiffres.
+Le résultat attendu après une minute est `0:00`. Nous comparons la sortie console à cet objectif, puis ajoutons la correction nécessaire, en conservant le report des minutes et leur affichage sur deux chiffres.
 
 Nous gardons notre fichier et nos essais pour la reprise : ce défi termine la séance.
 
@@ -184,20 +184,22 @@ Nous gardons notre fichier et nos essais pour la reprise : ce défi termine la s
 
 <a id="verification"></a>
 
-### Prédire, vérifier, expliquer
+<a id="prédire-vérifier-expliquer"></a>
 
-Nous remplissons les prédictions avant de tester. Nous changeons uniquement les valeurs initiales entre les essais, puis enregistrons et rechargeons.
+### Vérifier les résultats
 
-| Départ | Sortie prédite | Sortie observée | Conditions vraies et blocs exécutés |
-|---|---|---|---|
-| `13:37` | | | |
-| `13:59` | | | |
-| `23:58` | | | |
-| `23:59` | | | |
-| `07:05` | | | |
-| `00:00` | | | |
+Nous changeons uniquement les valeurs initiales entre les essais, puis enregistrons et rechargeons. Nous comparons chaque sortie au résultat attendu :
 
-Les heures peuvent rester affichées sur un chiffre : `7:06` convient pour le départ `07:05`. Si une observation diffère de notre prédiction, nous identifions l’instruction concernée et expliquons l’ordre des conditions.
+| Départ | Sortie attendue |
+|---|---|
+| `13:37` | `13:38` |
+| `13:59` | `14:00` |
+| `23:58` | `23:59` |
+| `23:59` | `0:00` |
+| `07:05` | `7:06` |
+| `00:00` | `0:01` |
+
+Les heures peuvent rester affichées sur un chiffre : `7:06` convient pour le départ `07:05`. Si une sortie diffère du résultat attendu, nous suivons les valeurs ligne par ligne pour localiser la correction à apporter.
 
 </details>
 

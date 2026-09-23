@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md)
 
-**Durée : 15 minutes.** Nous terminons le défi de minuit, expliquons la place de la correction et vérifions les trois cas proposés.
+**Durée : 15 minutes.** Nous terminons le défi de minuit, comparons plusieurs emplacements pour la correction et vérifions les trois cas proposés.
 
 Nous ouvrons notre programme de la séance 1 et reprenons le [défi de minuit](./session_01-horloge.md#defi-minuit). Nous relisons les étapes : **valeurs initiales → ajout d’une minute → report des minutes → préparation de l’affichage → sortie console**.
 
@@ -10,7 +10,7 @@ Nous ouvrons notre programme de la séance 1 et reprenons le [défi de minuit](.
 
 Retenons dans le mot **ordinateur** l’idée de **mettre en ordre**. Dans notre programme, les instructions s’exécutent dans l’ordre où nous les avons écrites, en suivant les conditions. L’ordinateur ne déplace pas une instruction pour corriger notre raisonnement : c’est à nous de lui donner les bonnes instructions **au bon endroit**.
 
-Nous expliquons le passage de `13:59` à `14:00`, puis reprenons le départ `23:59`. Le report des minutes fait passer les heures de `23` à `24`. Nous avons le bon bloc pour les ramener à `0` :
+Nous vérifions le passage de `13:59` à `14:00`, puis reprenons le départ `23:59`. Le report des minutes fait passer les heures de `23` à `24`. Nous avons le bon bloc pour les ramener à `0` :
 
 ```js
 if (hours === 24) {
@@ -18,7 +18,7 @@ if (hours === 24) {
 }
 ```
 
-**Où pouvons-nous placer ce bloc sans le modifier ?** Nous proposons un emplacement et suivons les valeurs ligne par ligne avant d’exécuter le programme.
+Nous essayons plusieurs emplacements pour ce bloc sans le modifier et suivons la valeur des heures jusqu’à l’affichage. Notre objectif est d’obtenir `0:00` à partir de `23:59`.
 
 ## Trop tôt ou trop tard
 
@@ -74,6 +74,6 @@ Les valeurs de départ sont valides et le programme ajoute exactement une minute
 
 L’indentation montre le bloc imbriqué : le `if` des heures est à l’intérieur du `if` des minutes. Nous conservons ensuite la préparation de `displayedMinutes` et le `console.log(...)` après le bloc extérieur, pour afficher aussi les cas où les minutes n’atteignent pas `60`.
 
-Nous vérifions `13:59 → 14:00`, `23:58 → 23:59` et `23:59 → 0:00`. Les heures peuvent rester affichées sur un chiffre. Nous expliquons pourquoi les deux conditions sont vraies à minuit, puis distinguons `=` (affecter) de `===` (comparer).
+Nous vérifions `13:59 → 14:00`, `23:58 → 23:59` et `23:59 → 0:00`. Les heures peuvent rester affichées sur un chiffre. À minuit, les minutes atteignent d’abord `60`, puis le report fait passer les heures à `24` : les deux conditions sont vraies au moment de leurs tests respectifs. Les comparaisons utilisent `===` ; les affectations avec `=` ramènent les valeurs à zéro.
 
 [Exercice suivant — résoudre l’ampoule](./session_02-ampoule.md)

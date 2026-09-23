@@ -1,8 +1,8 @@
-# Pixelator — Première leçon : peindre un motif
+# Pixelator — Séquence : peindre un motif
 
 [Séance 2](../session_02.md)
 
-<a id="votre-mission"></a>
+<a id="notre-mission"></a>
 
 ## Notre mission
 
@@ -12,10 +12,9 @@ Le HTML et le CSS sont fournis. **Nous créons uniquement `pixelator.js` et nous
 
 ## 1. Préparer les fichiers
 
-Nous récupérons ces trois fichiers et les plaçons dans un même dossier :
+Nous récupérons ces deux fichiers et les plaçons dans un même dossier :
 
 - [quatre-pixels.html](./pixelator/quatre-pixels.html) : la page de départ, avec quatre `div` ;
-- [huit-pixels.html](./pixelator/huit-pixels.html) : la page fournie pour l’étape suivante, avec huit `div` ;
 - [pixelator-layout.css](./pixelator/pixelator-layout.css) : l’apparence et la disposition des cases.
 
 Nous créons un fichier nommé exactement `pixelator.js` dans ce dossier :
@@ -23,7 +22,6 @@ Nous créons un fichier nommé exactement `pixelator.js` dans ce dossier :
 ```text
 pixelator/
 ├── quatre-pixels.html
-├── huit-pixels.html
 ├── pixelator-layout.css
 └── pixelator.js          ← notre fichier à créer
 ```
@@ -66,27 +64,13 @@ Nous vérifions que les cases choisies sont peintes avec la même couleur et que
 
 Si une case ne se colore pas, nous vérifions le nom et l’emplacement de `pixelator.js`, puis l’identifiant dans notre instruction : le `#` doit être présent et le nom doit correspondre exactement à celui du HTML.
 
-## 4. Passer de quatre à huit pixels
-
-Nous ouvrons maintenant `huit-pixels.html`. Cette seconde page fournie double le nombre de `div` : les quatre premières conservent leurs identifiants et les quatre nouvelles portent les identifiants `pixel5`, `pixel6`, `pixel7` et `pixel8`. Chaque identifiant reste unique dans la page.
-
-| | Colonne de gauche | Colonne de droite |
-|---|---|---|
-| Première ligne | `pixel1` | `pixel2` |
-| Deuxième ligne | `pixel3` | `pixel4` |
-| Troisième ligne | `pixel5` | `pixel6` |
-| Quatrième ligne | `pixel7` | `pixel8` |
-
-Cette page charge le même `pixelator.js`. Notre motif apparaît donc sur les quatre premières cases.
-
-À la suite de nos instructions, **nous ajoutons quatre instructions directes**, une pour chacun des nouveaux pixels : `pixel5`, `pixel6`, `pixel7` et `pixel8`. Nous utilisons toujours `document.querySelector(...)` et `.style.backgroundColor`, avec **la même couleur** qu’à l’étape précédente.
-
-Nous enregistrons et rechargeons `huit-pixels.html` pour vérifier le résultat.
-
 ## Vérification finale
 
-- La page affiche huit pixels et le motif apparaît dès son chargement.
-- Les quatre premières cases conservent le motif que nous avons choisi.
-- Les quatre nouvelles cases sont peintes grâce aux quatre instructions ajoutées.
-- Toutes les cases peintes utilisent notre unique couleur.
+- Nous retrouvons les quatre pixels de `quatre-pixels.html` et notre motif dès le chargement.
+- Nous vérifions que seules les cases choisies sont peintes, avec notre unique couleur.
+- Nous retrouvons le même motif après un rechargement.
 - Nous pouvons expliquer quelle case chaque instruction sélectionne et quelle propriété elle modifie.
+
+Nous avons construit un motif fixe avec une séquence d’instructions. Nous allons maintenant organiser ses changements dans le temps, toujours sur quatre pixels.
+
+[Suite — Pixelator : animer un motif](./session_02-pixelator-time.md)

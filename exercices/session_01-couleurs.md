@@ -4,7 +4,7 @@
 
 **Point de départ :** la page de Sullivan et sa console, après l’exploration. Nous allons passer des noms de couleurs aux quantités RGB, puis à leur écriture hexadécimale. Nous gardons la même page ouverte pendant toute la recherche.
 
-Nous complétons les emplacements `___` avant d’exécuter les instructions. Nous notons nos prédictions avant de vérifier dans le navigateur.
+Nous complétons les emplacements `___` du JavaScript avant d’exécuter les instructions. Les tableaux donnent les résultats à retrouver dans le navigateur.
 
 <a id="rgb"></a>
 
@@ -24,25 +24,25 @@ document.body.style.backgroundColor = "rgb(255, 255, 255)";
 document.body.style.backgroundColor = "#ffffff";
 ```
 
-Les écritures changent-elles ? La couleur visible change-t-elle ?
+Nous appliquons successivement les trois écritures. Le fond reste blanc : elles représentent la même couleur.
 
-Les trois canaux suivent l’ordre rouge, vert, bleu. Nous prédisons les couleurs du tableau, puis vérifions chaque proposition avec cette affectation :
+Les trois canaux suivent l’ordre rouge, vert, bleu. Nous essayons chaque valeur du tableau avec cette affectation, puis comparons le fond à la couleur attendue :
 
 ```js
 document.body.style.backgroundColor = "___";
 ```
 
-| Valeur | Couleur prédite | Couleur observée |
-|---|---|---|
-| `rgb(255, 0, 0)` | | |
-| `rgb(0, 255, 0)` | | |
-| `rgb(0, 0, 255)` | | |
-| `rgb(0, 0, 0)` | | |
-| `rgb(255, 255, 255)` | | |
+| Valeur | Couleur attendue |
+|---|---|
+| `rgb(255, 0, 0)` | Rouge |
+| `rgb(0, 255, 0)` | Vert |
+| `rgb(0, 0, 255)` | Bleu |
+| `rgb(0, 0, 0)` | Noir |
+| `rgb(255, 255, 255)` | Blanc |
 
-L’invisibilité du texte sur l’un de ces fonds signifie-t-elle que le texte a été supprimé ? Nous comparons cette superposition de lumières à un mélange de pigments.
+Sur le fond noir, nous ne distinguons plus le texte noir, toujours présent dans le HTML. Sur l’écran, les lumières rouge, verte et bleue s’additionnent : leurs trois composantes au maximum donnent du blanc. Un mélange de pigments absorbe, lui, une partie de la lumière.
 
-Nous terminons sur le fond blanc. Nous alignons dans nos notes les trois `255` et les trois paires `FF` de son écriture hexadécimale. Quelle quantité chaque paire semble-t-elle représenter ?
+Nous terminons sur le fond blanc et alignons les trois `255` avec les trois paires `FF`. Chaque paire représente la même quantité, 255 ; nous allons retrouver cette valeur par le calcul.
 
 <a id="hexadecimal"></a>
 
@@ -57,21 +57,21 @@ Hexadécimal   0 1 2 3 4 5 6 7 8 9 A B C D E F
 
 Pour lire les lettres, nous utilisons cette correspondance : `A = 10`, `B = 11`, `C = 12`, `D = 13`, `E = 14`, `F = 15`.
 
-Nous comparons l’ajout d’une unité en décimal, `9 → 10`, et en hexadécimal, `F → 10`. Pourquoi faut-il une position supplémentaire à ces moments précis ? L’écriture `10` représente-t-elle la même quantité dans les deux systèmes ?
+Nous comparons l’ajout d’une unité en décimal, `9 → 10`, et en hexadécimal, `F → 10`. Dans les deux cas, nous avons utilisé tous les symboles d’une position et ouvrons une position supplémentaire.
 
 Quand une position atteint son dernier symbole, l’unité suivante la ramène à `0` et provoque un **report** à gauche. La position suivante compte donc les groupes de dix en décimal, de seize en hexadécimal : son poids dépend du seuil qui provoque le report.
 
-Dans nos notes, nous complétons les décompositions. En décimal, les poids utilisés sont 100, 10 et 1 ; pour cette paire hexadécimale, ce sont 16 et 1.
+L’écriture `10` représente donc dix en décimal et seize en hexadécimal. Nous appliquons ces poids à la décomposition de `255` et de `FF` :
 
 ```text
-255 = 2 × ___ + 5 × ___ + 5 × ___
-FF₁₆ = 15 × ___ + ___ × 1 = ___₁₀
+255 = 2 × 100 + 5 × 10 + 5 × 1
+FF₁₆ = 15 × 16 + 15 × 1 = 255₁₀
 ```
 
-Pourquoi les deux `5` de `255` ne contribuent-ils pas à la même quantité ? Et les deux `F` ?
+Nous lisons chaque chiffre avec son poids : les deux `5` contribuent pour 50 et 5 ; les deux `F`, pour 240 et 15.
 
 <details>
-<summary><strong>Vérifier les calculs après notre recherche</strong></summary>
+<summary><strong>Détail des calculs</strong></summary>
 
 ```text
 2 × 100 + 5 × 10 + 5 × 1 = 200 + 50 + 5 = 255
@@ -80,7 +80,7 @@ Pourquoi les deux `5` de `255` ne contribuent-ils pas à la même quantité ? Et
 
 </details>
 
-Nous expliquons comment deux écritures de longueurs différentes peuvent désigner la même quantité. Que représentent les indices 10 et 16 ? Faut-il les saisir dans une valeur CSS ?
+Nous obtenons le même total, 255, avec trois chiffres décimaux ou deux chiffres hexadécimaux. Les indices 10 et 16 indiquent la base utilisée pour lire l’exemple ; nous ne les saisissons pas dans une valeur CSS.
 
 <a id="couleurs-css"></a>
 
@@ -91,45 +91,40 @@ Nous expliquons comment deux écritures de longueurs différentes peuvent désig
 La convention `#RRGGBB` organise les paires dans l’ordre rouge, vert, bleu. Nous réutilisons les poids de l’hexadécimal pour décomposer `#336699` :
 
 ```text
-33₁₆ = 3 × 16 + 3 = ___
-66₁₆ = ___ × 16 + ___ = ___
-99₁₆ = ___ × 16 + ___ = ___
-rgb(___, ___, ___)
+33₁₆ = 3 × 16 + 3 = 51
+66₁₆ = 6 × 16 + 6 = 102
+99₁₆ = 9 × 16 + 9 = 153
+rgb(51, 102, 153)
 ```
 
-Nous affectons le code hexadécimal au fond, puis notre écriture RGB. Le résultat visible change-t-il ?
-
-<details>
-<summary><strong>Vérifier les valeurs des canaux</strong></summary>
-
-Les valeurs sont 51, 102 et 153. Les écritures `#336699` et `rgb(51, 102, 153)` décrivent la même couleur.
-
-</details>
+Nous affectons `#336699` au fond, puis `rgb(51, 102, 153)`. Le fond conserve la même couleur : les valeurs des trois canaux sont identiques.
 
 ### Retrouver l’écriture longue
 
-Pour développer une écriture courte, nous répétons chaque chiffre. Nous complétons :
+Pour développer une écriture courte, nous répétons chaque chiffre. Nous suivons cette règle dans les exemples :
 
 | Écriture courte | Écriture à six chiffres |
 |---|---|
-| `#000` | |
-| `#fff` | |
-| `#369` | |
-| `#123` | |
+| `#000` | `#000000` |
+| `#fff` | `#ffffff` |
+| `#369` | `#336699` |
+| `#123` | `#112233` |
 
-Nous vérifions une paire d’écritures en l’affectant successivement au fond. `#123` signifie-t-il `#000123` ?
+Nous vérifions une paire d’écritures en l’affectant successivement au fond. Le fond reste identique : `#123` développe chaque chiffre et donne `#112233`.
 
-### Prévoir, modifier et expliquer
+<a id="prévoir-modifier-et-expliquer"></a>
 
-Nous prédisons la couleur de `#ff0000`, puis vérifions. Quelle paire faut-il modifier pour ajouter du bleu en conservant la valeur du rouge ? Nous essayons notre proposition.
+### Modifier les couleurs et vérifier le résultat
+
+Nous appliquons `#ff0000` : le fond devient rouge. Nous modifions ensuite la paire du bleu en conservant celle du rouge et observons le mélange obtenu.
 
 Nous construisons nous-mêmes les instructions pour :
 
 1. Rendre le texte blanc sur fond noir.
 2. Remplacer l’écriture du blanc par une autre écriture équivalente.
-3. Expliquer à notre voisin quelle propriété nous avons modifiée et pourquoi le texte est visible.
+3. Vérifier dans l’inspecteur les valeurs de `color` et de `background-color` : le texte blanc doit rester visible sur le fond noir.
 
-**Avant de recharger**, nous prédisons ce qui reviendra à l’état initial. Nous rechargeons la page, puis vérifions. Les fichiers d’origine ont-ils changé ? Les instructions de la console sont-elles rejouées ? Nous gardons cet onglet ouvert : sa console servira ensuite à l’horloge.
+Nous rechargeons la page : le texte et le fond redeviennent noirs. Nos manipulations ont modifié la page ouverte, sans changer les fichiers d’origine. Les instructions saisies dans la console ne sont pas rejouées au rechargement. Nous gardons cet onglet ouvert : sa console servira ensuite à l’horloge.
 
 ---
 
