@@ -6,7 +6,7 @@
 
 ## Objectif
 
-Un motif fixe est peint sur quatre pixels. On va maintenant faire circuler **une seule case colorée autour du carré**, avec l’unique couleur de peinture choisie. On construit ensemble cette rotation pendant **15 minutes**, puis on consacre **15 minutes à d’autres animations**, avant d’agrandir le parcours à huit puis seize pixels.
+Un motif fixe est peint sur quatre pixels. On va maintenant faire circuler **une seule case colorée autour du carré**, avec l’unique couleur de peinture choisie. On construit ensemble cette rotation pendant **15 minutes**, puis on consacre **15 minutes à d’autres animations**. Une rotation fonctionnelle et une variante explorée constituent le parcours attendu. Les agrandissements à huit puis seize pixels sont des **prolongements facultatifs**, réalisés après les vérifications si le temps le permet.
 
 On écrit une séquence d’instructions : **peindre → attendre → effacer → peindre la case suivante**. Elle s’exécute une seule fois, du haut vers le bas. On recharge la page pour la rejouer.
 
@@ -63,7 +63,7 @@ window.addEventListener("load", async function () {
 });
 ```
 
-On garde la première et la dernière ligne telles quelles : ce cadre fourni démarre la séquence au chargement de la page et permet les attentes. On travaille uniquement sur les instructions placées à l’intérieur.
+On garde la première et la dernière ligne telles quelles : ce cadre fourni démarre la séquence au chargement de la page et permet les attentes. Sa construction n’est pas étudiée pendant cette séance. On travaille uniquement sur les instructions placées à l’intérieur.
 
 Pour chaque passage à compléter, on écrit trois instructions dans cet ordre :
 
@@ -138,7 +138,25 @@ On garde une attente avant chaque changement d’affichage, avec la même couleu
 
 On enregistre et recharge, puis compare la prévision au parcours observé et au motif final. On vérifie que ce motif reste immobile une fois la séquence terminée. On recharge pour rejouer, ou essaie une autre cadence ou une autre variante.
 
-## 4. Agrandir le parcours à huit pixels
+<a id="vérification-finale"></a>
+
+## Vérification du parcours attendu à quatre pixels
+
+La vérification porte sur la rotation guidée, puis sur la variante explorée :
+
+- Au chargement de la rotation, `pixel1` est coloré sans attente initiale.
+- La rotation suit `pixel1 → pixel2 → pixel4 → pixel3 → pixel1`, avec une seule case colorée à chaque affichage ; les autres retrouvent leur fond initial.
+- Les quatre attentes précèdent les changements. Après la quatrième, `pixel1` reste coloré et la séquence est terminée.
+- Un rechargement, pendant ou après l’animation, relance le parcours au début.
+- Des durées d’attente différentes changent la cadence tout en conservant le parcours.
+- Une variante a été prévue, réalisée et comparée à la succession attendue ; son état final reste immobile. L’alternance des diagonales affiche deux cases colorées ensemble.
+- On peut expliquer pourquoi on attend avant d’effacer et comment l’ordre des instructions détermine l’animation.
+
+**Le parcours attendu peut se terminer ici.** Le créneau de consolidation de **20 minutes** prévu dans la séance permet de reprendre les vérifications et de résoudre les difficultés ; il sert aussi de marge en cas de dépassement. Les prolongements suivants se font lorsque le parcours à quatre pixels est vérifié et que le temps restant le permet. Si le temps manque, on retire d’abord le prolongement à seize pixels, puis celui à huit pixels.
+
+Le groupe **attendre, effacer, peindre** revient déjà plusieurs fois sur quatre pixels. Cette répétition prépare l’étude des boucles dans la suite du cours.
+
+## 4. Prolongement facultatif : huit pixels · 25 minutes
 
 On reprend la [rotation de référence à quatre pixels](#rotation-reference) dans `pixelator.js`, avec la couleur choisie et des attentes de 1 000 ms. On remplace la variante par cette rotation avant de l’agrandir.
 
@@ -162,9 +180,15 @@ On conserve le départ et les deux premiers passages, jusqu’à `pixel4`. On re
 
 On enregistre et recharge. On descend par la colonne de droite, puis remonte par celle de gauche, avec une seule case colorée à chaque affichage. Après les huit attentes, on retrouve `pixel1`, qui reste coloré. On recharge pour refaire le parcours.
 
-On poursuit les essais sur `huit-pixels.html`. Notre programme cible maintenant huit identifiants ; les quatre nouveaux n’existent pas dans `quatre-pixels.html`.
+On poursuit les essais sur `huit-pixels.html`. Le programme cible maintenant huit identifiants ; les quatre nouveaux n’existent pas dans `quatre-pixels.html`.
 
-## 5. Doubler encore le parcours : seize pixels
+### Vérification du prolongement à huit pixels
+
+- `pixel1` est coloré dès le chargement, puis une seule case reste colorée à chaque affichage du parcours prévu.
+- Après **huit attentes**, le parcours revient à `pixel1`, qui reste coloré sans nouveau déplacement.
+- Un rechargement, pendant ou après l’animation, relance le parcours au début.
+
+## 5. Prolongement facultatif : seize pixels · 20 minutes
 
 On récupère [seize-pixels.html](./pixelator/seize-pixels.html) et le place dans le même dossier. On ouvre directement cette page pour la suite. Elle utilise les mêmes fichiers CSS et JavaScript, conserve les deux colonnes et ajoute quatre lignes : les nouvelles cases portent les identifiants `pixel9` à `pixel16`.
 
@@ -196,14 +220,10 @@ Chaque passage contient le même groupe de trois instructions : une attente, un 
 
 On recharge pour refaire le parcours. On utilise désormais cette page, qui contient tous les identifiants ciblés par le programme.
 
-## Vérification finale
+### Vérification du prolongement à seize pixels
 
-- On retrouve `pixel1` coloré au chargement, sans attente initiale.
-- On observe une seule case colorée à chaque affichage de la rotation de référence ; les autres retrouvent leur fond initial.
-- On suit le parcours prévu, avec une pause avant chaque changement.
-- On revient à `pixel1` après seize attentes, puis constate que la séquence est terminée : cette case reste colorée.
-- On vérifie qu’un rechargement, pendant ou après l’animation, relance le parcours au début.
-- On change les durées d’attente et observe une cadence différente, avec le même parcours.
-- On peut expliquer pourquoi on attend avant d’effacer, et comment l’ordre des instructions détermine l’animation.
+- `pixel1` est coloré dès le chargement, puis une seule case reste colorée à chaque affichage du parcours prévu.
+- Après **seize attentes**, le parcours revient à `pixel1`, qui reste coloré sans nouveau déplacement.
+- Un rechargement, pendant ou après l’animation, relance le parcours au début.
 
 L’animation s’est agrandie par ajout d’instructions dans l’ordre du parcours. Le même groupe — attendre, effacer, peindre — revient plusieurs fois : cette répétition donne une raison concrète d’aborder les boucles dans la suite du cours.

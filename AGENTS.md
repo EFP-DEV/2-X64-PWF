@@ -25,3 +25,6 @@ code examples, prototypes, and solutions in this repository.
 
 <!-- Add rules that apply only to a particular session or exercise here.
 Name the session or exercise explicitly. -->
+
+- Session 2: `session_02.md` is approved and locked. Do not modify this file
+  unless the user explicitly requests changes to it or unlocks it.

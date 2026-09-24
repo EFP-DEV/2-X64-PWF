@@ -387,4 +387,4 @@ Le résultat attendu après une minute est `0:00`. On enregistre le fichier, pui
 
 L’affectation a permis de conserver un calcul, le `if` de reporter les minutes vers les heures et une variable distincte d’afficher `0` sous la forme `"00"`. Le cas de minuit constitue la recherche finale de la séance.
 
-Le prochain cours alternera lui aussi explications, manipulations et recherches en groupes. Il faudra rendre l’application réalisée en fin de cours en utilisant **GitHub**. La création d’un compte avant cette prochaine séance est donc un prérequis pour remettre le programme. Aucun dépôt n’est demandé pour cette séance.
+Le prochain cours alternera lui aussi explications, manipulations et recherches en groupes. Pendant la séance 2, on déposera l’ampoule terminée dans un dépôt **public sur GitHub**, puis on remettra son adresse dans l’activité de la séance 2 sur **Moodle**, avant la pause. La création d’un compte GitHub et l’accès au cours sur Moodle sont donc des prérequis pour cette remise. Aucun dépôt n’est demandé pour cette séance.

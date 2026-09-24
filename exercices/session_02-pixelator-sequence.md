@@ -2,6 +2,8 @@
 
 [Séance 2](../session_02.md)
 
+**Durée : 20 minutes, préparation des fichiers et vérifications comprises.**
+
 <a id="notre-mission"></a>
 
 ## Objectif

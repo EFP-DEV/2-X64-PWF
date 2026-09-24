@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md)
 
-**Travail sur le programme : 30 minutes.** On consacre les 15 premières minutes au diagnostic, à la correction et aux vérifications des étapes 1 à 3 ; les 15 suivantes aux classes CSS et à la vérification finale de l’étape 4. On dépose ensuite le travail sur GitHub en suivant la [fiche dédiée](./session_02-ampoule-github.md), avant de commencer Pixelator.
+**Travail sur le programme : 30 minutes.** On consacre les 15 premières minutes au diagnostic, à la correction et aux vérifications des étapes 1 à 3 ; les 15 suivantes aux classes CSS et à la vérification finale de l’étape 4. On prévoit ensuite **25 minutes** pour déposer le travail dans un dépôt public sur GitHub, vérifier la copie téléchargée et remettre l’adresse du dépôt sur Moodle en suivant la [fiche dédiée](./session_02-ampoule-github.md). La remise se termine avant la pause.
 
 <a id="votre-mission"></a>
 <a id="notre-mission"></a>
@@ -121,4 +121,4 @@ On effectue plusieurs clics successifs : l’image, le texte et le fond doivent 
 
 Dans l’inspecteur, la classe `light-room` apparaît sur `body` quand l’ampoule est allumée. Au clic suivant, la classe est retirée et les couleurs initiales s’appliquent à nouveau.
 
-[Consignes — déposer et vérifier l’ampoule sur GitHub](./session_02-ampoule-github.md)
+[Consignes — GitHub et remise sur Moodle](./session_02-ampoule-github.md)
