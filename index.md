@@ -85,31 +85,35 @@ Les deux groupes suivent la même progression.
 
 3. [Déposer l’ampoule sur GitHub et remettre le lien sur Moodle](./exercices/session_02-ampoule-github.md)
 
-4. [Pixelator — Séquence : peindre un motif](./exercices/session_02-pixelator-sequence.md) — passer de quatre à neuf pixels et introduire la fonction `peindre`.
+4. [Pixelator — Séquence : peindre un motif](./exercices/session_02-pixelator-sequence.md) — passer de quatre à neuf pixels et isoler les invariants, dont la couleur, dans `peindre(id)`.
 
-5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md) — faire apparaître le contour, puis construire une rotation sur neuf pixels avec `peindre`.
+5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md) — observer le contour à 1 000 puis 500 ms, réorganiser les mêmes instructions pour suivre le bord, puis construire `effacer(id)` et une rotation.
 
-6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — réutiliser `peindre` sur une page distincte de quatre pixels.
+6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — passer de l’identifiant fourni dans la séquence à la case cliquée désignée par `event.target`.
 
-7. [Rappel des grands concepts](./session_02.md#consolidation).
+7. [Laboratoire d’expérimentation — animations ou peinture au clic](./session_02.md#laboratoire) — [pistes et aides](./exercices/session_02-pixelator-laboratoire.md) pour explorer les parcours, la grille de seize pixels ou la peinture au clic.
 
-8. [Laboratoire d’expérimentation — animations ou peinture au clic](./session_02.md#laboratoire) — [pistes et aides](./exercices/session_02-pixelator-laboratoire.md) pour explorer les parcours, la grille de seize pixels ou la peinture au clic.
+[Rappel des grands concepts](./session_02.md#consolidation).
 
-## [Séance 3 — Git, GitHub et Pixelator au clic](./session_03.md)
+## [Séance 3 — Don't Panic. Git, GitHub et les boucles](./session_03.md)
 
-1. [Démonstration collective — les versions sur GitHub](./session_03.md#1-démonstration-collective--les-versions-sur-github) — conserver les versions d’un projet comme des copies archivées, puis retrouver une ancienne version avec deux fichiers d’essai.
+1. [Ouvrir le terminal et créer une version](./session_03.md#1-ouvrir-le-terminal-et-créer-une-version) — créer les fichiers dans VS Code, puis enregistrer une version avec les commandes Git de son terminal intégré.
 
-2. [Intégrer Git dans VS Code](./session_03.md#2-intégrer-git-dans-vs-code) — récupérer le projet et son historique sur l’ordinateur, configurer Git et envoyer une nouvelle version vers GitHub.
+2. [Explorer l’historique et envoyer vers GitHub](./session_03.md#2-explorer-lhistorique-et-envoyer-vers-github) — lire les différences et une ancienne version, créer le dépôt sur GitHub, puis envoyer les commits depuis VS Code avec `git push`.
 
 3. [Retrouver les difficultés de la séance 2](./session_03.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de fichiers à l’intérêt de conserver ensemble le HTML, le CSS et le JavaScript d’une version.
 
-4. [Créer un fork de Pixelator et le cloner](./session_03.md#4-créer-un-fork-de-pixelator-et-le-cloner) — garder une copie personnelle du projet et de son histoire sur GitHub, puis la récupérer sur l’ordinateur.
+4. [Créer un fork de Pixelator et le cloner](./session_03.md#4-créer-un-fork-de-pixelator-et-le-cloner) — créer la copie personnelle sur GitHub, la cloner depuis le terminal de VS Code et vérifier sa destination avec `git remote -v`.
 
 5. [Changer de version et actualiser la page](./session_03.md#5-changer-de-version-et-actualiser-la-page) — retrouver trois versions fonctionnelles du projet dans le même dossier et observer leurs différences dans la même page.
 
 6. [Retrouver la dernière version](./session_03.md#6-retrouver-la-dernière-version) — découvrir une erreur dans la dernière version et revenir sur `main` pour poursuivre le travail ; les versions précédentes restent conservées.
 
-7. [Corriger, créer une version et la partager](./session_03.md#7-corriger-créer-une-version-et-la-partager) — corriger la syntaxe, conserver la version corrigée sur l’ordinateur et l’envoyer sur GitHub en distinguant enregistrement, commit et push.
+7. [Corriger, créer une version et la partager](./session_03.md#7-corriger-créer-une-version-et-la-partager) — corriger dans l’éditeur de VS Code, créer le commit dans son terminal, puis vérifier la correction sur GitHub après le push.
+
+8. [Répéter une action avec une boucle](./session_03.md#8-répéter-une-action-avec-une-boucle) — remplacer les quatre associations de clic par une boucle `for`, suivre le compteur et observer l’effet de la condition.
+
+9. [Construire la grille avec une boucle](./session_03.md#9-construire-la-grille-avec-une-boucle) — créer les cases et leur associer le clic, puis passer de quatre à neuf et seize pixels en changeant une valeur.
 
 ---
 

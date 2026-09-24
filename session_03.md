@@ -1,146 +1,175 @@
-# Séance 3 — Git, GitHub et Pixelator au clic
+# Séance 3 — Don't Panic. Git, GitHub et les boucles
 
-## 1. Démonstration collective — les versions sur GitHub
+## 1. Ouvrir le terminal et créer une version
 
-Avant de changer l’apparence ou le comportement de Pixelator, on peut garder une copie du dossier du projet. Cette copie rassemble le HTML, le CSS et le JavaScript tels qu’ils étaient à ce moment-là. On peut imaginer une série de clés USB virtuelles, chacune contenant une version du projet et portant une étiquette pour la retrouver. Le travail continue dans le dossier courant ; les copies archivées restent disponibles.
+### Préparer le projet dans VS Code
 
-Git permet de conserver ces versions dans l’historique du projet. Sur le site de GitHub, on suit la démonstration projetée et on reproduit les manipulations avec le compte personnel. Deux fichiers texte permettent d’observer ce principe : on conserve une version, on change le contenu, puis on retrouve ce qui était présent auparavant.
+On crée un dossier vide nommé `session-03-essai-git` à côté des autres projets du cours, puis on l’ouvre dans **VS Code** avec **File → Open Folder…**.
 
-### Créer le dépôt d’essai
+Dans **Terminal → New Terminal**, on ouvre le terminal intégré. Il démarre dans le dossier du projet. Les fichiers se créent et se modifient dans l’éditeur ; les commandes Git se saisissent dans ce panneau. Chaque ligne se lance avec `Entrée`, puis on observe le résultat.
 
-1. On se connecte à [GitHub](https://github.com/) avec le compte utilisé pour l’ampoule, puis on ouvre [la création d’un dépôt](https://github.com/new).
-2. On choisit le compte personnel comme propriétaire et le nom `session-03-essai-git`.
-3. On choisit **Public** et on active **Add README**, puis on valide avec **Create repository**.
+Les commandes Git de la fiche sont les mêmes sur Windows, macOS et Linux.
 
-Le **dépôt** réunit les fichiers du projet et l’historique de leurs versions. Il contient déjà un premier fichier, `README.md`, et une première version enregistrée. Cette version est un **commit** : elle conserve l’état du projet, avec un auteur et un message décrivant le changement. Le message sert d’étiquette lisible pour retrouver cette étape. [Aide GitHub — créer un dépôt](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
+### Définir l’auteur des versions
 
-### Créer les deux fichiers dans le navigateur
+Chaque version enregistrée porte le nom de son auteur. On consulte les valeurs déjà configurées :
 
-Depuis la page du dépôt, on choisit **Add file → Create new file**. On nomme le fichier `notes-versionnement.txt` et on saisit :
+```text
+git config --global user.name
+git config --global user.email
+```
+
+Si une valeur manque ou doit être corrigée, on remplace les exemples entre guillemets par le nom choisi et une adresse associée au compte GitHub, puis on exécute :
+
+```text
+git config --global user.name "Prénom Nom"
+git config --global user.email "adresse-associee-au-compte@example.com"
+```
+
+Ces valeurs identifient l’auteur des commits. La connexion au compte GitHub sera demandée lors de l’envoi.
+
+### Initialiser le dépôt d’essai
+
+Dans le terminal intégré du projet, on saisit :
+
+```text
+git init -b main
+```
+
+`git init` prépare le dossier pour conserver ses versions. `-b main` nomme sa première branche `main`.
+
+Avant de changer un projet, on peut imaginer en garder une copie sur une clé USB virtuelle, avec une étiquette pour la retrouver. Git permet de conserver ces versions dans un historique, tout en poursuivant le travail dans le même dossier.
+
+### Écrire les premiers fichiers
+
+Dans l’explorateur de VS Code, on utilise **New File** pour créer trois fichiers. On saisit leur contenu dans l’éditeur, puis on les enregistre avec **File → Save All**.
+
+Dans `README.md` :
+
+```text
+# Essai de versionnement
+```
+
+Dans `notes-versionnement.txt` :
 
 ```text
 Dépôt de démonstration Git.
-Une première version des fichiers va être enregistrée.
+Une première version va être enregistrée.
 ```
 
-On clique sur **Commit changes…**, on saisit `Ajouter les notes de démonstration`, puis on choisit d’enregistrer directement sur la branche principale. On valide avec **Commit changes**.
-
-On reprend la même manipulation pour créer `couleurs-essai.txt` :
+Dans `couleurs-essai.txt` :
 
 ```text
 violet
 orange
 ```
 
-Le message du commit est `Ajouter les couleurs d’essai`. La page du dépôt affiche maintenant les trois fichiers :
+Les fichiers existent sur l’ordinateur, mais aucune version n’a encore été enregistrée dans Git.
+
+### Préparer et enregistrer la première version
+
+On demande à Git de décrire la situation :
 
 ```text
-session-03-essai-git/
-├── README.md
-├── notes-versionnement.txt
-└── couleurs-essai.txt
+git status
 ```
 
-Chaque ajout a enregistré une nouvelle version du projet. La dernière réunit les trois fichiers, y compris ceux qui n’ont pas changé. Les fichiers et leurs versions ont été créés directement dans le dépôt sur GitHub. [Aide GitHub — créer un fichier](https://docs.github.com/en/repositories/working-with-files/managing-files/creating-new-files)
-
-### Modifier le contenu et observer la différence
-
-On ouvre `couleurs-essai.txt`, puis son éditeur avec l’icône de crayon. On remplace `violet` par `bleu` et on consulte **Preview** pour relire la modification.
-
-On crée le commit `Remplacer violet par bleu`, directement sur la même branche. Le fichier affiché sur GitHub contient désormais :
+Git indique la branche `main`, l’absence de commit et les trois fichiers non suivis. On sélectionne les fichiers de la première version :
 
 ```text
-bleu
-orange
+git add README.md notes-versionnement.txt couleurs-essai.txt
+git status
 ```
 
-On ouvre l’historique du fichier avec **History**, puis le commit `Remplacer violet par bleu`. La comparaison montre le retrait de `violet` et l’ajout de `bleu`. Le message explique l’intention ; la différence montre exactement ce qui a changé. [Aide GitHub — modifier un fichier](https://docs.github.com/en/repositories/working-with-files/managing-files/editing-files)
-
-La nouvelle version conserve le projet avec la couleur `bleu`. La version avec `violet` reste dans l’historique : enregistrer la suivante n’a pas effacé la précédente.
-
-### Retrouver la version précédente
-
-Dans l’historique, on ouvre le commit `Ajouter les couleurs d’essai`, puis **Browse files** et `couleurs-essai.txt`. Le fichier contient encore `violet` et `orange` à cette étape de son histoire.
-
-La vue **Browse files** donne accès à tout le projet dans cette version. `notes-versionnement.txt` et `README.md` y figurent aussi. Même lorsqu’un seul fichier change, chaque version permet de retrouver l’ensemble des fichiers confiés à Git.
-
-La consultation d’une ancienne version ne modifie pas la version courante. On revient à la page principale du dépôt et on ouvre à nouveau le fichier : `bleu` est toujours présent.
-
-| Dans le projet | Version « Ajouter les couleurs d’essai » | Version « Remplacer violet par bleu » |
-| --- | --- | --- |
-| `couleurs-essai.txt` | `violet`, puis `orange` | `bleu`, puis `orange` |
-| `notes-versionnement.txt` | Les deux lignes de notes | Les mêmes deux lignes |
-| `README.md` | Le fichier initial | Le même fichier |
-
-Les deux versions sont conservées dans l’historique, comme deux copies archivées avec leurs étiquettes. On peut retrouver le contenu de chacune et comparer les changements. Les fichiers gardent leurs noms : les versions se distinguent dans l’historique du projet.
-
-## 2. Intégrer Git dans VS Code
-
-On va maintenant retrouver le projet et ses versions sur l’ordinateur, puis continuer à modifier les fichiers dans l’éditeur. Le dossier servira au travail courant ; son historique permettra de conserver et de retrouver les versions enregistrées.
-
-**Git** gère cet historique sur l’ordinateur. **GitHub** héberge une copie du dépôt en ligne. **VS Code** permet de modifier les fichiers et de piloter Git depuis l’éditeur. Une version créée sur l’ordinateur pourra ensuite être envoyée vers GitHub.
-
-### Vérifier Git et configurer les commits
-
-On installe [VS Code](https://code.visualstudio.com/) si nécessaire, puis on l’ouvre. Dans **Terminal → New Terminal**, on saisit :
-
-```bash
-git --version
-```
-
-Un numéro de version confirme que Git est disponible. Si la commande est introuvable, on installe [Git](https://git-scm.com/downloads/), puis on ferme et rouvre VS Code avant de reprendre cette vérification.
-
-Chaque version enregistrée porte le nom de son auteur. On consulte l’identité qui sera utilisée pour les commits réalisés sur cet ordinateur :
-
-```bash
-git config --global user.name
-git config --global user.email
-```
-
-Si une valeur manque ou doit être corrigée, on remplace les exemples entre guillemets dans les commandes suivantes par les valeurs choisies :
-
-```bash
-git config --global user.name "Prénom Nom"
-git config --global user.email "adresse-associee-au-compte@example.com"
-```
-
-Le nom désigne l’auteur. L’adresse correspond à une adresse associée au compte GitHub ou à l’adresse `noreply` indiquée dans **Settings → Emails**. La connexion au compte sera demandée séparément lors de l’envoi. [Aide GitHub — adresse des commits](https://docs.github.com/en/account-and-profile/how-tos/email-preferences/setting-your-commit-email-address)
-
-Ces réglages préparent les commits réalisés sur cet ordinateur. [Aide VS Code — préparer Git](https://code.visualstudio.com/docs/sourcecontrol/quickstart)
-
-### Cloner le dépôt d’essai
-
-On récupère une copie du projet avec son historique pour travailler sur l’ordinateur. Cette opération s’appelle **cloner** le dépôt.
-
-1. Sur GitHub, on ouvre la page principale de `session-03-essai-git`, puis **Code → HTTPS** pour copier l’adresse de clonage.
-2. Dans VS Code, on ouvre la palette de commandes avec `Ctrl + Shift + P`, ou `Cmd + Shift + P` sur macOS, puis on choisit **Git: Clone**.
-3. On colle l’adresse et on choisit un dossier parent pour les projets du cours, en dehors des dépôts déjà présents. VS Code crée le sous-dossier `session-03-essai-git`.
-4. À la fin du clonage, on ouvre ce dossier dans VS Code. L’explorateur affiche les trois fichiers ; `couleurs-essai.txt` contient `bleu` et `orange`.
-
-Le dossier contient les fichiers de la version courante et l’historique des versions précédentes. La version avec `violet` a donc aussi été récupérée. Git pourra retrouver ces versions sur l’ordinateur, même sans connexion à Internet. L’adresse du dépôt sur GitHub est conservée sous le nom `origin` pour les échanges à venir. [Aide VS Code — cloner un dépôt](https://code.visualstudio.com/docs/sourcecontrol/repos-remotes#clone-repositories)
-
-### Vérifier le trajet entre VS Code et GitHub
-
-Dans `notes-versionnement.txt`, on ajoute une ligne :
+`git add` prépare leur contenu pour le prochain commit. On enregistre cette version avec un message qui décrit son contenu :
 
 ```text
-Le dépôt est ouvert dans VS Code.
+git commit -m "Ajouter les fichiers de démonstration"
+git status
+git log --oneline
 ```
 
-On enregistre le fichier : la nouvelle ligne est présente dans le dossier de travail sur l’ordinateur. Cet enregistrement modifie le fichier ; la création d’une version dans l’historique demande un commit. Dans la vue **Source Control** — contrôle de code source — le fichier apparaît avec l’indication `M`, pour *modified*.
+Un **commit** conserve une version du projet avec son auteur et son message. `-m` fournit ce message. `git log --oneline` affiche l’historique, avec un identifiant abrégé et un message par commit. Si cet affichage occupe le terminal dans un lecteur, la touche `q` permet d’en sortir.
 
-1. On ouvre le fichier dans la liste **Changes** pour relire la différence.
-2. On clique sur le **+** à côté du fichier : il passe dans **Staged Changes**. Cette préparation, appelée *stage*, sélectionne les modifications à intégrer à la prochaine version. Les fichiers suivis qui n’ont pas changé restent inclus dans cette version.
-3. On saisit `Ajouter une note depuis VS Code`, puis on choisit **Commit** pour conserver cette version dans l’historique sur l’ordinateur.
-4. Dans le menu **…** de **Source Control**, on choisit **Push** pour envoyer les nouvelles versions enregistrées vers GitHub.
+**État attendu :** un premier commit apparaît et `git status` indique que le dossier de travail est propre. Les fichiers suivis correspondent à la version enregistrée.
 
-Pendant la démonstration dans le navigateur, les versions étaient créées directement sur GitHub. Ici, on crée d’abord la version sur l’ordinateur, puis on en envoie une copie au dépôt en ligne.
+## 2. Explorer l’historique et envoyer vers GitHub
 
-Si VS Code demande une connexion à GitHub, on suit les indications dans le navigateur avec le compte personnel, puis on revient à l’éditeur. On accepte l’autorisation demandée pour cette connexion. [Aide VS Code — connexion à GitHub](https://code.visualstudio.com/docs/sourcecontrol/github)
+### Modifier un fichier et lire la différence
 
-On actualise la page du dépôt sur GitHub et on ouvre `notes-versionnement.txt`. La nouvelle ligne et le commit doivent être visibles. La version est maintenant conservée sur l’ordinateur et sur GitHub. Cette observation confirme que la modification, le commit local et l’envoi au compte personnel fonctionnent.
+Dans l’éditeur de VS Code, on ouvre `couleurs-essai.txt`, on remplace `violet` par `bleu`, puis on enregistre le fichier. Dans le terminal intégré, on saisit :
 
-Si l’envoi est refusé, on vérifie le compte connecté et la destination avec `git remote -v` dans le terminal du dossier cloné. L’adresse de `origin` doit désigner le dépôt d’essai du compte personnel. On termine cette vérification avant de passer à Pixelator.
+```text
+git status
+git diff
+```
+
+Git signale un fichier modifié. La différence contient notamment :
+
+```diff
+-violet
++bleu
+ orange
+```
+
+Le signe `-` désigne le contenu retiré, le signe `+` le contenu ajouté. La ligne `orange` est conservée. On prépare cette modification, puis on l’enregistre dans l’historique :
+
+```text
+git add couleurs-essai.txt
+git commit -m "Remplacer violet par bleu"
+git log --oneline
+```
+
+La deuxième version conserve tous les fichiers du projet, y compris ceux qui n’ont pas changé.
+
+### Lire une ancienne version sans changer les fichiers
+
+On consulte le fichier de couleurs dans le commit précédent :
+
+```text
+git show HEAD~1:couleurs-essai.txt
+```
+
+`HEAD` désigne le commit actuellement choisi ; `HEAD~1` désigne son parent, ici la première version. Après les deux-points, on indique le fichier à lire. Le terminal affiche `violet` et `orange`.
+
+Dans l’éditeur, le fichier contient toujours `bleu` et `orange`. `git show` a consulté l’archive sans modifier le fichier. Les deux versions existent dans l’historique local.
+
+### Créer le dépôt sur GitHub
+
+On retrouve le site GitHub dans le navigateur, avec le compte utilisé pour l’ampoule :
+
+1. On ouvre [la création d’un dépôt](https://github.com/new).
+2. On choisit le compte personnel comme propriétaire et le nom `session-03-essai-git`.
+3. On choisit **Public** et on laisse désactivés les ajouts de README, de `.gitignore` et de licence : les fichiers et les commits existent déjà sur l’ordinateur.
+4. On valide avec **Create repository**.
+5. Sur la page du dépôt vide, on copie son adresse **HTTPS**.
+
+Le dépôt est prêt à recevoir les versions locales. [Aide GitHub — créer un dépôt](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository)
+
+### Relier le projet au dépôt GitHub
+
+Dans le terminal de VS Code, on remplace l’adresse d’exemple par celle du dépôt créé :
+
+```text
+git remote add origin https://github.com/nom-du-compte/session-03-essai-git.git
+git remote -v
+```
+
+`git remote add` enregistre une destination sous le nom `origin`. `git remote -v` affiche cette adresse : elle doit désigner le dépôt personnel.
+
+### Envoyer les versions
+
+```text
+git push -u origin main
+```
+
+`push` envoie les commits. `origin` indique la destination et `main` la branche à envoyer. `-u` mémorise cette association pour les prochains échanges.
+
+Si VS Code demande une connexion à GitHub, on suit la connexion proposée avec le compte personnel, puis on revient dans l’éditeur. [Aide VS Code — connexion à GitHub](https://code.visualstudio.com/docs/sourcecontrol/github#sign-in-to-github-for-git-operations)
+
+On actualise le dépôt dans le navigateur. Les trois fichiers et le commit `Remplacer violet par bleu` doivent être visibles. `couleurs-essai.txt` contient maintenant `bleu` et `orange` sur GitHub aussi.
+
+**État attendu :** les versions existent sur l’ordinateur et sur GitHub. Enregistrer un fichier, créer un commit et envoyer les commits sont trois actions distinctes.
 
 ## 3. Retrouver les difficultés de la séance 2
 
@@ -154,52 +183,82 @@ L’historique observé avec les fichiers d’essai donne une piste : chaque ver
 
 ## 4. Créer un fork de Pixelator et le cloner
 
-On ouvre le dépôt [EFP-DEV/PWF-pixelator](https://github.com/EFP-DEV/PWF-pixelator) de l’enseignant. On va en garder une copie dans le compte personnel, puis récupérer cette copie sur l’ordinateur pour y travailler.
-
 ### Créer la copie personnelle sur GitHub
 
-1. On clique sur **Fork**.
-2. On choisit le compte personnel comme propriétaire, on conserve le nom `PWF-pixelator` et on copie uniquement la branche principale, `main`.
+Dans le navigateur, on ouvre le dépôt [EFP-DEV/PWF-pixelator](https://github.com/EFP-DEV/PWF-pixelator) :
+
+1. On choisit **Fork**.
+2. On sélectionne le compte personnel comme propriétaire, on conserve le nom `PWF-pixelator` et on copie uniquement la branche principale, `main`.
 3. On valide avec **Create fork**.
 4. Sur la nouvelle page, on vérifie que le propriétaire est le compte personnel. La mention **forked from** indique le dépôt d’origine.
 
-Cette copie personnelle sur GitHub s’appelle un **fork**. Elle conserve l’historique de la branche copiée : les versions antérieures restent accessibles. On pourra y enregistrer la suite du travail ; le dépôt de l’enseignant garde ses propres fichiers et son propre historique. [Aide GitHub — créer un fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo)
+Un **fork** est une copie personnelle sur GitHub. Il conserve les versions de la branche copiée. Le dépôt de l’enseignant garde ses propres fichiers et son historique. [Aide GitHub — créer un fork](https://docs.github.com/en/pull-requests/how-tos/work-with-forks/fork-a-repo)
 
-### Cloner le fork dans VS Code
+### Récupérer le projet et son historique
 
-Depuis la page du **fork personnel**, on copie l’adresse **Code → HTTPS**, de la forme `https://github.com/nom-du-compte/PWF-pixelator.git`.
+Dans VS Code, on ouvre le **dossier parent des projets du cours**, avec **File → Open Folder…**, puis un nouveau terminal avec **Terminal → New Terminal**. Le clone sera créé à côté du dépôt d’essai.
 
-On reprend **Git: Clone** dans VS Code avec cette adresse. Le dossier `PWF-pixelator` est placé à côté de `session-03-essai-git`, dans un emplacement distinct du travail de la séance 2. On ouvre le nouveau clone dans une fenêtre de VS Code.
+Depuis la page du **fork personnel**, on copie l’adresse **Code → HTTPS**. Elle remplace l’adresse d’exemple dans la commande :
 
-Le projet et ses versions existent maintenant à trois endroits : dans le dépôt de l’enseignant sur GitHub, dans le fork personnel sur GitHub et dans le clone sur l’ordinateur. Le travail se poursuit dans le clone. Les nouvelles versions y sont conservées par des commits, puis envoyées au fork par un push.
-
-<details>
-<summary><strong>Autre accès — cloner depuis le terminal de VS Code</strong></summary>
-
-On ouvre le dossier parent des projets du cours dans VS Code, puis **Terminal → New Terminal**. On remplace `nom-du-compte` par le nom du compte personnel dans l’adresse avant d’exécuter :
-
-```bash
+```text
 git clone https://github.com/nom-du-compte/PWF-pixelator.git
-cd PWF-pixelator
 ```
 
-On ouvre ensuite le dossier `PWF-pixelator` avec **File → Open Folder…**. Le clonage par l’interface et le clonage par le terminal produisent le même dossier ; on choisit une seule des deux méthodes.
+**Cloner** récupère le projet et son historique dans un nouveau dossier. Dans VS Code, on ouvre maintenant ce dossier `PWF-pixelator` avec **File → Open Folder…**, puis un nouveau terminal intégré. On y saisit :
 
-</details>
+```text
+git status
+```
 
-Dans le terminal du dossier `PWF-pixelator`, on consulte la destination des échanges :
+Le terminal se trouve ainsi dans le clone pour toutes les commandes suivantes. L’explorateur de VS Code affiche les fichiers de Pixelator.
 
-```bash
+### Vérifier la destination avec `git remote -v`
+
+```text
 git remote -v
 ```
 
-Les lignes `origin` pour `fetch` et `push` doivent contenir l’adresse du **fork personnel**. Si elles désignent le dépôt de l’enseignant, on reprend le clonage depuis la bonne adresse dans un autre dossier avant de poursuivre.
+Exemple de résultat, avec le compte personnel à la place de `nom-du-compte` :
+
+```text
+origin  https://github.com/nom-du-compte/PWF-pixelator.git (fetch)
+origin  https://github.com/nom-du-compte/PWF-pixelator.git (push)
+```
+
+| Élément affiché | Signification |
+| --- | --- |
+| `origin` | Le nom donné par défaut au dépôt distant lors du clonage. |
+| L’adresse | Le dépôt GitHub avec lequel le clone échange. |
+| `(fetch)` | L’adresse utilisée pour récupérer des versions. |
+| `(push)` | L’adresse utilisée pour envoyer des commits. |
+
+`-v` demande un affichage détaillé avec les adresses. **Cette commande lit la configuration locale : elle ne contacte pas GitHub et n’envoie ni ne récupère de versions.**
+
+Les deux adresses doivent désigner le **fork personnel**. Cette vérification permet de repérer un clonage du dépôt de l’enseignant à sa place : les commits risqueraient alors d’être envoyés vers une destination sur laquelle le compte personnel ne peut pas écrire.
+
+Si `origin` désigne `EFP-DEV`, on remplace `nom-du-compte` par le compte personnel et on corrige la destination :
+
+```text
+git remote set-url origin https://github.com/nom-du-compte/PWF-pixelator.git
+git remote -v
+```
+
+`set-url` change l’adresse configurée ; les fichiers du clone et ses commits restent en place. Le fork doit déjà exister dans le compte personnel.
+
+**État attendu :** le projet existe dans le dépôt de l’enseignant, dans le fork personnel et dans le clone local. `origin` désigne le fork personnel.
 
 ## 5. Changer de version et actualiser la page
 
 Le clone contient déjà les versions préparées par l’enseignant. On va choisir successivement trois de ces archives et retrouver le projet correspondant dans le même dossier. Les résultats sont très différents : chaque version conserve une apparence ou un comportement de Pixelator.
 
-On ouvre le terminal dans le dossier `PWF-pixelator`. L’enseignant fournit les trois commandes qui permettent de choisir ces versions.
+Dans le terminal du dossier `PWF-pixelator`, on observe l’état courant et l’historique :
+
+```text
+git status
+git log --oneline
+```
+
+Le dossier de travail doit être propre avant cette exploration. L’enseignant fournit les trois identifiants qui permettent de choisir les versions à observer.
 
 **Les repères `COMMIT_VERSION_1`, `COMMIT_VERSION_2` et `COMMIT_VERSION_3` ci-dessous sont à remplacer par les identifiants fournis. Ce ne sont pas des identifiants exécutables tels quels.** Chaque identifiant, aussi appelé *hash*, est la référence d’un commit précis. Le message décrit la version ; l’identifiant permet de la retrouver exactement.
 
@@ -207,19 +266,19 @@ On ouvre le terminal dans le dossier `PWF-pixelator`. L’enseignant fournit les
 
 On exécute la première commande fournie :
 
-```bash
+```text
 git checkout COMMIT_VERSION_1
 ```
 
 Git remet en place les fichiers suivis du dossier tels qu’ils étaient dans cette version. Les autres versions restent conservées dans l’historique. Le message **detached HEAD** indique qu’on consulte une version précise de l’historique ; le retour au travail courant se fera ensuite avec `main`. Pendant cette exploration, on observe les versions sans modifier les fichiers.
 
-On ouvre `peindre-au-clic.html` depuis le dossier cloné, directement dans le navigateur. Si cette page est déjà ouverte, on l’actualise. On observe la grille et on essaie ses interactions au clic.
+On ouvre `peindre-au-clic.html` depuis le dossier cloné dans le navigateur, comme pour les exercices précédents. Si cette page est déjà ouverte, on l’actualise. On observe la grille et on essaie ses interactions au clic.
 
 ### Deuxième version
 
 Dans le même terminal, on exécute :
 
-```bash
+```text
 git checkout COMMIT_VERSION_2
 ```
 
@@ -229,7 +288,7 @@ On actualise **le même onglet du navigateur**. Le résultat change. On relève 
 
 On exécute :
 
-```bash
+```text
 git checkout COMMIT_VERSION_3
 ```
 
@@ -243,7 +302,7 @@ Le geste se répète : **choisir une version du projet → actualiser la page �
 
 On reçoit maintenant l’identifiant du dernier commit préparé pour l’activité. On remplace `COMMIT_DERNIERE_VERSION` par cet identifiant dans la quatrième commande :
 
-```bash
+```text
 git checkout COMMIT_DERNIERE_VERSION
 ```
 
@@ -253,7 +312,7 @@ On actualise la page. Cette fois, la grille apparaît, mais les clics ne peignen
 
 Un identifiant désigne toujours la même version archivée. Pour retrouver le point où le travail s’est arrêté et pouvoir le poursuivre, on utilise **`main`**, le nom de la branche principale dans le clone :
 
-```bash
+```text
 git checkout main
 ```
 
@@ -267,60 +326,108 @@ La version la plus récente contient une erreur. Les trois versions fonctionnell
 
 ### Repérer et corriger la syntaxe
 
-Dans VS Code, on vérifie que la barre d’état affiche **`main`**. La correction se fait après le retour sur cette branche.
+Dans le terminal intégré, on vérifie la branche courante et l’état du dossier :
 
-On ouvre la console des outils de développement du navigateur, puis on recharge la page. Un message **`SyntaxError`** désigne le fichier JavaScript et un emplacement. Sa formulation dépend du navigateur. On suit ce lien et on examine la ligne signalée, ainsi que celle qui la précède.
+```text
+git status
+```
 
-Dans VS Code, on retrouve l’instruction concernée dans `pixelator-clic.js`. On compare les signes qui ouvrent et ferment l’appel : parenthèses, guillemets et point-virgule. On corrige le signe manquant, puis on enregistre le fichier.
+Le résultat doit indiquer la branche `main`. La correction se fait après le retour sur cette branche.
+
+La grille apparaît, mais les clics ne réagissent pas. On ouvre la console du navigateur, puis on recharge la page. Un message `SyntaxError` indique le fichier et un emplacement à examiner.
+
+Dans l’explorateur de VS Code, on ouvre `pixelator-clic.js`. On retrouve les quatre lignes qui associent les clics à `peindrePixel` et on compare les signes autour de leurs appels à `document.querySelector` : parenthèses, guillemets et point-virgule. On corrige le signe manquant dans l’éditeur, puis on enregistre avec **File → Save**.
 
 <details>
 <summary><strong>Indice — la fin d’un appel</strong></summary>
 
-Les arguments d’un appel sont placés entre `(` et `)`. Le point-virgule vient après la parenthèse fermante. On compare la ligne signalée avec un autre appel à `peindre` dans le fichier.
+Le sélecteur fourni à `document.querySelector` est placé entre `(` et `)`. La parenthèse fermante vient après le guillemet du sélecteur, avant `.onclick`. On compare la première association de clic avec les trois suivantes dans le fichier.
 
 </details>
 
-On recharge la page et on vérifie manuellement le résultat :
+On examine la modification enregistrée :
 
-- La console ne signale plus l’erreur de syntaxe.
+```text
+git diff -- pixelator-clic.js
+```
+
+La différence doit montrer uniquement l’ajout de la parenthèse manquante. On recharge la page Pixelator et on vérifie manuellement le résultat :
+
 - Les quatre cases sont blanches au chargement.
 - Un clic peint la case choisie ; un deuxième clic sur cette case l’efface.
 - Un clic sur une autre case laisse les autres cases dans leur état précédent.
 
-La vérification porte sur plusieurs cases et plusieurs clics. La disparition du message d’erreur et le comportement retrouvé permettent de préparer la version corrigée.
+Les fichiers de travail contiennent maintenant la correction. Elle n’appartient pas encore à une nouvelle version de l’historique.
 
-### Créer le commit, puis actualiser GitHub
+### Préparer la correction et créer le commit
 
-Dans **Source Control**, on ouvre la comparaison de `pixelator-clic.js` pour relire la correction. On clique sur **+** pour préparer ce fichier, puis on saisit le message `Corriger la parenthèse manquante dans l’appel à peindre`.
+```text
+git status
+git add pixelator-clic.js
+git diff --cached
+git commit -m "Corriger la parenthèse manquante dans l’appel à querySelector"
+git status
+git log --oneline -3
+```
 
-On choisit **Commit** seul. Le commit apparaît dans l’historique local et le fichier disparaît de la liste des changements en attente. [Aide VS Code — préparer et créer un commit](https://code.visualstudio.com/docs/sourcecontrol/staging-commits)
+`git add` sélectionne le contenu corrigé. La différence avec `--cached` permet de relire la modification préparée avant de la conserver avec `commit`. Le nouveau message apparaît en tête de l’historique local. `git status` indique que les fichiers suivis ne contiennent plus de modification en attente.
 
-Cette nouvelle version conserve le projet avec la correction. Les autres fichiers font toujours partie du projet ; les versions précédentes, y compris celle qui contient l’erreur, restent accessibles dans l’historique.
+Cette nouvelle version conserve le projet avec sa correction. Les autres fichiers en font toujours partie ; les versions précédentes, y compris celle qui contient l’erreur, restent accessibles.
 
-On ouvre le **fork personnel** sur GitHub et on actualise sa page principale. La correction n’y apparaît pas. Dans `pixelator-clic.js`, la parenthèse manque toujours et le nouveau message de commit est absent de l’historique en ligne.
+### Constater que le commit est encore local
 
-**Le commit a créé une version sur l’ordinateur.** Une liste de changements vide dans VS Code ne signifie pas que cette version a été envoyée.
+Dans le navigateur, on actualise la page du fork personnel sur GitHub. Le nouveau message de commit est absent et `pixelator-clic.js` contient encore l’erreur. La correction existe pour l’instant dans le commit créé sur l’ordinateur.
 
-### Faire un push, puis actualiser GitHub
+**Un dossier de travail propre ne signifie pas que le commit a été envoyé.** `commit` crée une version dans l’historique local ; l’envoi est une autre action.
 
-Dans le menu **…** de **Source Control**, on choisit maintenant **Push**. On utilise cette commande seule pour observer l’envoi ; **Sync Changes** combine une récupération et un envoi. [Aide VS Code — envoyer les commits](https://code.visualstudio.com/docs/sourcecontrol/repos-remotes#push-commits)
+### Envoyer la correction et vérifier la réception
 
-On actualise à nouveau la page principale du fork sur GitHub. Le commit `Corriger la parenthèse manquante dans l’appel à peindre` est maintenant visible. On l’ouvre pour retrouver la différence, puis on consulte `pixelator-clic.js` : la parenthèse est présente.
+```text
+git push origin main
+```
 
-**Le push a envoyé une copie de cette version vers le fork sur GitHub.** Le projet corrigé et les versions envoyées peuvent désormais être récupérés sur un autre ordinateur. Les personnes qui ont accès au fork peuvent aussi les consulter et les récupérer. Leurs copies locales ne se mettent pas à jour automatiquement ; le dépôt de l’enseignant conserve aussi son propre état.
+On actualise à nouveau la page du fork sur GitHub. Le commit `Corriger la parenthèse manquante dans l’appel à querySelector` est visible. On ouvre `pixelator-clic.js` : la parenthèse est présente. Une copie du projet avec cette correction peut maintenant être récupérée sur un autre ordinateur.
 
-| Après l’action | Sur l’ordinateur | Dans le fork sur GitHub après actualisation |
+| Après l’action | Sur l’ordinateur | Dans le fork sur GitHub |
 | --- | --- | --- |
-| Enregistrer le fichier | Le fichier de travail contient la correction ; aucune nouvelle version n’a encore été créée dans l’historique. | Le fichier contient encore l’erreur. |
+| Enregistrer dans VS Code | Le fichier de travail contient la correction ; aucune nouvelle version n’a encore été créée dans l’historique. | La branche désigne encore le commit avec l’erreur. |
 | Créer le commit | La correction appartient à une nouvelle version de l’historique local. | Le nouveau commit est absent. |
-| Faire le push | Le commit reste dans l’historique local. | Le commit et la correction sont disponibles. |
+| Faire le push | Le commit reste dans l’historique local. | La branche désigne le même commit corrigé. |
 
-**Enregistrer met à jour le fichier de travail ; un commit conserve une version du projet dans son historique ; un push en envoie une copie sur GitHub.**
+**Enregistrer met à jour le fichier de travail ; un commit conserve une version du projet ; un push en envoie une copie sur GitHub.** Les autres clones ne se mettent pas à jour automatiquement et le dépôt de l’enseignant conserve son propre état.
 
-La première partie de la séance est terminée lorsque Pixelator réagit au clic dans le clone local et que le commit de correction est visible dans le fork personnel sur GitHub.
+**État attendu :** Pixelator réagit au clic et le commit de correction est visible dans le fork personnel sur GitHub.
+
+<details>
+<summary><strong>Aide-mémoire — les commandes Git du parcours</strong></summary>
+
+Les valeurs comme `fichier`, `identifiant` ou `adresse` sont remplacées par celles de l’activité.
+
+| Commande | Effet |
+| --- | --- |
+| `git config --global user.name` / `git config --global user.email` | Lire l’identité ; une valeur ajoutée à la fin permet de la définir. |
+| `git init -b main` | Créer un dépôt local avec une branche nommée `main`. |
+| `git status` | Observer la branche, les fichiers modifiés et la préparation du prochain commit. |
+| `git add fichier` | Préparer le contenu du fichier pour le prochain commit. |
+| `git diff` / `git diff --cached` | Lire les différences non préparées ou préparées. |
+| `git commit -m "Message"` | Enregistrer une version avec un message. |
+| `git log --oneline` | Lire l’historique, un commit par ligne. |
+| `git show HEAD~1:fichier` | Lire un fichier dans le commit précédent. |
+| `git clone adresse` | Récupérer un dépôt et son historique. |
+| `git remote add origin adresse` | Enregistrer l’adresse du dépôt GitHub comme destination. |
+| `git remote -v` | Afficher les noms et adresses des dépôts distants configurés. |
+| `git remote set-url origin adresse` | Changer l’adresse de `origin`. |
+| `git checkout identifiant` / `git checkout main` | Retrouver un commit précis ou revenir sur `main`. |
+| `git push -u origin main` / `git push origin main` | Envoyer la branche ; `-u` configure aussi son suivi distant. |
+
+Toutes ces commandes se saisissent dans le terminal intégré de VS Code, dans le dossier du projet concerné.
+
+</details>
 
 <details>
 <summary><strong>Préparation de la démonstration — côté enseignant</strong></summary>
+
+On prépare VS Code pour les opérations Git : Git doit être installé sur le poste et accessible depuis le terminal intégré. La commande `git --version` permet à l’enseignant de le vérifier. Cette préparation technique est faite avant l’atelier. La connexion au compte GitHub personnel doit permettre l’envoi depuis VS Code. [Préparation des postes — documentation VS Code](https://code.visualstudio.com/docs/sourcecontrol/quickstart#prerequisites)
 
 On prépare l’historique du dépôt public `EFP-DEV/PWF-pixelator` avant sa distribution. Les quatre commits de la démonstration appartiennent à l’historique de `main`, afin qu’un fork de cette seule branche les conserve.
 
@@ -328,10 +435,10 @@ Les trois premiers commits présentent trois versions fonctionnelles de Pixelato
 
 Le quatrième commit reprend une version avec quatre cases déjà interactives : un clic peint la case choisie, un autre clic l’efface. La création de grilles avec des boucles appartient à la suite de la séance.
 
-Après une vérification manuelle de cette version, on retire uniquement la parenthèse fermante d’un appel à `peindre` dans `pixelator-clic.js`. La ligne fautive devient :
+Après une vérification manuelle de cette version, on retire uniquement la parenthèse fermante de `document.querySelector` dans la première association de clic de `pixelator-clic.js`. La ligne fautive devient :
 
 ```js
-peindre(event.target.id, couleurPeinture;
+document.querySelector("#pixel1".onclick = peindrePixel;
 ```
 
 On enregistre cette erreur dans le quatrième commit et on laisse `main` sur ce commit pour la démonstration. Le passage du quatrième identifiant à `main` doit conserver le même problème. Le `README.md` indique la page à ouvrir ; la découverte de l’erreur intervient après les trois versions fonctionnelles.
@@ -339,3 +446,141 @@ On enregistre cette erreur dans le quatrième commit et on laisse `main` sur ce 
 On relève les quatre identifiants et on remplace `COMMIT_VERSION_1`, `COMMIT_VERSION_2`, `COMMIT_VERSION_3` et `COMMIT_DERNIERE_VERSION` dans les commandes de la fiche par ces valeurs réelles avant sa distribution. Les descriptions de remplacement des repères sont alors retirées. On vérifie que la différence produite par la correction attendue reste limitée à la parenthèse.
 
 </details>
+
+Après cette première partie, on fait une pause.
+
+## 8. Répéter une action avec une boucle
+
+### Repérer ce qui se répète
+
+On reste dans le clone de Pixelator ouvert dans VS Code. Les quatre cases de `peindre-au-clic.html` se peignent et s’effacent au clic. On ouvre `pixelator-clic.js` dans l’éditeur et on retrouve les quatre instructions qui associent le comportement de clic aux cases :
+
+```js
+document.querySelector("#pixel1").onclick = peindrePixel;
+document.querySelector("#pixel2").onclick = peindrePixel;
+document.querySelector("#pixel3").onclick = peindrePixel;
+document.querySelector("#pixel4").onclick = peindrePixel;
+```
+
+L’action reste identique : associer le clic d’une case à `peindrePixel`. Seul le numéro dans le sélecteur change. Avec seize ou cent cases, il faudrait encore ajouter des lignes presque identiques.
+
+La fonction `peindrePixel` regroupe déjà le comportement du clic. Une **boucle** permet maintenant de répéter les instructions qui associent ce comportement aux cases, en faisant varier leur numéro.
+
+On décrit cette répétition en français :
+
+1. Le numéro commence à 1.
+2. Tant que le numéro est inférieur ou égal à 4, on associe le clic de cette case à `peindrePixel`.
+3. On augmente le numéro de 1, puis on revient à la vérification.
+4. Quand le numéro dépasse 4, on poursuit après la boucle.
+
+### Remplacer les quatre instructions
+
+Dans `pixelator-clic.js`, on remplace les quatre associations de clic par ce bloc. La définition de `peindrePixel`, avec sa couleur et sa condition de peinture ou d’effacement, reste présente.
+
+```js
+for (let numeroPixel = 1; numeroPixel <= 4; numeroPixel = numeroPixel + 1) {
+  document.querySelector("#pixel" + numeroPixel).onclick = peindrePixel;
+}
+```
+
+`for` annonce une boucle. Les trois parties entre parenthèses sont séparées par des points-virgules :
+
+| Partie | Rôle | Moment de son exécution |
+| --- | --- | --- |
+| `let numeroPixel = 1` | Créer le compteur avec sa valeur de départ. | Une seule fois, à l’entrée dans la boucle. |
+| `numeroPixel <= 4` | Vérifier si un passage peut avoir lieu. | Avant chaque passage, y compris le premier. |
+| `numeroPixel = numeroPixel + 1` | Augmenter le compteur de 1. | Après chaque passage dans le bloc. |
+
+Les accolades délimitent les instructions répétées. Un passage dans ce bloc s’appelle une **itération**. L’ordre d’exécution est : **initialisation → condition → bloc → augmentation → condition → bloc…** La boucle s’arrête dès que la condition est fausse.
+
+Dans le bloc, `"#pixel" + numeroPixel` assemble le texte et la valeur du compteur. Avec le numéro 3, le sélecteur devient `"#pixel3"`. Le nom `numeroPixel` reste sans guillemets pour utiliser sa valeur.
+
+### Suivre les passages
+
+Avant de recharger la page, on suit le compteur et on retrouve le sélecteur construit à chaque passage :
+
+| Valeur au moment de vérifier | Résultat de `numeroPixel <= 4` | Instruction exécutée dans le bloc |
+| --- | --- | --- |
+| 1 | Vrai | Associer le clic de `#pixel1` à `peindrePixel`. |
+| 2 | Vrai | Associer le clic de `#pixel2` à `peindrePixel`. |
+| 3 | Vrai | Associer le clic de `#pixel3` à `peindrePixel`. |
+| 4 | Vrai | Associer le clic de `#pixel4` à `peindrePixel`. |
+| 5 | Faux | Aucun passage : la boucle est terminée. |
+
+La condition est vérifiée cinq fois ; le bloc s’exécute quatre fois. Comme avec `if`, une condition décide si le bloc s’exécute. Avec cette boucle, on revient vérifier la condition après chaque passage et chaque augmentation du compteur.
+
+On enregistre, puis on recharge la page. La grille reste blanche. On clique sur plusieurs cases et on clique une deuxième fois sur une case peinte : le comportement doit rester identique à celui des quatre instructions de départ.
+
+**La boucle associe les clics au chargement de la page.** Elle termine ses quatre passages sans attendre de clic. Plus tard, chaque clic déclenche `peindrePixel` pour la case concernée. On conserve donc le nom `peindrePixel` sans parenthèses dans l’association.
+
+### Faire varier le départ et la condition
+
+On réalise les expériences suivantes séparément. Avant chaque essai, on repart de la boucle de 1 à 4 et on note les cases qui devraient réagir. Après la modification, on enregistre et on recharge la page pour reconstruire les associations de clic.
+
+| Modification | Prévision à formuler |
+| --- | --- |
+| Remplacer `numeroPixel <= 4` par `numeroPixel < 4`. | La case 4 reçoit-elle encore le comportement de clic ? |
+| Remplacer le départ `1` par `2`. | Quelle case n’est plus associée au comportement ? |
+| Remplacer le départ `1` par `5`, en gardant `numeroPixel <= 4`. | Le bloc s’exécute-t-il au moins une fois ? |
+
+On compare les clics observés à la prévision, puis on rétablit la boucle complète de 1 à 4. Le compteur doit progresser vers une valeur qui rend la condition fausse : si sa valeur reste à 1 avec cette condition, la boucle ne peut pas se terminer.
+
+## 9. Construire la grille avec une boucle
+
+### Répéter la création d’une case
+
+Les associations de clic tiennent maintenant dans une boucle, mais le HTML contient encore une ligne par case. On va aussi répéter la création des éléments : le nombre de cases pourra changer sans recopier des `div`.
+
+Dans l’éditeur de VS Code, on ouvre `peindre-au-clic.html` et on remplace la section contenant les quatre cases par une section vide :
+
+```html
+<section id="grille-pixels" aria-label="Dessin de pixels"></section>
+```
+
+Le chargement de `pixelator-clic.js` reste placé après cette section, à la fin du `body`. La section existe ainsi lorsque le programme commence à s’exécuter.
+
+On enregistre le HTML, puis on ouvre `pixelator-clic.js` dans l’éditeur. On remplace la boucle de l’activité précédente par le bloc suivant. On conserve la fonction `peindrePixel`, qui agit directement sur `event.target`, avec sa couleur et sa condition.
+
+```js
+let nombreColonnes = 2;
+let nombrePixels = nombreColonnes * nombreColonnes;
+let grillePixels = document.querySelector("#grille-pixels");
+
+grillePixels.style.gridTemplateColumns = "repeat(" + nombreColonnes + ", 5rem)";
+
+for (let numeroPixel = 1; numeroPixel <= nombrePixels; numeroPixel = numeroPixel + 1) {
+  let pixel = document.createElement("div");
+  pixel.id = "pixel" + numeroPixel;
+  pixel.onclick = peindrePixel;
+  grillePixels.appendChild(pixel);
+}
+```
+
+Les nouvelles instructions de création sont fournies. On suit leurs effets pour un passage :
+
+| Instruction | Effet |
+| --- | --- |
+| `document.createElement("div")` | Créer un nouvel élément, encore absent de la page. |
+| `pixel.id = "pixel" + numeroPixel` | Lui attribuer un identifiant, par exemple `pixel3`. |
+| `pixel.onclick = peindrePixel` | Associer son clic au comportement déjà défini. |
+| `grillePixels.appendChild(pixel)` | Ajouter l’élément à la fin de la grille. |
+
+Chaque passage crée une nouvelle case. La boucle reprend ensuite les mêmes instructions avec le numéro suivant. La feuille de style applique aux nouveaux `div` l’apparence des cases de Pixelator.
+
+On enregistre les deux fichiers et on recharge la page : quatre cases blanches doivent apparaître, puis réagir aux clics comme auparavant. Dans l’inspecteur, la section contient `pixel1` à `pixel4`. Dans le fichier HTML enregistré, elle reste vide : JavaScript a créé les cases dans le document chargé par le navigateur.
+
+### Agrandir la grille avec une valeur
+
+`nombreColonnes` détermine le nombre de colonnes. Pour conserver une grille carrée, `nombrePixels` est calculé en multipliant cette valeur par elle-même. La propriété `gridTemplateColumns` reprend ce nombre de colonnes avec des cases de `5rem`, comme dans la feuille de style.
+
+On remplace uniquement la valeur de `nombreColonnes` par `3`, puis par `4`. Avant chaque rechargement, on prévoit le nombre de cases et le dernier identifiant créé.
+
+| Nombre de colonnes | Nombre de passages dans la boucle | Dernier identifiant |
+| --- | --- | --- |
+| 2 | 4 | `pixel4` |
+| 3 | 9 | `pixel9` |
+| 4 | 16 | `pixel16` |
+
+Pour chaque grille, on essaie la première case, la dernière et une case intermédiaire. Un clic peint la case choisie ; un deuxième clic l’efface. Les autres cases conservent leur état. Après un rechargement, la grille est reconstruite et le dessin disparaît.
+
+La même boucle crée les cases et leur associe le comportement de clic. Le nombre de passages dépend d’une valeur ; les instructions du bloc restent identiques.

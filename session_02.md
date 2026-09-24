@@ -22,27 +22,35 @@ Après la remise, on fait une pause.
 
 ## 4. Pixelator — Séquence : peindre un motif
 
-Pixelator commence avec quatre grandes cases qui représentent des pixels. On choisit une couleur et on écrit les instructions qui peignent un motif, puis on passe à neuf cases pour peindre le contour du carré. Les instructions répétées permettent d’introduire `peindre(id, couleur)` : on réécrit le contour avec des appels à cette fonction et on en conserve une copie avant de créer un deuxième motif.
+Pixelator commence avec quatre grandes cases qui représentent des pixels. On choisit une couleur et on écrit les instructions qui peignent un motif, puis on passe à neuf cases pour peindre le contour du carré dans l’ordre des numéros, en sautant le centre. La couleur fait partie des invariants ; seul l’identifiant varie. On introduit ainsi `peindre(id)`, avec la couleur fixée dans sa définition, puis on réécrit le contour avec des appels à cette fonction et on en conserve une copie avant de créer un deuxième motif.
 
 [Consignes et fichiers — Pixelator : séquence](./exercices/session_02-pixelator-sequence.md)
 
 ## 5. Pixelator — Temps : animer un motif
 
-On reprend le contour conservé sur neuf pixels et on ajoute des attentes entre ses appels à `peindre`, sans changer leur ordre. Le même dessin apparaît progressivement. On construit ensuite une rotation autour des huit cases du bord : une seule case reste colorée à la fois et le centre reste blanc. L’ordre des appels définit le parcours ; les attentes règlent sa cadence.
+On télécharge `pixelator-time.js` et on change le `src` dans la page de neuf pixels. Ce fichier fournit les fonctions `peindre` et `attendre`, le cadre de chargement et les huit appels du contour dans l’ordre des numéros. On ajoute des attentes d’une seconde entre ces appels : les étapes deviennent visibles. On passe ensuite à 500 ms pour accélérer l’apparition, puis on réorganise les mêmes lignes de peinture pour suivre le bord du carré. Le contour final reste identique ; sa construction visible change avec l’ordre des instructions. On construit enfin `effacer(id)` sur le modèle de `peindre(id)`, puis on ajoute les effacements et le retour au départ pour faire circuler une seule case colorée, toujours à 500 ms. Le centre reste blanc.
 
 [Consignes et fichiers — Pixelator : temps](./exercices/session_02-pixelator-time.md)
 
 ## 6. Pixelator — Peindre et effacer au clic
 
-Une page distincte de quatre pixels attend désormais une action. On utilise le mécanisme de clic rencontré dans l’ampoule et la fonction `peindre` pour peindre le pixel choisi, puis on ajoute une condition pour l’effacer au clic suivant. Plusieurs cases peuvent être peintes : chacune conserve son état indépendamment des autres.
+Une page distincte de quatre pixels attend désormais une action. On télécharge `pixelator-clic.js`, qui fournit l’association du premier clic et un comportement à compléter. Dans la séquence, `peindre(id)` recevait l’identifiant écrit dans chaque appel. Au clic, le navigateur fournit un événement : on utilise directement `event.target` pour peindre la case cliquée. On ajoute ensuite une condition pour l’effacer au clic suivant. Plusieurs cases peuvent être peintes : chacune conserve son état indépendamment des autres.
 
 On commence avec une seule case, puis on associe les quatre cases au même comportement fourni. Les essais portent sur plusieurs clics et plusieurs cases, pour vérifier que seule la cible du clic change.
 
 [Consignes et fichier — Pixelator : peindre au clic](./exercices/session_02-pixelator-clic.md)
 
+<a id="laboratoire"></a>
+
+## 7. Laboratoire d’expérimentation — animations ou peinture au clic
+
+On choisit une piste à partir d’un Pixelator fonctionnel : inventer une animation ou explorer la peinture au clic. Les variantes de parcours, la grille de seize pixels et les changements de couleur, de disposition ou de comportement servent de points de départ. On prévoit un effet, on modifie le programme, puis on compare le résultat observé à la prévision.
+
+[Pistes et aides — laboratoire Pixelator](./exercices/session_02-pixelator-laboratoire.md)
+
 <a id="consolidation"></a>
 
-## 7. Rappel des grands concepts
+## Rappel des grands concepts
 
 1. **L’ordre des instructions — l’horloge.** Une instruction utilise les valeurs disponibles au moment où elle s’exécute. Le passage à minuit demande de corriger les heures après leur augmentation et avant l’affichage.
 
@@ -50,16 +58,8 @@ On commence avec une seule case, puis on associe les quatre cases au même compo
 
 3. **Le partage d’un projet — GitHub et Moodle.** Un projet rassemble les fichiers HTML, CSS, JavaScript et les images nécessaires à son fonctionnement. Le dépôt GitHub permet de les retrouver et de les télécharger ; son adresse est transmise sur Moodle. On vérifie la copie téléchargée pour s’assurer que le projet est complet.
 
-4. **La séquence et les fonctions — peindre un motif.** Une suite d’instructions peint les cases choisies. `document.querySelector(...)` sélectionne un élément et `.style.backgroundColor` modifie sa couleur de fond. La fonction `peindre(id, couleur)` regroupe cette opération sous un nom réutilisable : ses paramètres permettent de changer la case et la couleur à chaque appel.
+4. **La séquence et les fonctions — peindre un motif.** Une suite d’instructions peint les cases choisies. `document.querySelector(...)` sélectionne un élément et `.style.backgroundColor` modifie sa couleur de fond. La fonction `peindre(id)` regroupe les invariants, dont la couleur choisie. Son unique paramètre reçoit l’identifiant de la case à peindre.
 
-5. **Le temps dans une séquence — animer un motif.** `await attendre(...)` laisse passer un délai avant de poursuivre les instructions. L’ordre des appels détermine le parcours, tandis que les attentes règlent la cadence. Pour déplacer une couleur, on attend, on efface la case précédente, puis on peint la suivante.
+5. **Le temps et l’intention dans une séquence — animer un motif.** `await attendre(...)` rend les étapes observables ; passer de 1 000 à 500 ms accélère leur succession. Les mêmes lignes de peinture, réorganisées, construisent le même contour selon un autre parcours visible. L’intention guide l’ordre des instructions ; les attentes règlent la cadence. La fonction `effacer(id)` retire la peinture d’une case. Pour faire circuler une seule case colorée, on attend, on efface la case précédente, puis on peint la suivante.
 
-6. **Les événements et l’état de chaque élément — peindre au clic.** Le clic déclenche une fonction et `event.target` désigne l’élément cliqué. Le même comportement peut ainsi servir à plusieurs cases. Une condition examine la peinture de la case concernée pour la peindre ou l’effacer ; chaque case conserve son état indépendamment des autres.
-
-<a id="laboratoire"></a>
-
-## 8. Laboratoire d’expérimentation — animations ou peinture au clic
-
-On choisit une piste à partir d’un Pixelator fonctionnel : inventer une animation ou explorer la peinture au clic. Les variantes de parcours, la grille de seize pixels et les changements de couleur, de disposition ou de comportement servent de points de départ. On prévoit un effet, on modifie le programme, puis on compare le résultat observé à la prévision.
-
-[Pistes et aides — laboratoire Pixelator](./exercices/session_02-pixelator-laboratoire.md)
+6. **Les événements et l’état de chaque élément — peindre au clic.** Le navigateur appelle le comportement associé au clic et lui fournit un événement. `event.target` désigne directement l’élément cliqué : le comportement agit sur cette case sans rechercher son identifiant. La couleur reste fixée dans la fonction. Une condition examine la peinture de la case concernée pour la peindre ou l’effacer ; chaque case conserve son état indépendamment des autres.

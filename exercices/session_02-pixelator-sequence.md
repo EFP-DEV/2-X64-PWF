@@ -1,18 +1,10 @@
 # Pixelator — Séquence : peindre un motif
 
-[Séance 2](../session_02.md)
+## 1. Préparer les fichiers
 
 <a id="notre-mission"></a>
 
-## Objectif
-
-On dessine d’abord un motif sur quatre pixels, puis on passe à une grille de neuf pixels pour peindre le contour du carré. On choisit **une seule couleur de peinture** pour tous les motifs. Chaque dessin doit apparaître dès le chargement de la page.
-
-On commence par écrire les instructions techniques, puis on construit une fonction nommée `peindre` pour réutiliser cette opération avec une écriture plus simple.
-
 Le HTML et le CSS sont fournis. **On crée uniquement `pixelator.js` pour y écrire les instructions JavaScript.**
-
-## 1. Préparer les fichiers
 
 **Préparation**
 
@@ -33,7 +25,7 @@ Chaque case possède un identifiant unique. Voici leur disposition :
 
 On choisit les cases à peindre : par exemple, une diagonale ou une colonne. Les cases non ciblées gardent leur fond initial.
 
-On choisit ensuite **une couleur**, écrite en hexadécimal ou sous la forme `rgb(r, g, b)`. Par exemple, `#800080` et `rgb(128, 0, 128)` représentent le même violet. Dans un triplet RGB, chaque composante va de 0 à 255. On garde la même écriture de la couleur dans toutes les instructions.
+On choisit ensuite **une seule couleur de peinture pour tous les motifs**, écrite en hexadécimal ou sous la forme `rgb(r, g, b)`. Par exemple, `#800080` et `rgb(128, 0, 128)` représentent le même violet. Dans un triplet RGB, chaque composante va de 0 à 255. On garde la même écriture de la couleur dans toutes les instructions.
 
 ## 3. Peindre avec des instructions directes
 
@@ -78,7 +70,7 @@ On ouvre directement `neuf-pixels.html` dans le navigateur. Ses neuf cases se r�
 
 Le premier motif sur cette grille est **le contour du carré : les huit cases du bord sont peintes, la case centrale `pixel5` reste blanche**.
 
-Dans `pixelator.js`, on remplace les instructions du petit motif par **huit instructions directes**, une pour chaque case du contour, avec la couleur déjà choisie. On choisit librement l’ordre de ces instructions.
+Dans `pixelator.js`, on remplace les instructions du petit motif par **huit instructions directes**, une pour chaque case du contour, avec la couleur déjà choisie. On suit l’ordre des numéros, en sautant le centre : **`pixel1 → pixel2 → pixel3 → pixel4 → pixel6 → pixel7 → pixel8 → pixel9`**. Cet ordre commun servira de point de départ dans l’atelier Temps.
 
 On enregistre et recharge `neuf-pixels.html`. Les huit cases du contour doivent être peintes avec la même couleur ; le centre doit garder son fond blanc. On compare les identifiants écrits avec les cases attendues pour retrouver une éventuelle case oubliée ou peinte en trop.
 
@@ -96,55 +88,49 @@ On imagine maintenant un motif avec seize ou trente-deux cases à peindre. Il fa
 
 Cette écriture peut devenir plus simple. Comme avec [`DOC + TYPE + HTML` en première séance](./session_01-exploration.md#du-html-au-document), on examine les éléments pour retrouver le sens de l’ensemble.
 
-On compare les huit lignes du contour réalisé. Voici un exemple en violet ; l’ordre choisi peut être différent :
+On compare les huit lignes du contour réalisé. Voici le début d’un exemple en violet, dans l’ordre des numéros :
 
 ```js
 document.querySelector("#pixel1").style.backgroundColor = "#800080";
 document.querySelector("#pixel2").style.backgroundColor = "#800080";
-document.querySelector("#pixel3").style.backgroundColor = "#800080";
-document.querySelector("#pixel4").style.backgroundColor = "#800080";
-document.querySelector("#pixel6").style.backgroundColor = "#800080";
-document.querySelector("#pixel7").style.backgroundColor = "#800080";
-document.querySelector("#pixel8").style.backgroundColor = "#800080";
-document.querySelector("#pixel9").style.backgroundColor = "#800080";
 ```
 
-On distingue ce qui reste identique — les **invariants** — et les informations qui peuvent changer — les **variantes** :
+On distingue ce qui reste identique — les **invariants** — et ce qui change d’une ligne à l’autre — la **variante** :
 
 | Partie de l’instruction | Ce qui reste identique ou peut changer |
 |---|---|
 | `document.querySelector(...)`, le `#` du sélecteur, `.style.backgroundColor`, l’affectation et la ponctuation | La structure technique reste identique. |
 | `pixel1`, `pixel2`, …, `pixel9`, sauf `pixel5` | L’identifiant change selon la case du contour à peindre. |
-| `#800080` | La couleur dépend du choix de peinture. Elle reste identique entre les lignes de ce motif, mais un autre choix donnerait une autre valeur. |
+| `#800080` | La couleur choisie reste identique pour toutes les cases : elle fait partie des invariants (pour cet exercice) |
 
-L’opération signifie simplement **« peindre ce pixel avec cette couleur »**. Deux informations suffisent pour préciser l’action : l’identifiant du pixel et la couleur.
+L’opération signifie simplement **« peindre ce pixel avec la couleur choisie »**. Seul l’identifiant varie entre les instructions. La couleur reste dans l’opération commune.
 
 ### Inventer une écriture plus simple
 
-On nomme cette opération `peindre`. On souhaite pouvoir exprimer « peindre pixel1 en violet ». En JavaScript, cela se formule ainsi :
+On nomme cette opération `peindre`. La couleur étant fixée, on souhaite pouvoir exprimer « peindre pixel1 ». En JavaScript, cela se formule ainsi :
 
 ```js
-peindre("pixel1", "#800080");
+peindre("pixel1");
 ```
 
 Le navigateur ne fournit pas de fonction `peindre`. On choisit ce nom et on définit ici l’opération qu’il désigne.
 
-On reprend la ligne technique en remplaçant les deux informations par les noms `id` et `couleur`, puis on place cette instruction dans un bloc nommé `peindre` :
+On reprend la ligne technique en remplaçant uniquement l’identifiant par le nom `id`, puis on place cette instruction dans un bloc nommé `peindre`. La couleur choisie reste écrite dans le bloc, ici en violet :
 
 ```js
-function peindre(id, couleur) {
-  document.querySelector("#" + id).style.backgroundColor = couleur;
+function peindre(id) {
+  document.querySelector("#" + id).style.backgroundColor = "#800080";
 }
 ```
 
 On vient de définir une **fonction** : une opération nommée que le programme peut appeler plusieurs fois.
 
 - `function` annonce la définition ; `peindre` est le nom choisi.
-- `id` et `couleur` sont les deux **paramètres** : ils reçoivent, dans cet ordre, les valeurs fournies à chaque appel. Dans le bloc, ces noms s’écrivent sans guillemets pour utiliser les valeurs reçues.
+- `id` est le **paramètre** : il reçoit l’identifiant fourni à chaque appel. Dans le bloc, ce nom s’écrit sans guillemets pour utiliser la valeur reçue.
 - Les accolades `{ }` délimitent le bloc d’instructions à exécuter lors d’un appel.
 - `"#" + id` assemble le `#` et l’identifiant. Avec `"pixel1"`, on obtient le sélecteur `"#pixel1"` : l’identifiant fourni à `peindre` s’écrit donc **sans `#`**.
 
-**Définir la fonction ne peint aucune case.** L’appel `peindre("pixel1", "#800080");` exécute son bloc avec `id` qui vaut `"pixel1"` et `couleur` qui vaut `"#800080"`. Un autre appel peut fournir un autre identifiant ou une autre couleur.
+**Définir la fonction ne peint aucune case.** L’appel `peindre("pixel1");` exécute son bloc avec `id` qui vaut `"pixel1"`. Un autre appel peut fournir un autre identifiant ; la couleur appliquée reste celle écrite dans la fonction.
 
 ### Réécrire le contour avec `peindre`
 
@@ -152,35 +138,31 @@ On vient de définir une **fonction** : une opération nommée que le programme 
 
 - `pixelator.js` : on place la définition de `peindre` en haut du fichier, puis on remplace chaque ancienne instruction de peinture par l’appel correspondant, **en conservant l’ordre des instructions du contour réalisé**.
 
-Pour le contour violet présenté plus haut, le programme complet devient :
+Pour le contour violet commencé plus haut, le début du programme devient :
 
 ```js
-function peindre(id, couleur) {
-  document.querySelector("#" + id).style.backgroundColor = couleur;
+function peindre(id) {
+  document.querySelector("#" + id).style.backgroundColor = "#800080";
 }
 
-peindre("pixel1", "#800080");
-peindre("pixel2", "#800080");
-peindre("pixel3", "#800080");
-peindre("pixel4", "#800080");
-peindre("pixel6", "#800080");
-peindre("pixel7", "#800080");
-peindre("pixel8", "#800080");
-peindre("pixel9", "#800080");
+peindre("pixel1");
+peindre("pixel2");
 ```
 
-On conserve la couleur choisie pour tous les appels. La mécanique technique est désormais écrite une seule fois, dans la fonction ; les appels expriment les actions du dessin. Chaque case à peindre demande encore un appel, mais l’opération technique se lit et se modifie à un seul endroit.
+On complète la suite avec un appel à `peindre` pour chaque autre case du contour, en conservant l’ordre du programme réalisé. Chaque appel reçoit uniquement l’identifiant de la case, sans `#`. Le programme doit contenir huit appels au total, sans peindre `pixel5`, qui reste blanc.
 
-On enregistre et recharge `neuf-pixels.html` : **le contour doit rester identique à celui obtenu avec les instructions directes**, avec le centre blanc. Si une case ne se colore plus, on vérifie les deux valeurs de l’appel, leur ordre et l’absence de `#` devant l’identifiant.
+On conserve la couleur choisie dans la définition de `peindre`. Pour changer cette couleur, une seule valeur serait à modifier dans la fonction. La mécanique technique et la couleur sont désormais écrites une seule fois ; les appels indiquent les cases à peindre. Chaque case demande encore un appel, mais l’opération commune se lit et se modifie à un seul endroit.
+
+On enregistre et recharge `neuf-pixels.html` : **le contour doit rester identique à celui obtenu avec les instructions directes**, avec le centre blanc. Si une case ne se colore plus, on vérifie l’identifiant fourni dans l’appel, sans `#`, ainsi que la couleur écrite dans la définition de `peindre`.
 
 ### Conserver la séquence du contour
 
 **Préparation**
 
-- `pixelator.js` : on enregistre le programme du contour, avec la définition de `peindre` et les huit appels dans l’ordre choisi.
+- `pixelator.js` : on enregistre le programme du contour, avec la définition de `peindre` et les huit appels dans l’ordre des numéros, en sautant `pixel5`.
 - `pixelator-contour.js` : on crée une copie de `pixelator.js` portant ce nom dans le même dossier.
 
-Cette copie conserve la séquence du contour pour reprendre son étude avec des attentes.
+Cette copie conserve le programme du contour avant la création d’un autre motif.
 
 La page continue à charger `pixelator.js` ; la copie `pixelator-contour.js` n’est pas chargée. Pour la suite, on reprend bien **le fichier d’origine `pixelator.js`** dans l’éditeur.
 
@@ -188,22 +170,31 @@ La page continue à charger `pixelator.js` ; la copie `pixelator-contour.js` n�
 
 On choisit un autre motif sur la grille de neuf cases. Les cases à peindre sont libres, y compris celle du centre ; le dessin doit être différent du contour. On note les cases choisies avant de modifier le programme.
 
-Dans `pixelator.js`, on conserve la définition de `peindre` et on remplace les appels du contour par ceux du nouveau motif. On écrit un appel par case choisie, avec la même couleur de peinture. Les appels qui ne correspondent plus au dessin sont retirés.
+Dans `pixelator.js`, on conserve la définition de `peindre`, avec sa couleur, et on remplace les appels du contour par ceux du nouveau motif. On écrit un appel par case choisie, en fournissant uniquement son identifiant. Les appels qui ne correspondent plus au dessin sont retirés.
 
 On enregistre et recharge `neuf-pixels.html`. Seules les cases du nouveau motif doivent être peintes ; les autres retrouvent leur fond initial au rechargement. On compare le résultat aux cases prévues, puis on recharge encore une fois : le même dessin doit réapparaître.
 
 Le deuxième motif a été écrit en réutilisant `peindre`, sans recopier la ligne technique pour chaque case. La séquence du contour reste disponible dans `pixelator-contour.js`.
 
+### Conserver le deuxième motif
+
+On choisit un nom pertinent qui décrit le motif. Ce nom remplace `NOMCHOISI` dans `pixelator-NOMCHOISI.js` : par exemple, un motif en diagonale peut être conservé dans `pixelator-diagonale.js`.
+
+On crée dans le même dossier une copie complète de `pixelator.js` portant le nom choisi. Elle contient la définition de `peindre` et tous les appels du deuxième motif. La page continue à charger `pixelator.js` ; la copie conserve le dessin pour la suite.
+
 ## Vérification finale
 
 - Les neuf pixels de `neuf-pixels.html` forment un carré de trois lignes et trois colonnes.
 - Le premier motif peint les huit cases du contour et laisse le centre blanc, avant et après la réécriture avec `peindre`.
-- `pixelator-contour.js` conserve la définition de `peindre` et les huit appels dans l’ordre choisi.
+- `pixelator-contour.js` conserve la définition de `peindre` et les huit appels dans l’ordre `pixel1 → pixel2 → pixel3 → pixel4 → pixel6 → pixel7 → pixel8 → pixel9`.
 - Le deuxième motif est différent du contour. Il est réalisé dans `pixelator.js` en changeant uniquement les appels à `peindre`, avec l’unique couleur retenue.
+- Une copie complète du deuxième motif, avec la définition de `peindre` et ses appels, est enregistrée dans un fichier `pixelator-NOMCHOISI.js`, où `NOMCHOISI` est remplacé par un nom pertinent pour le dessin.
 - Seules les cases choisies sont peintes et le même motif apparaît après un rechargement.
 - On peut expliquer quelle case chaque instruction sélectionne et quelle propriété elle modifie.
-- On distingue la définition de `peindre` de ses appels et on peut expliquer le rôle des deux valeurs fournies.
+- On distingue la définition de `peindre` de ses appels : l’identifiant est fourni à chaque appel, tandis que la couleur reste dans la définition.
 
-La fonction `peindre` permet de réutiliser l’opération de peinture pour différents motifs. La séquence du contour est conservée pour la suite : en ajoutant des attentes, on pourra observer ses étapes et discuter l’importance de l’ordre des instructions pour créer un effet successif.
+La fonction `peindre` permet de réutiliser l’opération de peinture pour différents motifs. Dans la fiche Temps, le fichier fourni `pixelator-time.js` reprend les huit appels du contour avec les fonctions et le cadre de chargement nécessaires. On le télécharge et on change le `src` dans la page HTML pour commencer l’animation. L’ajout des attentes rendra les étapes visibles et permettra d’observer l’effet de l’ordre des instructions.
 
 [Suite — Pixelator : animer un motif](./session_02-pixelator-time.md)
+
+[Séance 2](../session_02.md)

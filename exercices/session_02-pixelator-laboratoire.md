@@ -23,11 +23,11 @@ Pour chaque expérience, on suit la même démarche :
 
 **Préparation**
 
-- `neuf-pixels.html` : on reprend la page utilisée dans la fiche Temps, avec le [chargement de l’outil d’attente](./session_02-pixelator-time.md#préparer-loutil-dattente) ajouté avant celui du programme.
-- `pixelator.js` : on reprend la [rotation de référence sur neuf pixels](./session_02-pixelator-time.md#rotation-reference), avec la couleur choisie et des attentes de 1 000 ms.
-- `pixelator-layout.css` et `pixelator-attente.js` : on réutilise les fichiers présents dans le dossier `pixelator`.
+- `neuf-pixels.html` : on reprend la page utilisée dans la fiche Temps, qui charge `pixelator-time.js` après le [changement de `src`](./session_02-pixelator-time.md#1-charger-le-fichier-de-départ).
+- `pixelator-time.js` : on reprend la rotation construite dans la fiche Temps, avec la couleur choisie et des attentes de 500 ms. L’[aide sur la rotation de référence](./session_02-pixelator-time.md#rotation-reference) permet de la reconstruire si nécessaire.
+- `pixelator-layout.css` : on réutilise la feuille de style présente dans le dossier `pixelator`.
 
-On ouvre `neuf-pixels.html` dans le navigateur pour retrouver la rotation de départ. La fonction `peindre` et le cadre qui permet les attentes restent disponibles ; les appels placés à l’intérieur décrivent l’animation.
+On ouvre `neuf-pixels.html` dans le navigateur pour retrouver la rotation de départ : un tour se termine sur `pixel1` après environ quatre secondes. Les fonctions `peindre`, `effacer` et `attendre` et le cadre de chargement restent disponibles dans `pixelator-time.js` ; les appels placés à l’intérieur du cadre décrivent l’animation.
 
 On peut inverser le sens de rotation, faire un aller-retour, alterner deux groupes de cases ou faire varier les attentes. Avant de modifier les appels, on note la succession prévue des affichages et l’état dans lequel le dessin doit s’arrêter.
 
@@ -42,7 +42,7 @@ On peut inverser le sens de rotation, faire un aller-retour, alterner deux group
 | Aller-retour sur le parcours | `pixel1 → pixel2 → pixel3 → pixel6 → pixel9 → pixel8 → pixel7 → pixel4 → pixel7 → pixel8 → pixel9 → pixel6 → pixel3 → pixel2 → pixel1` | 14 |
 | Alternance des coins opposés | `pixel1` et `pixel9`, puis `pixel3` et `pixel7`, puis `pixel1` et `pixel9` | 2 |
 
-On conserve la définition de `peindre` et on remplace les appels à l’intérieur du cadre fourni par la nouvelle séquence. Pour l’aller-retour, on atteint `pixel4`, puis on rebrousse chemin jusqu’à `pixel1`. Pour les coins opposés, on peint les deux premières cases sans attente entre elles ; après chaque attente, on efface les deux cases précédentes en passant `""` comme couleur à `peindre`, puis on peint les deux suivantes.
+On conserve les définitions de `peindre`, d’`effacer` et d’`attendre` et on remplace les appels à l’intérieur du cadre fourni par la nouvelle séquence. Pour l’aller-retour, on atteint `pixel4`, puis on rebrousse chemin jusqu’à `pixel1`. Pour les coins opposés, on peint les deux premières cases sans attente entre elles ; après chaque attente, on appelle `effacer` pour chacune des deux cases précédentes, puis `peindre` pour chacune des deux suivantes.
 
 On garde une attente avant chaque changement d’affichage, avec la même couleur pour toutes les peintures. Le centre reste blanc dans les trois variantes. L’alternance des coins opposés affiche deux cases colorées ensemble.
 
@@ -59,10 +59,10 @@ Cette piste permet d’adapter un parcours à une autre disposition des cases.
 **Préparation**
 
 - [seize-pixels.html](./pixelator/seize-pixels.html) : on récupère la page de seize pixels et on la place dans le dossier `pixelator`.
-- `pixelator.js` : on reprend la [rotation de référence sur neuf pixels](./session_02-pixelator-time.md#rotation-reference), avec la couleur choisie et des attentes de 1 000 ms.
-- `pixelator-layout.css` et `pixelator-attente.js` : on réutilise les fichiers déjà présents dans le dossier.
+- `pixelator-time.js` : on reprend la rotation construite sur neuf pixels, avec la couleur choisie et des attentes de 500 ms, en s’appuyant si nécessaire sur l’[aide de reconstruction](./session_02-pixelator-time.md#rotation-reference).
+- `pixelator-layout.css` : on réutilise la feuille de style déjà présente dans le dossier.
 
-La nouvelle page charge les mêmes fichiers CSS et JavaScript. Les seize cases forment un rectangle de huit lignes et deux colonnes, avec les identifiants `pixel1` à `pixel16` rangés ligne par ligne. On choisit un parcours et on adapte la séquence à cette disposition. Les essais se font désormais sur `seize-pixels.html`, qui contient toutes les cases ciblées.
+La nouvelle page charge déjà `pixelator-layout.css` et `pixelator-time.js`. Les seize cases forment un rectangle de huit lignes et deux colonnes, avec les identifiants `pixel1` à `pixel16` rangés ligne par ligne. On choisit un parcours et on adapte la séquence à cette disposition. Les essais se font désormais sur `seize-pixels.html`, qui contient toutes les cases ciblées.
 
 <details>
 <summary><strong>Aide — faire le tour des seize pixels</strong></summary>
@@ -89,9 +89,9 @@ On descend par la colonne de droite, puis on remonte par celle de gauche, en sui
 | Après l’attente 15 | `pixel3` |
 | Après l’attente 16 | `pixel1` — fin |
 
-On conserve la définition de `peindre` et le cadre fourni, puis on remplace toute la séquence à l’intérieur par le parcours du tableau. On peint `pixel1` au départ, sans attente initiale. L’ordre des cases change dès le passage après `pixel2`, qui mène maintenant à `pixel4`.
+On conserve les définitions de `peindre`, d’`effacer` et d’`attendre` et le cadre fourni, puis on remplace toute la séquence à l’intérieur par le parcours du tableau. On peint `pixel1` au départ, sans attente initiale. L’ordre des cases change dès le passage après `pixel2`, qui mène maintenant à `pixel4`.
 
-Chaque passage contient le même groupe de trois instructions : `await attendre(1000);`, un appel à `peindre` avec `""` pour effacer, puis un appel avec la couleur choisie pour peindre. On enregistre et recharge `seize-pixels.html`, puis on suit le tour complet jusqu’à son arrêt sur `pixel1`, après environ seize secondes.
+Chaque passage contient le même groupe de trois instructions : `await attendre(500);`, un appel à `effacer` avec l’identifiant de la case précédente, puis un appel à `peindre` avec celui de la suivante. On enregistre et recharge `seize-pixels.html`, puis on suit le tour complet jusqu’à son arrêt sur `pixel1`, après environ huit secondes.
 
 Les observations attendues pour ce parcours sont :
 
@@ -108,7 +108,7 @@ L’animation s’est agrandie par ajout d’appels dans l’ordre du parcours. 
 
 **Préparation**
 
-- `pixelator.js` : on reprend le programme complet de la [rotation de référence](./session_02-pixelator-time.md#rotation-reference), avec la couleur choisie, puis on enregistre le fichier.
+- `pixelator-time.js` : on reconstruit la rotation sur neuf pixels avec l’[aide de référence](./session_02-pixelator-time.md#rotation-reference), la couleur choisie et des attentes de 500 ms, puis on enregistre le fichier.
 
 On ouvre `neuf-pixels.html` dans le navigateur pour retrouver la rotation sur neuf pixels.
 
@@ -121,14 +121,14 @@ On ouvre `neuf-pixels.html` dans le navigateur pour retrouver la rotation sur ne
 **Préparation**
 
 - `peindre-au-clic.html` : on reprend la page de quatre pixels utilisée dans la [fiche Peindre au clic](./session_02-pixelator-clic.md).
-- `pixelator-clic.js` : on reprend le programme terminé, avec la fonction `peindre`, les quatre associations de clic et le comportement qui peint ou efface la case cliquée.
+- `pixelator-clic.js` : on reprend le programme terminé, avec les quatre associations de clic et la fonction `peindrePixel`, qui peint ou efface directement la case désignée par `event.target`.
 - `pixelator-layout.css` : on reprend la feuille de style présente dans le dossier `pixelator`.
 
 On ouvre `peindre-au-clic.html`. La grille est blanche au chargement ; un clic peint une case et un deuxième clic sur cette case l’efface. Ce fonctionnement sert de point de départ aux expériences.
 
 | Idée | Modification à explorer | Observation possible |
 |---|---|---|
-| Changer la couleur | La valeur de `couleurPeinture` dans `pixelator-clic.js` | La même couleur est utilisée quelle que soit la case cliquée. |
+| Changer la couleur | La couleur écrite dans le bloc qui peint, dans `peindrePixel` | La même couleur est utilisée quelle que soit la case cliquée. |
 | Changer les dimensions | La largeur des colonnes et les dimensions des cases dans `pixelator-layout.css` | Les cases deviennent plus grandes, plus petites ou rectangulaires. |
 | Changer la disposition | Le nombre de colonnes dans `pixelator-layout.css` | Les quatre mêmes cases forment une ligne, une colonne ou un carré. |
 | Garder la peinture | Le contenu de `peindrePixel` dans `pixelator-clic.js` | Un clic peint la case ; les clics suivants la laissent peinte. |
@@ -138,9 +138,9 @@ Ces idées peuvent être combinées après un premier essai. Une autre règle de
 <details>
 <summary><strong>Aide — retrouver les éléments à modifier</strong></summary>
 
-Dans `pixelator-clic.js`, `couleurPeinture` contient la couleur choisie. La fonction `peindrePixel` décrit l’action déclenchée au clic ; `event.target.id` désigne la case concernée. Les quatre lignes avec `.onclick` associent cette même fonction aux quatre cases.
+Dans `pixelator-clic.js`, la fonction `peindrePixel` décrit l’action déclenchée au clic ; `event.target` désigne directement la case concernée. La couleur choisie est écrite dans l’instruction qui peint cette case. Les quatre lignes avec `.onclick` associent cette même fonction aux quatre cases.
 
-Pour garder la peinture, le comportement peut retrouver son premier état dans la fiche au clic : un appel à `peindre(event.target.id, couleurPeinture);` à chaque clic. Le `if` / `else` de la version suivante permet de rétablir l’alternance entre peinture et effacement.
+Pour garder la peinture, le comportement peut retrouver son premier état dans la fiche au clic : l’instruction `event.target.style.backgroundColor = "#800080";`, avec la couleur choisie, s’exécute à chaque clic. Le `if` / `else` de la version suivante permet de rétablir l’alternance entre peinture et effacement.
 
 Dans `pixelator-layout.css`, la règle `#grille-pixels` définit les colonnes avec `grid-template-columns`. La règle `#grille-pixels > div` définit la largeur et la hauteur des cases. Si la largeur des cases change, on adapte aussi celle des colonnes pour garder une disposition cohérente.
 
@@ -154,4 +154,4 @@ On essaie plusieurs clics sur une même case et sur des cases différentes. Les 
 
 On rapproche la prévision du résultat obtenu : quel effet était recherché, quelles instructions ou propriétés ont changé, et quel effet apparaît dans le navigateur ? Un résultat inattendu peut conduire à une correction ou devenir le point de départ d’une autre expérience.
 
-[Retour à la séance 2 — laboratoire](../session_02.md#laboratoire)
+[Repères — rappel des grands concepts](../session_02.md#consolidation)
