@@ -2,13 +2,13 @@
 
 [Séance 2](../session_02.md)
 
-**Durée : 20 minutes, préparation des fichiers et vérifications comprises.**
+**Durée : 30 minutes, préparation des fichiers et vérifications comprises.**
 
 <a id="notre-mission"></a>
 
 ## Objectif
 
-On dessine un motif en choisissant les cases à peindre parmi les quatre pixels de la page. On choisit **une seule couleur de peinture** pour tout le motif. Il doit apparaître dès le chargement de la page.
+On dessine d’abord un motif sur quatre pixels, puis on passe à une grille de neuf pixels pour peindre le contour du carré. On choisit **une seule couleur de peinture** pour tous les motifs. Chaque dessin doit apparaître dès le chargement de la page.
 
 On commence par écrire les instructions techniques, puis on construit une fonction nommée `peindre` pour réutiliser cette opération avec une écriture plus simple.
 

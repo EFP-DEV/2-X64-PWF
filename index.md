@@ -85,15 +85,15 @@ Les deux groupes suivent la même progression.
 
 3. [Déposer l’ampoule sur GitHub et remettre le lien sur Moodle](./exercices/session_02-ampoule-github.md)
 
-4. [Pixelator — Séquence : peindre un motif](./exercices/session_02-pixelator-sequence.md)
+4. [Pixelator — Séquence : peindre un motif](./exercices/session_02-pixelator-sequence.md) — passer de quatre à neuf pixels et introduire la fonction `peindre`.
 
-5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md)
+5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md) — faire apparaître le contour, puis construire une rotation sur neuf pixels avec `peindre`.
 
-6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md)
+6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — réutiliser `peindre` sur une page distincte de quatre pixels.
 
 7. [Consolidation et bilan](./session_02.md#consolidation).
 
-8. Prolongements facultatifs : [huit pixels](./exercices/session_02-pixelator-time.md#4-prolongement-facultatif--huit-pixels--25-minutes) et [seize pixels](./exercices/session_02-pixelator-time.md#5-prolongement-facultatif--seize-pixels--20-minutes).
+8. Prolongements facultatifs : [variantes sur neuf pixels](./exercices/session_02-pixelator-time.md#variantes-animation), puis grilles rectangulaires de [huit pixels](./exercices/session_02-pixelator-time.md#4-prolongement-facultatif--huit-pixels--25-minutes) et de [seize pixels](./exercices/session_02-pixelator-time.md#5-prolongement-facultatif--seize-pixels--20-minutes).
 
 ---
 

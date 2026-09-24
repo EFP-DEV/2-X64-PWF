@@ -6,7 +6,7 @@
 
 ## Objectif
 
-Dans l’animation, l’ordre des instructions et les attentes déterminent les changements. Ici, **chaque clic choisit la case qui change et le moment du changement**. On retrouve le mécanisme de l’ampoule, appliqué à quatre éléments indépendants.
+Dans l’animation sur neuf pixels, l’ordre des instructions et les attentes déterminent les changements. Ici, **chaque clic choisit la case qui change et le moment du changement**. On retrouve le mécanisme de l’ampoule sur une page distincte de quatre pixels, en réutilisant la fonction `peindre`.
 
 La grille est blanche au chargement. Un clic peint la case choisie avec l’unique couleur de peinture. On réalise d’abord cette version, puis on la fait évoluer : un deuxième clic sur une case peinte l’efface. Les autres cases conservent leur état.
 
@@ -17,20 +17,32 @@ On récupère [peindre-au-clic.html](./pixelator/peindre-au-clic.html) et le pla
 ```text
 pixelator/
 ├── quatre-pixels.html
+├── neuf-pixels.html
 ├── peindre-au-clic.html
 ├── pixelator-layout.css
 ├── pixelator-attente.js
 ├── pixelator.js
+├── pixelator-contour.js
 └── pixelator-clic.js      ← fichier à créer
 ```
 
-La nouvelle page charge le même CSS et uniquement `pixelator-clic.js` comme JavaScript. La page `quatre-pixels.html` conserve l’animation précédente dans `pixelator.js`.
+La nouvelle page charge le même CSS et uniquement `pixelator-clic.js` comme JavaScript. La page `neuf-pixels.html` conserve l’animation précédente dans `pixelator.js`.
+
+Dans `pixelator-clic.js`, on copie uniquement la définition de `peindre` depuis `pixelator.js` :
+
+```js
+function peindre(id, couleur) {
+  document.querySelector("#" + id).style.backgroundColor = couleur;
+}
+```
+
+Les appels de l’animation et le cadre avec les attentes restent dans `pixelator.js`. La nouvelle page ne les charge pas.
 
 On ouvre **`peindre-au-clic.html`** dans le navigateur. Les quatre cases sont blanches. Même après plusieurs secondes, aucune case ne change.
 
 ## 2. Faire réagir le premier pixel · 10 minutes
 
-On recopie ce cadre dans `pixelator-clic.js`, avec la couleur choisie :
+On ajoute ce cadre dans `pixelator-clic.js`, après la définition de `peindre`, avec la couleur choisie :
 
 ```js
 let couleurPeinture = "#800080";
@@ -42,23 +54,25 @@ function peindrePixel(event) {
 }
 ```
 
-La ligne avec `.onclick` se lit : **« au clic sur ce pixel, exécuter `peindrePixel` »**. On écrit `peindrePixel` sans parenthèses : le comportement s’exécutera au clic. Comme dans l’ampoule, **`event.target` désigne l’élément cliqué**. Le cadre est fourni ; on complète l’action à l’intérieur des accolades.
+La ligne avec `.onclick` se lit : **« au clic sur ce pixel, exécuter `peindrePixel` »**. On écrit `peindrePixel` sans parenthèses : le navigateur appellera cette fonction au clic et lui fournira `event`. Comme dans l’ampoule, **`event.target` désigne l’élément cliqué**. Le cadre est fourni ; on complète l’action à l’intérieur des accolades.
 
-On remplace le commentaire par une instruction de peinture. Trois éléments déjà rencontrés permettent de l’écrire :
+On remplace le commentaire par un appel à la fonction déjà utilisée :
 
-- `event.target` désigne la case qui reçoit le clic ;
-- `.style.backgroundColor` permet de changer sa couleur de fond ;
-- `couleurPeinture` contient la valeur à appliquer.
+```js
+peindre(event.target.id, couleurPeinture);
+```
+
+`event.target.id` fournit l’identifiant de la case cliquée, par exemple `"pixel1"`, sans `#`. `couleurPeinture` contient la couleur à appliquer. Le même appel permet ainsi de peindre la case choisie par le clic.
 
 On enregistre et recharge. Avant le premier clic, toutes les cases restent blanches. Un clic sur `pixel1` le peint ; un deuxième clic le laisse peint. Les autres cases ne réagissent pas encore.
 
-**Prévision avant essai :** on note ce qui se passerait si l’instruction de peinture désignait toujours `document.querySelector("#pixel1")` au lieu de `event.target`. L’étape suivante permet de comparer cette prévision au comportement attendu.
+**Prévision avant essai :** on note ce qui se passerait si l’appel utilisait toujours `"pixel1"` au lieu de `event.target.id`. L’étape suivante permet de comparer cette prévision au comportement attendu.
 
 ## 3. Rendre les quatre cases interactives · 10 minutes
 
 On ajoute les trois lignes avec `.onclick` pour `pixel2`, `pixel3` et `pixel4`, en utilisant le **même comportement `peindrePixel`**. On adapte la sélection dans chaque ligne, en conservant le nom du comportement fourni.
 
-La fonction contient toujours une seule instruction de peinture. On ne la recopie pas pour chaque case : à chaque clic, `event.target` désigne la case concernée.
+La fonction `peindrePixel` contient toujours un seul appel à `peindre`. On ne la recopie pas pour chaque case : à chaque clic, `event.target.id` fournit l’identifiant de la case concernée.
 
 Avant d’exécuter le programme, on note les cases qui devraient être peintes après chaque clic de cette séquence : **`pixel3 → pixel1 → pixel3 → pixel4`**. On enregistre, recharge, puis réalise ces clics et compare les résultats à la prévision.
 
@@ -75,14 +89,14 @@ Le comportement à obtenir comporte maintenant deux possibilités :
 | Sans peinture | Appliquer la couleur choisie | Aucun changement |
 | Peinte | Retirer la peinture | Aucun changement |
 
-On remplace l’instruction de peinture dans `peindrePixel` par un **`if` / `else`** qui applique cette règle à la case cliquée. Les quatre lignes qui associent les clics au comportement restent utilisables.
+On remplace l’appel à `peindre` dans `peindrePixel` par un **`if` / `else`** qui applique cette règle à la case cliquée. Les quatre lignes qui associent les clics au comportement restent utilisables.
 
-On écrit d’abord la condition en français, puis on la traduit en JavaScript. La fiche de l’ampoule permet de retrouver la structure `if` / `else` ; la fiche Temps montre comment retirer une couleur avec `""`.
+On écrit d’abord la condition en français, puis on la traduit en JavaScript. La fiche de l’ampoule permet de retrouver la structure `if` / `else`. Le bloc qui peint utilise `peindre(event.target.id, couleurPeinture);` ; celui qui efface utilise `peindre(event.target.id, "");`, comme dans la fiche Temps. La définition de `peindre` reste identique.
 
 <details>
 <summary><strong>Indice — reconnaître une case sans peinture</strong></summary>
 
-Le blanc initial vient du fichier CSS. Avant toute peinture, `event.target.style.backgroundColor` vaut `""` : aucune couleur n’a été appliquée directement sur l’élément. Après une peinture, cette propriété contient une couleur ; lui attribuer `""` retire cette peinture et rend le fond blanc défini dans le CSS.
+Le blanc initial vient du fichier CSS. Avant toute peinture, `event.target.style.backgroundColor` vaut `""` : aucune couleur n’a été appliquée directement sur l’élément. Après une peinture, cette propriété contient une couleur ; l’appel `peindre(event.target.id, "")` retire cette peinture et rend le fond blanc défini dans le CSS.
 
 On peut donc comparer cette propriété à `""` avec `===`. L’état à tester est celui de **la case cliquée**, au moment du clic.
 
