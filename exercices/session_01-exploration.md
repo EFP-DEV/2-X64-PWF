@@ -1,6 +1,6 @@
 # Exploration — la page, l’inspecteur et la console
 
-[Point de départ dans le cours](../session_01.md#1-une-action-visible-une-valeur-invisible) · [Sommaire du cours](../session_01.md#sommaire)
+[Point de départ dans le cours](../session_01.md#1-exploration) · [Sommaire du cours](../session_01.md#sommaire)
 
 Les emplacements `___` sont à compléter avant d’exécuter les blocs concernés.
 
@@ -262,6 +262,22 @@ document.body.style.___ = "white";
 
 On vérifie le résultat dans la page et dans l’attribut `style` de `body` : le texte est blanc sur fond noir. `.style` donne accès aux déclarations de cet attribut ; `backgroundColor` est l’une de ses propriétés. Ces deux noms ne désignent pas des éléments HTML supplémentaires. On garde la page ouverte pour la recherche sur les couleurs.
 
+<a id="bilan-1"></a>
+
+**Bilan.** Ce que l’on voit à l’écran dépend à la fois du contenu et des règles qui le présentent. Le texte était présent dans le HTML, mais sa couleur et celle du fond le rendaient invisible. L’inspecteur permet d’examiner le contenu et les règles CSS pour comprendre ce résultat.
+
+La console interprète du JavaScript. Un nom inconnu produit une erreur de référence ; une expression mal formée peut produire une erreur de syntaxe. La casse compte : `Window` et `window` ne désignent pas la même chose. Dans la console de cette page, `this` donne accès à l’objet global `window`. Un nom comme `alert` permet de retrouver une fonction ; les parenthèses permettent de l’appeler. Une réponse `undefined` peut accompagner un effet visible.
+
+Décomposer un nom aide à chercher son sens : `DOC + TYPE + HTML` évoque le type d’un document HTML. La déclaration `<!DOCTYPE html>` permet au navigateur d’utiliser son mode de rendu standard. Composer permet ensuite de construire une expression à partir de plusieurs éléments connus.
+
+Le navigateur donne accès au document par `document`. Sa structure forme un arbre d’éléments. Dans une expression JavaScript, le point accède à une **propriété** de l’objet situé à gauche ; il ne signifie pas nécessairement descendre dans cet arbre. Dans `document.body.style.backgroundColor`, `body` désigne un élément HTML, mais `style` et `backgroundColor` ne sont pas des éléments supplémentaires.
+
+La propriété `.style` donne accès aux déclarations placées directement dans l’attribut `style` de l’élément. Une couleur définie seulement dans une feuille de style n’y apparaît pas. Les panneaux **Styles** et **Calculé / Computed** permettent d’examiner les règles et les valeurs appliquées. Le nom CSS `background-color` devient `backgroundColor` dans l’accès JavaScript utilisé ici.
+
+Le symbole `=` **affecte** la valeur située à droite à la variable ou à la propriété située à gauche. Les guillemets délimitent une valeur textuelle, appelée **chaîne de caractères**. Le point-virgule marque ici la fin de l’instruction.
+
+On peut agir sur une couleur. L’étape suivante consiste à comparer ses différentes écritures, avec des mots ou des chiffres.
+
 ---
 
-[Bilan de l’exploration dans le cours](../session_01.md#bilan-1) · [Poursuivre avec les couleurs](./session_01-couleurs.md)
+[Bilan de l’exploration](#bilan-1) · [Poursuivre avec les couleurs](./session_01-couleurs.md)

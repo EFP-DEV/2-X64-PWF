@@ -1,6 +1,6 @@
 # Horloge — ajouter une minute
 
-[Cours — l’horloge](../session_01.md#8-faire-avancer-le-temps)
+[Cours — l’horloge](../session_01.md#4-horloge)
 
 On part de deux valeurs dans la console pour écrire ensemble un programme dans un fichier, puis on corrige le passage de `13:59` à `14:00`. Le défi final sera de faire fonctionner le programme à partir de `23:59`.
 
@@ -33,6 +33,14 @@ On saisit séparément les expressions suivantes pour retrouver les résultats d
 | `hours + ":" + minutes` | `"13:37"` | Texte |
 
 Deux usages de `+` apparaissent : avec deux nombres, il additionne ; dans ces expressions, dès qu’un opérande est du texte, il assemble les valeurs sous forme de texte. Les guillemets délimitent une chaîne de caractères.
+
+<a id="bilan-8"></a>
+
+**Bilan.** `let` déclare une variable : un nom auquel on peut associer une valeur, puis en affecter une autre. Déclarer le nom et lui affecter une valeur sont deux opérations distinctes. Une nouvelle affectation suffit pour changer une variable déjà déclarée.
+
+Avec deux nombres, `+` effectue une addition. Dans les expressions de cette séance, lorsqu’un opérande est une chaîne de caractères, il assemble du texte : c’est la **concaténation**. Le nombre est alors converti en texte.
+
+La console interactive montre la valeur de l’expression saisie. On va conserver les essais dans un fichier JavaScript et utiliser `console.log(...)` pour continuer à observer leurs résultats.
 
 <a id="fichiers"></a>
 
@@ -97,6 +105,24 @@ console.log(hours + ":" + minutes);
 ```
 
 Le résultat est `13:38`. On change alors les valeurs initiales pour `13` heures et `59` minutes : le programme affiche `13:60`. L’addition fonctionne ; le report vers les heures reste à programmer. On va compléter le programme pour obtenir `14:00`.
+
+<a id="bilan-9"></a>
+
+**Bilan.** L’attribut `src` de la balise `script` indique le fichier JavaScript à charger. `console.log(...)` demande explicitement d’écrire une valeur dans la console. Les chaînes peuvent y apparaître sans guillemets : leur nature n’a pas changé.
+
+`minutes + 1` calcule un résultat. L’affectation `minutes = minutes + 1` conserve ce résultat dans la variable. Au rechargement, le programme repart des valeurs initiales écrites dans son fichier.
+
+| Responsabilité | Dans cette étape |
+|---|---|
+| HTML | Décrire la structure du document et charger le programme |
+| CSS | Présenter les éléments ; aucune mise en forme n’est nécessaire ici |
+| JavaScript | Représenter l’état, appliquer les règles et produire des résultats |
+
+Cette **séparation des responsabilités** concerne ce que chaque partie prend en charge. Des fichiers séparés aident à l’organiser. Dans JavaScript, on distingue déjà l’état, le calcul et son observation.
+
+Une valeur numérique et sa présentation restent distinctes : les zéros de `07:05` concernent l’affichage. À cette étape, on observe les nombres tels quels ; la suite de la fiche horloge travaillera l’affichage des minutes sur deux chiffres.
+
+L’addition seule peut produire 60 minutes sans changer les heures. Le calcul est juste, mais la représentation du temps demande une règle supplémentaire.
 
 <a id="conditions"></a>
 
@@ -169,6 +195,25 @@ On repère l’état initial, le calcul, le report et la préparation de l’aff
 
 </details>
 
+<a id="bilan-10"></a>
+
+**Après le travail collectif.** `if` exécute un bloc lorsque sa condition est vraie. Les accolades délimitent ce bloc. `===` teste une égalité stricte, tandis que `=` affecte une valeur. Une comparaison produit `true` ou `false`. Les lignes commençant par `//` sont des commentaires.
+
+En partant de `13:59`, l’addition produit d’abord 60 minutes. Le bloc conditionnel remet les minutes à zéro et ajoute une heure. Le programme affiche alors `14:0`. Le test d’égalité avec 60 convient ici parce que les valeurs de départ sont valides et que l’on ajoute exactement une minute.
+
+Pour afficher `14:00`, on prépare séparément le texte des minutes : si leur valeur est inférieure à 10, on ajoute un `"0"` devant. L’opérateur `<` compare deux valeurs ; `"0" + minutes` assemble du texte. La variable `minutes` conserve sa valeur numérique pour les calculs.
+
+La suite d’étapes forme un **algorithme**, indépendant du langage utilisé pour l’exprimer :
+
+```text
+ajouter une minute
+si les minutes atteignent 60 : les remettre à 0 et ajouter une heure
+préparer l’affichage des minutes sur deux chiffres
+afficher les heures et les minutes
+```
+
+Son expression en instructions JavaScript forme le **programme**. On l’a écrit ensemble dans un fichier et observé dans la console. Le passage de `13:59` à `14:00` fonctionne ; il reste à éprouver le programme avec une autre heure de départ.
+
 <a id="defi-minuit"></a>
 
 ## 4. Défi de clôture — `23:59`
@@ -205,4 +250,4 @@ Les heures peuvent rester affichées sur un chiffre : `7:06` convient pour le d�
 
 ---
 
-[Bilans de l’horloge dans le cours](../session_01.md#bilan-8) · [Fin du cours](../session_01.md#fin-du-cours)
+[Bilans de l’horloge](#bilan-8) · [Fin du cours](../session_01.md#fin-du-cours)
