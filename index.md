@@ -95,6 +95,22 @@ Les deux groupes suivent la même progression.
 
 8. [Laboratoire d’expérimentation — animations ou peinture au clic](./session_02.md#laboratoire) — [pistes et aides](./exercices/session_02-pixelator-laboratoire.md) pour explorer les parcours, la grille de seize pixels ou la peinture au clic.
 
+## [Séance 3 — Git, GitHub et Pixelator au clic](./session_03.md)
+
+1. [Démonstration collective — les versions sur GitHub](./session_03.md#1-démonstration-collective--les-versions-sur-github) — conserver les versions d’un projet comme des copies archivées, puis retrouver une ancienne version avec deux fichiers d’essai.
+
+2. [Intégrer Git dans VS Code](./session_03.md#2-intégrer-git-dans-vs-code) — récupérer le projet et son historique sur l’ordinateur, configurer Git et envoyer une nouvelle version vers GitHub.
+
+3. [Retrouver les difficultés de la séance 2](./session_03.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de fichiers à l’intérêt de conserver ensemble le HTML, le CSS et le JavaScript d’une version.
+
+4. [Créer un fork de Pixelator et le cloner](./session_03.md#4-créer-un-fork-de-pixelator-et-le-cloner) — garder une copie personnelle du projet et de son histoire sur GitHub, puis la récupérer sur l’ordinateur.
+
+5. [Changer de version et actualiser la page](./session_03.md#5-changer-de-version-et-actualiser-la-page) — retrouver trois versions fonctionnelles du projet dans le même dossier et observer leurs différences dans la même page.
+
+6. [Retrouver la dernière version](./session_03.md#6-retrouver-la-dernière-version) — découvrir une erreur dans la dernière version et revenir sur `main` pour poursuivre le travail ; les versions précédentes restent conservées.
+
+7. [Corriger, créer une version et la partager](./session_03.md#7-corriger-créer-une-version-et-la-partager) — corriger la syntaxe, conserver la version corrigée sur l’ordinateur et l’envoyer sur GitHub en distinguant enregistrement, commit et push.
+
 ---
 
 ## Informations pratiques
