@@ -18,13 +18,3 @@ code examples, prototypes, and solutions in this repository.
   possessive forms, or second-person imperatives. For example, write
   “On clique sur l’image : l’ampoule s’allume.” Vary sentence subjects naturally
   instead of starting every sentence with “on”.
-
-<!-- Add your rules below, one bullet per rule, in English or French. -->
-
-## Session-specific rules
-
-<!-- Add rules that apply only to a particular session or exercise here.
-Name the session or exercise explicitly. -->
-
-- Session 2: `session_02.md` is approved and locked. Do not modify this file
-  unless the user explicitly requests changes to it or unlocks it.
