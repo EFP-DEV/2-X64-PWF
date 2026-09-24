@@ -10,23 +10,13 @@ La grille est blanche au chargement. Un clic peint la case choisie avec l’uniq
 
 ## 1. Préparer la page
 
-On récupère [peindre-au-clic.html](./pixelator/peindre-au-clic.html) et le place dans le dossier Pixelator. On crée à côté un fichier `pixelator-clic.js` :
+**Préparation**
 
-```text
-pixelator/
-├── quatre-pixels.html
-├── neuf-pixels.html
-├── peindre-au-clic.html
-├── pixelator-layout.css
-├── pixelator-attente.js
-├── pixelator.js
-├── pixelator-contour.js
-└── pixelator-clic.js      ← fichier à créer
-```
+- [peindre-au-clic.html](./pixelator/peindre-au-clic.html) : on récupère la page de quatre pixels et on la place dans le dossier `pixelator`.
+- `pixelator-layout.css` : on réutilise la feuille de style déjà présente dans le dossier.
+- `pixelator-clic.js` : on crée un fichier portant exactement ce nom dans le même dossier et on y copie uniquement la définition de `peindre` depuis `pixelator.js`.
 
-La nouvelle page charge le même CSS et uniquement `pixelator-clic.js` comme JavaScript. La page `neuf-pixels.html` conserve l’animation précédente dans `pixelator.js`.
-
-Dans `pixelator-clic.js`, on copie uniquement la définition de `peindre` depuis `pixelator.js` :
+Le contenu initial de `pixelator-clic.js` est :
 
 ```js
 function peindre(id, couleur) {
@@ -34,13 +24,17 @@ function peindre(id, couleur) {
 }
 ```
 
-Les appels de l’animation et le cadre avec les attentes restent dans `pixelator.js`. La nouvelle page ne les charge pas.
+La nouvelle page charge le même CSS et uniquement `pixelator-clic.js` comme JavaScript. Les appels de l’animation et le cadre avec les attentes restent dans `pixelator.js`, chargé par `neuf-pixels.html`.
 
 On ouvre **`peindre-au-clic.html`** dans le navigateur. Les quatre cases sont blanches. Même après plusieurs secondes, aucune case ne change.
 
 ## 2. Faire réagir le premier pixel
 
-On ajoute ce cadre dans `pixelator-clic.js`, après la définition de `peindre`, avec la couleur choisie :
+**Préparation**
+
+- `pixelator-clic.js` : on ajoute le cadre fourni ci-dessous après la définition de `peindre`, en remplaçant le violet par la couleur choisie.
+
+Le cadre fourni est :
 
 ```js
 let couleurPeinture = "#800080";

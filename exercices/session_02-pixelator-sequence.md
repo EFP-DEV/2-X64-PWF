@@ -10,27 +10,17 @@ On dessine d’abord un motif sur quatre pixels, puis on passe à une grille de 
 
 On commence par écrire les instructions techniques, puis on construit une fonction nommée `peindre` pour réutiliser cette opération avec une écriture plus simple.
 
-Le HTML, le CSS et le fichier d’attente pour la suite sont fournis. **On crée uniquement `pixelator.js` pour y écrire les instructions JavaScript.**
+Le HTML et le CSS sont fournis. **On crée uniquement `pixelator.js` pour y écrire les instructions JavaScript.**
 
 ## 1. Préparer les fichiers
 
-On récupère ces trois fichiers pour les placer dans un même dossier :
+**Préparation**
 
-- [quatre-pixels.html](./pixelator/quatre-pixels.html) : la page de départ, avec quatre `div` ;
-- [pixelator-layout.css](./pixelator/pixelator-layout.css) : l’apparence et la disposition des cases ;
-- [pixelator-attente.js](./pixelator/pixelator-attente.js) : l’outil d’attente fourni pour la fiche Temps.
+- [quatre-pixels.html](./pixelator/quatre-pixels.html) : on récupère la page de départ, avec quatre `div`, et on la place dans un dossier nommé `pixelator`.
+- [pixelator-layout.css](./pixelator/pixelator-layout.css) : on récupère la feuille de style qui définit l’apparence et la disposition des cases, et on la place dans le même dossier.
+- `pixelator.js` : on crée un fichier vide portant exactement ce nom dans le même dossier, pour y écrire les instructions JavaScript.
 
-On crée un fichier nommé exactement `pixelator.js` dans ce dossier :
-
-```text
-pixelator/
-├── quatre-pixels.html
-├── pixelator-layout.css
-├── pixelator-attente.js
-└── pixelator.js          ← fichier à créer
-```
-
-On ouvre directement `quatre-pixels.html` dans le navigateur, par un double-clic sur le fichier. Aucun serveur n’est nécessaire. Le HTML charge déjà `pixelator-attente.js`, puis `pixelator.js`, après les cases. On garde le fichier d’attente tel quel ; les fichiers fournis sont prêts à l’emploi.
+On ouvre directement `quatre-pixels.html` dans le navigateur, par un double-clic sur le fichier. Aucun serveur n’est nécessaire. Le HTML charge déjà `pixelator.js`, après les cases. Les fichiers fournis sont prêts à l’emploi.
 
 ## 2. Choisir une couleur et un motif
 
@@ -70,9 +60,15 @@ Si une case ne se colore pas, on vérifie le nom et l’emplacement de `pixelato
 
 ## 4. Passer à neuf pixels : peindre le contour
 
-On agrandit maintenant la grille en gardant sa forme carrée. On récupère [neuf-pixels.html](./pixelator/neuf-pixels.html) et le place dans le même dossier. On récupère aussi la version actualisée de [pixelator-layout.css](./pixelator/pixelator-layout.css), qui prévoit les trois colonnes de cette nouvelle page, en remplaçant le fichier CSS du dossier.
+On agrandit maintenant la grille en gardant sa forme carrée.
 
-On ouvre directement `neuf-pixels.html` dans le navigateur. Cette page charge les mêmes fichiers JavaScript, dont `pixelator.js`. Ses neuf cases se répartissent ainsi :
+**Préparation**
+
+- [neuf-pixels.html](./pixelator/neuf-pixels.html) : on récupère la page de neuf pixels et on la place dans le dossier `pixelator`.
+- [pixelator-layout.css](./pixelator/pixelator-layout.css) : on récupère la feuille de style qui prévoit les trois colonnes de cette page, en remplaçant le fichier CSS du dossier.
+- `pixelator.js` : on reprend le fichier du premier motif dans l’éditeur ; la nouvelle page charge ce même programme.
+
+On ouvre directement `neuf-pixels.html` dans le navigateur. Ses neuf cases se répartissent ainsi :
 
 | | Colonne de gauche | Colonne du milieu | Colonne de droite |
 |---|---|---|---|
@@ -152,7 +148,11 @@ On vient de définir une **fonction** : une opération nommée que le programme 
 
 ### Réécrire le contour avec `peindre`
 
-Dans `pixelator.js`, on place la définition de `peindre` en haut du fichier, puis on remplace chaque ancienne instruction de peinture par l’appel correspondant, **en conservant l’ordre des instructions du contour réalisé**. Pour le contour violet présenté plus haut, le programme complet devient :
+**Préparation**
+
+- `pixelator.js` : on place la définition de `peindre` en haut du fichier, puis on remplace chaque ancienne instruction de peinture par l’appel correspondant, **en conservant l’ordre des instructions du contour réalisé**.
+
+Pour le contour violet présenté plus haut, le programme complet devient :
 
 ```js
 function peindre(id, couleur) {
@@ -175,7 +175,12 @@ On enregistre et recharge `neuf-pixels.html` : **le contour doit rester identiqu
 
 ### Conserver la séquence du contour
 
-On enregistre `pixelator.js`, puis on en fait une copie nommée `pixelator-contour.js` dans le même dossier. Cette copie contient la définition de `peindre` et les huit appels, dans l’ordre choisi. On la garde pour reprendre cette séquence lors de l’étude du temps.
+**Préparation**
+
+- `pixelator.js` : on enregistre le programme du contour, avec la définition de `peindre` et les huit appels dans l’ordre choisi.
+- `pixelator-contour.js` : on crée une copie de `pixelator.js` portant ce nom dans le même dossier.
+
+Cette copie conserve la séquence du contour pour reprendre son étude avec des attentes.
 
 La page continue à charger `pixelator.js` ; la copie `pixelator-contour.js` n’est pas chargée. Pour la suite, on reprend bien **le fichier d’origine `pixelator.js`** dans l’éditeur.
 

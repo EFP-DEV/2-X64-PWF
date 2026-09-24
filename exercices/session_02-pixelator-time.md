@@ -8,7 +8,7 @@
 
 La fiche Séquence a permis de peindre un contour sur neuf pixels avec la fonction `peindre`, puis de créer un deuxième motif. On reprend maintenant le contour conservé dans `pixelator-contour.js` pour observer ses étapes. On fait ensuite circuler **une seule case colorée autour du carré**, avec l’unique couleur de peinture choisie. Le centre reste blanc.
 
-Le contour progressif et une rotation fonctionnelle constituent le parcours attendu, avant de passer à la peinture au clic. Les variantes d’animation et la grille rectangulaire de seize pixels sont des **prolongements facultatifs**.
+Le contour progressif et une rotation fonctionnelle constituent le parcours attendu, avant de passer à la peinture au clic.
 
 Les appels à `peindre` restent les actions du dessin. On ajoute des attentes entre ces actions : la séquence s’exécute une seule fois, du haut vers le bas. On recharge la page pour la rejouer.
 
@@ -17,15 +17,40 @@ Les appels à `peindre` restent les actions du dessin. On ajoute des attentes en
 
 ## 1. Faire apparaître le contour
 
-On ouvre `pixelator-contour.js` et `pixelator.js` dans l’éditeur. On remplace le contenu de `pixelator.js` par celui de la copie du contour : la définition de `peindre` et les huit appels, **dans l’ordre conservé**. La copie `pixelator-contour.js` reste telle quelle ; la page continue à charger uniquement `pixelator.js` après l’outil d’attente.
+**Préparation**
 
-On enregistre, puis ouvre directement **`neuf-pixels.html`** dans le navigateur. Aucun serveur n’est nécessaire. Le contour réapparaît avec son centre blanc. Les fichiers de départ restent disponibles dans la [fiche Séquence](./session_02-pixelator-sequence.md#1-préparer-les-fichiers), ainsi que la [page de neuf pixels](./pixelator/neuf-pixels.html).
+- `pixelator-contour.js` : on ouvre la copie du contour dans l’éditeur, pour retrouver la définition de `peindre` et les huit appels, **dans l’ordre conservé**.
+- `pixelator.js` : on ouvre le programme dans l’éditeur et on remplace son contenu par celui de `pixelator-contour.js`, puis on l’enregistre.
 
-On vérifie que [pixelator-attente.js](./pixelator/pixelator-attente.js) se trouve dans le même dossier que le HTML, le CSS et `pixelator.js`. La page fournie charge cet outil d’attente avant le programme. On le conserve tel quel.
+La copie `pixelator-contour.js` reste telle quelle ; la page continue à charger uniquement `pixelator.js`.
+
+On ouvre directement **`neuf-pixels.html`** dans le navigateur. Aucun serveur n’est nécessaire. Le contour réapparaît avec son centre blanc. Les fichiers de départ restent disponibles dans la [fiche Séquence](./session_02-pixelator-sequence.md#1-préparer-les-fichiers), ainsi que la [page de neuf pixels](./pixelator/neuf-pixels.html).
+
+### Préparer l’outil d’attente
+
+**Préparation**
+
+- [pixelator-attente.js](./pixelator/pixelator-attente.js) : on récupère l’outil qui fournit la fonction `attendre` et on le place dans le dossier `pixelator`. On conserve ce fichier tel quel.
+- `neuf-pixels.html` : on ajoute le chargement de `pixelator-attente.js` juste avant celui de `pixelator.js`, puis on enregistre le HTML.
+
+La fin de `neuf-pixels.html` devient :
+
+```html
+  <script src="pixelator-attente.js"></script>
+  <script src="pixelator.js"></script>
+</body>
+</html>
+```
+
+L’outil d’attente est ainsi disponible avant l’exécution du programme. La fonction `attendre` permettra d’ajouter des pauses entre les actions.
 
 ### Ajouter des attentes entre les appels
 
-Dans `pixelator.js`, on garde la définition de `peindre` en haut du fichier. Juste après cette définition, on ajoute le cadre fourni :
+**Préparation**
+
+- `pixelator.js` : on garde la définition de `peindre` en haut du fichier et on ajoute le cadre fourni ci-dessous juste après cette définition.
+
+Le cadre fourni est :
 
 ```js
 window.addEventListener("load", async function () {
@@ -85,7 +110,11 @@ Chaque case reste visible pendant une seconde avant son effacement et la peintur
 
 ### Compléter le squelette fourni
 
-On conserve la définition de `peindre` en haut de `pixelator.js`, puis on remplace tout le cadre du contour progressif par ce squelette. On remplace le violet par la couleur choisie. Le premier affichage et le passage de `pixel1` à `pixel2` sont déjà écrits. On complète les sept passages indiqués par des commentaires, **avant la dernière ligne `});`**.
+**Préparation**
+
+- `pixelator.js` : on conserve la définition de `peindre` en haut du fichier et on remplace tout le cadre du contour progressif par le squelette fourni ci-dessous. On remplace le violet par la couleur choisie.
+
+Le squelette fourni contient le premier affichage et le passage de `pixel1` à `pixel2` :
 
 ```js
 window.addEventListener("load", async function () {
@@ -111,7 +140,7 @@ window.addEventListener("load", async function () {
 });
 ```
 
-Le cadre fourni reste le même. On travaille sur les appels placés à l’intérieur, sans changer la définition de `peindre`.
+On complète les sept passages indiqués par des commentaires, **avant la dernière ligne `});`**. On travaille sur les appels placés à l’intérieur du cadre, sans changer la définition de `peindre`.
 
 Pour chaque passage à compléter, on écrit trois instructions dans cet ordre :
 
@@ -142,7 +171,11 @@ Si les couleurs s’accumulent pendant la rotation, on vérifie que chaque passa
 <details>
 <summary><strong>Retrouver la rotation de référence sur neuf pixels</strong></summary>
 
-Le programme complet ci-dessous utilise le violet d’exemple. On conserve la couleur choisie en remplaçant les neuf occurrences de `#800080` : on peint les huit cases du bord, puis `pixel1` au retour.
+**Préparation**
+
+- `pixelator.js` : on remplace son contenu par le programme complet ci-dessous et on remplace les neuf occurrences de `#800080` par la couleur choisie.
+
+Le programme peint les huit cases du bord, puis `pixel1` au retour :
 
 ```js
 function peindre(id, couleur) {
@@ -202,70 +235,6 @@ La vérification porte sur le contour progressif, puis sur la rotation guidée :
 - Des durées d’attente différentes changent la cadence tout en conservant le parcours.
 - On peut expliquer pourquoi on attend avant d’effacer et comment l’ordre des instructions détermine l’animation.
 
-**La partie animation est terminée.** On poursuit le parcours commun avec [Pixelator — peindre au clic](./session_02-pixelator-clic.md), pour choisir la case et le moment du changement par une action. Les prolongements suivants sont facultatifs et se réalisent après les vérifications du parcours commun.
-
 La fonction `peindre` nomme l’opération de peinture utilisée dans chaque passage. Le groupe **attendre, effacer, peindre** revient plusieurs fois : ces appels répétés préparent l’étude des boucles dans la suite du cours.
 
-<a id="3-explorer-dautres-animations--15-minutes"></a>
-<a id="variantes-animation"></a>
-
-## 3. Prolongement facultatif : d’autres animations
-
-On choisit une variante sur `neuf-pixels.html`. Avant de modifier le code, on écrit la succession complète des affichages, jusqu’au retour au motif de départ.
-
-| Variante | Succession des cases colorées | Nombre d’attentes |
-|---|---|---|
-| Sens inverse | `pixel1 → pixel4 → pixel7 → pixel8 → pixel9 → pixel6 → pixel3 → pixel2 → pixel1` | 8 |
-| Aller-retour sur le parcours | `pixel1 → pixel2 → pixel3 → pixel6 → pixel9 → pixel8 → pixel7 → pixel4 → pixel7 → pixel8 → pixel9 → pixel6 → pixel3 → pixel2 → pixel1` | 14 |
-| Alternance des coins opposés | `pixel1` et `pixel9`, puis `pixel3` et `pixel7`, puis `pixel1` et `pixel9` | 2 |
-
-On conserve la définition de `peindre` et on remplace les appels à l’intérieur du cadre fourni par la nouvelle séquence. Pour l’aller-retour, on atteint `pixel4`, puis on rebrousse chemin jusqu’à `pixel1`. Pour les coins opposés, on peint les deux premières cases sans attente entre elles ; après chaque attente, on efface les deux cases précédentes en passant `""` comme couleur à `peindre`, puis on peint les deux suivantes.
-
-On garde une attente avant chaque changement d’affichage, avec la même couleur pour toutes les peintures. Le centre reste blanc dans les trois variantes. L’alternance des coins opposés affiche deux cases colorées ensemble.
-
-On enregistre et recharge, puis compare la prévision au parcours observé et au motif final. On vérifie que ce motif reste immobile une fois la séquence terminée. On recharge pour rejouer, ou essaie une autre cadence ou une autre variante.
-
-<a id="5-prolongement-facultatif--seize-pixels--20-minutes"></a>
-<a id="seize-pixels"></a>
-
-## 4. Prolongement facultatif : seize pixels
-
-On part de la rotation sur neuf pixels, avec la couleur choisie et des attentes de 1 000 ms dans `pixelator.js`.
-
-On récupère [seize-pixels.html](./pixelator/seize-pixels.html) et le place à côté de `neuf-pixels.html`, de `pixelator-layout.css`, de `pixelator-attente.js` et de `pixelator.js`. Cette page charge les mêmes fichiers CSS et JavaScript. Les seize cases forment un rectangle de huit lignes et deux colonnes, avec les identifiants `pixel1` à `pixel16` rangés ligne par ligne.
-
-On adapte le parcours à cette disposition : on descend par la colonne de droite, puis remonte par celle de gauche, en suivant **`pixel1 → pixel2 → pixel4 → pixel6 → pixel8 → pixel10 → pixel12 → pixel14 → pixel16 → pixel15 → pixel13 → pixel11 → pixel9 → pixel7 → pixel5 → pixel3 → pixel1`**. Toutes les cases participent au parcours ; `pixel5` se trouve désormais sur le bord.
-
-| Affichage | Case à peindre |
-|---|---|
-| Départ | `pixel1` |
-| Après l’attente 1 | `pixel2` |
-| Après l’attente 2 | `pixel4` |
-| Après l’attente 3 | `pixel6` |
-| Après l’attente 4 | `pixel8` |
-| Après l’attente 5 | `pixel10` |
-| Après l’attente 6 | `pixel12` |
-| Après l’attente 7 | `pixel14` |
-| Après l’attente 8 | `pixel16` |
-| Après l’attente 9 | `pixel15` |
-| Après l’attente 10 | `pixel13` |
-| Après l’attente 11 | `pixel11` |
-| Après l’attente 12 | `pixel9` |
-| Après l’attente 13 | `pixel7` |
-| Après l’attente 14 | `pixel5` |
-| Après l’attente 15 | `pixel3` |
-| Après l’attente 16 | `pixel1` — fin |
-
-On conserve la définition de `peindre` et le cadre fourni, puis on remplace toute la séquence à l’intérieur par le parcours du tableau. On peint `pixel1` au départ, sans attente initiale. L’ordre des cases change dès le passage après `pixel2`, qui mène maintenant à `pixel4`.
-
-Chaque passage contient le même groupe de trois instructions : `await attendre(1000);`, un appel à `peindre` avec `""` pour effacer, puis un appel avec la couleur choisie pour peindre. On garde la définition de `peindre` et le cadre fourni autour de toute la séquence. On enregistre et recharge `seize-pixels.html`, puis suit le tour complet jusqu’à son arrêt sur `pixel1`, après environ seize secondes.
-
-On recharge pour refaire le parcours. On utilise désormais cette page, qui contient tous les identifiants ciblés par le programme. Pour retrouver la rotation sur neuf pixels, on reprend la [rotation de référence](#rotation-reference) dans `pixelator.js`, puis on ouvre `neuf-pixels.html`.
-
-### Vérification du prolongement à seize pixels
-
-- `pixel1` est coloré dès le chargement, puis une seule case reste colorée à chaque affichage du parcours prévu.
-- Après **seize attentes**, le parcours revient à `pixel1`, qui reste coloré sans nouveau déplacement.
-- Un rechargement, pendant ou après l’animation, relance le parcours au début.
-
-L’animation s’est agrandie par ajout d’appels dans l’ordre du parcours. La fonction `peindre` reste identique ; le même groupe — attendre, effacer, peindre — revient plusieurs fois. Cette répétition donne une raison concrète d’aborder les boucles dans la suite du cours.
+**La partie animation est terminée.** On poursuit avec [Pixelator — peindre au clic](./session_02-pixelator-clic.md), pour choisir la case et le moment du changement par une action.

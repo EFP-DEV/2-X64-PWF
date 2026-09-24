@@ -93,7 +93,7 @@ Les deux groupes suivent la même progression.
 
 7. [Rappel des grands concepts](./session_02.md#consolidation).
 
-8. Prolongements facultatifs : [variantes sur neuf pixels](./exercices/session_02-pixelator-time.md#variantes-animation), puis grille rectangulaire de [seize pixels](./exercices/session_02-pixelator-time.md#seize-pixels).
+8. [Laboratoire d’expérimentation — animations ou peinture au clic](./session_02.md#laboratoire) — [pistes et aides](./exercices/session_02-pixelator-laboratoire.md) pour explorer les parcours, la grille de seize pixels ou la peinture au clic.
 
 ---
 

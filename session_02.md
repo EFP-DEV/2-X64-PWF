@@ -28,7 +28,7 @@ Pixelator commence avec quatre grandes cases qui représentent des pixels. On ch
 
 ## 5. Pixelator — Temps : animer un motif
 
-On reprend le contour conservé sur neuf pixels et on ajoute des attentes entre ses appels à `peindre`, sans changer leur ordre. Le même dessin apparaît progressivement. On construit ensuite une rotation autour des huit cases du bord : une seule case reste colorée à la fois et le centre reste blanc. L’ordre des appels définit le parcours ; les attentes règlent sa cadence. Les autres animations sont facultatives.
+On reprend le contour conservé sur neuf pixels et on ajoute des attentes entre ses appels à `peindre`, sans changer leur ordre. Le même dessin apparaît progressivement. On construit ensuite une rotation autour des huit cases du bord : une seule case reste colorée à la fois et le centre reste blanc. L’ordre des appels définit le parcours ; les attentes règlent sa cadence.
 
 [Consignes et fichiers — Pixelator : temps](./exercices/session_02-pixelator-time.md)
 
@@ -56,9 +56,10 @@ On commence avec une seule case, puis on associe les quatre cases au même compo
 
 6. **Les événements et l’état de chaque élément — peindre au clic.** Le clic déclenche une fonction et `event.target` désigne l’élément cliqué. Le même comportement peut ainsi servir à plusieurs cases. Une condition examine la peinture de la case concernée pour la peindre ou l’effacer ; chaque case conserve son état indépendamment des autres.
 
-## Prolongements facultatifs — Varier l’animation et la grille
+<a id="laboratoire"></a>
 
-On peut explorer une autre animation sur neuf pixels, puis adapter le parcours à une grille rectangulaire de seize pixels. On conserve la fonction `peindre` et le même principe : attendre, effacer, peindre. Les appels répétés préparent l’étude des boucles, qui permettront de répéter des instructions.
+## 8. Laboratoire d’expérimentation — animations ou peinture au clic
 
-- [Pixelator — variantes sur neuf pixels](./exercices/session_02-pixelator-time.md#variantes-animation)
-- [Pixelator — seize pixels](./exercices/session_02-pixelator-time.md#seize-pixels)
+On choisit une piste à partir d’un Pixelator fonctionnel : inventer une animation ou explorer la peinture au clic. Les variantes de parcours, la grille de seize pixels et les changements de couleur, de disposition ou de comportement servent de points de départ. On prévoit un effet, on modifie le programme, puis on compare le résultat observé à la prévision.
+
+[Pistes et aides — laboratoire Pixelator](./exercices/session_02-pixelator-laboratoire.md)
