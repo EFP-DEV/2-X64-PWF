@@ -9,7 +9,7 @@
 Un **dépôt** rassemble les fichiers d’un projet et l’historique de leurs versions.
 
 1. On se connecte à [GitHub](https://github.com/), puis on ouvre [la page de création d’un dépôt](https://github.com/new).
-2. On choisit le compte personnel comme propriétaire et on nomme le dépôt `ampoule-session-02`.
+2. On choisit le compte personnel comme propriétaire et on nomme le dépôt `session-02-ampoule`.
 3. On choisit la visibilité **`Public`** : le dépôt doit être accessible à l’enseignant sans connexion ni invitation.
 4. On laisse les options README, `.gitignore` et licence désactivées pour créer un dépôt vide, puis on clique sur **Create repository**.
 
@@ -24,7 +24,7 @@ Dans le dépôt vide, on suit le lien **uploading an existing file**. S’il con
 On sélectionne les cinq fichiers de la version terminée pour les placer côte à côte à la racine du dépôt :
 
 ```text
-ampoule-session-02/
+session-02-ampoule/
 ├── index.html
 ├── dark-room.css
 ├── bulb-switch.js
@@ -50,7 +50,7 @@ Si on corrige un fichier local, on envoie de nouveau sa version modifiée au mê
 
 ## Remettre l’adresse du dépôt sur Moodle
 
-1. On copie l’adresse de la page principale du dépôt, de la forme `https://github.com/nom-du-compte/ampoule-session-02`.
+1. On copie l’adresse de la page principale du dépôt, de la forme `https://github.com/nom-du-compte/session-02-ampoule`.
 2. On ouvre cette adresse dans une fenêtre privée du navigateur, sans connexion à GitHub. Le dépôt et ses cinq fichiers doivent être visibles. Si l’accès échoue, on vérifie l’adresse et la visibilité publique avant de poursuivre.
 3. On ouvre l’activité de remise de la séance 2 sur Moodle et on y colle l’adresse du dépôt.
 4. On enregistre la remise et, si l’activité le demande, on confirme l’envoi définitif.
