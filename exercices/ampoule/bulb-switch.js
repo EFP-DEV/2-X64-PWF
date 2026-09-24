@@ -1,4 +1,4 @@
-document.querySelector("#ampoule").addEventListener("click", toggle);
+document.querySelector("#ampoule").onclick = toggle;
 
 function toggle(event) {
   let etat = document.querySelector("#etat");

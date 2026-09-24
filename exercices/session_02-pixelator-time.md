@@ -6,7 +6,7 @@
 
 ## Objectif
 
-Un motif fixe est peint sur quatre pixels. On va maintenant faire circuler **une seule case colorée autour du carré**, avec l’unique couleur de peinture choisie. On construit ensemble cette rotation pendant **15 minutes**, puis on consacre **15 minutes à d’autres animations**. Une rotation fonctionnelle et une variante explorée constituent le parcours attendu. Les agrandissements à huit puis seize pixels sont des **prolongements facultatifs**, réalisés après les vérifications si le temps le permet.
+Un motif fixe est peint sur quatre pixels. On va maintenant faire circuler **une seule case colorée autour du carré**, avec l’unique couleur de peinture choisie. On construit ensemble cette rotation pendant **15 minutes**, puis on consacre **15 minutes à d’autres animations**. Une rotation fonctionnelle et une variante explorée constituent le parcours attendu pour cette fiche, avant de passer à la peinture au clic. Les agrandissements à huit puis seize pixels sont des **prolongements facultatifs**, réalisés après le parcours commun si le temps le permet.
 
 On écrit une séquence d’instructions : **peindre → attendre → effacer → peindre la case suivante**. Elle s’exécute une seule fois, du haut vers le bas. On recharge la page pour la rejouer.
 
@@ -152,7 +152,7 @@ La vérification porte sur la rotation guidée, puis sur la variante explorée :
 - Une variante a été prévue, réalisée et comparée à la succession attendue ; son état final reste immobile. L’alternance des diagonales affiche deux cases colorées ensemble.
 - On peut expliquer pourquoi on attend avant d’effacer et comment l’ordre des instructions détermine l’animation.
 
-**Le parcours attendu peut se terminer ici.** Le créneau de consolidation de **20 minutes** prévu dans la séance permet de reprendre les vérifications et de résoudre les difficultés ; il sert aussi de marge en cas de dépassement. Les prolongements suivants se font lorsque le parcours à quatre pixels est vérifié et que le temps restant le permet. Si le temps manque, on retire d’abord le prolongement à seize pixels, puis celui à huit pixels.
+**La partie animation est terminée.** On poursuit le parcours commun avec [Pixelator — peindre au clic](./session_02-pixelator-clic.md), pour choisir la case et le moment du changement par une action. Le créneau de consolidation de **20 minutes** vient après cette nouvelle étape. Les prolongements suivants sont réservés aux parcours communs terminés et vérifiés en avance.
 
 Le groupe **attendre, effacer, peindre** revient déjà plusieurs fois sur quatre pixels. Cette répétition prépare l’étude des boucles dans la suite du cours.
 

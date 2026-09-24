@@ -89,7 +89,11 @@ Les deux groupes suivent la même progression.
 
 5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md)
 
-6. Prolongements facultatifs : [huit pixels](./exercices/session_02-pixelator-time.md#4-prolongement-facultatif--huit-pixels--25-minutes) et [seize pixels](./exercices/session_02-pixelator-time.md#5-prolongement-facultatif--seize-pixels--20-minutes).
+6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md)
+
+7. [Consolidation et bilan](./session_02.md#consolidation).
+
+8. Prolongements facultatifs : [huit pixels](./exercices/session_02-pixelator-time.md#4-prolongement-facultatif--huit-pixels--25-minutes) et [seize pixels](./exercices/session_02-pixelator-time.md#5-prolongement-facultatif--seize-pixels--20-minutes).
 
 ---
 
