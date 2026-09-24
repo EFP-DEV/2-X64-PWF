@@ -2,15 +2,13 @@
 
 [Séance 2](../session_02.md) · [Fiche précédente — animer un motif](./session_02-pixelator-time.md)
 
-**Durée : 40 minutes.** On prépare les fichiers pendant 5 minutes, on fait réagir un premier pixel pendant 10 minutes, puis les quatre pendant 10 minutes. Les 15 dernières minutes servent à ajouter l’effacement au deuxième clic et à vérifier l’indépendance des cases.
-
 ## Objectif
 
 Dans l’animation sur neuf pixels, l’ordre des instructions et les attentes déterminent les changements. Ici, **chaque clic choisit la case qui change et le moment du changement**. On retrouve le mécanisme de l’ampoule sur une page distincte de quatre pixels, en réutilisant la fonction `peindre`.
 
 La grille est blanche au chargement. Un clic peint la case choisie avec l’unique couleur de peinture. On réalise d’abord cette version, puis on la fait évoluer : un deuxième clic sur une case peinte l’efface. Les autres cases conservent leur état.
 
-## 1. Préparer la page · 5 minutes
+## 1. Préparer la page
 
 On récupère [peindre-au-clic.html](./pixelator/peindre-au-clic.html) et le place dans le dossier Pixelator. On crée à côté un fichier `pixelator-clic.js` :
 
@@ -40,7 +38,7 @@ Les appels de l’animation et le cadre avec les attentes restent dans `pixelato
 
 On ouvre **`peindre-au-clic.html`** dans le navigateur. Les quatre cases sont blanches. Même après plusieurs secondes, aucune case ne change.
 
-## 2. Faire réagir le premier pixel · 10 minutes
+## 2. Faire réagir le premier pixel
 
 On ajoute ce cadre dans `pixelator-clic.js`, après la définition de `peindre`, avec la couleur choisie :
 
@@ -68,7 +66,7 @@ On enregistre et recharge. Avant le premier clic, toutes les cases restent blanc
 
 **Prévision avant essai :** on note ce qui se passerait si l’appel utilisait toujours `"pixel1"` au lieu de `event.target.id`. L’étape suivante permet de comparer cette prévision au comportement attendu.
 
-## 3. Rendre les quatre cases interactives · 10 minutes
+## 3. Rendre les quatre cases interactives
 
 On ajoute les trois lignes avec `.onclick` pour `pixel2`, `pixel3` et `pixel4`, en utilisant le **même comportement `peindrePixel`**. On adapte la sélection dans chaque ligne, en conservant le nom du comportement fourni.
 
@@ -80,7 +78,7 @@ Dans cette première version, les cases peintes le restent. À la fin, `pixel1`,
 
 On remplace ensuite la valeur de `couleurPeinture`, puis on enregistre et recharge. La nouvelle couleur doit être utilisée quel que soit le pixel cliqué, avec une seule valeur modifiée dans le programme.
 
-## 4. Un deuxième clic efface la case · 15 minutes
+## 4. Un deuxième clic efface la case
 
 Le comportement à obtenir comporte maintenant deux possibilités :
 
@@ -135,4 +133,4 @@ Si une case ne réagit pas, on vérifie la ligne qui associe son clic à `peindr
 
 Le programme associe maintenant **un événement, une cible et une décision**. Les quatre associations de clic se ressemblent : cette répétition fournit un autre point de départ pour étudier les boucles dans la suite du cours.
 
-[Retour au cours — consolidation et bilan](../session_02.md#consolidation)
+[Retour au cours — rappel des grands concepts](../session_02.md#consolidation)

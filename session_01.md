@@ -1,28 +1,5 @@
 # Session +1
 
-Ce document conserve le fil du cours : les manipulations, les constats et les notions qui les expliquent. Les manipulations sont regroupées dans quatre fiches :
-
-- [Exploration — la page, l’inspecteur et la console](./exercices/session_01-exploration.md)
-- [Couleurs — une valeur, plusieurs écritures](./exercices/session_01-couleurs.md)
-- [Numération — des couleurs à l’horloge](./exercices/session_01-numeration.md)
-- [Horloge — ajouter une minute](./exercices/session_01-horloge.md)
-
-Chaque fiche rassemble les consignes de son parcours. Les explorations de numération se font dans la fiche de numération. Les bilans se lisent dans les fiches après les manipulations et la mise en commun ; ils permettent ensuite de retrouver les notions.
-
-La séance se termine avec l’horloge : on écrit le programme ensemble et on corrige le passage de `13:59` à `14:00`. Un défi clôture le parcours : régler les heures à `23` et les minutes à `59`, et corriger le comportement obtenu.
-
-## Sommaire
-
-1. [Exploration](#1-exploration)
-2. [Couleurs](#2-couleurs)
-3. [Numération](#3-numération)
-
-**Interlude — 10 minutes**
-
-4. [Horloge](#4-horloge)
-
-[Fin du cours — le défi de minuit](#fin-du-cours)
-
 ## 1. Exploration
 
 <a id="1-une-action-visible-une-valeur-invisible"></a>
@@ -88,7 +65,7 @@ On suit les reports dans une écriture composée de groupes allant de 0 à 59.
 
 <a id="pause"></a>
 
-## ⏸️ Interlude — pause de 10 minutes
+## ⏸️ Interlude — pause
 
 La reprise commence avec la [fiche horloge](./exercices/session_01-horloge.md) : représenter une heure par deux valeurs nommées.
 

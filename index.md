@@ -91,9 +91,9 @@ Les deux groupes suivent la même progression.
 
 6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — réutiliser `peindre` sur une page distincte de quatre pixels.
 
-7. [Consolidation et bilan](./session_02.md#consolidation).
+7. [Rappel des grands concepts](./session_02.md#consolidation).
 
-8. Prolongements facultatifs : [variantes sur neuf pixels](./exercices/session_02-pixelator-time.md#variantes-animation), puis grilles rectangulaires de [huit pixels](./exercices/session_02-pixelator-time.md#4-prolongement-facultatif--huit-pixels--25-minutes) et de [seize pixels](./exercices/session_02-pixelator-time.md#5-prolongement-facultatif--seize-pixels--20-minutes).
+8. Prolongements facultatifs : [variantes sur neuf pixels](./exercices/session_02-pixelator-time.md#variantes-animation), puis grille rectangulaire de [seize pixels](./exercices/session_02-pixelator-time.md#seize-pixels).
 
 ---
 

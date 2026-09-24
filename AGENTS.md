@@ -12,6 +12,15 @@ code examples, prototypes, and solutions in this repository.
   or similarly vague names that do not communicate what a file does.
 - Do not define a function solely to call it once. Write that code directly
   where it needs to execute. Do not introduce a `main()` wrapper.
+- Start session documents with the first activity immediately after the title.
+  Do not add introductory summaries of the teaching progression, total session
+  durations, timed agendas or “Déroulement” tables, or opening notes about the
+  common path and optional extensions. Keep activity-specific explanations in
+  the relevant sections.
+- Do not include any visible mention of the time allotted to sessions,
+  activities, exercises, or steps, whether in headings, prose, or tables.
+  This concerns teaching time allocations; durations that are part of the
+  subject matter, such as animation delays, remain relevant.
 - Write French educational material in a descriptive voice: use “on” for
   actions and describe events and observable effects directly. Avoid “nous”,
   first-person plural imperatives, and possessives such as “notre” or “nos”;

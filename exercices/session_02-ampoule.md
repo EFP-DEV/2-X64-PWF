@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md)
 
-**Travail sur le programme : 30 minutes.** On consacre les 15 premières minutes au diagnostic, à la correction et aux vérifications des étapes 1 à 3 ; les 15 suivantes aux classes CSS et à la vérification finale de l’étape 4. On prévoit ensuite **25 minutes** pour déposer le travail dans un dépôt public sur GitHub, vérifier la copie téléchargée et remettre l’adresse du dépôt sur Moodle en suivant la [fiche dédiée](./session_02-ampoule-github.md). La remise se termine avant la pause.
+Une fois l’ampoule terminée, on dépose le travail dans un dépôt public sur GitHub, on vérifie la copie téléchargée et on remet l’adresse du dépôt sur Moodle en suivant la [fiche dédiée](./session_02-ampoule-github.md). La remise se termine avant la pause.
 
 <a id="votre-mission"></a>
 <a id="notre-mission"></a>

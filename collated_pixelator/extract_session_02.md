@@ -14,7 +14,7 @@ Pixelator accompagne les séances 2, 3 et 4 : chaque séance prolonge le même p
 
 **D’une séance à l’autre :**
 
-- **Séance 2 → 3 :** annoncer l’ajout du sélecteur de couleur en début de séance 3, puis reprendre le coût des quatre sélections et quatre enregistrements manuels pour aborder les boucles : que faudrait-il recopier pour huit, seize ou davantage de pixels ?
+- **Séance 2 → 3 :** on annonce l’ajout du sélecteur de couleur en début de séance 3, puis on reprend le coût des quatre sélections et quatre enregistrements manuels pour aborder les boucles : que faudrait-il recopier pour seize pixels ou davantage ?
 - **Séance 3 → 4 :** terminer la séance 3 sur les essais du curseur de taille et les difficultés rencontrées. En séance 4, les reprendre pour achever le redimensionnement ; le besoin de construire la grille au chargement et au changement de taille motive une fonction réutilisable. Les deux blocs du prototype servent de point de comparaison.
 
 **Avant la séance 4, les fonctions et les écouteurs nécessaires sont fournis.** Les étudiants travaillent sur les instructions qu’ils contiennent ; la conception des fonctions n’est pas un objectif évalué à ce stade. La séance 4 reprend leur fonctionnement, leurs paramètres et leur rôle dans l’organisation du programme.
@@ -53,4 +53,4 @@ Enregistrez et vérifiez votre projet, puis déposez ses trois fichiers dans vot
 
 ## Bilan après la remise
 
-**Fin de séance :** imaginez huit, seize, puis beaucoup plus de carrés. Combien de variables de sélection faudrait-il écrire ? Observez aussi les quatre lignes de clic fournies : combien en faudrait-il pour huit ou seize pixels ? À partir de quand cette répétition devient-elle fastidieuse ? Il nous faut **un système dans le code** pour organiser ce travail répétitif. La prochaine leçon commencera par l’ajout d’un sélecteur de couleur, puis abordera les boucles pour répondre à ce besoin, avant les premiers essais du curseur de taille.
+**Fin de séance :** on imagine seize, puis beaucoup plus de carrés. Combien de variables de sélection faudrait-il écrire ? On observe aussi les quatre lignes de clic fournies : combien en faudrait-il pour seize pixels ? À partir de quand cette répétition devient-elle fastidieuse ? **Un système dans le code** permettrait d’organiser ce travail répétitif. La prochaine leçon commencera par l’ajout d’un sélecteur de couleur, puis abordera les boucles pour répondre à ce besoin, avant les premiers essais du curseur de taille.

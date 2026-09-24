@@ -210,4 +210,4 @@ On va appliquer cette idée à une horloge de 24 heures. La limite de ses minute
 
 ---
 
-[Pause — 10 minutes](../session_01.md#pause) · [Poursuivre avec l’horloge](./session_01-horloge.md)
+[Pause](../session_01.md#pause) · [Poursuivre avec l’horloge](./session_01-horloge.md)

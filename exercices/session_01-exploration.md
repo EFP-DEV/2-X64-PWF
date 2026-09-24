@@ -1,6 +1,6 @@
 # Exploration — la page, l’inspecteur et la console
 
-[Point de départ dans le cours](../session_01.md#1-exploration) · [Sommaire du cours](../session_01.md#sommaire)
+[Point de départ dans le cours](../session_01.md#1-exploration) · [Séance 1](../session_01.md)
 
 Les emplacements `___` sont à compléter avant d’exécuter les blocs concernés.
 

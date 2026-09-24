@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md)
 
-**Durée : 15 minutes.** On termine le défi de minuit en comparant plusieurs emplacements pour la correction, puis on vérifie les trois cas proposés.
+On termine le défi de minuit en comparant plusieurs emplacements pour la correction, puis on vérifie les trois cas proposés.
 
 On ouvre le programme de la séance 1 pour reprendre le [défi de minuit](./session_01-horloge.md#defi-minuit). On relit les étapes : **valeurs initiales → ajout d’une minute → report des minutes → préparation de l’affichage → sortie console**.
 

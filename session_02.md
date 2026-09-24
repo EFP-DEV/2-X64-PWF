@@ -1,25 +1,5 @@
 # Séance 2 — L’horloge, l’ampoule et les pixels
 
-**Durée : 3 h 30, pause comprise.** On passe d’un programme qui suit une séquence à une interface qui réagit aux clics. Une fonction nommée `peindre` est introduite pour réutiliser l’opération de peinture dans les motifs, l’animation et les clics. Le parcours commun se termine par une grille où chaque case peut être peinte et effacée indépendamment.
-
-## Déroulement
-
-| Étape | Durée |
-|---|---:|
-| Reprise : retrouver une affectation, une condition et un résultat dans l’horloge | 5 min |
-| Terminer l’horloge | 15 min |
-| Résoudre l’ampoule | 30 min |
-| Déposer l’ampoule sur GitHub et remettre le lien sur Moodle | 25 min |
-| Pause | 10 min |
-| Pixelator — peindre un motif | 30 min |
-| Pixelator — animer un motif | 20 min |
-| Pixelator — peindre et effacer au clic | 40 min |
-| Consolidation et comparaison des résultats | 20 min |
-| Bilan et prévisions sans exécution | 15 min |
-| **Total** | **210 min** |
-
-Les variantes d’animation et les grilles rectangulaires de huit et seize pixels servent de prolongements une fois le parcours commun terminé et vérifié.
-
 ## 1. Terminer l’horloge
 
 L’horloge de la séance précédente sait ajouter une minute, mais le passage à minuit reste à corriger. On reprend ce cas pour comprendre où placer la correction : le résultat dépend autant de l’ordre des instructions que de leur contenu.
@@ -38,7 +18,7 @@ L’ampoule fonctionne sur l’ordinateur où elle a été réalisée. On rassem
 
 [Consignes — GitHub et remise sur Moodle](./exercices/session_02-ampoule-github.md)
 
-Après la remise, on fait une **pause de 10 minutes**.
+Après la remise, on fait une pause.
 
 ## 4. Pixelator — Séquence : peindre un motif
 
@@ -62,29 +42,23 @@ On commence avec une seule case, puis on associe les quatre cases au même compo
 
 <a id="consolidation"></a>
 
-## 7. Consolider et expliquer · 20 minutes
+## 7. Rappel des grands concepts
 
-On reprend les essais de la fiche au clic. En binôme, on compare la liste des cases attendues à la grille obtenue après chaque action. Au premier écart, on décrit le résultat attendu, le résultat observé et l’instruction à examiner avant de modifier le programme. Si le parcours a pris du retard, ce créneau permet aussi de terminer les étapes communes.
+1. **L’ordre des instructions — l’horloge.** Une instruction utilise les valeurs disponibles au moment où elle s’exécute. Le passage à minuit demande de corriger les heures après leur augmentation et avant l’affichage.
 
-Quand les essais réussissent, on examine cette modification proposée : remplacer le `if` / `else` par deux `if`, l’un qui peint une case sans peinture, l’autre qui efface une case peinte. On prévoit le résultat d’un clic sur une case blanche en suivant sa couleur après chaque instruction. On essaie la modification, puis on rétablit la version qui satisfait les vérifications.
+2. **Les conditions, les états et l’apparence — l’ampoule.** Au clic, `if` / `else` permet de choisir une seule des deux actions selon l’état de l’ampoule : allumer ou éteindre. JavaScript modifie le texte, l’image et les classes des éléments de la page. Le CSS définit les couleurs du fond et du texte ; l’ajout ou le retrait d’une classe applique l’apparence correspondant à l’état choisi. Une couleur peut s’écrire en RGB ou en hexadécimal.
 
-Le second `if` lit l’état laissé par le premier bloc. Cette expérience reprend le problème de l’horloge : le moment où une condition est évaluée change le résultat du programme.
+3. **Le partage d’un projet — GitHub et Moodle.** Un projet rassemble les fichiers HTML, CSS, JavaScript et les images nécessaires à son fonctionnement. Le dépôt GitHub permet de les retrouver et de les télécharger ; son adresse est transmise sur Moodle. On vérifie la copie téléchargée pour s’assurer que le projet est complet.
 
-## 8. Bilan — prévoir avant d’exécuter · 15 minutes
+4. **La séquence et les fonctions — peindre un motif.** Une suite d’instructions peint les cases choisies. `document.querySelector(...)` sélectionne un élément et `.style.backgroundColor` modifie sa couleur de fond. La fonction `peindre(id, couleur)` regroupe cette opération sous un nom réutilisable : ses paramètres permettent de changer la case et la couleur à chaque appel.
 
-On prépare individuellement une réponse courte pour chaque situation, puis on compare les raisonnements à l’oral et on vérifie dans les programmes :
+5. **Le temps dans une séquence — animer un motif.** `await attendre(...)` laisse passer un délai avant de poursuivre les instructions. L’ordre des appels détermine le parcours, tandis que les attentes règlent la cadence. Pour déplacer une couleur, on attend, on efface la case précédente, puis on peint la suivante.
 
-- Dans l’horloge, on corrige les heures après `console.log(...)` : on prévoit la sortie pour un départ à `23:59` et la valeur finale de `hours`.
-- Dans la rotation sur neuf pixels (`pixel1 → pixel2 → pixel3 → pixel6 → pixel9 → pixel8 → pixel7 → pixel4 → pixel1`), on retire seulement le premier `await` : on décrit le premier arrêt visible et le parcours qui reste.
-- Dans la grille au clic, `pixel1` et `pixel4` sont peints. On clique sur `pixel1`, puis sur `pixel2` : on donne les cases peintes après chaque clic et la cible examinée par la condition.
-- On recharge `neuf-pixels.html` et `peindre-au-clic.html` : on explique pourquoi la première page relance une animation et la seconde reste blanche en attendant un clic.
-
-Les explications relient **la valeur lue, l’instruction exécutée et le changement observé**. Les fonctions ont été introduites et utilisées pendant cette séance ; leur consolidation est prévue en séance 3. Une fonction nomme une opération réutilisable. Les répétitions d’appels dans les animations et les associations de clic prépareront ensuite l’étude des boucles.
+6. **Les événements et l’état de chaque élément — peindre au clic.** Le clic déclenche une fonction et `event.target` désigne l’élément cliqué. Le même comportement peut ainsi servir à plusieurs cases. Une condition examine la peinture de la case concernée pour la peindre ou l’effacer ; chaque case conserve son état indépendamment des autres.
 
 ## Prolongements facultatifs — Varier l’animation et la grille
 
-On peut explorer une autre animation sur neuf pixels, puis adapter le parcours à une grille rectangulaire de huit pixels et l’allonger sur seize pixels. On conserve la fonction `peindre` et le même principe : attendre, effacer, peindre. Les appels répétés préparent l’étude des boucles, qui permettront de répéter des instructions.
+On peut explorer une autre animation sur neuf pixels, puis adapter le parcours à une grille rectangulaire de seize pixels. On conserve la fonction `peindre` et le même principe : attendre, effacer, peindre. Les appels répétés préparent l’étude des boucles, qui permettront de répéter des instructions.
 
 - [Pixelator — variantes sur neuf pixels](./exercices/session_02-pixelator-time.md#variantes-animation)
-- [Pixelator — huit pixels](./exercices/session_02-pixelator-time.md#4-prolongement-facultatif--huit-pixels--25-minutes)
-- [Pixelator — seize pixels](./exercices/session_02-pixelator-time.md#5-prolongement-facultatif--seize-pixels--20-minutes)
+- [Pixelator — seize pixels](./exercices/session_02-pixelator-time.md#seize-pixels)

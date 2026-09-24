@@ -279,10 +279,10 @@ Copiez l’adresse de la page principale de votre dépôt, de la forme `https://
 
 Après la remise, reprenez ensemble cette question pour terminer la séance.
 
-Votre programme fonctionne avec quatre carrés. Imaginez maintenant une grille de huit, puis de seize carrés, et enfin une surface assez grande pour dessiner.
+Le programme fonctionne avec quatre carrés. On imagine maintenant une grille de seize carrés, puis une surface assez grande pour dessiner.
 
-- Combien de variables de sélection faudrait-il écrire pour huit carrés ? Pour seize ?
-- Observez les quatre lignes de clic fournies : combien en faudrait-il pour huit carrés ? Pour seize ?
+- Combien de variables de sélection faudrait-il écrire pour seize carrés ?
+- On observe les quatre lignes de clic fournies : combien en faudrait-il pour seize carrés ?
 - Quelles instructions recopieriez-vous ? Qu’est-ce qui changerait à chaque copie ?
 - À partir de combien de carrés ce travail devient-il fastidieux ? Quelles erreurs risquent de se glisser dans les copies ?
 

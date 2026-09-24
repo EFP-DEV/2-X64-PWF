@@ -2,7 +2,7 @@
 
 [Séance 2](../session_02.md) · [Exercice Ampoule](./session_02-ampoule.md)
 
-**Durée : 25 minutes, vérifications et remise sur Moodle comprises.** L’ampoule fonctionne. On enregistre tous les fichiers du projet, puis on utilise le compte GitHub préparé après la séance 1 pour y déposer le travail depuis le navigateur. On remet ensuite l’adresse du dépôt public sur Moodle, avant la pause.
+L’ampoule fonctionne. On enregistre tous les fichiers du projet, puis on utilise le compte GitHub préparé après la séance 1 pour y déposer le travail depuis le navigateur. On remet ensuite l’adresse du dépôt public sur Moodle, avant la pause.
 
 ## Créer le dépôt
 
@@ -58,4 +58,4 @@ Si on corrige un fichier local, on envoie de nouveau sa version modifiée au mê
 
 **La remise est terminée lorsque la copie téléchargée fonctionne, que le dépôt est accessible sans connexion à GitHub et que Moodle enregistre la remise avec le bon lien.** Les fichiers sont sur GitHub ; Moodle recueille l’adresse du dépôt.
 
-Une fois ces vérifications terminées, on fait une **pause de 10 minutes**, puis on passe à [Pixelator — Séquence](./session_02-pixelator-sequence.md).
+Une fois ces vérifications terminées, on fait une pause, puis on passe à [Pixelator — Séquence](./session_02-pixelator-sequence.md).
