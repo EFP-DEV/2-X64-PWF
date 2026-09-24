@@ -18,6 +18,10 @@ main {
   margin-top: 1.5rem;
 }
 
+#grille-pixels.grille-trois-colonnes {
+  grid-template-columns: repeat(3, 5rem);
+}
+
 #grille-pixels > div {
   box-sizing: border-box;
   width: 5rem;

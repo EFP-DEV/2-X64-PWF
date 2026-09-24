@@ -5,6 +5,8 @@ code examples, prototypes, and solutions in this repository.
 
 ## General rules
 
+- Never launch a headless browser or create or run automated tests, including
+  temporary test scripts. The user handles testing.
 - Naming is important. Choose thoughtful, descriptive names that express purpose.
   Never use generic filenames such as `script.js`, `style.css`, or `css.css`,
   or similarly vague names that do not communicate what a file does.
