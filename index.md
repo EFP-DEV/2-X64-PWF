@@ -89,7 +89,7 @@ Les deux groupes suivent la même progression.
 
 5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md) — observer le contour à 1 000 puis 500 ms, réorganiser les mêmes instructions pour suivre le bord, puis construire `effacer(id)` et une rotation.
 
-6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — passer de l’identifiant fourni dans la séquence à la case cliquée désignée par `event.target`.
+6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — comprendre le passage de `peindre(id)` à `peindre(event)` et observer `event.target` dans la console avant de peindre la case cliquée.
 
 7. [Laboratoire d’expérimentation — animations ou peinture au clic](./session_02.md#laboratoire) — [pistes et aides](./exercices/session_02-pixelator-laboratoire.md) pour explorer les parcours, la grille de seize pixels ou la peinture au clic.
 

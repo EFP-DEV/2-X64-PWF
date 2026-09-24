@@ -121,26 +121,26 @@ On ouvre `neuf-pixels.html` dans le navigateur pour retrouver la rotation sur ne
 **Préparation**
 
 - `peindre-au-clic.html` : on reprend la page de quatre pixels utilisée dans la [fiche Peindre au clic](./session_02-pixelator-clic.md).
-- `pixelator-clic.js` : on reprend le programme terminé, avec les quatre associations de clic et la fonction `peindrePixel`, qui peint ou efface directement la case désignée par `event.target`.
+- `pixelator-clic.js` : on reprend le programme terminé, avec les quatre associations de clic et la fonction `peindre`, qui peint ou efface directement la case désignée par `event.target`.
 - `pixelator-layout.css` : on reprend la feuille de style présente dans le dossier `pixelator`.
 
 On ouvre `peindre-au-clic.html`. La grille est blanche au chargement ; un clic peint une case et un deuxième clic sur cette case l’efface. Ce fonctionnement sert de point de départ aux expériences.
 
 | Idée | Modification à explorer | Observation possible |
 |---|---|---|
-| Changer la couleur | La couleur écrite dans le bloc qui peint, dans `peindrePixel` | La même couleur est utilisée quelle que soit la case cliquée. |
+| Changer la couleur | La couleur écrite dans le bloc qui peint, dans `peindre` | La même couleur est utilisée quelle que soit la case cliquée. |
 | Changer les dimensions | La largeur des colonnes et les dimensions des cases dans `pixelator-layout.css` | Les cases deviennent plus grandes, plus petites ou rectangulaires. |
 | Changer la disposition | Le nombre de colonnes dans `pixelator-layout.css` | Les quatre mêmes cases forment une ligne, une colonne ou un carré. |
-| Garder la peinture | Le contenu de `peindrePixel` dans `pixelator-clic.js` | Un clic peint la case ; les clics suivants la laissent peinte. |
+| Garder la peinture | Le contenu de `peindre` dans `pixelator-clic.js` | Un clic peint la case ; les clics suivants la laissent peinte. |
 
 Ces idées peuvent être combinées après un premier essai. Une autre règle de peinture peut aussi être choisie : on décrit d’abord ce que doit produire chaque clic, puis on cherche comment l’exprimer avec les instructions et les conditions déjà rencontrées.
 
 <details>
 <summary><strong>Aide — retrouver les éléments à modifier</strong></summary>
 
-Dans `pixelator-clic.js`, la fonction `peindrePixel` décrit l’action déclenchée au clic ; `event.target` désigne directement la case concernée. La couleur choisie est écrite dans l’instruction qui peint cette case. Les quatre lignes avec `.onclick` associent cette même fonction aux quatre cases.
+Dans `pixelator-clic.js`, la fonction `peindre` décrit l’action déclenchée au clic ; `event.target` désigne directement la case concernée. La couleur choisie est écrite dans l’instruction qui peint cette case. Les quatre lignes avec `.onclick` associent cette même fonction aux quatre cases.
 
-Pour garder la peinture, le comportement peut retrouver son premier état dans la fiche au clic : l’instruction `event.target.style.backgroundColor = "#800080";`, avec la couleur choisie, s’exécute à chaque clic. Le `if` / `else` de la version suivante permet de rétablir l’alternance entre peinture et effacement.
+Pour garder la peinture, on reprend l’étape de peinture sans effacement de la fiche au clic : l’instruction `event.target.style.backgroundColor = "#800080";`, avec la couleur choisie, s’exécute à chaque clic. Le `if` / `else` de l’étape suivante permet de rétablir l’alternance entre peinture et effacement.
 
 Dans `pixelator-layout.css`, la règle `#grille-pixels` définit les colonnes avec `grid-template-columns`. La règle `#grille-pixels > div` définit la largeur et la hauteur des cases. Si la largeur des cases change, on adapte aussi celle des colonnes pour garder une disposition cohérente.
 

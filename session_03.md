@@ -12,21 +12,14 @@ Les commandes Git de la fiche sont les mêmes sur Windows, macOS et Linux.
 
 ### Définir l’auteur des versions
 
-Chaque version enregistrée porte le nom de son auteur. On consulte les valeurs déjà configurées :
-
-```text
-git config --global user.name
-git config --global user.email
-```
-
-Si une valeur manque ou doit être corrigée, on remplace les exemples entre guillemets par le nom choisi et une adresse associée au compte GitHub, puis on exécute :
+Chaque version enregistrée porte le nom de son auteur. Cette configuration se fait une fois sur le poste. On remplace les exemples entre guillemets par le nom choisi et une adresse associée au compte GitHub :
 
 ```text
 git config --global user.name "Prénom Nom"
 git config --global user.email "adresse-associee-au-compte@example.com"
 ```
 
-Ces valeurs identifient l’auteur des commits. La connexion au compte GitHub sera demandée lors de l’envoi.
+`--global` conserve ces valeurs pour les projets du compte utilisateur sur ce poste. Elles identifient l’auteur des commits ; la connexion à GitHub se fera lors de l’envoi.
 
 ### Initialiser le dépôt d’essai
 
@@ -74,22 +67,22 @@ On demande à Git de décrire la situation :
 git status
 ```
 
-Git indique la branche `main`, l’absence de commit et les trois fichiers non suivis. On sélectionne les fichiers de la première version :
+Git indique la branche `main`, l’absence de commit et les trois fichiers non suivis. Depuis le dossier du projet, on prépare les fichiers de la première version :
 
 ```text
-git add README.md notes-versionnement.txt couleurs-essai.txt
+git add .
 git status
 ```
 
-`git add` prépare leur contenu pour le prochain commit. On enregistre cette version avec un message qui décrit son contenu :
+`git add .` prépare tous les changements du dossier courant et de ses sous-dossiers pour le prochain commit. Ici, il s’agit des trois nouveaux fichiers. On enregistre cette version avec un message qui décrit son contenu :
 
 ```text
-git commit -m "Ajouter les fichiers de démonstration"
+git commit -m "Ajouter les fichiers"
 git status
-git log --oneline
+git log
 ```
 
-Un **commit** conserve une version du projet avec son auteur et son message. `-m` fournit ce message. `git log --oneline` affiche l’historique, avec un identifiant abrégé et un message par commit. Si cet affichage occupe le terminal dans un lecteur, la touche `q` permet d’en sortir.
+Un **commit** conserve une version du projet avec son auteur et son message. `-m` permet de saisir ce message directement dans la commande. `git log` affiche l’historique : on repère l’identifiant après `commit` et le message de chaque version. La touche `q` permet de quitter l’affichage s’il occupe le terminal.
 
 **État attendu :** un premier commit apparaît et `git status` indique que le dossier de travail est propre. Les fichiers suivis correspondent à la version enregistrée.
 
@@ -115,22 +108,22 @@ Git signale un fichier modifié. La différence contient notamment :
 Le signe `-` désigne le contenu retiré, le signe `+` le contenu ajouté. La ligne `orange` est conservée. On prépare cette modification, puis on l’enregistre dans l’historique :
 
 ```text
-git add couleurs-essai.txt
+git add .
 git commit -m "Remplacer violet par bleu"
-git log --oneline
+git log
 ```
 
 La deuxième version conserve tous les fichiers du projet, y compris ceux qui n’ont pas changé.
 
 ### Lire une ancienne version sans changer les fichiers
 
-On consulte le fichier de couleurs dans le commit précédent :
+Dans l’historique, on copie l’identifiant du premier commit, dont le message est `Ajouter les fichiers`. Il remplace `IDENTIFIANT` dans la commande suivante :
 
 ```text
-git show HEAD~1:couleurs-essai.txt
+git show IDENTIFIANT
 ```
 
-`HEAD` désigne le commit actuellement choisi ; `HEAD~1` désigne son parent, ici la première version. Après les deux-points, on indique le fichier à lire. Le terminal affiche `violet` et `orange`.
+`git show` affiche le commit choisi et les changements qu’il a enregistrés. Dans les ajouts de `couleurs-essai.txt`, on retrouve `+violet` et `+orange`.
 
 Dans l’éditeur, le fichier contient toujours `bleu` et `orange`. `git show` a consulté l’archive sans modifier le fichier. Les deux versions existent dans l’historique local.
 
@@ -160,10 +153,10 @@ git remote -v
 ### Envoyer les versions
 
 ```text
-git push -u origin main
+git push origin main
 ```
 
-`push` envoie les commits. `origin` indique la destination et `main` la branche à envoyer. `-u` mémorise cette association pour les prochains échanges.
+`push` envoie les commits. Pour ce dépôt créé sur l’ordinateur, on précise la destination `origin` et la branche `main` à envoyer.
 
 Si VS Code demande une connexion à GitHub, on suit la connexion proposée avec le compte personnel, puis on revient dans l’éditeur. [Aide VS Code — connexion à GitHub](https://code.visualstudio.com/docs/sourcecontrol/github#sign-in-to-github-for-git-operations)
 
@@ -225,25 +218,7 @@ origin  https://github.com/nom-du-compte/PWF-pixelator.git (fetch)
 origin  https://github.com/nom-du-compte/PWF-pixelator.git (push)
 ```
 
-| Élément affiché | Signification |
-| --- | --- |
-| `origin` | Le nom donné par défaut au dépôt distant lors du clonage. |
-| L’adresse | Le dépôt GitHub avec lequel le clone échange. |
-| `(fetch)` | L’adresse utilisée pour récupérer des versions. |
-| `(push)` | L’adresse utilisée pour envoyer des commits. |
-
-`-v` demande un affichage détaillé avec les adresses. **Cette commande lit la configuration locale : elle ne contacte pas GitHub et n’envoie ni ne récupère de versions.**
-
-Les deux adresses doivent désigner le **fork personnel**. Cette vérification permet de repérer un clonage du dépôt de l’enseignant à sa place : les commits risqueraient alors d’être envoyés vers une destination sur laquelle le compte personnel ne peut pas écrire.
-
-Si `origin` désigne `EFP-DEV`, on remplace `nom-du-compte` par le compte personnel et on corrige la destination :
-
-```text
-git remote set-url origin https://github.com/nom-du-compte/PWF-pixelator.git
-git remote -v
-```
-
-`set-url` change l’adresse configurée ; les fichiers du clone et ses commits restent en place. Le fork doit déjà exister dans le compte personnel.
+`origin` est le nom donné au dépôt distant lors du clonage. `-v` affiche ses adresses : les deux lignes doivent désigner le **fork personnel**. La commande permet de vérifier la destination des échanges.
 
 **État attendu :** le projet existe dans le dépôt de l’enseignant, dans le fork personnel et dans le clone local. `origin` désigne le fork personnel.
 
@@ -255,7 +230,7 @@ Dans le terminal du dossier `PWF-pixelator`, on observe l’état courant et l�
 
 ```text
 git status
-git log --oneline
+git log
 ```
 
 Le dossier de travail doit être propre avant cette exploration. L’enseignant fournit les trois identifiants qui permettent de choisir les versions à observer.
@@ -336,7 +311,7 @@ Le résultat doit indiquer la branche `main`. La correction se fait après le re
 
 La grille apparaît, mais les clics ne réagissent pas. On ouvre la console du navigateur, puis on recharge la page. Un message `SyntaxError` indique le fichier et un emplacement à examiner.
 
-Dans l’explorateur de VS Code, on ouvre `pixelator-clic.js`. On retrouve les quatre lignes qui associent les clics à `peindrePixel` et on compare les signes autour de leurs appels à `document.querySelector` : parenthèses, guillemets et point-virgule. On corrige le signe manquant dans l’éditeur, puis on enregistre avec **File → Save**.
+Dans l’explorateur de VS Code, on ouvre `pixelator-clic.js`. On retrouve les quatre lignes qui associent les clics à `peindre` et on compare les signes autour de leurs appels à `document.querySelector` : parenthèses, guillemets et point-virgule. On corrige le signe manquant dans l’éditeur, puis on enregistre avec **File → Save**.
 
 <details>
 <summary><strong>Indice — la fin d’un appel</strong></summary>
@@ -348,7 +323,7 @@ Le sélecteur fourni à `document.querySelector` est placé entre `(` et `)`. La
 On examine la modification enregistrée :
 
 ```text
-git diff -- pixelator-clic.js
+git diff
 ```
 
 La différence doit montrer uniquement l’ajout de la parenthèse manquante. On recharge la page Pixelator et on vérifie manuellement le résultat :
@@ -363,14 +338,13 @@ Les fichiers de travail contiennent maintenant la correction. Elle n’appartien
 
 ```text
 git status
-git add pixelator-clic.js
-git diff --cached
-git commit -m "Corriger la parenthèse manquante dans l’appel à querySelector"
+git add .
+git commit -m "Corriger la parenthèse"
 git status
-git log --oneline -3
+git log
 ```
 
-`git add` sélectionne le contenu corrigé. La différence avec `--cached` permet de relire la modification préparée avant de la conserver avec `commit`. Le nouveau message apparaît en tête de l’historique local. `git status` indique que les fichiers suivis ne contiennent plus de modification en attente.
+`git add .` prépare la correction, puis `commit` l’enregistre. Le nouveau message apparaît en tête de l’historique local. `git status` indique que les fichiers suivis ne contiennent plus de modification en attente.
 
 Cette nouvelle version conserve le projet avec sa correction. Les autres fichiers en font toujours partie ; les versions précédentes, y compris celle qui contient l’erreur, restent accessibles.
 
@@ -382,11 +356,13 @@ Dans le navigateur, on actualise la page du fork personnel sur GitHub. Le nouvea
 
 ### Envoyer la correction et vérifier la réception
 
+Le clonage a déjà associé la branche `main` au fork personnel. On envoie le nouveau commit :
+
 ```text
-git push origin main
+git push
 ```
 
-On actualise à nouveau la page du fork sur GitHub. Le commit `Corriger la parenthèse manquante dans l’appel à querySelector` est visible. On ouvre `pixelator-clic.js` : la parenthèse est présente. Une copie du projet avec cette correction peut maintenant être récupérée sur un autre ordinateur.
+On actualise à nouveau la page du fork sur GitHub. Le commit `Corriger la parenthèse` est visible. On ouvre `pixelator-clic.js` : la parenthèse est présente. Une copie du projet avec cette correction peut maintenant être récupérée sur un autre ordinateur.
 
 | Après l’action | Sur l’ordinateur | Dans le fork sur GitHub |
 | --- | --- | --- |
@@ -401,24 +377,23 @@ On actualise à nouveau la page du fork sur GitHub. Le commit `Corriger la paren
 <details>
 <summary><strong>Aide-mémoire — les commandes Git du parcours</strong></summary>
 
-Les valeurs comme `fichier`, `identifiant` ou `adresse` sont remplacées par celles de l’activité.
+Les valeurs comme `identifiant` ou `adresse` sont remplacées par celles de l’activité.
 
 | Commande | Effet |
 | --- | --- |
-| `git config --global user.name` / `git config --global user.email` | Lire l’identité ; une valeur ajoutée à la fin permet de la définir. |
 | `git init -b main` | Créer un dépôt local avec une branche nommée `main`. |
 | `git status` | Observer la branche, les fichiers modifiés et la préparation du prochain commit. |
-| `git add fichier` | Préparer le contenu du fichier pour le prochain commit. |
-| `git diff` / `git diff --cached` | Lire les différences non préparées ou préparées. |
+| `git add .` | Préparer tous les changements du dossier courant et de ses sous-dossiers. |
+| `git diff` | Lire les modifications avant de les préparer avec `add`. |
 | `git commit -m "Message"` | Enregistrer une version avec un message. |
-| `git log --oneline` | Lire l’historique, un commit par ligne. |
-| `git show HEAD~1:fichier` | Lire un fichier dans le commit précédent. |
+| `git log` | Lire l’historique et retrouver les identifiants des commits. |
+| `git show identifiant` | Consulter un commit et ses changements. |
 | `git clone adresse` | Récupérer un dépôt et son historique. |
 | `git remote add origin adresse` | Enregistrer l’adresse du dépôt GitHub comme destination. |
 | `git remote -v` | Afficher les noms et adresses des dépôts distants configurés. |
-| `git remote set-url origin adresse` | Changer l’adresse de `origin`. |
 | `git checkout identifiant` / `git checkout main` | Retrouver un commit précis ou revenir sur `main`. |
-| `git push -u origin main` / `git push origin main` | Envoyer la branche ; `-u` configure aussi son suivi distant. |
+| `git push origin main` | Envoyer `main` vers `origin` dans le dépôt d’essai créé localement. |
+| `git push` | Envoyer les nouveaux commits depuis le clone du fork. |
 
 Toutes ces commandes se saisissent dans le terminal intégré de VS Code, dans le dossier du projet concerné.
 
@@ -438,7 +413,7 @@ Le quatrième commit reprend une version avec quatre cases déjà interactives :
 Après une vérification manuelle de cette version, on retire uniquement la parenthèse fermante de `document.querySelector` dans la première association de clic de `pixelator-clic.js`. La ligne fautive devient :
 
 ```js
-document.querySelector("#pixel1".onclick = peindrePixel;
+document.querySelector("#pixel1".onclick = peindre;
 ```
 
 On enregistre cette erreur dans le quatrième commit et on laisse `main` sur ce commit pour la démonstration. Le passage du quatrième identifiant à `main` doit conserver le même problème. Le `README.md` indique la page à ouvrir ; la découverte de l’erreur intervient après les trois versions fonctionnelles.
@@ -456,30 +431,30 @@ Après cette première partie, on fait une pause.
 On reste dans le clone de Pixelator ouvert dans VS Code. Les quatre cases de `peindre-au-clic.html` se peignent et s’effacent au clic. On ouvre `pixelator-clic.js` dans l’éditeur et on retrouve les quatre instructions qui associent le comportement de clic aux cases :
 
 ```js
-document.querySelector("#pixel1").onclick = peindrePixel;
-document.querySelector("#pixel2").onclick = peindrePixel;
-document.querySelector("#pixel3").onclick = peindrePixel;
-document.querySelector("#pixel4").onclick = peindrePixel;
+document.querySelector("#pixel1").onclick = peindre;
+document.querySelector("#pixel2").onclick = peindre;
+document.querySelector("#pixel3").onclick = peindre;
+document.querySelector("#pixel4").onclick = peindre;
 ```
 
-L’action reste identique : associer le clic d’une case à `peindrePixel`. Seul le numéro dans le sélecteur change. Avec seize ou cent cases, il faudrait encore ajouter des lignes presque identiques.
+L’action reste identique : associer le clic d’une case à `peindre`. Seul le numéro dans le sélecteur change. Avec seize ou cent cases, il faudrait encore ajouter des lignes presque identiques.
 
-La fonction `peindrePixel` regroupe déjà le comportement du clic. Une **boucle** permet maintenant de répéter les instructions qui associent ce comportement aux cases, en faisant varier leur numéro.
+La fonction `peindre` regroupe déjà le comportement du clic. Une **boucle** permet maintenant de répéter les instructions qui associent ce comportement aux cases, en faisant varier leur numéro.
 
 On décrit cette répétition en français :
 
 1. Le numéro commence à 1.
-2. Tant que le numéro est inférieur ou égal à 4, on associe le clic de cette case à `peindrePixel`.
+2. Tant que le numéro est inférieur ou égal à 4, on associe le clic de cette case à `peindre`.
 3. On augmente le numéro de 1, puis on revient à la vérification.
 4. Quand le numéro dépasse 4, on poursuit après la boucle.
 
 ### Remplacer les quatre instructions
 
-Dans `pixelator-clic.js`, on remplace les quatre associations de clic par ce bloc. La définition de `peindrePixel`, avec sa couleur et sa condition de peinture ou d’effacement, reste présente.
+Dans `pixelator-clic.js`, on remplace les quatre associations de clic par ce bloc. La définition de `peindre`, avec sa couleur et sa condition de peinture ou d’effacement, reste présente.
 
 ```js
 for (let numeroPixel = 1; numeroPixel <= 4; numeroPixel = numeroPixel + 1) {
-  document.querySelector("#pixel" + numeroPixel).onclick = peindrePixel;
+  document.querySelector("#pixel" + numeroPixel).onclick = peindre;
 }
 ```
 
@@ -501,17 +476,17 @@ Avant de recharger la page, on suit le compteur et on retrouve le sélecteur con
 
 | Valeur au moment de vérifier | Résultat de `numeroPixel <= 4` | Instruction exécutée dans le bloc |
 | --- | --- | --- |
-| 1 | Vrai | Associer le clic de `#pixel1` à `peindrePixel`. |
-| 2 | Vrai | Associer le clic de `#pixel2` à `peindrePixel`. |
-| 3 | Vrai | Associer le clic de `#pixel3` à `peindrePixel`. |
-| 4 | Vrai | Associer le clic de `#pixel4` à `peindrePixel`. |
+| 1 | Vrai | Associer le clic de `#pixel1` à `peindre`. |
+| 2 | Vrai | Associer le clic de `#pixel2` à `peindre`. |
+| 3 | Vrai | Associer le clic de `#pixel3` à `peindre`. |
+| 4 | Vrai | Associer le clic de `#pixel4` à `peindre`. |
 | 5 | Faux | Aucun passage : la boucle est terminée. |
 
 La condition est vérifiée cinq fois ; le bloc s’exécute quatre fois. Comme avec `if`, une condition décide si le bloc s’exécute. Avec cette boucle, on revient vérifier la condition après chaque passage et chaque augmentation du compteur.
 
 On enregistre, puis on recharge la page. La grille reste blanche. On clique sur plusieurs cases et on clique une deuxième fois sur une case peinte : le comportement doit rester identique à celui des quatre instructions de départ.
 
-**La boucle associe les clics au chargement de la page.** Elle termine ses quatre passages sans attendre de clic. Plus tard, chaque clic déclenche `peindrePixel` pour la case concernée. On conserve donc le nom `peindrePixel` sans parenthèses dans l’association.
+**La boucle associe les clics au chargement de la page.** Elle termine ses quatre passages sans attendre de clic. Plus tard, chaque clic déclenche `peindre` pour la case concernée. On conserve donc le nom `peindre` sans parenthèses dans l’association.
 
 ### Faire varier le départ et la condition
 
@@ -539,7 +514,7 @@ Dans l’éditeur de VS Code, on ouvre `peindre-au-clic.html` et on remplace la 
 
 Le chargement de `pixelator-clic.js` reste placé après cette section, à la fin du `body`. La section existe ainsi lorsque le programme commence à s’exécuter.
 
-On enregistre le HTML, puis on ouvre `pixelator-clic.js` dans l’éditeur. On remplace la boucle de l’activité précédente par le bloc suivant. On conserve la fonction `peindrePixel`, qui agit directement sur `event.target`, avec sa couleur et sa condition.
+On enregistre le HTML, puis on ouvre `pixelator-clic.js` dans l’éditeur. On remplace la boucle de l’activité précédente par le bloc suivant. On conserve la fonction `peindre`, qui agit directement sur `event.target`, avec sa couleur et sa condition.
 
 ```js
 let nombreColonnes = 2;
@@ -551,7 +526,7 @@ grillePixels.style.gridTemplateColumns = "repeat(" + nombreColonnes + ", 5rem)";
 for (let numeroPixel = 1; numeroPixel <= nombrePixels; numeroPixel = numeroPixel + 1) {
   let pixel = document.createElement("div");
   pixel.id = "pixel" + numeroPixel;
-  pixel.onclick = peindrePixel;
+  pixel.onclick = peindre;
   grillePixels.appendChild(pixel);
 }
 ```
@@ -562,7 +537,7 @@ Les nouvelles instructions de création sont fournies. On suit leurs effets pour
 | --- | --- |
 | `document.createElement("div")` | Créer un nouvel élément, encore absent de la page. |
 | `pixel.id = "pixel" + numeroPixel` | Lui attribuer un identifiant, par exemple `pixel3`. |
-| `pixel.onclick = peindrePixel` | Associer son clic au comportement déjà défini. |
+| `pixel.onclick = peindre` | Associer son clic au comportement déjà défini. |
 | `grillePixels.appendChild(pixel)` | Ajouter l’élément à la fin de la grille. |
 
 Chaque passage crée une nouvelle case. La boucle reprend ensuite les mêmes instructions avec le numéro suivant. La feuille de style applique aux nouveaux `div` l’apparence des cases de Pixelator.
