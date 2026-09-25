@@ -1,4 +1,4 @@
-# Séance 3 — Don't Panic. Git, GitHub et les boucles
+# Séance 3 — Don't Panic. Git, GitHub et Pixelator
 
 ## 1. Ouvrir le terminal et créer une version
 
@@ -168,7 +168,7 @@ On actualise le dépôt dans le navigateur. Les trois fichiers et le commit `Rem
 
 On revient sur les manipulations réalisées pour Pixelator : récupérer le prochain fichier depuis une fiche, le placer dans le bon dossier, choisir la bonne page HTML et vérifier le nom du JavaScript qu’elle charge.
 
-Le passage de quatre à neuf pixels demandait de changer de page. La page au clic utilisait encore un autre fichier JavaScript. Un téléchargement au mauvais endroit ou une page restée ouverte sur l’ancienne version suffisait à brouiller le résultat.
+Le passage de quatre à neuf pixels demandait de changer de page, tout en conservant le lien vers `pixelator.js`. Un téléchargement au mauvais endroit ou une page restée ouverte sur l’ancienne version suffisait à brouiller le résultat.
 
 > On perd du temps à récupérer les fichiers et à les mettre au bon endroit. On cherche encore si le bon HTML charge le bon JavaScript… C’est fastidieux, non ? Si seulement il existait une solution !
 
@@ -203,7 +203,7 @@ git clone https://github.com/nom-du-compte/PWF-pixelator.git
 git status
 ```
 
-Le terminal se trouve ainsi dans le clone pour toutes les commandes suivantes. L’explorateur de VS Code affiche les fichiers de Pixelator.
+Le terminal se trouve ainsi dans le clone pour les commandes Git suivantes. L’explorateur de VS Code affiche les fichiers de Pixelator.
 
 ### Vérifier la destination avec `git remote -v`
 
@@ -225,6 +225,8 @@ origin  https://github.com/nom-du-compte/PWF-pixelator.git (push)
 ## 5. Changer de version et actualiser la page
 
 Le clone contient déjà les versions préparées par l’enseignant. On va choisir successivement trois de ces archives et retrouver le projet correspondant dans le même dossier. Les résultats sont très différents : chaque version conserve une apparence ou un comportement de Pixelator.
+
+Ces versions interactives sont fournies pour explorer l’historique avec Git. On observe leurs réactions au clic ; la construction de ce comportement fait l’objet d’une activité dans la deuxième partie de la séance.
 
 Dans le terminal du dossier `PWF-pixelator`, on observe l’état courant et l’historique :
 
@@ -408,7 +410,7 @@ On prépare l’historique du dépôt public `EFP-DEV/PWF-pixelator` avant sa di
 
 Les trois premiers commits présentent trois versions fonctionnelles de Pixelator au clic, avec des apparences ou des comportements nettement différents. Chaque version utilise la même page d’entrée, `peindre-au-clic.html`, au même emplacement. Les fichiers nécessaires sont suivis par Git et les essais ne demandent aucun serveur. On vérifie manuellement chaque résultat avec la commande correspondante et l’actualisation du même onglet.
 
-Le quatrième commit reprend une version avec quatre cases déjà interactives : un clic peint la case choisie, un autre clic l’efface. La création de grilles avec des boucles appartient à la suite de la séance.
+Le quatrième commit reprend une version avec quatre cases déjà interactives : un clic peint la case choisie, un autre clic l’efface.
 
 Après une vérification manuelle de cette version, on retire uniquement la parenthèse fermante de `document.querySelector` dans la première association de clic de `pixelator-clic.js`. La ligne fautive devient :
 
@@ -422,140 +424,32 @@ On relève les quatre identifiants et on remplace `COMMIT_VERSION_1`, `COMMIT_VE
 
 </details>
 
-Après cette première partie, on fait une pause.
+---
 
-## 8. Répéter une action avec une boucle
+**Deuxième partie — Pixelator**
 
-### Repérer ce qui se répète
+## 8. Pixelator — Peindre et effacer au clic
 
-On reste dans le clone de Pixelator ouvert dans VS Code. Les quatre cases de `peindre-au-clic.html` se peignent et s’effacent au clic. On ouvre `pixelator-clic.js` dans l’éditeur et on retrouve les quatre instructions qui associent le comportement de clic aux cases :
+On ouvre dans VS Code le dossier `pixelator` conservé à la fin de la séance 2. Les motifs, l’animation et la feuille de style s’y trouvent.
 
-```js
-document.querySelector("#pixel1").onclick = peindre;
-document.querySelector("#pixel2").onclick = peindre;
-document.querySelector("#pixel3").onclick = peindre;
-document.querySelector("#pixel4").onclick = peindre;
-```
+Une page distincte de quatre pixels attend désormais une action. On télécharge `pixelator-clic.js`, qui associe le premier pixel à `peindre`. Au clic, cette fonction affiche `event.target` dans la console : on observe l’élément cliqué avant de modifier son apparence.
 
-L’action reste identique : associer le clic d’une case à `peindre`. Seul le numéro dans le sélecteur change. Avec seize ou cent cases, il faudrait encore ajouter des lignes presque identiques.
+Dans la séquence, `peindre(id)` recevait l’identifiant écrit dans chaque appel. Ici, le navigateur appelle la fonction et lui fournit un événement. On conserve le nom `peindre` et on nomme son paramètre `event` pour indiquer la valeur attendue : ce nom aide à comprendre le programme, mais ne transforme pas la valeur reçue. On remplace l’affichage dans la console par la peinture de la case désignée par `event.target`, puis on ajoute une condition pour l’effacer au clic suivant. Plusieurs cases peuvent être peintes : chacune conserve son état indépendamment des autres.
 
-La fonction `peindre` regroupe déjà le comportement du clic. Une **boucle** permet maintenant de répéter les instructions qui associent ce comportement aux cases, en faisant varier leur numéro.
+On commence avec une seule case, puis on associe les quatre cases au même comportement fourni. Les essais portent sur plusieurs clics et plusieurs cases, pour vérifier que seule la cible du clic change.
 
-On décrit cette répétition en français :
+[Consignes et fichier — Pixelator : peindre au clic](./exercices/session_03-pixelator-clic.md)
 
-1. Le numéro commence à 1.
-2. Tant que le numéro est inférieur ou égal à 4, on associe le clic de cette case à `peindre`.
-3. On augmente le numéro de 1, puis on revient à la vérification.
-4. Quand le numéro dépasse 4, on poursuit après la boucle.
+<a id="laboratoire"></a>
 
-### Remplacer les quatre instructions
+## 9. Laboratoire d’expérimentation — peinture au clic
 
-Dans `pixelator-clic.js`, on remplace les quatre associations de clic par ce bloc. La définition de `peindre`, avec sa couleur et sa condition de peinture ou d’effacement, reste présente.
+On reprend les quatre cases qui se peignent et s’effacent au clic. Les changements de couleur, de dimensions, de disposition ou de règle de peinture servent de points de départ. On prévoit un effet, on modifie le programme, puis on compare le résultat observé à la prévision. Les [expériences d’animation de la séance 2](./exercices/session_02-pixelator-laboratoire.md#animations) restent disponibles pour prolonger un parcours.
 
-```js
-for (let numeroPixel = 1; numeroPixel <= 4; numeroPixel = numeroPixel + 1) {
-  document.querySelector("#pixel" + numeroPixel).onclick = peindre;
-}
-```
+[Pistes et aides — laboratoire Pixelator](./exercices/session_03-pixelator-laboratoire.md)
 
-`for` annonce une boucle. Les trois parties entre parenthèses sont séparées par des points-virgules :
+<a id="consolidation"></a>
 
-| Partie | Rôle | Moment de son exécution |
-| --- | --- | --- |
-| `let numeroPixel = 1` | Créer le compteur avec sa valeur de départ. | Une seule fois, à l’entrée dans la boucle. |
-| `numeroPixel <= 4` | Vérifier si un passage peut avoir lieu. | Avant chaque passage, y compris le premier. |
-| `numeroPixel = numeroPixel + 1` | Augmenter le compteur de 1. | Après chaque passage dans le bloc. |
+## Rappel — interactions au clic
 
-Les accolades délimitent les instructions répétées. Un passage dans ce bloc s’appelle une **itération**. L’ordre d’exécution est : **initialisation → condition → bloc → augmentation → condition → bloc…** La boucle s’arrête dès que la condition est fausse.
-
-Dans le bloc, `"#pixel" + numeroPixel` assemble le texte et la valeur du compteur. Avec le numéro 3, le sélecteur devient `"#pixel3"`. Le nom `numeroPixel` reste sans guillemets pour utiliser sa valeur.
-
-### Suivre les passages
-
-Avant de recharger la page, on suit le compteur et on retrouve le sélecteur construit à chaque passage :
-
-| Valeur au moment de vérifier | Résultat de `numeroPixel <= 4` | Instruction exécutée dans le bloc |
-| --- | --- | --- |
-| 1 | Vrai | Associer le clic de `#pixel1` à `peindre`. |
-| 2 | Vrai | Associer le clic de `#pixel2` à `peindre`. |
-| 3 | Vrai | Associer le clic de `#pixel3` à `peindre`. |
-| 4 | Vrai | Associer le clic de `#pixel4` à `peindre`. |
-| 5 | Faux | Aucun passage : la boucle est terminée. |
-
-La condition est vérifiée cinq fois ; le bloc s’exécute quatre fois. Comme avec `if`, une condition décide si le bloc s’exécute. Avec cette boucle, on revient vérifier la condition après chaque passage et chaque augmentation du compteur.
-
-On enregistre, puis on recharge la page. La grille reste blanche. On clique sur plusieurs cases et on clique une deuxième fois sur une case peinte : le comportement doit rester identique à celui des quatre instructions de départ.
-
-**La boucle associe les clics au chargement de la page.** Elle termine ses quatre passages sans attendre de clic. Plus tard, chaque clic déclenche `peindre` pour la case concernée. On conserve donc le nom `peindre` sans parenthèses dans l’association.
-
-### Faire varier le départ et la condition
-
-On réalise les expériences suivantes séparément. Avant chaque essai, on repart de la boucle de 1 à 4 et on note les cases qui devraient réagir. Après la modification, on enregistre et on recharge la page pour reconstruire les associations de clic.
-
-| Modification | Prévision à formuler |
-| --- | --- |
-| Remplacer `numeroPixel <= 4` par `numeroPixel < 4`. | La case 4 reçoit-elle encore le comportement de clic ? |
-| Remplacer le départ `1` par `2`. | Quelle case n’est plus associée au comportement ? |
-| Remplacer le départ `1` par `5`, en gardant `numeroPixel <= 4`. | Le bloc s’exécute-t-il au moins une fois ? |
-
-On compare les clics observés à la prévision, puis on rétablit la boucle complète de 1 à 4. Le compteur doit progresser vers une valeur qui rend la condition fausse : si sa valeur reste à 1 avec cette condition, la boucle ne peut pas se terminer.
-
-## 9. Construire la grille avec une boucle
-
-### Répéter la création d’une case
-
-Les associations de clic tiennent maintenant dans une boucle, mais le HTML contient encore une ligne par case. On va aussi répéter la création des éléments : le nombre de cases pourra changer sans recopier des `div`.
-
-Dans l’éditeur de VS Code, on ouvre `peindre-au-clic.html` et on remplace la section contenant les quatre cases par une section vide :
-
-```html
-<section id="grille-pixels" aria-label="Dessin de pixels"></section>
-```
-
-Le chargement de `pixelator-clic.js` reste placé après cette section, à la fin du `body`. La section existe ainsi lorsque le programme commence à s’exécuter.
-
-On enregistre le HTML, puis on ouvre `pixelator-clic.js` dans l’éditeur. On remplace la boucle de l’activité précédente par le bloc suivant. On conserve la fonction `peindre`, qui agit directement sur `event.target`, avec sa couleur et sa condition.
-
-```js
-let nombreColonnes = 2;
-let nombrePixels = nombreColonnes * nombreColonnes;
-let grillePixels = document.querySelector("#grille-pixels");
-
-grillePixels.style.gridTemplateColumns = "repeat(" + nombreColonnes + ", 5rem)";
-
-for (let numeroPixel = 1; numeroPixel <= nombrePixels; numeroPixel = numeroPixel + 1) {
-  let pixel = document.createElement("div");
-  pixel.id = "pixel" + numeroPixel;
-  pixel.onclick = peindre;
-  grillePixels.appendChild(pixel);
-}
-```
-
-Les nouvelles instructions de création sont fournies. On suit leurs effets pour un passage :
-
-| Instruction | Effet |
-| --- | --- |
-| `document.createElement("div")` | Créer un nouvel élément, encore absent de la page. |
-| `pixel.id = "pixel" + numeroPixel` | Lui attribuer un identifiant, par exemple `pixel3`. |
-| `pixel.onclick = peindre` | Associer son clic au comportement déjà défini. |
-| `grillePixels.appendChild(pixel)` | Ajouter l’élément à la fin de la grille. |
-
-Chaque passage crée une nouvelle case. La boucle reprend ensuite les mêmes instructions avec le numéro suivant. La feuille de style applique aux nouveaux `div` l’apparence des cases de Pixelator.
-
-On enregistre les deux fichiers et on recharge la page : quatre cases blanches doivent apparaître, puis réagir aux clics comme auparavant. Dans l’inspecteur, la section contient `pixel1` à `pixel4`. Dans le fichier HTML enregistré, elle reste vide : JavaScript a créé les cases dans le document chargé par le navigateur.
-
-### Agrandir la grille avec une valeur
-
-`nombreColonnes` détermine le nombre de colonnes. Pour conserver une grille carrée, `nombrePixels` est calculé en multipliant cette valeur par elle-même. La propriété `gridTemplateColumns` reprend ce nombre de colonnes avec des cases de `5rem`, comme dans la feuille de style.
-
-On remplace uniquement la valeur de `nombreColonnes` par `3`, puis par `4`. Avant chaque rechargement, on prévoit le nombre de cases et le dernier identifiant créé.
-
-| Nombre de colonnes | Nombre de passages dans la boucle | Dernier identifiant |
-| --- | --- | --- |
-| 2 | 4 | `pixel4` |
-| 3 | 9 | `pixel9` |
-| 4 | 16 | `pixel16` |
-
-Pour chaque grille, on essaie la première case, la dernière et une case intermédiaire. Un clic peint la case choisie ; un deuxième clic l’efface. Les autres cases conservent leur état. Après un rechargement, la grille est reconstruite et le dessin disparaît.
-
-La même boucle crée les cases et leur associe le comportement de clic. Le nombre de passages dépend d’une valeur ; les instructions du bloc restent identiques.
+**Les événements et l’état de chaque élément — peindre au clic.** Le navigateur appelle `peindre` au clic et lui fournit un événement. Le paramètre est nommé `event` pour rendre cette valeur attendue compréhensible : son nom ne détermine pas ce que le navigateur transmet. `console.log(event.target)` permet d’abord d’observer l’élément cliqué. La peinture agit ensuite directement sur cette case, sans rechercher son identifiant. La couleur reste fixée dans la fonction. Une condition examine la peinture de la case concernée pour la peindre ou l’effacer ; chaque case conserve son état indépendamment des autres.

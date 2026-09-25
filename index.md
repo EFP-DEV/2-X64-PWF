@@ -89,13 +89,11 @@ Les deux groupes suivent la même progression.
 
 5. [Pixelator — Temps : animer un motif](./exercices/session_02-pixelator-time.md) — observer le contour à 1 000 puis 500 ms, réorganiser les mêmes instructions pour suivre le bord, puis construire `effacer(id)` et une rotation.
 
-6. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_02-pixelator-clic.md) — comprendre le passage de `peindre(id)` à `peindre(event)` et observer `event.target` dans la console avant de peindre la case cliquée.
-
-7. [Laboratoire d’expérimentation — animations ou peinture au clic](./session_02.md#laboratoire) — [pistes et aides](./exercices/session_02-pixelator-laboratoire.md) pour explorer les parcours, la grille de seize pixels ou la peinture au clic.
+6. [Laboratoire d’expérimentation — motifs et animations](./session_02.md#laboratoire) — [idées d’expérimentation](./exercices/session_02-pixelator-laboratoire.md) pour jouer librement avec les motifs et les animations.
 
 [Rappel des grands concepts](./session_02.md#consolidation).
 
-## [Séance 3 — Don't Panic. Git, GitHub et les boucles](./session_03.md)
+## [Séance 3 — Don't Panic. Git, GitHub et Pixelator](./session_03.md)
 
 1. [Ouvrir le terminal et créer une version](./session_03.md#1-ouvrir-le-terminal-et-créer-une-version) — créer les fichiers dans VS Code, puis enregistrer une version avec les commandes Git de son terminal intégré.
 
@@ -111,9 +109,13 @@ Les deux groupes suivent la même progression.
 
 7. [Corriger, créer une version et la partager](./session_03.md#7-corriger-créer-une-version-et-la-partager) — corriger dans l’éditeur de VS Code, créer le commit dans son terminal, puis vérifier la correction sur GitHub après le push.
 
-8. [Répéter une action avec une boucle](./session_03.md#8-répéter-une-action-avec-une-boucle) — remplacer les quatre associations de clic par une boucle `for`, suivre le compteur et observer l’effet de la condition.
+**Deuxième partie — Pixelator**
 
-9. [Construire la grille avec une boucle](./session_03.md#9-construire-la-grille-avec-une-boucle) — créer les cases et leur associer le clic, puis passer de quatre à neuf et seize pixels en changeant une valeur.
+8. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_03-pixelator-clic.md) — comprendre le passage de `peindre(id)` à `peindre(event)` et observer `event.target` dans la console avant de peindre la case cliquée.
+
+9. [Laboratoire d’expérimentation — peinture au clic](./session_03.md#laboratoire) — [pistes et aides](./exercices/session_03-pixelator-laboratoire.md) pour changer la couleur, les dimensions, la disposition ou la règle de peinture des cases.
+
+[Rappel — interactions au clic](./session_03.md#consolidation).
 
 ---
 

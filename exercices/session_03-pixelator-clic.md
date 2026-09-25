@@ -137,6 +137,6 @@ Si une case ne réagit pas, on vérifie la ligne qui associe son clic à `peindr
 
 Le programme associe maintenant **un événement, une cible et une décision**. Les quatre associations de clic se ressemblent : cette répétition fournit un autre point de départ pour étudier les boucles dans la suite du cours.
 
-[Suite — laboratoire d’expérimentation](./session_02-pixelator-laboratoire.md)
+[Suite — laboratoire d’expérimentation](./session_03-pixelator-laboratoire.md)
 
-[Séance 2](../session_02.md) · [Fiche précédente — animer un motif](./session_02-pixelator-time.md)
+[Séance 3](../session_03.md) · [Fiche précédente — laboratoire de motifs et d’animations](./session_02-pixelator-laboratoire.md)

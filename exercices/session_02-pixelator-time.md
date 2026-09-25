@@ -195,6 +195,6 @@ La vérification distingue les changements de cadence, d’ordre et de comportem
 
 Les fonctions `peindre` et `effacer` nomment les deux opérations utilisées dans chaque passage. Le groupe **attendre, effacer, peindre** revient plusieurs fois : ces appels répétés préparent l’étude des boucles dans la suite du cours.
 
-**La partie animation est terminée.** On poursuit avec [Pixelator — peindre au clic](./session_02-pixelator-clic.md), pour choisir la case et le moment du changement par une action.
+**La partie animation est terminée.** On poursuit avec le [laboratoire d’expérimentation — motifs et animations](./session_02-pixelator-laboratoire.md), pour transformer un dessin ou inventer un autre parcours.
 
 [Séance 2](../session_02.md) · [Fiche précédente — peindre un motif](./session_02-pixelator-sequence.md)
