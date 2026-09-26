@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pierre, papier, ciseaux</title>
+  <link rel="stylesheet" href="pierre-papier-ciseaux.css">
+</head>
+<body>
+  <main id="jeu" data-joueur="" data-ordinateur="" data-resultat="">
+    <h1>Pierre, papier, ciseaux</h1>
+    <p>On choisit une image. L’ordinateur joue au hasard.</p>
+
+    <div id="choix">
+      <button id="pierre" type="button" data-choix="pierre">Pierre</button>
+      <button id="papier" type="button" data-choix="papier">Papier</button>
+      <button id="ciseaux" type="button" data-choix="ciseaux">Ciseaux</button>
+    </div>
+
+    <section id="resultat" aria-labelledby="message" hidden>
+      <h2 id="message" tabindex="-1"></h2>
+      <div class="duel">
+        <figure>
+          <img id="choix-joueur" src="images/pierre.svg" alt="Pierre" width="160" height="160">
+          <figcaption>Joueur</figcaption>
+        </figure>
+        <figure>
+          <img id="choix-ordinateur" src="images/pierre.svg" alt="Pierre" width="160" height="160">
+          <figcaption>Ordinateur</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <p>Pour rejouer, on recharge la page.</p>
+    <small>La pierre bat les ciseaux. Les ciseaux battent le papier. Le papier bat la pierre.</small>
+    <noscript><p>JavaScript doit être activé pour jouer.</p></noscript>
+  </main>
+  <script src="pierre-papier-ciseaux.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  padding: 40px 16px;
+  background: #f6f3ea;
+  color: #243c4a;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+main { max-width: 640px; margin: auto; }
+h1 { font-size: clamp(26px, 5vw, 40px); }
+p, small { line-height: 1.6; }
+small { display: block; color: #586a72; }
+
+#choix, .duel {
+  display: grid;
+  gap: 12px;
+  margin: 32px 0;
+}
+
+#choix { grid-template-columns: repeat(3, 1fr); }
+.duel { grid-template-columns: repeat(2, 1fr); }
+
+button {
+  padding: 130px 8px 16px;
+  border: 2px solid #d5dbd8;
+  border-radius: 16px;
+  background-color: #fffef9;
+  background-repeat: no-repeat;
+  background-position: center 12px;
+  background-size: 110px;
+  color: inherit;
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#pierre { background-image: url("images/pierre.svg"); }
+#papier { background-image: url("images/papier.svg"); }
+#ciseaux { background-image: url("images/ciseaux.svg"); }
+button:hover { border-color: #467d85; }
+button:focus-visible { outline: 3px solid #467d85; outline-offset: 4px; }
+
+figure { margin: 0; padding: 16px; background: #fffef9; border-radius: 16px; }
+figure img { display: block; max-width: 100%; height: auto; margin: auto; }
+figcaption { margin-top: 12px; font-weight: bold; }
+#message { font-size: 30px; }
+
+@media (max-width: 400px) {
+  button { padding-top: 100px; background-size: 80px; font-size: 14px; }
+}
