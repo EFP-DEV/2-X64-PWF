@@ -29,3 +29,11 @@ code examples, prototypes, and solutions in this repository.
   possessive forms, or second-person imperatives. For example, write
   “On clique sur l’image : l’ampoule s’allume.” Vary sentence subjects naturally
   instead of starting every sentence with “on”.
+
+## Exercise repository names
+
+- Name exercise and project repositories `labo-<project-name>`. The prefix is
+  `labo-`; it does not depend on the class, course, or lesson.
+- Use lowercase names without accents, with hyphens between words.
+- Choose a name that describes the project, such as `labo-ampoule`,
+  `labo-pixelator`, or `labo-pierre-papier-ciseaux`.

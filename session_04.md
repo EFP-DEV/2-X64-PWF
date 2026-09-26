@@ -2,7 +2,7 @@
 
 ## 1. Récupérer le projet avec GitHub
 
-On ouvre le dépôt d’exercice fourni par l’enseignant. On en crée un **fork**, puis on **clone** cette copie personnelle dans le dossier des projets du cours. Le projet s’ouvre dans VS Code ; `index.html` s’ouvre directement dans le navigateur.
+On ouvre le dépôt d’exercice [EFP-DEV/labo-rock_paper_scissors](https://github.com/EFP-DEV/labo-rock_paper_scissors). On en crée un **fork**, puis on **clone** cette copie personnelle dans le dossier des projets du cours. Le projet s’ouvre dans VS Code ; `index.html` s’ouvre directement dans le navigateur.
 
 L’exercice est autonome. On reprend le parcours **fork → clone → commit → push** rencontré en séance 3 pour travailler sur un nouveau projet.
 
