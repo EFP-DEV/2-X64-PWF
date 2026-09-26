@@ -7,7 +7,4 @@ Les fichiers entièrement consacrés à Pixelator ont été déplacés en conser
 | Origine | Contenu archivé |
 |---|---|
 | `session_02.md` | [Progression, organisation et activités Pixelator](./extract_session_02.md) |
-| `exercices/session_02-ampoule.md` | [Transition de l’ampoule vers Pixelator](./extract_session_02-ampoule.md) |
-| `exercices/session_02-pixelator.md` | [Fiche de l’exercice](./exercices/session_02-pixelator.md) |
 | `exercices/pixelator/` | [Prototype avec sélecteurs de couleur et de taille](./exercices/pixelator/index.html) |
-| `legacy_solutions/pixelator/` | [Solution à quatre pixels](./legacy_solutions/pixelator/session_02/index.html) |
