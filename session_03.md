@@ -14,13 +14,19 @@ On commence avec une seule case, puis on associe les quatre cases au même compo
 
 <a id="laboratoire"></a>
 
-### Laboratoire d’expérimentation — peinture au clic
+### Laboratoire d’expérimentation facultatif — peinture au clic
 
 On reprend les quatre cases qui se peignent et s’effacent au clic. Les changements de couleur, de dimensions, de disposition ou de règle de peinture servent de points de départ. On prévoit un effet, on modifie le programme, puis on compare le résultat observé à la prévision. Les [expériences d’animation de la séance 2](./exercices/session_02-pixelator-laboratoire.md#animations) restent disponibles pour prolonger un parcours.
 
 [Pistes et aides — laboratoire Pixelator](./exercices/session_03-pixelator-laboratoire.md)
 
-## 2. Lecture — suivre les valeurs
+<a id="renforcement"></a>
+
+## 2. Renforcement facultatif — lecture : suivre les valeurs
+
+Après Pixelator, les 24 exercices de renforcement restent disponibles pour reprendre une difficulté ou poursuivre la pratique : dix lectures, onze débogages et trois créations. Ces exercices sont facultatifs et non notés. On choisit un exercice selon le point à travailler ; aucune quantité d’exercices n’est imposée.
+
+Pour reprendre l’ordre d’exécution et les changements de valeur, on choisit une lecture. Les exercices 5 et 6 se lisent ensemble pour comparer un calcul à un résultat conservé ; les exercices 4 et 10 se comparent pour suivre deux `if` successifs, puis un `if` / `else`.
 
 On exécute mentalement un programme à la fois, sans le lancer dans le navigateur. On suit les instructions dans leur ordre et on note les valeurs disponibles à chaque étape, puis les valeurs que les appels à `console.log` afficheraient. On compare notamment un calcul seul à un résultat conservé, puis deux `if` successifs à un `if` / `else`.
 
@@ -28,7 +34,9 @@ La lecture demande de ralentir et de suivre ce que chaque instruction fait réel
 
 [Programmes et questions — lecture de code](./exercices/session_03-lecture-code.md)
 
-## 3. Débogage — expliquer et corriger une erreur
+## 3. Renforcement facultatif — débogage : expliquer et corriger une erreur
+
+Pour s’exercer à expliquer un écart observé, on choisit un programme à corriger. L’exercice 4 reprend la valeur reçue par un paramètre ; l’exercice 6 distingue un calcul de la conservation de son résultat ; l’exercice 10 reprend l’ordre entre un changement d’état et son affichage. Les autres programmes permettent d’examiner d’autres erreurs avec la même démarche.
 
 Chaque programme annonce un résultat attendu. On récupère le dossier `labo-renforcement`, qui fournit la page HTML et le CSS pour le débogage et la création. On charge un seul exercice de débogage dans la page commune : on observe la console, on repère la cause de l’écart, puis on corrige les instructions concernées dans son fichier JavaScript. Après l’enregistrement et le rechargement, on vérifie les cas indiqués en repartant des valeurs initiales. La correction s’accompagne d’une explication de son effet.
 
@@ -36,7 +44,9 @@ Le débogage demande de garder le résultat attendu comme repère et de traiter 
 
 [Fichiers, programmes et résultats attendus — débogage](./exercices/session_03-debogage.md)
 
-## 4. Création — écrire un programme à partir d’une règle
+## 4. Renforcement facultatif — création : écrire un programme à partir d’une règle
+
+Pour pratiquer l’écriture des instructions, on reprend les créations dans leur ordre : construire un texte, choisir entre deux messages, puis classer une valeur. On peut s’arrêter après chaque programme. Le classement permet de prolonger le travail sur les conditions et les limites.
 
 On reprend les fichiers de départ du sous-dossier `creation` dans le même dossier `labo-renforcement`. On assemble d’abord le texte d’un badge, puis on choisit un message selon la quantité en stock. On réutilise ensuite les conditions pour classer une valeur dans un seul groupe. Chaque programme affiche son résultat dans la console ; les essais font varier les valeurs de départ et vérifient les limites. On explique quelles instructions construisent le résultat et lesquelles l’affichent.
 

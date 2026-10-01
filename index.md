@@ -97,7 +97,9 @@ Les deux groupes suivent la même progression.
 
 1. [Terminer Pixelator](./session_03.md#1-terminer-pixelator) — [peindre et effacer au clic](./exercices/session_03-pixelator-clic.md) : comprendre le passage de `peindre(id)` à `peindre(event)` et observer `event.target` dans la console avant de peindre la case cliquée.
 
-[Laboratoire d’expérimentation — peinture au clic](./session_03.md#laboratoire) — [pistes et aides](./exercices/session_03-pixelator-laboratoire.md) pour changer la couleur, les dimensions, la disposition ou la règle de peinture des cases.
+[Laboratoire d’expérimentation facultatif — peinture au clic](./session_03.md#laboratoire) — [pistes et aides](./exercices/session_03-pixelator-laboratoire.md) pour changer la couleur, les dimensions, la disposition ou la règle de peinture des cases.
+
+[Renforcement facultatif](./session_03.md#renforcement) — 24 exercices non notés de lecture, de débogage et de création, à choisir selon le point à travailler, sans quantité imposée.
 
 [Rappel — interactions au clic](./session_03.md#consolidation).
 
