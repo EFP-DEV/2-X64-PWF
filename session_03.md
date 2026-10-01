@@ -22,15 +22,15 @@ On reprend les quatre cases qui se peignent et s’effacent au clic. Les changem
 
 ## 2. Lecture — suivre les valeurs
 
-On récupère le dossier `labo-renforcement`, qui fournit une page HTML commune, une feuille de style et un fichier JavaScript par exercice. On lit un programme à la fois et on prévoit les valeurs affichées dans la console, en suivant les instructions dans leur ordre d’exécution. On compare notamment un calcul seul à un résultat conservé, puis deux `if` successifs à un `if` / `else`. Le `src` de la page commune indique le programme à exécuter pour vérifier la prévision et expliquer les écarts.
+On exécute mentalement un programme à la fois, sans le lancer dans le navigateur. On suit les instructions dans leur ordre et on note les valeurs disponibles à chaque étape, puis les valeurs que les appels à `console.log` afficheraient. On compare notamment un calcul seul à un résultat conservé, puis deux `if` successifs à un `if` / `else`.
 
-La lecture demande de ralentir et de suivre ce que chaque instruction fait réellement. On passe d’une impression générale à une représentation précise des valeurs disponibles à chaque étape. Le code reste inchangé ; c’est la compréhension de son exécution qui se précise. Une prévision contredite par la console conduit à reprendre le raisonnement à l’endroit où les valeurs ont évolué autrement que prévu.
+La lecture demande de ralentir et de suivre ce que chaque instruction fait réellement. On passe d’une impression générale à une représentation précise des valeurs disponibles à chaque étape. Le code reste inchangé ; c’est la compréhension de son exécution qui se précise. Chaque réponse s’accompagne d’une explication fondée sur les instructions et sur les valeurs suivies mentalement.
 
-[Fichiers, programmes et questions — lecture de code](./exercices/session_03-lecture-code.md)
+[Programmes et questions — lecture de code](./exercices/session_03-lecture-code.md)
 
 ## 3. Débogage — expliquer et corriger une erreur
 
-Chaque programme annonce un résultat attendu. On conserve le dossier `labo-renforcement` et on charge un seul exercice de débogage dans la page commune : on observe la console, on repère la cause de l’écart, puis on corrige les instructions concernées dans son fichier JavaScript. Après l’enregistrement et le rechargement, on vérifie les cas indiqués en repartant des valeurs initiales. La correction s’accompagne d’une explication de son effet.
+Chaque programme annonce un résultat attendu. On récupère le dossier `labo-renforcement`, qui fournit la page HTML et le CSS pour le débogage et la création. On charge un seul exercice de débogage dans la page commune : on observe la console, on repère la cause de l’écart, puis on corrige les instructions concernées dans son fichier JavaScript. Après l’enregistrement et le rechargement, on vérifie les cas indiqués en repartant des valeurs initiales. La correction s’accompagne d’une explication de son effet.
 
 Le débogage demande de garder le résultat attendu comme repère et de traiter l’erreur comme un indice. On passe de « le programme ne fonctionne pas » à une hypothèse précise sur sa cause : un nom, une opération, une condition ou l’ordre des instructions. Une modification ciblée permet de confronter cette hypothèse au résultat. Le code change pour retrouver le comportement annoncé ; l’explication se précise à partir des observations.
 

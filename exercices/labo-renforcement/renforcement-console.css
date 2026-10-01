@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 2rem 1rem;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid #d1d5db;
+  background-color: #ffffff;
+}
+
+h1 {
+  margin-top: 0;
+  line-height: 1.25;
+}
