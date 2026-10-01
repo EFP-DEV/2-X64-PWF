@@ -93,29 +93,41 @@ Les deux groupes suivent la même progression.
 
 [Rappel des grands concepts](./session_02.md#consolidation).
 
-## [Séance 3 — Don't Panic. Git, GitHub et Pixelator](./session_03.md)
+## [Séance 3 — Pixelator et exercices de renforcement](./session_03.md)
 
-1. [Ouvrir le terminal et créer une version](./session_03.md#1-ouvrir-le-terminal-et-créer-une-version) — créer les fichiers dans VS Code, puis enregistrer une version avec les commandes Git de son terminal intégré.
+1. [Terminer Pixelator](./session_03.md#1-terminer-pixelator) — [peindre et effacer au clic](./exercices/session_03-pixelator-clic.md) : comprendre le passage de `peindre(id)` à `peindre(event)` et observer `event.target` dans la console avant de peindre la case cliquée.
 
-2. [Explorer l’historique et envoyer vers GitHub](./session_03.md#2-explorer-lhistorique-et-envoyer-vers-github) — lire les différences et une ancienne version, créer le dépôt sur GitHub, puis envoyer les commits depuis VS Code avec `git push`.
-
-3. [Retrouver les difficultés de la séance 2](./session_03.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de fichiers à l’intérêt de conserver ensemble le HTML, le CSS et le JavaScript d’une version.
-
-4. [Créer un fork de Pixelator et le cloner](./session_03.md#4-créer-un-fork-de-pixelator-et-le-cloner) — créer la copie personnelle sur GitHub, la cloner depuis le terminal de VS Code et vérifier sa destination avec `git remote -v`.
-
-5. [Changer de version et actualiser la page](./session_03.md#5-changer-de-version-et-actualiser-la-page) — retrouver trois versions fonctionnelles du projet dans le même dossier et observer leurs différences dans la même page.
-
-6. [Retrouver la dernière version](./session_03.md#6-retrouver-la-dernière-version) — découvrir une erreur dans la dernière version et revenir sur `main` pour poursuivre le travail ; les versions précédentes restent conservées.
-
-7. [Corriger, créer une version et la partager](./session_03.md#7-corriger-créer-une-version-et-la-partager) — corriger dans l’éditeur de VS Code, créer le commit dans son terminal, puis vérifier la correction sur GitHub après le push.
-
-**Deuxième partie — Pixelator**
-
-8. [Pixelator — Peindre au clic : peindre et effacer chaque case](./exercices/session_03-pixelator-clic.md) — comprendre le passage de `peindre(id)` à `peindre(event)` et observer `event.target` dans la console avant de peindre la case cliquée.
-
-9. [Laboratoire d’expérimentation — peinture au clic](./session_03.md#laboratoire) — [pistes et aides](./exercices/session_03-pixelator-laboratoire.md) pour changer la couleur, les dimensions, la disposition ou la règle de peinture des cases.
+[Laboratoire d’expérimentation — peinture au clic](./session_03.md#laboratoire) — [pistes et aides](./exercices/session_03-pixelator-laboratoire.md) pour changer la couleur, les dimensions, la disposition ou la règle de peinture des cases.
 
 [Rappel — interactions au clic](./session_03.md#consolidation).
+
+## [Séance 4 — Git, GitHub et pierre, papier, ciseaux](./session_04.md)
+
+1. [Ouvrir le terminal et créer une version](./session_04.md#1-ouvrir-le-terminal-et-créer-une-version) — créer les fichiers dans VS Code, puis enregistrer une version avec les commandes Git de son terminal intégré.
+
+2. [Explorer l’historique et envoyer vers GitHub](./session_04.md#2-explorer-lhistorique-et-envoyer-vers-github) — lire les différences et une ancienne version, créer le dépôt sur GitHub, puis envoyer les commits depuis VS Code avec `git push`.
+
+3. [Retrouver les difficultés de la séance 2](./session_04.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de fichiers à l’intérêt de conserver ensemble le HTML, le CSS et le JavaScript d’une version.
+
+4. [Créer un fork de Pixelator et le cloner](./session_04.md#4-créer-un-fork-de-pixelator-et-le-cloner) — créer la copie personnelle sur GitHub, la cloner depuis le terminal de VS Code et vérifier sa destination avec `git remote -v`.
+
+5. [Changer de version et actualiser la page](./session_04.md#5-changer-de-version-et-actualiser-la-page) — retrouver trois versions fonctionnelles du projet dans le même dossier et observer leurs différences dans la même page.
+
+6. [Retrouver la dernière version](./session_04.md#6-retrouver-la-dernière-version) — découvrir une erreur dans la dernière version et revenir sur `main` pour poursuivre le travail ; les versions précédentes restent conservées.
+
+7. [Corriger, créer une version et la partager](./session_04.md#7-corriger-créer-une-version-et-la-partager) — corriger dans l’éditeur de VS Code, créer le commit dans son terminal, puis vérifier la correction sur GitHub après le push.
+
+**Deuxième partie — Pierre, papier, ciseaux**
+
+8. [Récupérer le projet avec GitHub](./session_04.md#8-récupérer-le-projet-avec-github)
+
+9. [Travail facile — Réparer le démarrage et l’ordre des instructions](./session_04.md#9-travail-facile--réparer-le-démarrage-et-lordre-des-instructions)
+
+10. [Travail intermédiaire — Terminer un comportement existant](./session_04.md#10-travail-intermédiaire--terminer-un-comportement-existant)
+
+11. [Travail difficile — Écrire et appeler `afficherChoix(id, choix)`](./session_04.md#11-travail-difficile--écrire-et-appeler-afficherchoixid-choix)
+
+12. [Expliquer les corrections et partager le résultat](./session_04.md#12-expliquer-les-corrections-et-partager-le-résultat)
 
 ---
 
