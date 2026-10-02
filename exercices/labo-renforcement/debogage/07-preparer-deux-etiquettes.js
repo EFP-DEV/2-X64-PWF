@@ -1,8 +1,18 @@
 // Exercice 7 — Préparer deux étiquettes
-// Résultat attendu : les étiquettes de Cahier et de Classeur apparaissent
-// entre « Préparation des étiquettes » et « Fin de la préparation ».
-// Chaque étiquette indique l’article et la destination Namur.
-// Avec destinationEtiquettes = "Mons", les deux destinations changent.
+
+/*
+Resultat attendu:
+
+Préparation des étiquettes
+---
+Article : Cahier
+Destination : Namur
+Article : Classeur
+Destination : Namur
+Fin de la préparation
+---
+*/
+
 
 let destinationEtiquettes = "Namur";
 let premierArticle = "Cahier";
