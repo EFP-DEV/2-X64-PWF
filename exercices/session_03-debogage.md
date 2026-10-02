@@ -6,18 +6,22 @@
 
 ### Préparer le dossier de travail
 
-1. On télécharge [le dépôt du cours](https://github.com/EFP-DEV/2-X64-PWF/archive/refs/heads/main.zip). GitHub prépare une archive à partir des fichiers du dépôt.
-2. On extrait cette archive, puis on copie le sous-dossier **`exercices/labo-renforcement`** dans le dossier des projets du cours. On conserve son nom `labo-renforcement` et tout son contenu. Le travail se fait dans cette copie, après extraction.
-3. Dans VS Code, **File → Open Folder…** ouvre ce dossier. Il contient `renforcement.html`, `renforcement-console.css` et les sous-dossiers `debogage` et `creation`.
-4. On ouvre directement `renforcement.html` dans le navigateur, par un double-clic sur le fichier. Aucun serveur n’est nécessaire.
-5. **F12 → Console** ouvre la console. On la vide, puis on recharge la page pour observer le premier programme, qui contient une erreur à corriger.
+1. Dans le dossier des projets du cours, on crée `labo-renforcement`, puis les sous-dossiers `debogage` et `creation`. Si ces dossiers existent déjà, on les réutilise en conservant leur contenu.
+2. On récupère séparément [renforcement.html](./labo-renforcement/renforcement.html) et [renforcement-console.css](./labo-renforcement/renforcement-console.css), seulement s’ils manquent. Pour télécharger un fichier, on ouvre son lien sur GitHub, puis on utilise l’icône **Download raw file** en haut du contenu. On conserve son nom et son extension, puis on le place à la racine de `labo-renforcement`.
+3. On récupère [01-preparer-une-etiquette.js](./labo-renforcement/debogage/01-preparer-une-etiquette.js) de la même façon et on le place dans `labo-renforcement/debogage`, seulement s’il manque. Les autres fichiers JavaScript seront récupérés au moment de choisir leurs exercices.
+4. Dans VS Code, **File → Open Folder…** ouvre le dossier `labo-renforcement`. Pour commencer par le premier exercice, on vérifie que l’unique balise `script` de `renforcement.html` indique `src="debogage/01-preparer-une-etiquette.js"`, puis on enregistre le HTML.
+5. On ouvre directement le fichier local `renforcement.html` dans le navigateur, par un double-clic sur le fichier. Aucun serveur n’est nécessaire.
+6. **F12 → Console** ouvre la console. On la vide, puis on recharge la page pour observer le premier programme, qui contient une erreur à corriger si le fichier n’a pas encore été travaillé.
+
+Dans un nouveau dossier, les fichiers sont disposés ainsi après cette préparation :
 
 ```text
 labo-renforcement/
 ├── renforcement.html
 ├── renforcement-console.css
-├── debogage/      onze programmes à corriger
-└── creation/      trois fichiers à compléter
+├── debogage/
+│   └── 01-preparer-une-etiquette.js
+└── creation/      vide au départ
 ```
 
 Comme pour l’horloge et Pixelator, l’attribut `src` de la balise `script` désigne le fichier JavaScript à charger. Le chemin part du dossier où se trouve `renforcement.html` : le nom du sous-dossier précède celui du fichier. La page fournie charge déjà le premier exercice de débogage.
@@ -26,7 +30,7 @@ Les onze programmes contiennent des défauts volontaires. On charge un seul fich
 
 Seul le `src` du HTML sélectionne le programme actif : ouvrir un autre fichier dans l’éditeur ne le charge pas dans le navigateur. On enregistre le HTML après chaque changement de `src`, puis on recharge le même onglet `renforcement.html`. La page garde le même aspect ; les résultats et les messages d’erreur apparaissent dans la console.
 
-On conserve le dossier de travail pour la suite. Pour changer d’exercice, on modifie le `src` ; on ne remplace pas les fichiers déjà corrigés par une nouvelle copie des fichiers de départ. Si un fichier ne se charge pas, on vérifie le chemin indiqué, l’enregistrement du HTML et l’onglet rechargé.
+On conserve le dossier de travail pour la suite. Pour changer d’exercice, on récupère son fichier JavaScript seulement s’il manque, puis on modifie le `src` ; on ne remplace pas les fichiers déjà corrigés par une nouvelle copie des fichiers de départ. Si un fichier ne se charge pas, on vérifie sa présence dans le sous-dossier indiqué, le chemin du `src`, l’enregistrement du HTML et l’onglet rechargé.
 
 ### Observer, expliquer et corriger
 
@@ -61,6 +65,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 
 **Fichier à corriger :** [debogage/02-annoncer-un-rendez-vous.js](./labo-renforcement/debogage/02-annoncer-un-rendez-vous.js).
 
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
+
 **Programme à charger dans `renforcement.html` :**
 
 ```html
@@ -80,6 +86,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 
 **Fichier à corriger :** [debogage/03-decrire-un-trajet.js](./labo-renforcement/debogage/03-decrire-un-trajet.js).
 
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
+
 **Programme à charger dans `renforcement.html` :**
 
 ```html
@@ -98,6 +106,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 ## 4. Afficher deux destinations
 
 **Fichier à corriger :** [debogage/04-afficher-deux-destinations.js](./labo-renforcement/debogage/04-afficher-deux-destinations.js).
+
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 **Programme à charger dans `renforcement.html` :**
 
@@ -129,6 +139,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 
 **Fichier à corriger :** [debogage/05-ajouter-des-tickets-au-stock.js](./labo-renforcement/debogage/05-ajouter-des-tickets-au-stock.js).
 
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
+
 **Programme à charger dans `renforcement.html` :**
 
 ```html
@@ -147,6 +159,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 ## 6. Retirer un article du stock
 
 **Fichier à corriger :** [debogage/06-retirer-un-article-du-stock.js](./labo-renforcement/debogage/06-retirer-un-article-du-stock.js).
+
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 **Programme à charger dans `renforcement.html` :**
 
@@ -167,6 +181,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 ## 7. Préparer deux étiquettes
 
 **Fichier à corriger :** [debogage/07-preparer-deux-etiquettes.js](./labo-renforcement/debogage/07-preparer-deux-etiquettes.js).
+
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 **Programme à charger dans `renforcement.html` :**
 
@@ -189,6 +205,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 
 **Fichier à corriger :** [debogage/08-verifier-un-code-dacces.js](./labo-renforcement/debogage/08-verifier-un-code-dacces.js).
 
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
+
 **Programme à charger dans `renforcement.html` :**
 
 ```html
@@ -209,6 +227,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 ## 9. Préparer une livraison
 
 **Fichier à corriger :** [debogage/09-preparer-une-livraison.js](./labo-renforcement/debogage/09-preparer-une-livraison.js).
+
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 **Programme à charger dans `renforcement.html` :**
 
@@ -231,6 +251,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 
 **Fichier à corriger :** [debogage/10-confirmer-une-reservation.js](./labo-renforcement/debogage/10-confirmer-une-reservation.js).
 
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
+
 **Programme à charger dans `renforcement.html` :**
 
 ```html
@@ -251,6 +273,8 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 ## 11. Autoriser une entrée
 
 **Fichier à corriger :** [debogage/11-autoriser-une-entree.js](./labo-renforcement/debogage/11-autoriser-une-entree.js).
+
+Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 **Programme à charger dans `renforcement.html` :**
 

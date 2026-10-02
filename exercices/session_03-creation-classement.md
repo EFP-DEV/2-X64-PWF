@@ -6,7 +6,9 @@ On écrit un programme qui examine cette valeur avec des conditions, puis affich
 
 ## Préparer le fichier actif
 
-On reprend le dossier `labo-renforcement`. Si le dossier manque, la [préparation du dossier](./session_03-debogage.md#preparation) explique comment récupérer les fichiers de départ depuis le dépôt du cours.
+On reprend le dossier `labo-renforcement`. Si le dossier manque, la [préparation du dossier](./session_03-debogage.md#preparation) explique comment le créer et récupérer les fichiers individuellement.
+
+Si [03-classer-une-valeur.js](./labo-renforcement/creation/03-classer-une-valeur.js) manque dans le sous-dossier `creation`, on ouvre son lien sur GitHub et on utilise **Download raw file**. On place le fichier dans `labo-renforcement/creation` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 Le HTML fourni est [renforcement.html](./labo-renforcement/renforcement.html) ; il charge la feuille de style [renforcement-console.css](./labo-renforcement/renforcement-console.css). Dans VS Code, on remplace l’unique balise `script` du HTML par :
 
@@ -14,7 +16,7 @@ Le HTML fourni est [renforcement.html](./labo-renforcement/renforcement.html) ; 
 <script src="creation/03-classer-une-valeur.js"></script>
 ```
 
-On enregistre le HTML et on ouvre [creation/03-classer-une-valeur.js](./labo-renforcement/creation/03-classer-une-valeur.js). Le fichier contient `let minutesDisponibles = 15;`, pour l’exemple des minutes disponibles. Les conditions, la variable du groupe et l’affichage restent à écrire. Pour une autre situation, on adapte cette déclaration à la valeur et à l’unité choisies.
+On enregistre le HTML et on ouvre le fichier local `creation/03-classer-une-valeur.js` dans l’éditeur. Le fichier contient `let minutesDisponibles = 15;`, pour l’exemple des minutes disponibles. Les conditions, la variable du groupe et l’affichage restent à écrire. Pour une autre situation, on adapte cette déclaration à la valeur et à l’unité choisies.
 
 On garde `renforcement.html` ouvert dans le navigateur, avec sa console. On vide la console et on recharge la page : le fichier de départ ne produit encore aucun affichage. Le HTML et le CSS restent fournis ; seul le JavaScript de ce troisième exercice est à compléter.
 

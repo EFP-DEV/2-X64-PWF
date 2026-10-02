@@ -4,7 +4,9 @@ Un badge présente le prénom et le rôle d’une personne. On écrit un program
 
 ## Préparer le fichier actif
 
-On reprend le dossier `labo-renforcement` utilisé pour le débogage. Si ce dossier manque, la [préparation du dossier](./session_03-debogage.md#preparation) explique comment récupérer les fichiers de départ depuis le dépôt du cours.
+On reprend le dossier `labo-renforcement` utilisé pour le débogage. Si ce dossier manque, la [préparation du dossier](./session_03-debogage.md#preparation) explique comment le créer et récupérer les fichiers individuellement.
+
+Si [01-preparer-un-badge.js](./labo-renforcement/creation/01-preparer-un-badge.js) manque dans le sous-dossier `creation`, on ouvre son lien sur GitHub et on utilise **Download raw file**. On place le fichier dans `labo-renforcement/creation` en conservant son nom et son extension. Un fichier déjà présent est conservé.
 
 Le HTML [renforcement.html](./labo-renforcement/renforcement.html) et la feuille de style [renforcement-console.css](./labo-renforcement/renforcement-console.css) sont fournis. On ouvre `renforcement.html` dans VS Code et on remplace son unique balise `script` par :
 
@@ -12,7 +14,7 @@ Le HTML [renforcement.html](./labo-renforcement/renforcement.html) et la feuille
 <script src="creation/01-preparer-un-badge.js"></script>
 ```
 
-On enregistre le HTML, puis on ouvre le fichier [creation/01-preparer-un-badge.js](./labo-renforcement/creation/01-preparer-un-badge.js) dans l’éditeur. Ce fichier contient les valeurs de départ et des commentaires ; le texte du badge et son affichage restent à écrire.
+On enregistre le HTML, puis on ouvre le fichier local `creation/01-preparer-un-badge.js` dans l’éditeur. Ce fichier contient les valeurs de départ et des commentaires ; le texte du badge et son affichage restent à écrire.
 
 Dans le navigateur, on garde la page locale `renforcement.html` active et sa console ouverte. On vide la console et on recharge la page. Le fichier de départ n’affiche encore aucun résultat. Le fichier JavaScript à compléter est celui indiqué par le `src` ; ouvrir un autre fichier dans l’éditeur ne change pas le programme chargé.
 
