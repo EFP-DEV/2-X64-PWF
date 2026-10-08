@@ -2,7 +2,26 @@
 
 [Séance 4](../session_04.md)
 
-## 1. Créer un dépôt GitHub et le cloner
+## 1. Installer Git et vérifier VS Code
+
+L’accès au compte GitHub est déjà disponible. Cette activité accueillera le guide d’installation de Git et les vérifications dans VS Code : ouverture du terminal intégré, exécution de Git depuis ce terminal et préparation de l’identité utilisée dans les commits. Les consignes d’installation et de vérification de VS Code restent à rédiger.
+
+### Définir l’auteur des versions
+
+Chaque version enregistrée porte le nom de son auteur. Cette configuration se fait une fois sur le poste. On remplace les exemples entre guillemets par le nom choisi et une adresse associée au compte GitHub :
+
+```text
+git config --global user.name "Prénom Nom"
+git config --global user.email "adresse-associee-au-compte@example.com"
+```
+
+`--global` conserve ces valeurs pour les projets du compte utilisateur sur ce poste. Elles identifient l’auteur des commits.
+
+### Vérifier la connexion de VS Code à GitHub
+
+Le compte GitHub est déjà accessible. Si VS Code demande une connexion lors du premier échange avec GitHub, on suit la connexion proposée puis on revient dans l’éditeur. [Aide VS Code — connexion à GitHub](https://code.visualstudio.com/docs/sourcecontrol/github#sign-in-to-github-for-git-operations)
+
+## 2. Créer un dépôt GitHub et le cloner
 
 ### Créer le dépôt sur GitHub
 
@@ -25,20 +44,9 @@ git clone https://github.com/nom-du-compte/labo-essai-git.git
 
 On ouvre le dossier `labo-essai-git` créé par la commande. Le dépôt local est relié au dépôt GitHub : `git clone` configure cette destination automatiquement.
 
-### Définir l’auteur des versions
-
-Chaque version enregistrée porte le nom de son auteur. Cette configuration se fait une fois sur le poste. On remplace les exemples entre guillemets par le nom choisi et une adresse associée au compte GitHub :
-
-```text
-git config --global user.name "Prénom Nom"
-git config --global user.email "adresse-associee-au-compte@example.com"
-```
-
-`--global` conserve ces valeurs pour les projets du compte utilisateur sur ce poste. Elles identifient l’auteur des commits.
-
 Git conserve des versions du projet dans un historique, tout en permettant de poursuivre le travail dans le même dossier.
 
-## 2. Créer et explorer des versions
+## 3. Créer et explorer des versions
 
 ### Écrire les premiers fichiers
 
@@ -119,13 +127,11 @@ git push origin main
 
 `push` envoie les commits vers le dépôt GitHub configuré lors du clonage.
 
-Si VS Code demande une connexion à GitHub, on suit la connexion proposée avec le compte personnel, puis on revient dans l’éditeur. [Aide VS Code — connexion à GitHub](https://code.visualstudio.com/docs/sourcecontrol/github#sign-in-to-github-for-git-operations)
-
 On actualise le dépôt dans le navigateur. Les trois fichiers et le commit `Remplacer violet par bleu` doivent être visibles. `couleurs-essai.txt` contient maintenant `bleu` et `orange` sur GitHub aussi.
 
 **État attendu :** les versions existent sur l’ordinateur et sur GitHub. Enregistrer un fichier, créer un commit et envoyer les commits sont trois actions distinctes.
 
-## 3. Retrouver les difficultés de la séance 2
+## 4. Retrouver les difficultés de la séance 2
 
 On revient sur les manipulations réalisées pour Pixelator : récupérer le prochain fichier depuis une fiche, le placer dans le bon dossier, choisir la bonne page HTML et vérifier le nom du JavaScript qu’elle charge.
 
@@ -135,7 +141,7 @@ On a déjà rencontré ces difficultés : récupérer les fichiers séparément,
 
 Le dépôt GitHub peut réunir le HTML, le CSS et le JavaScript de Pixelator dans un même projet. En créant une copie personnelle puis un clone, on récupère les fichiers ensemble dans le bon dossier. Le travail se poursuit sur cette copie ; les changements seront enregistrés dans des commits puis envoyés sur GitHub.
 
-## 4. Créer un fork de Pixelator et le cloner
+## 5. Créer un fork de Pixelator et le cloner
 
 ### Créer la copie personnelle sur GitHub
 
@@ -183,7 +189,7 @@ origin  https://github.com/nom-du-compte/labo-frontend-pixelator.git (push)
 
 **État attendu :** le projet existe dans le dépôt de l’enseignant, dans le fork personnel et dans le clone local. `origin` désigne le fork personnel.
 
-## 5. Réparer trois problèmes dans Pixelator
+## 6. Réparer trois problèmes dans Pixelator
 
 On ouvre `peindre-au-clic.html` depuis le clone dans le navigateur. La page est fournie avec le HTML, le CSS et le JavaScript ; on ne télécharge pas ces fichiers séparément. On observe la grille, la console et les réactions aux clics avant de modifier le programme.
 

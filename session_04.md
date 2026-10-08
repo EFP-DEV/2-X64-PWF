@@ -1,6 +1,12 @@
 # Séance 4 — Git, GitHub et pierre, papier, ciseaux
 
-## 1. Découvrir les versions avec Git
+## 1. Installer Git et vérifier VS Code
+
+On commence par vérifier que Git est installé et utilisable depuis le terminal intégré de VS Code. L’activité préparera aussi le nom et l’adresse associés aux commits. L’accès au compte GitHub est déjà disponible ; la création d’un compte ne fait pas partie de cette étape. Les consignes d’installation et de vérification restent à rédiger.
+
+[Préparation de Git et de VS Code — activité à compléter](./exercices/session_04-git-pixelator.md#1-installer-git-et-vérifier-vs-code)
+
+## 2. Découvrir les versions avec Git
 
 On commence par créer un dépôt d’essai sur GitHub et à le cloner dans le dossier des projets. Dans ce dossier local, les fichiers existent d’abord sans faire partie d’une version enregistrée. `git status` rend cet état visible : les fichiers sont non suivis et aucun commit n’existe encore.
 
@@ -8,9 +14,9 @@ On prépare ensuite ces fichiers avec `git add`, puis on les enregistre avec `gi
 
 Une modification de `couleurs-essai.txt` met en évidence la différence entre le contenu enregistré et le contenu de travail. Dans la comparaison, le signe `-` désigne la ligne retirée et le signe `+` la ligne ajoutée ; les autres lignes restent identiques. Un second commit conserve cette modification dans l’historique. Enfin, `git push` envoie les commits vers GitHub. Enregistrer un fichier, créer un commit et envoyer les commits sont donc trois actions distinctes.
 
-[Consignes détaillées — créer le dépôt, enregistrer des versions et examiner leurs différences](./exercices/session_04-git-pixelator.md#1-créer-un-dépôt-github-et-le-cloner)
+[Consignes détaillées — créer le dépôt, enregistrer des versions et examiner leurs différences](./exercices/session_04-git-pixelator.md#2-créer-un-dépôt-github-et-le-cloner)
 
-## 2. Reprendre Pixelator avec un dépôt personnel
+## 3. Reprendre Pixelator avec un dépôt personnel
 
 Lors des séances précédentes, les fichiers de Pixelator ont été récupérés séparément. Passer d’une page HTML à une autre demandait de placer les fichiers au bon endroit et de vérifier quel JavaScript était chargé. Un dépôt rassemble ces fichiers et leur historique dans un même projet.
 
@@ -20,9 +26,9 @@ Dans le clone, `peindre-au-clic.html` présente trois problèmes qui se révèle
 
 On vérifie le résultat par des observations complémentaires : la console ne signale plus d’erreur, un premier clic peint la case choisie, un second l’efface, et les autres cases conservent leur propre état. L’envoi sur GitHub se vérifie sur la page du fork et dans la liste des commits.
 
-[Consignes détaillées — créer le fork, cloner Pixelator et corriger les trois problèmes](./exercices/session_04-git-pixelator.md#4-créer-un-fork-de-pixelator-et-le-cloner)
+[Consignes détaillées — créer le fork, cloner Pixelator et corriger les trois problèmes](./exercices/session_04-git-pixelator.md#5-créer-un-fork-de-pixelator-et-le-cloner)
 
-## 3. Compléter pierre, papier, ciseaux
+## 4. Compléter pierre, papier, ciseaux
 
 On reprend le parcours fork → clone → commit → push sur un projet différent. La page de départ permet d’observer les boutons, les images, le verdict et la console. Les attributs HTML `data-*` conservent les choix du joueur et de l’ordinateur ainsi que le résultat calculé. L’inspecteur donne accès à ces valeurs pendant la manche, même si les images n’ont pas encore été actualisées.
 
@@ -34,7 +40,7 @@ Chaque correction ou ajout est conservé dans son propre commit, comme dans le t
 
 [Fichiers, consignes et cas de vérification — pierre, papier, ciseaux](https://github.com/EFP-DEV/labo-rock_paper_scissors/blob/main/TODO.md)
 
-## 4. Consolider le parcours
+## 5. Consolider le parcours
 
 Un dépôt Git conserve un historique local de versions. `git add` prépare les changements à enregistrer, `git commit` crée une version dans cet historique et `git push` envoie les commits vers le dépôt distant configuré. Un clone établit cette destination ; `git remote -v` permet d’en examiner l’adresse.
 
