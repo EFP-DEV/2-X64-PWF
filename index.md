@@ -66,8 +66,6 @@ Le module PWF comporte **11 séances** :
 
 Les deux groupes suivent la même progression.
 
-Le [plan de cours](./plan-cours.md) précise la progression retenue pour la préparation des séances.
-
 ---
 
 # Sommaire du cours
