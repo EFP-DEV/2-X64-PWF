@@ -2,8 +2,6 @@
 
 [Séance 4](../session_04.md)
 
-[Préparation de la démonstration — côté enseignant](./session_04-preparation.md)
-
 ## 1. Créer un dépôt GitHub et le cloner
 
 ### Créer le dépôt sur GitHub
