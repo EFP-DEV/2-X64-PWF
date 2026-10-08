@@ -12,7 +12,7 @@ Les messages rencontrés donnent une raison de vérifier une installation, un do
 
 ## 2. Écrire, conserver et publier un travail
 
-On imagine une journée d’écriture de Monkey Chess sans Git. Une explication est ajoutée, un exemple est corrigé et un paragraphe est déplacé. Après l’enregistrement, les fichiers du dossier de travail contiennent le texte actuel.
+On suit un document de cours pendant plusieurs révisions, sans Git. Une explication est ajoutée, un exemple est corrigé et un paragraphe est déplacé. Après l’enregistrement, les fichiers du dossier de travail contiennent le texte actuel.
 
 Pour conserver cette étape, on copie le projet dans une archive datée. Un journal décrit les changements et leur raison. On copie aussi l’archive sur un espace de stockage distant, afin de pouvoir retrouver le travail si l’ordinateur devient inaccessible. Enfin, on actualise la copie publiée, celle que les lecteurs peuvent consulter.
 
