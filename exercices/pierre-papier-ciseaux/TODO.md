@@ -1,6 +1,20 @@
 # TODO — Pierre, papier, ciseaux
 
-## 1. Ouvrir et observer le projet
+## 1. Récupérer le projet avec GitHub
+
+On ouvre le dépôt d’exercice [EFP-DEV/labo-rock_paper_scissors](https://github.com/EFP-DEV/labo-rock_paper_scissors) et on choisit **Fork**. On sélectionne le compte personnel comme propriétaire, puis on valide avec **Create fork**. La page du nouveau dépôt indique le compte personnel et la mention **forked from**.
+
+Dans VS Code, on ouvre le dossier parent des projets du cours, puis **Terminal → New Terminal**. Depuis la page du fork personnel, on copie l’adresse avec **Code → HTTPS** et on la remplace dans la commande :
+
+```text
+git clone https://github.com/nom-du-compte/labo-rock_paper_scissors.git
+```
+
+On ouvre dans VS Code le dossier `labo-rock_paper_scissors` créé par le clonage. Dans un nouveau terminal intégré, `git remote -v` doit afficher l’adresse du fork personnel pour `origin`. Le dépôt de l’enseignant reste la source ; les commits seront envoyés vers le fork personnel.
+
+On ouvre ensuite `index.html` directement dans le navigateur. Le dossier cloné reste le dossier de travail pour toutes les étapes suivantes.
+
+## 2. Ouvrir et observer le projet
 
 On ouvre le dossier du projet dans VS Code, puis `index.html` directement dans le navigateur. L’inspecteur et la console permettent d’observer la page avant et après un clic.
 
@@ -49,7 +63,7 @@ Dans une condition, `&&` signifie « et » : les deux comparaisons doivent être
 
 Le tirage fourni produit un entier : `0` correspond à pierre, `1` à papier et `2` à ciseaux. Son mécanisme est déjà complet.
 
-## 2. Travail facile — Réparer le démarrage et l’ordre des instructions
+## 3. Travail facile — Réparer le démarrage et l’ordre des instructions
 
 On relève le message de la console, on identifie la cause du blocage et on corrige l’erreur de syntaxe. Après enregistrement et rechargement, on observe une manche et les valeurs conservées dans le HTML.
 
@@ -64,7 +78,7 @@ Le texte du verdict peut contredire `data-resultat`. On recherche l’erreur dan
 
 Le calcul encore incomplet et les images fixes font l’objet des travaux suivants. On enregistre les corrections dans un premier commit dont le message décrit le travail.
 
-## 3. Travail intermédiaire — Compléter le calcul du résultat
+## 4. Travail intermédiaire — Compléter le calcul du résultat
 
 Le programme distingue déjà l’égalité et la victoire de pierre contre ciseaux. On complète les conditions pour reconnaître aussi les victoires de papier contre pierre et de ciseaux contre papier. Toutes les autres combinaisons doivent donner une défaite.
 
@@ -74,9 +88,9 @@ Le programme distingue déjà l’égalité et la victoire de pierre contre cise
 - Le verdict et `data-resultat` concordent avec les deux choix conservés dans le HTML.
 - Le tirage aléatoire est conservé dans la version enregistrée.
 
-La vérification manuelle de la section 5 permet de couvrir toutes les combinaisons. Les images restent fixes à ce stade. On conserve le calcul complété dans un deuxième commit.
+La vérification manuelle de la section 6 permet de couvrir toutes les combinaisons. Les images restent fixes à ce stade. On conserve le calcul complété dans un deuxième commit.
 
-## 4. Travail difficile — Écrire et appeler `afficherChoix(id, choix)`
+## 5. Travail difficile — Écrire et appeler `afficherChoix(id, choix)`
 
 Les deux images existent déjà dans le HTML. La fonction `afficherChoix(id, choix)` et ses appels restent à écrire dans le JavaScript.
 
@@ -98,7 +112,7 @@ On ajoute deux appels à cette même fonction pour chaque manche : un pour le ch
 
 On conserve la fonctionnalité dans un troisième commit, après les vérifications et le rétablissement du tirage aléatoire. Des commits supplémentaires peuvent décrire les ajustements intermédiaires.
 
-## 5. Vérifier les manches et partager le résultat
+## 6. Vérifier les manches et partager le résultat
 
 ### Couvrir les neuf combinaisons
 

@@ -110,27 +110,11 @@ Le [plan de cours](./plan-cours.md) précise la progression retenue pour la pré
 
 ## [Séance 4 — Git, GitHub et pierre, papier, ciseaux](./session_04.md)
 
-1. [Créer un dépôt GitHub et le cloner](./session_04.md#1-créer-un-dépôt-github-et-le-cloner) — créer le dépôt d’essai sur GitHub, le cloner depuis le terminal de VS Code et configurer l’auteur des commits.
+1. [Découvrir les versions avec Git](./session_04.md#1-découvrir-les-versions-avec-git) — créer un dépôt d’essai, enregistrer deux commits, examiner leurs différences, puis envoyer les versions sur GitHub. [Consignes détaillées](./exercices/session_04-git-pixelator.md#1-créer-un-dépôt-github-et-le-cloner).
 
-2. [Créer et explorer des versions](./session_04.md#2-créer-et-explorer-des-versions) — créer les fichiers, enregistrer deux versions, examiner les différences et l’historique dans VS Code, puis envoyer les commits vers GitHub.
+2. [Reprendre Pixelator avec un dépôt personnel](./session_04.md#2-reprendre-pixelator-avec-un-dépôt-personnel) — créer un fork, cloner le projet, corriger trois problèmes indépendants et envoyer les commits. [Consignes détaillées](./exercices/session_04-git-pixelator.md#4-créer-un-fork-de-pixelator-et-le-cloner).
 
-3. [Retrouver les difficultés de la séance 2](./session_04.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de récupération des fichiers à l’intérêt de rassembler le HTML, le CSS et le JavaScript dans un dépôt, puis de les récupérer ensemble par clonage.
-
-4. [Créer un fork de Pixelator et le cloner](./session_04.md#4-créer-un-fork-de-pixelator-et-le-cloner) — créer la copie personnelle sur GitHub, la cloner depuis le terminal de VS Code et vérifier sa destination avec `git remote -v`.
-
-5. [Réparer trois problèmes dans Pixelator](./session_04.md#5-réparer-trois-problèmes-dans-pixelator) — corriger le démarrage, l’alternance de peinture et l’indépendance des cases, créer un commit par correction, puis envoyer les commits vers le fork personnel.
-
-**Deuxième partie — Pierre, papier, ciseaux**
-
-6. [Récupérer le projet avec GitHub](./session_04.md#6-récupérer-le-projet-avec-github)
-
-7. [Travail facile — Réparer le démarrage et l’ordre des instructions](./session_04.md#7-travail-facile--réparer-le-démarrage-et-lordre-des-instructions)
-
-8. [Travail intermédiaire — Terminer un comportement existant](./session_04.md#8-travail-intermédiaire--terminer-un-comportement-existant)
-
-9. [Travail difficile — Écrire et appeler `afficherChoix(id, choix)`](./session_04.md#9-travail-difficile--écrire-et-appeler-afficherchoixid-choix)
-
-10. [Expliquer les corrections et partager le résultat](./session_04.md#10-expliquer-les-corrections-et-partager-le-résultat)
+3. [Compléter pierre, papier, ciseaux](./session_04.md#3-compléter-pierre-papier-ciseaux) — réparer le programme, couvrir les neuf combinaisons et actualiser les images. [Fichiers et vérifications](./exercices/pierre-papier-ciseaux/TODO.md).
 
 ---
 
