@@ -182,8 +182,6 @@ On enregistre la correction, on vide la console et on recharge `renforcement.htm
 
 **Fichier à corriger :** [debogage/07-preparer-deux-etiquettes.js](./labo-renforcement/debogage/07-preparer-deux-etiquettes.js).
 
-Si ce fichier manque, on le récupère depuis son lien avec **Download raw file**, puis on le place dans `labo-renforcement/debogage` en conservant son nom et son extension. Un fichier déjà présent est conservé.
-
 **Programme à charger dans `renforcement.html` :**
 
 ```html
@@ -192,12 +190,21 @@ Si ce fichier manque, on le récupère depuis son lien avec **Download raw file*
 
 **Résultat attendu après correction et cas de vérification :**
 
-Résultat attendu : les étiquettes de Cahier et de Classeur apparaissent
-entre « Préparation des étiquettes » et « Fin de la préparation ».
-Chaque étiquette indique l’article et la destination Namur.
-Avec destinationEtiquettes = "Mons", les deux destinations changent.
+Résultat attendu :
 
-On repère la définition de afficherEtiquette, les deux articles disponibles et les marqueurs de début et de fin. Les deux étiquettes doivent apparaître dans cet intervalle, chacune avec son article.
+```text
+Préparation des étiquettes
+---
+Article : Cahier
+Destination : Namur
+Article : Classeur
+Destination : Namur
+Fin de la préparation
+---
+```
+
+Avec `destinationEtiquettes = "Mons"`, les deux lignes `Destination`
+affichent `Mons`.
 
 On enregistre la correction, on vide la console et on recharge `renforcement.html`. On réalise ensuite les variations indiquées en enregistrant et en rechargeant à chaque essai, puis on rétablit les valeurs initiales. La correction s’accompagne d’une explication fondée sur les observations.
 
