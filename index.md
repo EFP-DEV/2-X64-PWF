@@ -114,7 +114,7 @@ Le [plan de cours](./plan-cours.md) précise la progression retenue pour la pré
 
 2. [Reprendre Pixelator avec un dépôt personnel](./session_04.md#2-reprendre-pixelator-avec-un-dépôt-personnel) — créer un fork, cloner le projet, corriger trois problèmes indépendants et envoyer les commits. [Consignes détaillées](./exercices/session_04-git-pixelator.md#4-créer-un-fork-de-pixelator-et-le-cloner).
 
-3. [Compléter pierre, papier, ciseaux](./session_04.md#3-compléter-pierre-papier-ciseaux) — réparer le programme, couvrir les neuf combinaisons et actualiser les images. [Fichiers et vérifications](./exercices/pierre-papier-ciseaux/TODO.md).
+3. [Compléter pierre, papier, ciseaux](./session_04.md#3-compléter-pierre-papier-ciseaux) — réparer le programme, couvrir les neuf combinaisons et actualiser les images. [Fichiers et vérifications dans le dépôt autonome](https://github.com/EFP-DEV/labo-rock_paper_scissors/blob/main/TODO.md).
 
 ---
 

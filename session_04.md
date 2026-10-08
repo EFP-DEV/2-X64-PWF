@@ -32,7 +32,7 @@ La fonction `afficherChoix(id, choix)` rassemble les instructions nécessaires p
 
 Chaque correction ou ajout est conservé dans son propre commit, comme dans le travail sur Pixelator. Les neuf combinaisons fournissent des cas de vérification pour le calcul. Les choix dans les attributs HTML, le verdict visible, les images et leurs textes alternatifs doivent décrire la même manche. Après les essais, le tirage aléatoire est rétabli, les commits sont vérifiés et les versions sont envoyées vers le fork personnel.
 
-[Fichiers, consignes et cas de vérification — pierre, papier, ciseaux](./exercices/pierre-papier-ciseaux/TODO.md)
+[Fichiers, consignes et cas de vérification — pierre, papier, ciseaux](https://github.com/EFP-DEV/labo-rock_paper_scissors/blob/main/TODO.md)
 
 ## 4. Consolider le parcours
 
