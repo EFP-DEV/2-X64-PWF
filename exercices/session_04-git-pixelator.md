@@ -141,10 +141,10 @@ Le dépôt GitHub peut réunir le HTML, le CSS et le JavaScript de Pixelator dan
 
 ### Créer la copie personnelle sur GitHub
 
-Dans le navigateur, on ouvre le dépôt [EFP-DEV/PWF-pixelator](https://github.com/EFP-DEV/PWF-pixelator) :
+Dans le navigateur, on ouvre le dépôt [EFP-DEV/labo-frontend-pixelator](https://github.com/EFP-DEV/labo-frontend-pixelator) :
 
 1. On choisit **Fork**.
-2. On sélectionne le compte personnel comme propriétaire, on conserve le nom `PWF-pixelator` et on copie uniquement la branche principale, `main`.
+2. On sélectionne le compte personnel comme propriétaire, on conserve le nom `labo-frontend-pixelator` et on copie uniquement la branche principale, `main`.
 3. On valide avec **Create fork**.
 4. Sur la nouvelle page, on vérifie que le propriétaire est le compte personnel. La mention **forked from** indique le dépôt d’origine.
 
@@ -157,10 +157,10 @@ Dans VS Code, on ouvre le **dossier parent des projets du cours**, avec **File �
 Depuis la page du **fork personnel**, on copie l’adresse **Code → HTTPS**. Elle remplace l’adresse d’exemple dans la commande :
 
 ```text
-git clone https://github.com/nom-du-compte/PWF-pixelator.git
+git clone https://github.com/nom-du-compte/labo-frontend-pixelator.git
 ```
 
-**Cloner** récupère le projet et son historique dans un nouveau dossier. Les fichiers du projet se trouvent maintenant ensemble dans `PWF-pixelator`. Dans VS Code, on ouvre ce dossier avec **File → Open Folder…**, puis un nouveau terminal intégré. On y saisit :
+**Cloner** récupère le projet et son historique dans un nouveau dossier. Les fichiers du projet se trouvent maintenant ensemble dans `labo-frontend-pixelator`. Dans VS Code, on ouvre ce dossier avec **File → Open Folder…**, puis un nouveau terminal intégré. On y saisit :
 
 ```text
 git status
@@ -177,8 +177,8 @@ git remote -v
 Exemple de résultat, avec le compte personnel à la place de `nom-du-compte` :
 
 ```text
-origin  https://github.com/nom-du-compte/PWF-pixelator.git (fetch)
-origin  https://github.com/nom-du-compte/PWF-pixelator.git (push)
+origin  https://github.com/nom-du-compte/labo-frontend-pixelator.git (fetch)
+origin  https://github.com/nom-du-compte/labo-frontend-pixelator.git (push)
 ```
 
 `origin` est le nom donné au dépôt distant lors du clonage. `-v` affiche ses adresses : les deux lignes doivent désigner le **fork personnel**. La commande permet de vérifier la destination des échanges.
@@ -195,19 +195,34 @@ Les trois problèmes se corrigent dans l’ordre où ils se révèlent. À chaqu
 
 On recharge la page et on lit le message de la console. Un `SyntaxError` désigne le fichier et l’emplacement à examiner. Dans `pixelator-clic.js`, on compare les quatre associations entre les cases et `peindre`, puis on corrige la syntaxe qui empêche le programme de démarrer.
 
-On recharge la page pour vérifier que l’erreur de syntaxe a disparu et que le programme s’exécute. On enregistre cette correction dans un commit dont le message décrit le changement.
+On enregistre et recharge la page pour vérifier que l’erreur de syntaxe a disparu. Les cases restent blanches après les clics : ce résultat constitue le problème suivant. On enregistre la correction de syntaxe dans un commit dont le message décrit le changement.
 
 ### Problème 2 — L’ordre des instructions annule la peinture
 
-Après le démarrage, on clique sur une case. Elle semble se peindre, puis redevient blanche pendant le même clic. On suit les instructions dans leur ordre et on relève la valeur de la couleur après chaque condition. La première condition change l’état de la case ; une condition suivante lit alors cette nouvelle valeur. On ajuste la structure pour qu’une seule des deux actions, peindre ou effacer, se produise par clic.
+On repart d’une page rechargée et on clique sur `pixel1`. La case reste blanche après le clic. On suit les instructions dans leur ordre et on relève la valeur de sa couleur après chaque condition. La première condition applique la peinture ; la seconde lit la couleur déjà modifiée et retire cette peinture pendant le même clic. Les deux affectations expliquent le résultat blanc, sans nécessiter une apparition visible du violet entre elles.
 
-On vérifie qu’un premier clic peint la case et qu’un deuxième clic l’efface, puis on conserve cette correction dans un nouveau commit.
+On reprend la structure `if` / `else` rencontrée avec l’ampoule et Pixelator en séance 3. Elle permet de choisir une seule des deux actions à partir de la première condition. On conserve les instructions de peinture et d’effacement dans leurs blocs.
+
+Après l’enregistrement et le rechargement, on clique deux fois sur `pixel1`, sans recharger entre les clics. Le premier clic doit la peindre, le deuxième doit l’effacer. On conserve cette correction dans un nouveau commit. Les essais sur les autres cases constituent l’étape suivante.
 
 ### Problème 3 — La décision dépend de l’état d’une autre case
 
-On peint une case, puis on clique sur une autre. On observe si la nouvelle case réagit selon son propre état ou selon celui de la première. Dans la condition, on vérifie quelle case fournit la valeur comparée. La décision doit porter sur l’élément cliqué, afin que chaque case puisse conserver un état indépendant.
+On recharge la page, on peint `pixel1`, puis on clique sur `pixel4`, sans recharger entre les deux clics. Le résultat attendu comporte deux cases peintes. On compare ce résultat à l’observation, puis on vérifie quelle case fournit la valeur comparée dans la condition. La décision doit porter sur l’élément cliqué, afin que chaque case puisse conserver un état indépendant.
 
-On suit une séquence de clics sur plusieurs cases pour vérifier leur indépendance, puis on enregistre cette correction dans un troisième commit.
+Après la correction, on enregistre et recharge. On reprend la séquence de vérification de la séance 3, sans recharger entre les clics :
+
+| Action | Cases qui doivent être peintes après l’action |
+| --- | --- |
+| Recharger | Aucune |
+| Cliquer sur `pixel1` | `pixel1` |
+| Cliquer sur `pixel4` | `pixel1`, `pixel4` |
+| Cliquer de nouveau sur `pixel1` | `pixel4` |
+| Cliquer sur `pixel2` | `pixel2`, `pixel4` |
+| Cliquer de nouveau sur `pixel4` | `pixel2` |
+| Cliquer sur `pixel3` | `pixel2`, `pixel3` |
+| Recharger | Aucune |
+
+On explique pourquoi la condition examine désormais l’état de la case cliquée et pourquoi une seule action se produit par clic, puis on enregistre cette correction dans un troisième commit.
 
 À chaque commit, **Source Control** permet d’examiner les lignes modifiées. Dans le terminal intégré, `git status` indique les changements en attente ; `git add .` les prépare et `git commit -m "Message"` enregistre une version locale. L’enregistrement du fichier, la création du commit et l’envoi vers GitHub sont des actions distinctes.
 
