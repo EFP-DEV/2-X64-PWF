@@ -6,9 +6,9 @@
 
 ## Le cours
 
-En première année, vous avez appris à réaliser et intégrer des interfaces web.
+En première année, le travail portait sur la réalisation et l’intégration d’interfaces web.
 
-Cette année, nous allons apprendre à **programmer leur comportement**.
+Cette année, on apprend à **programmer leur comportement**.
 
 Le cours part des mécanismes fondamentaux de la programmation et les applique progressivement au navigateur et aux interfaces web.
 
@@ -16,7 +16,11 @@ La progression générale est :
 
 > **concept → algorithme → programme → application → interface**
 
-Nous commencerons volontairement sans framework : l’objectif est d’abord de comprendre les mécanismes sur lesquels les outils plus complexes sont construits.
+Les séances 1–3 introduisent les mécanismes par la découverte et l’expérimentation. La séance 4 établit la méthode de travail avec Git et GitHub. Ces quatre séances constituent le socle partagé avec LPB.
+
+À partir de la séance 5, on prend progressivement en charge la construction et le comportement d’interfaces pour le travail UX/UI.
+
+On commence sans framework : l’objectif est d’abord de comprendre les mécanismes sur lesquels les outils plus complexes sont construits.
 
 ## Objectifs du référentiel
 
@@ -24,18 +28,17 @@ Dans le référentiel officiel X64, PWF participe à la compétence :
 
 > **Créer des interfaces web ergonomiques.**
 
-À la fin de la deuxième année, vous devez notamment pouvoir :
+Les attendus retenus pour PWF portent sur les capacités suivantes :
 
-- transposer vos connaissances des concepts et des algorithmes dans un langage de programmation ;
+- transposer les connaissances des concepts et des algorithmes dans un langage de programmation ;
 - comprendre les concepts de base de l’ergonomie web ;
 - mettre en œuvre des concepts de programmation pouvant avoir un impact sur l’ergonomie et l’interface d’un site web ;
-- comprendre les différences entre les librairies et frameworks JavaScript populaires ;
-- comprendre le fonctionnement de base d’un système backend ;
-- comprendre le fonctionnement de base des bases de données.
+- comprendre les différences entre les bibliothèques et frameworks JavaScript, notamment jQuery, React, Vue et Angular ;
+- utiliser un environnement de développement comprenant un serveur local.
 
-Les deux derniers objectifs seront principalement prolongés dans le cours **PWB — Programmation web : back end**.
+Les objectifs relatifs au backend et aux bases de données sont principalement prolongés dans le cours **PWB — Programmation web : back end**.
 
-PWF participe également à l’apprentissage des outils et environnements de travail du développement web, notamment l’utilisation d’un environnement local.
+Le référentiel fixe les compétences visées. L’ordre des séances et les projets sont les choix pédagogiques du cours.
 
 ## Organisation
 
@@ -44,24 +47,26 @@ Le module PWF comporte **11 séances** :
 - **10 séances de cours**
 - **1 séance d’examen**
 
-| Séance | Date |
-| ---: | --- |
-| 1 | 18/09/2026 |
-| 2 | 25/09/2026 |
-| 3 | 02/10/2026 |
-| 4 | 09/10/2026 |
-| 5 | 16/10/2026 |
-| 6 | 23/10/2026 |
-| 7 | 13/11/2026 |
-| 8 | 20/11/2026 |
-| 9 | 27/11/2026 |
-| 10 | 04/12/2026 |
-| 11 | 11/12/2026 — **examen** |
+| Séance | Date | Sujet |
+| ---: | --- | --- |
+| 1 | 18/09/2026 | Exploration, couleurs, numération et horloge |
+| 2 | 25/09/2026 | Horloge, ampoule, fonctions et animations Pixelator |
+| 3 | 02/10/2026 | Pixelator au clic et renforcement facultatif |
+| 4 | 09/10/2026 | Git, GitHub et pierre, papier, ciseaux |
+| 5 | 16/10/2026 | JavaScript ↔ HTML / DOM : construire le document |
+| 6 | 23/10/2026 | Événements : construire un cycle d’interaction |
+| 7 | 13/11/2026 | Données et état : piloter plusieurs représentations |
+| 8 | 20/11/2026 | Ergonomie, formulaires et validation |
+| 9 | 27/11/2026 | Organisation frontend et réalisation intégrée |
+| 10 | 04/12/2026 | Bibliothèques et frameworks JavaScript |
+| 11 | 11/12/2026 | **Examen** |
 
 **2-CE-X64-B :** 09:30 – 13:00  
 **2-CE-X64-A :** 13:30 – 17:00
 
 Les deux groupes suivent la même progression.
+
+Le [plan de cours](./plan-cours.md) précise la progression retenue pour la préparation des séances.
 
 ---
 
@@ -105,31 +110,27 @@ Les deux groupes suivent la même progression.
 
 ## [Séance 4 — Git, GitHub et pierre, papier, ciseaux](./session_04.md)
 
-1. [Ouvrir le terminal et créer une version](./session_04.md#1-ouvrir-le-terminal-et-créer-une-version) — créer les fichiers dans VS Code, puis enregistrer une version avec les commandes Git de son terminal intégré.
+1. [Créer un dépôt GitHub et le cloner](./session_04.md#1-créer-un-dépôt-github-et-le-cloner) — créer le dépôt d’essai sur GitHub, le cloner depuis le terminal de VS Code et configurer l’auteur des commits.
 
-2. [Explorer l’historique et envoyer vers GitHub](./session_04.md#2-explorer-lhistorique-et-envoyer-vers-github) — lire les différences et une ancienne version, créer le dépôt sur GitHub, puis envoyer les commits depuis VS Code avec `git push`.
+2. [Créer et explorer des versions](./session_04.md#2-créer-et-explorer-des-versions) — créer les fichiers, enregistrer deux versions, examiner les différences et l’historique dans VS Code, puis envoyer les commits vers GitHub.
 
-3. [Retrouver les difficultés de la séance 2](./session_04.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de fichiers à l’intérêt de conserver ensemble le HTML, le CSS et le JavaScript d’une version.
+3. [Retrouver les difficultés de la séance 2](./session_04.md#3-retrouver-les-difficultés-de-la-séance-2) — relier les difficultés de récupération des fichiers à l’intérêt de rassembler le HTML, le CSS et le JavaScript dans un dépôt, puis de les récupérer ensemble par clonage.
 
 4. [Créer un fork de Pixelator et le cloner](./session_04.md#4-créer-un-fork-de-pixelator-et-le-cloner) — créer la copie personnelle sur GitHub, la cloner depuis le terminal de VS Code et vérifier sa destination avec `git remote -v`.
 
-5. [Changer de version et actualiser la page](./session_04.md#5-changer-de-version-et-actualiser-la-page) — retrouver trois versions fonctionnelles du projet dans le même dossier et observer leurs différences dans la même page.
-
-6. [Retrouver la dernière version](./session_04.md#6-retrouver-la-dernière-version) — découvrir une erreur dans la dernière version et revenir sur `main` pour poursuivre le travail ; les versions précédentes restent conservées.
-
-7. [Corriger, créer une version et la partager](./session_04.md#7-corriger-créer-une-version-et-la-partager) — corriger dans l’éditeur de VS Code, créer le commit dans son terminal, puis vérifier la correction sur GitHub après le push.
+5. [Réparer trois problèmes dans Pixelator](./session_04.md#5-réparer-trois-problèmes-dans-pixelator) — corriger le démarrage, l’alternance de peinture et l’indépendance des cases, créer un commit par correction, puis envoyer les commits vers le fork personnel.
 
 **Deuxième partie — Pierre, papier, ciseaux**
 
-8. [Récupérer le projet avec GitHub](./session_04.md#8-récupérer-le-projet-avec-github)
+6. [Récupérer le projet avec GitHub](./session_04.md#6-récupérer-le-projet-avec-github)
 
-9. [Travail facile — Réparer le démarrage et l’ordre des instructions](./session_04.md#9-travail-facile--réparer-le-démarrage-et-lordre-des-instructions)
+7. [Travail facile — Réparer le démarrage et l’ordre des instructions](./session_04.md#7-travail-facile--réparer-le-démarrage-et-lordre-des-instructions)
 
-10. [Travail intermédiaire — Terminer un comportement existant](./session_04.md#10-travail-intermédiaire--terminer-un-comportement-existant)
+8. [Travail intermédiaire — Terminer un comportement existant](./session_04.md#8-travail-intermédiaire--terminer-un-comportement-existant)
 
-11. [Travail difficile — Écrire et appeler `afficherChoix(id, choix)`](./session_04.md#11-travail-difficile--écrire-et-appeler-afficherchoixid-choix)
+9. [Travail difficile — Écrire et appeler `afficherChoix(id, choix)`](./session_04.md#9-travail-difficile--écrire-et-appeler-afficherchoixid-choix)
 
-12. [Expliquer les corrections et partager le résultat](./session_04.md#12-expliquer-les-corrections-et-partager-le-résultat)
+10. [Expliquer les corrections et partager le résultat](./session_04.md#10-expliquer-les-corrections-et-partager-le-résultat)
 
 ---
 
@@ -142,6 +143,7 @@ Les documents de séance présentent le fil du cours. Les fiches d’exercices r
 - Un navigateur web avec ses outils de développement : inspecteur et console JavaScript.
 - Un éditeur de code pour modifier les fichiers HTML, CSS et JavaScript.
 - Un dossier local pour conserver les fichiers de chaque exercice.
+- Un serveur local pour le travail prévu à partir de la séance 9.
 
 Avant la séance 2, on prépare un compte GitHub et on vérifie l’accès au cours sur Moodle. Une connexion à Internet permet de récupérer les supports, de déposer l’ampoule sur GitHub et de remettre son adresse sur Moodle.
 
@@ -150,6 +152,8 @@ Avant la séance 2, on prépare un compte GitHub et on vérifie l’accès au co
 Chaque fiche indique les fichiers à récupérer, ceux à créer et leur organisation dans le dossier de l’exercice. On conserve les noms et les emplacements indiqués pour que le HTML retrouve les fichiers JavaScript, CSS et les images.
 
 On ouvre le document HTML dans le navigateur. Après une modification dans l’éditeur, on enregistre le fichier, puis on recharge la page. L’inspecteur et la console permettent d’observer le résultat et les éventuelles erreurs.
+
+À partir de la séance 9, on démarre le serveur local et on ouvre la page à son adresse locale. Ce fonctionnement est repris pour les exemples de la séance 10.
 
 Les modifications réalisées uniquement dans l’inspecteur ou la console ne sont pas enregistrées dans les fichiers.
 
