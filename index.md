@@ -110,7 +110,7 @@ Les deux groupes suivent la même progression.
 
 1. [Créer un dépôt et y envoyer une modification](./session_04.md#1-créer-un-dépôt-et-y-envoyer-une-modification) — créer un dépôt sur GitHub, le cloner dans VS Code, modifier le README, créer un commit, l’envoyer et actualiser GitHub. [Consignes et aides selon les messages rencontrés](./exercices/session_04-git-setup.md#1-créer-un-dépôt-et-y-envoyer-une-modification).
 
-2. [Écrire, conserver et publier un travail](./session_04.md#2-écrire-conserver-et-publier-un-travail) — suivre une méthode d’archivage manuel, observer une décision dans l’historique des leçons, puis relier ce travail à `git add`, `git commit` et `git push`.
+2. [Retrouver les étapes d’un projet](./session_04.md#2-retrouver-les-étapes-dun-projet) — comprendre les points de retour fournis par les commits et leur précision, observer une décision dans l’historique du cours, puis reprendre `git add`, `git commit` et `git push`.
 
 3. [Reprendre Pixelator avec un dépôt personnel](./session_04.md#3-reprendre-pixelator-avec-un-dépôt-personnel) — créer un fork, cloner le projet, corriger trois problèmes indépendants et envoyer les commits. [Consignes détaillées](./exercices/session_04-pixelator.md#2-créer-un-fork-de-pixelator-et-le-cloner).
 
