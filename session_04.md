@@ -26,11 +26,11 @@ On vérifie le résultat par des observations complémentaires : la console ne s
 
 On reprend le parcours fork → clone → commit → push sur un projet différent. La page de départ permet d’observer les boutons, les images, le verdict et la console. Les attributs HTML `data-*` conservent les choix du joueur et de l’ordinateur ainsi que le résultat calculé. L’inspecteur donne accès à ces valeurs pendant la manche, même si les images n’ont pas encore été actualisées.
 
-Les travaux suivent les problèmes observés dans le programme. La correction de syntaxe permet d’abord son exécution. La comparaison entre `data-resultat` et le verdict met ensuite en évidence un problème d’ordre des instructions. Le calcul est complété pour reconnaître les trois égalités, les trois victoires et les trois défaites. Enfin, les deux images sont actualisées à partir des choix conservés.
+On suit le même processus que dans Pixelator : un problème est observé, sa cause est repérée, une correction ciblée est apportée, puis son effet est vérifié avant de passer à la suite. La correction de syntaxe permet d’abord l’exécution. La comparaison entre `data-resultat` et le verdict met ensuite en évidence un problème d’ordre des instructions. Le calcul est complété pour reconnaître les trois égalités, les trois victoires et les trois défaites. Enfin, les deux images sont actualisées à partir des choix conservés.
 
 La fonction `afficherChoix(id, choix)` rassemble les instructions nécessaires pour préparer une image et son texte alternatif. Deux appels lui transmettent des valeurs différentes : l’identifiant de l’image à modifier et le symbole à représenter. On peut ainsi distinguer la définition d’une fonction, les paramètres qu’elle reçoit et son exécution à chaque appel.
 
-Les neuf combinaisons fournissent des cas de vérification pour le calcul. Les choix dans les attributs HTML, le verdict visible, les images et leurs textes alternatifs doivent décrire la même manche. Après les essais, le tirage aléatoire est rétabli, les commits sont vérifiés et les versions sont envoyées vers le fork personnel.
+Chaque correction ou ajout est conservé dans son propre commit, comme dans le travail sur Pixelator. Les neuf combinaisons fournissent des cas de vérification pour le calcul. Les choix dans les attributs HTML, le verdict visible, les images et leurs textes alternatifs doivent décrire la même manche. Après les essais, le tirage aléatoire est rétabli, les commits sont vérifiés et les versions sont envoyées vers le fork personnel.
 
 [Fichiers, consignes et cas de vérification — pierre, papier, ciseaux](./exercices/pierre-papier-ciseaux/TODO.md)
 

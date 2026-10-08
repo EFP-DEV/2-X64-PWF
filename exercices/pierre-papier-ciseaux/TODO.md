@@ -36,7 +36,7 @@ Trois boutons illustrés proposent pierre, papier et ciseaux. Un clic choisit le
 - [pierre-papier-ciseaux.js](./pierre-papier-ciseaux.js) contient le programme à corriger et à compléter.
 - Le dossier `images` contient [pierre.svg](./images/pierre.svg), [papier.svg](./images/papier.svg) et [ciseaux.svg](./images/ciseaux.svg).
 
-Le HTML, le CSS et les images sont complets. **Les trois travaux concernent uniquement JavaScript.** Le programme fournit les événements, le tirage aléatoire et le passage des boutons au résultat. Aucune boucle n’est à écrire. Aucun corrigé n’accompagne les fichiers de départ.
+Le HTML, le CSS et les images sont complets. **Les quatre travaux concernent uniquement JavaScript.** Le programme fournit les événements, le tirage aléatoire et le passage des boutons au résultat. Aucune boucle n’est à écrire. Aucun corrigé n’accompagne les fichiers de départ.
 
 ### L’état de départ
 
@@ -44,7 +44,7 @@ La page apparaît, mais les clics ne déclenchent aucune manche : une erreur de 
 
 Après la correction de cette erreur, le verdict reste « Défaite », y compris lorsque le résultat conservé dans le HTML indique autre chose. Le calcul du résultat ne couvre pas encore toutes les combinaisons. Les deux images du résultat restent sur pierre : leur actualisation n’est pas programmée.
 
-Les travaux suivent cet ordre : réparer le démarrage et le verdict, compléter le calcul, puis actualiser les images.
+Les travaux suivent cet ordre : réparer la syntaxe, corriger l’ordre des instructions, compléter le calcul, puis actualiser les images. Comme pour Pixelator, chaque problème est observé et corrigé séparément avant de créer un commit.
 
 ### Repères de lecture du code fourni
 
@@ -63,22 +63,24 @@ Dans une condition, `&&` signifie « et » : les deux comparaisons doivent être
 
 Le tirage fourni produit un entier : `0` correspond à pierre, `1` à papier et `2` à ciseaux. Son mécanisme est déjà complet.
 
-## 3. Travail facile — Réparer le démarrage et l’ordre des instructions
+## 3. Travail 1 — Réparer le démarrage
 
-On relève le message de la console, on identifie la cause du blocage et on corrige l’erreur de syntaxe. Après enregistrement et rechargement, on observe une manche et les valeurs conservées dans le HTML.
+On commence par recharger la page et relever le message de la console. On retrouve l’instruction signalée, on corrige uniquement l’erreur de syntaxe, puis on enregistre et recharge la page. Le clic déclenche maintenant une manche ; on observe les choix dans les attributs HTML et le verdict affiché.
 
-Le texte du verdict peut contredire `data-resultat`. On recherche l’erreur dans l’ordre des instructions et on la corrige.
+**Critères de réussite :** le programme démarre sans erreur de syntaxe et chacun des trois boutons déclenche une manche. On enregistre cette correction dans un commit qui décrit le démarrage rétabli.
+
+## 4. Travail 2 — Corriger l’ordre des instructions
+
+Le texte du verdict peut contredire `data-resultat`. On compare les instructions qui calculent le résultat à celles qui mettent à jour le verdict, puis on suit leur ordre d’exécution pour expliquer l’écart. On corrige cette cause sans compléter encore les règles de victoire manquantes.
 
 **Critères de réussite :**
 
-- Le programme démarre sans erreur de syntaxe dans la console.
-- Chacun des trois boutons permet de jouer une manche après rechargement.
 - Le verdict affiché correspond à `data-resultat`, notamment lorsque cet attribut contient « Égalité » ou « Victoire ».
 - Les boutons disparaissent après le choix et le résultat devient visible.
 
-Le calcul encore incomplet et les images fixes font l’objet des travaux suivants. On enregistre les corrections dans un premier commit dont le message décrit le travail.
+Le calcul des autres combinaisons et les images fixes font l’objet des travaux suivants. On enregistre cette correction dans un nouveau commit.
 
-## 4. Travail intermédiaire — Compléter le calcul du résultat
+## 5. Travail 3 — Compléter le calcul du résultat
 
 Le programme distingue déjà l’égalité et la victoire de pierre contre ciseaux. On complète les conditions pour reconnaître aussi les victoires de papier contre pierre et de ciseaux contre papier. Toutes les autres combinaisons doivent donner une défaite.
 
@@ -88,9 +90,9 @@ Le programme distingue déjà l’égalité et la victoire de pierre contre cise
 - Le verdict et `data-resultat` concordent avec les deux choix conservés dans le HTML.
 - Le tirage aléatoire est conservé dans la version enregistrée.
 
-La vérification manuelle de la section 6 permet de couvrir toutes les combinaisons. Les images restent fixes à ce stade. On conserve le calcul complété dans un deuxième commit.
+La vérification manuelle de la section 7 permet de couvrir toutes les combinaisons. Les images restent fixes à ce stade. On conserve le calcul complété dans un nouveau commit.
 
-## 5. Travail difficile — Écrire et appeler `afficherChoix(id, choix)`
+## 6. Travail 4 — Écrire et appeler `afficherChoix(id, choix)`
 
 Les deux images existent déjà dans le HTML. La fonction `afficherChoix(id, choix)` et ses appels restent à écrire dans le JavaScript.
 
@@ -110,9 +112,9 @@ On ajoute deux appels à cette même fonction pour chaque manche : un pour le ch
 - La même fonction est réutilisée pour les deux images avec des valeurs différentes.
 - Le verdict reste correct pour les neuf combinaisons.
 
-On conserve la fonctionnalité dans un troisième commit, après les vérifications et le rétablissement du tirage aléatoire. Des commits supplémentaires peuvent décrire les ajustements intermédiaires.
+On conserve la fonctionnalité dans un nouveau commit. Des commits supplémentaires peuvent décrire les ajustements intermédiaires.
 
-## 6. Vérifier les manches et partager le résultat
+## 7. Vérifier les manches et partager le résultat
 
 ### Couvrir les neuf combinaisons
 
@@ -128,7 +130,7 @@ Le tableau indique le verdict attendu du point de vue du joueur :
 | Papier | Victoire | Égalité | Défaite |
 | Ciseaux | Défaite | Victoire | Égalité |
 
-Au premier travail, on utilise les cas déjà pris en charge : les égalités et pierre contre ciseaux doivent produire un verdict conforme à `data-resultat`. Au deuxième travail, tous les résultats du tableau doivent être obtenus. Au troisième, on vérifie aussi les images et les textes alternatifs pour chacune des neuf manches.
+Après le travail 2, les égalités et pierre contre ciseaux doivent produire un verdict conforme à `data-resultat`. Après le travail 3, les neuf résultats du tableau doivent être obtenus. Après le travail 4, on vérifie aussi les images et les textes alternatifs pour chacune des neuf manches.
 
 Après les essais, on rétablit **`Math.floor(Math.random() * 3)`** comme expression du tirage, on enregistre et on recharge. On vérifie la modification avec `git diff` avant de créer le commit : aucun tirage fixé pour les essais ne doit rester dans la version enregistrée.
 
@@ -142,6 +144,6 @@ Après les essais, on rétablit **`Math.floor(Math.random() * 3)`** comme expres
 
 ### Expliquer et envoyer le travail
 
-Pour chaque travail, on explique le problème observé, sa cause et l’effet de la modification. Les observations de la console, des attributs HTML et de la page permettent de justifier la correction ou l’ajout.
+Pour chaque travail, comme pour les réparations de Pixelator, on explique le problème observé, sa cause et l’effet de la modification. Les observations de la console, des attributs HTML et de la page permettent de justifier la correction ou l’ajout.
 
-Le dépôt contient au moins trois commits de travail avec des messages descriptifs. On envoie les commits avec `git push`, puis on vérifie sur GitHub la présence des fichiers modifiés et des commits correspondants.
+Le dépôt contient au moins quatre commits de travail avec des messages descriptifs : un pour chaque correction ou ajout. On envoie les commits avec `git push`, puis on vérifie sur GitHub la présence des fichiers modifiés et des commits correspondants.
