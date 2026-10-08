@@ -1,14 +1,12 @@
 # Pixelator — fork, clone et corrections
 
-[Séance 4](../session_04.md) · [Aide Git — premier parcours et messages](./session_04-git-setup.md)
+[Séance 4](../session_04.md)
 
 ## 1. Retrouver les difficultés de la séance 2
 
 On revient sur les manipulations réalisées pour Pixelator : récupérer le prochain fichier depuis une fiche, le placer dans le bon dossier, choisir la bonne page HTML et vérifier le nom du JavaScript qu’elle charge.
 
 Le passage de quatre à neuf pixels demandait de changer de page, tout en conservant le lien vers `pixelator.js`. Un téléchargement au mauvais endroit ou une page restée ouverte sur l’ancienne version suffisait à brouiller le résultat.
-
-On a déjà rencontré ces difficultés : récupérer les fichiers séparément, les placer dans le bon dossier et vérifier quelle page charge quel JavaScript.
 
 Le dépôt GitHub peut réunir le HTML, le CSS et le JavaScript de Pixelator dans un même projet. En créant une copie personnelle puis un clone, on récupère les fichiers ensemble dans le bon dossier. Le travail se poursuit sur cette copie ; les changements seront enregistrés dans des commits puis envoyés sur GitHub.
 
@@ -27,7 +25,7 @@ Un **fork** est une copie personnelle du dépôt sur GitHub. Le dépôt de l’e
 
 ### Récupérer le projet dans un dossier local
 
-Dans VS Code, on ouvre le **dossier parent des projets du cours**, avec **File → Open Folder…**, puis un nouveau terminal avec **Terminal → New Terminal**. Le clone sera créé à côté du dépôt d’essai.
+Dans le terminal intégré, on se place dans le **dossier parent des projets du cours**. Le clone sera créé à côté du dépôt d’essai.
 
 Depuis la page du **fork personnel**, on copie l’adresse **Code → HTTPS**. Elle remplace l’adresse d’exemple dans la commande :
 
@@ -35,13 +33,13 @@ Depuis la page du **fork personnel**, on copie l’adresse **Code → HTTPS**. E
 git clone https://github.com/nom-du-compte/labo-frontend-pixelator.git
 ```
 
-**Cloner** récupère le projet et son historique dans un nouveau dossier. Les fichiers du projet se trouvent maintenant ensemble dans `labo-frontend-pixelator`. Dans VS Code, on ouvre ce dossier avec **File → Open Folder…**, puis un nouveau terminal intégré. On y saisit :
+**Cloner** récupère le projet et son historique dans un nouveau dossier. Les fichiers du projet se trouvent maintenant ensemble dans `labo-frontend-pixelator`. On ouvre ce dossier dans VS Code. Les commandes Git suivantes s’exécutent depuis ce clone. On y saisit :
 
 ```text
 git status
 ```
 
-Le terminal se trouve ainsi dans le clone pour les commandes Git suivantes. L’explorateur de VS Code affiche les fichiers de Pixelator.
+L’explorateur de VS Code affiche les fichiers de Pixelator.
 
 ### Vérifier la destination avec `git remote -v`
 
@@ -112,3 +110,35 @@ git push
 On actualise la page du fork sur GitHub. Les fichiers corrigés et les trois nouveaux messages de commit doivent y apparaître. Le dépôt de l’enseignant garde son propre état ; les changements ont été envoyés vers le fork personnel.
 
 **État attendu :** Pixelator démarre sans erreur, chaque clic agit sur la case choisie, un second clic l’efface sans modifier les autres cases, et les trois commits sont visibles sur le fork personnel.
+
+## 4. Jouer avec Pixelator
+
+Avant de jouer avec Pixelator, on remet l’adresse du dépôt personnel sur Moodle dans l’exercice prévu à cet effet, comme lors du cours précédent.
+
+Le programme corrigé sert maintenant de point de départ. On choisit une expérience dont l’effet peut être décrit avant de modifier le projet. Par exemple, on peut changer la couleur de peinture dans `pixelator-clic.js`, modifier la taille ou la disposition des cases dans `pixelator-layout.css`, ou choisir une autre règle pour les clics.
+
+On ouvre `peindre-au-clic.html` depuis le clone. Pour chaque essai, on note le résultat attendu, on modifie un aspect du programme, puis on enregistre et recharge la page pour comparer l’observation à la prévision. Si la règle des clics change, on essaie plusieurs cases et plusieurs clics pour vérifier les conséquences de cette règle.
+
+On peut combiner plusieurs changements après les avoir examinés séparément. Pour conserver une expérience, on examine les fichiers modifiés dans **Source Control**, puis on crée un commit qui la décrit et on l’envoie avec `git push`. On actualise le fork pour vérifier que la nouvelle version y apparaît. Une expérience peut aussi rester locale : dans ce cas, `git status` permet de voir les changements qui n’ont pas été enregistrés dans un commit.
+
+On explique l’effet recherché, les fichiers modifiés et le résultat observé. Chaque choix part d’un Pixelator fonctionnel et laisse place à une règle, une apparence ou une disposition personnelle.
+
+
+## 5. Essayer la grille 32 × 16 dans une branche
+
+Une grille de 32 colonnes et 16 lignes est disponible dans une branche du dépôt Pixelator de référence. Le clone créé depuis le fork personnel ne connaît pas encore ce dépôt. On ajoute son adresse sous le nom `pixelator-reference`, puis on récupère ses branches :
+
+```text
+git remote add pixelator-reference https://github.com/EFP-DEV/labo-frontend-pixelator.git
+git fetch pixelator-reference
+```
+
+On crée une branche locale `essai-32x16` à partir de la branche publiée `pixelator-32x16` :
+
+```text
+git switch -c essai-32x16 pixelator-reference/pixelator-32x16
+```
+
+On ouvre `peindre-au-clic.html`. La grille contient 32 colonnes et 16 lignes ; le fichier JavaScript est à écrire pour pouvoir peindre les cases. Les essais et commits se font dans `essai-32x16`, sans modifier la branche `main`. Pour revenir au projet corrigé, on saisit `git switch main`.
+
+**État attendu :** `git branch` indique `essai-32x16` comme branche courante et la page affiche 512 cases.

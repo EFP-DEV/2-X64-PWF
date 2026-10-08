@@ -108,11 +108,15 @@ Les deux groupes suivent la même progression.
 
 ## [Séance 4 — Git, GitHub et pierre, papier, ciseaux](./session_04.md)
 
-1. [Découvrir les versions avec Git](./session_04.md#1-découvrir-les-versions-avec-git) — créer un dépôt d’essai, enregistrer deux commits, examiner leurs différences, puis envoyer les versions sur GitHub. [Consignes détaillées](./exercices/session_04-git-pixelator.md#1-créer-un-dépôt-github-et-le-cloner).
+1. [Créer un dépôt et y envoyer une modification](./session_04.md#1-créer-un-dépôt-et-y-envoyer-une-modification) — créer un dépôt sur GitHub, le cloner dans VS Code, modifier le README, créer un commit, l’envoyer et actualiser GitHub. [Consignes et aides selon les messages rencontrés](./exercices/session_04-git-setup.md#1-créer-un-dépôt-et-y-envoyer-une-modification).
 
-2. [Reprendre Pixelator avec un dépôt personnel](./session_04.md#2-reprendre-pixelator-avec-un-dépôt-personnel) — créer un fork, cloner le projet, corriger trois problèmes indépendants et envoyer les commits. [Consignes détaillées](./exercices/session_04-git-pixelator.md#4-créer-un-fork-de-pixelator-et-le-cloner).
+2. [Écrire, conserver et publier un travail](./session_04.md#2-écrire-conserver-et-publier-un-travail) — suivre une méthode d’archivage manuel, observer une décision dans l’historique des leçons, puis relier ce travail à `git add`, `git commit` et `git push`.
 
-3. [Compléter pierre, papier, ciseaux](./session_04.md#3-compléter-pierre-papier-ciseaux) — réparer le programme, couvrir les neuf combinaisons et actualiser les images. [Fichiers et vérifications dans le dépôt autonome](https://github.com/EFP-DEV/labo-rock_paper_scissors/blob/main/TODO.md).
+3. [Reprendre Pixelator avec un dépôt personnel](./session_04.md#3-reprendre-pixelator-avec-un-dépôt-personnel) — créer un fork, cloner le projet, corriger trois problèmes indépendants et envoyer les commits. [Consignes détaillées](./exercices/session_04-pixelator.md#2-créer-un-fork-de-pixelator-et-le-cloner).
+
+   [Laboratoire d’expérimentation — jouer avec Pixelator](./session_04.md#laboratoire-pixelator) — essayer une couleur, une taille, une disposition ou une règle au clic, puis conserver les changements choisis dans le fork.
+
+4. [Compléter pierre, papier, ciseaux](./session_04.md#4-compléter-pierre-papier-ciseaux) — réparer le programme, couvrir les neuf combinaisons et actualiser les images. [Fichiers et vérifications dans le dépôt autonome](https://github.com/EFP-DEV/labo-rock_paper_scissors/blob/main/TODO.md).
 
 ---
 
