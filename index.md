@@ -118,6 +118,18 @@ Les deux groupes suivent la même progression.
 
 4. [Compléter pierre, papier, ciseaux](./session_04.md#4-compléter-pierre-papier-ciseaux) — réparer le programme, couvrir les neuf combinaisons et actualiser les images. [Fichiers et vérifications dans le dépôt autonome](https://github.com/EFP-DEV/labo-rock_paper_scissors/blob/main/TODO.md).
 
+## [Séance 5 — Construire le document avec JavaScript](./session_05.md)
+
+1. [Créer une case et l’insérer dans le document](./session_05.md#2-créer-une-case-et-linsérer-dans-le-document) — distinguer l’élément créé du document affiché, puis observer son insertion dans la grille.
+
+2. [Conserver la construction dans un fichier](./session_05.md#3-conserver-la-construction-dans-un-fichier) — reprendre le comportement au clic et comparer les fichiers au document reconstruit après rechargement.
+
+3. [Construire quatre cases, puis introduire la boucle](./session_05.md#4-construire-quatre-cases-et-comparer-les-instructions) — comparer les blocs répétés, suivre le numéro et préserver le résultat avec `while`.
+
+4. [Construire une grille de dimensions choisies](./session_05.md#6-construire-une-grille-de-dimensions-choisies) — distinguer quantité et disposition, puis construire 32 colonnes et 16 lignes.
+
+[Fichiers, manipulations et vérifications — construire la grille Pixelator](./exercices/session_05-pixelator-construction.md) · [Consolidation](./session_05.md#consolidation).
+
 ---
 
 ## Informations pratiques
