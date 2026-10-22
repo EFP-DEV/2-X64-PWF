@@ -120,17 +120,23 @@ Les deux groupes suivent la même progression.
 
 ## [Séance 5 — Construire le document avec JavaScript](./session_05.md)
 
-1. [Créer une case et l’insérer dans le document](./session_05.md#2-créer-une-case-et-linsérer-dans-le-document) — distinguer l’élément créé du document affiché, puis observer son insertion dans la grille.
+1. [Retrouver les cases de Pixelator](./session_05.md#1-retrouver-les-cases-de-pixelator) — reprendre les quatre cases terminées et retrouver leur structure et leur comportement.
 
-2. [Conserver la construction dans un fichier](./session_05.md#3-conserver-la-construction-dans-un-fichier) — reprendre le comportement au clic et comparer les fichiers au document reconstruit après rechargement.
+2. [Créer une case et l’insérer dans le document](./session_05.md#2-créer-une-case-et-linsérer-dans-le-document) — distinguer l’élément créé du document affiché, puis observer son insertion dans la grille.
 
-3. [Construire quatre cases, puis introduire la boucle](./session_05.md#4-construire-quatre-cases-et-comparer-les-instructions) — comparer les blocs répétés, suivre le numéro et préserver le résultat avec `while`.
+3. [Conserver la construction dans un fichier](./session_05.md#3-conserver-la-construction-dans-un-fichier) — reprendre le comportement au clic et comparer les fichiers au document reconstruit après rechargement.
 
-4. [Pratiquer les boucles dans la console](./exercices/session_05-boucles.md) — seize exercices pour faire varier le départ, la limite, le pas, l’ordre des instructions et les affichages, puis écrire une boucle à partir d’une règle.
+4. [Construire quatre cases et comparer les instructions](./session_05.md#4-construire-quatre-cases-et-comparer-les-instructions) — obtenir le même comportement et identifier les opérations répétées et le numéro qui change.
 
-5. [Construire une grille de dimensions choisies](./session_05.md#7-construire-une-grille-de-dimensions-choisies) — distinguer quantité et disposition, puis construire 32 colonnes et 16 lignes.
+5. [Répéter la construction avec une boucle](./session_05.md#5-répéter-la-construction-avec-une-boucle) — suivre le numéro et préserver le résultat avec `while`.
 
-[Fichiers, manipulations et vérifications — construire la grille Pixelator](./exercices/session_05-pixelator-construction.md) · [Consolidation](./session_05.md#consolidation).
+6. [Pratiquer les boucles dans la console](./exercices/session_05-boucles.md) — seize exercices pour faire varier le départ, la limite, le pas, l’ordre des instructions et les affichages, puis écrire une boucle à partir d’une règle.
+
+7. [Revenir à Pixelator et consolider](./session_05.md#consolidation) — expliquer et vérifier la construction des quatre cases, puis conserver et envoyer le travail.
+
+[Prolongement — construire une grille de dimensions choisies](./session_05.md#prolongement) — passer à neuf puis 512 cases après la consolidation ; ce travail peut être repris au cours suivant.
+
+[Fichiers, manipulations et vérifications — construire la grille Pixelator](./exercices/session_05-pixelator-construction.md).
 
 ---
 

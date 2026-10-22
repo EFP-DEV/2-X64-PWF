@@ -58,9 +58,27 @@ Pour chaque essai, on prévoit les affichages, le nombre de passages et la valeu
 
 [Seize exercices, fichiers et vérifications — boucles dans la console](./exercices/session_05-boucles.md)
 
-## 7. Construire une grille de dimensions choisies
+<a id="consolidation"></a>
+
+## 7. Revenir à Pixelator et consolider
 
 On revient à `construire-grille.html` et à `pixelator-construction.js`. On retrouve le départ, la condition et l’augmentation du numéro dans la boucle qui construit les cases.
+
+Avant de recharger, on prévoit le nombre de cases, le dernier identifiant et la valeur du numéro après la boucle. On vérifie ensuite les quatre cases et leur indépendance au clic. On explique pourquoi chaque passage crée un nouvel élément et pourquoi la peinture attend un clic.
+
+Le HTML fournit le conteneur de départ. JavaScript crée des éléments, prépare leurs propriétés et les insère dans le document. Le CSS détermine leur apparence et leur disposition.
+
+Le point de départ, la condition et l’évolution du numéro déterminent les passages. Dans les exercices de console, ces mêmes mécanismes répètent un affichage ; dans Pixelator, chaque passage crée une nouvelle case. La valeur disponible après la boucle est celle qui a rendu son dernier test faux ; elle peut dépasser une limite sans lui avoir été égale.
+
+Les changements réalisés dans la console ou par les clics concernent la page en cours. Les instructions enregistrées dans les fichiers permettent de reconstruire la grille au rechargement. On examine les changements éventuels et les commits, puis on envoie les étapes conservées vers le fork personnel.
+
+[Vérifier les quatre cases et conserver le travail](./exercices/session_05-pixelator-construction.md#conserver-quatre-cases)
+
+<a id="prolongement"></a>
+
+## Prolongement — Construire une grille de dimensions choisies
+
+On entreprend ce prolongement lorsque le départ, la condition, le pas et l’arrêt de la boucle peuvent être expliqués, avec des prévisions correctes pour plusieurs passages, un seul passage et aucun passage. La pratique et la consolidation précèdent ce travail. Le prolongement peut être repris au cours suivant à partir de la grille de quatre cases conservée.
 
 On demande neuf cases sans changer la disposition CSS : la grille garde deux colonnes. Cette observation distingue le nombre d’éléments créés de leur disposition. On passe ensuite à trois colonnes pour retrouver un carré de neuf cases.
 
@@ -69,13 +87,3 @@ On conserve enfin un nombre de colonnes et un nombre de lignes dans deux variabl
 On adapte les dimensions à une autre grille et on vérifie les limites, les identifiants et l’indépendance des cases. Le rechargement reconstruit une grille blanche avec les dimensions enregistrées dans le programme. Après examen des changements, on crée un commit et on envoie les étapes vers le fork personnel.
 
 [De neuf à 512 cases — dimensions et vérifications](./exercices/session_05-pixelator-construction.md#6-distinguer-le-nombre-de-cases-et-leur-disposition)
-
-<a id="consolidation"></a>
-
-## 8. Relier les fichiers, le document et la boucle
-
-Le HTML fournit le conteneur de départ. JavaScript crée des éléments, prépare leurs propriétés et les insère dans le document. Le CSS détermine leur apparence et leur disposition ; une propriété de style peut recevoir une valeur calculée par JavaScript.
-
-La boucle reprend une construction déjà comprise. Son point de départ, sa condition et l’évolution du numéro déterminent les passages. Dans les exercices de console, ces mêmes mécanismes répètent un affichage ; dans Pixelator, chaque passage crée une nouvelle case et lui associe le comportement connu, sans exécuter la peinture au chargement. La valeur disponible après la boucle est celle qui a rendu son dernier test faux ; elle peut dépasser une limite sans lui avoir été égale.
-
-Les changements réalisés dans la console ou par les clics concernent la page en cours. Les instructions enregistrées dans les fichiers permettent de reconstruire la grille au rechargement. Les commits conservent les étapes choisies de cette transformation du programme.

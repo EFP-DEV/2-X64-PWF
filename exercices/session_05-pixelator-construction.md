@@ -216,9 +216,35 @@ On rétablit la limite 4 et on conserve cette version dans un commit, par exempl
 
 On poursuit avec les [exercices de boucles](./session_05-boucles.md). Ils reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
 
-Les fichiers de ces exercices se trouvent dans un dossier distinct, `labo-boucles`. On conserve ici la grille de quatre cases. Après cette pratique, on revient à `construire-grille.html` et à `pixelator-construction.js` pour reprendre l’étape suivante.
+Les fichiers de ces exercices se trouvent dans un dossier distinct, `labo-boucles`. On conserve ici la grille de quatre cases. Après cette pratique, on revient à `construire-grille.html` et à `pixelator-construction.js` pour consolider et conserver le travail.
+
+<a id="conserver-quatre-cases"></a>
+
+### Revenir aux quatre cases et conserver le travail
+
+Dans le clone personnel de Pixelator, on reprend `pixelator-construction.js`. La limite de la boucle reste 4. Avant de recharger `construire-grille.html`, on prévoit le nombre de cases, le dernier identifiant et le prochain numéro affiché dans la console.
+
+Après rechargement, on vérifie les quatre cases blanches, les identifiants de `pixel1` à `pixel4` et le message `Prochain numéro : 5`. Sans recharger entre les clics, on peint `pixel1`, puis `pixel4`, puis on efface `pixel1` : seule `pixel4` doit rester peinte.
+
+On explique le rôle de chaque instruction de la boucle. La création et l’insertion ont lieu à chaque passage ; l’association à `peindre` prépare le comportement au clic. Le rechargement reconstruit les cases à partir des fichiers, sans conserver le dessin réalisé par les clics.
+
+Depuis la racine du clone, on examine l’état du travail :
+
+```text
+git status
+```
+
+Les étapes de construction d’une case, puis de quatre cases avec une boucle, ont déjà fait l’objet de commits. Si des modifications restent à conserver, on les examine, on les prépare et on crée un commit qui les décrit. On envoie ensuite les commits existants vers le fork personnel :
+
+```text
+git push
+```
+
+On actualise le fork sur GitHub. Les fichiers de construction et les commits doivent y apparaître. Cette version de quatre cases constitue le point de reprise du prolongement.
 
 ## 6. Distinguer le nombre de cases et leur disposition
+
+Les étapes 6 à 8 constituent un prolongement après la pratique et la consolidation. On les commence lorsque les passages et l’arrêt de la boucle peuvent être expliqués. Elles peuvent être reprises au cours suivant : le point de départ reste la grille de quatre cases enregistrée à l’étape précédente.
 
 Dans la condition, on remplace la limite 4 par 9. On laisse le CSS inchangé, puis on prévoit la forme de la grille avant d’enregistrer et de recharger.
 

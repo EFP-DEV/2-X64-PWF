@@ -313,12 +313,14 @@ On explique les choix avant l’essai, puis on enregistre et recharge. Pour vér
 
 On conserve les départs pairs indiqués : avec un pas de 2, la parité dépend du départ, comme dans les exercices 6 et 7. On rétablit enfin le départ 4 et la limite 10.
 
-## Reprendre la construction de Pixelator
+## Revenir à Pixelator et consolider
 
 Dans ces exercices, le départ, la condition et le pas ont déterminé les passages. Le corps de la boucle a pu afficher un numéro, un texte ou le résultat d’un calcul. L’ordre des instructions a déterminé la valeur disponible au moment de l’affichage.
 
 On revient dans le clone personnel de Pixelator et on ouvre **`construire-grille.html`**. Son fichier actif est **`pixelator-construction.js`** ; `boucles.js` reste dans `labo-boucles`.
 
-Avant de poursuivre, on retrouve dans la boucle de Pixelator le départ, la condition, l’augmentation et les instructions répétées. On explique ce qui change par rapport à l’affichage d’un numéro dans la console : chaque passage crée et insère un élément dans le document.
+On retrouve dans la boucle de Pixelator le départ, la condition, l’augmentation et les instructions répétées. On explique ce qui change par rapport à l’affichage d’un numéro dans la console : chaque passage crée et insère un élément dans le document.
 
-[Suite — distinguer le nombre de cases et leur disposition](./session_05-pixelator-construction.md#6-distinguer-le-nombre-de-cases-et-leur-disposition) · [Séance 5](../session_05.md)
+On prévoit le nombre de cases et le prochain numéro, puis on reprend les vérifications sur les quatre cases et la conservation du travail. Le passage à neuf puis 512 cases constitue un prolongement qui peut être repris au cours suivant.
+
+[Suite — vérifier les quatre cases et conserver le travail](./session_05-pixelator-construction.md#conserver-quatre-cases) · [Séance 5](../session_05.md)
