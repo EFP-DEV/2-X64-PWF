@@ -48,7 +48,19 @@ Après le remplacement des quatre blocs, la grille et les clics doivent produire
 
 [Boucle, suivi des valeurs et cas de vérification](./exercices/session_05-pixelator-construction.md#5-remplacer-les-quatre-blocs-par-une-boucle)
 
-## 6. Construire une grille de dimensions choisies
+## 6. Pratiquer les boucles dans la console
+
+On reprend la structure de la boucle en affichant seulement un numéro à chaque passage. Une série de seize exercices fait varier progressivement le départ, la limite, la comparaison et le pas. On rencontre une condition fausse dès le départ, puis on inverse le sens du comptage et on compare l’affichage avant ou après la modification du numéro.
+
+Les exercices suivants conservent la boucle et changent ce qu’elle affiche : un message répété, un message numéroté, puis un calcul et sa présentation. On termine en écrivant une série de tickets à partir d’une règle. La progression passe de la modification d’un modèle fourni à la combinaison autonome des mécanismes pratiqués.
+
+Pour chaque essai, on prévoit les affichages, le nombre de passages et la valeur disponible après la boucle. On enregistre, on recharge, puis on explique la comparaison. Les consignes indiquent les programmes qui se poursuivent et ceux qui repartent du modèle initial. Les cas de vérification comprennent plusieurs passages, un seul passage et aucun passage.
+
+[Seize exercices, fichiers et vérifications — boucles dans la console](./exercices/session_05-boucles.md)
+
+## 7. Construire une grille de dimensions choisies
+
+On revient à `construire-grille.html` et à `pixelator-construction.js`. On retrouve le départ, la condition et l’augmentation du numéro dans la boucle qui construit les cases.
 
 On demande neuf cases sans changer la disposition CSS : la grille garde deux colonnes. Cette observation distingue le nombre d’éléments créés de leur disposition. On passe ensuite à trois colonnes pour retrouver un carré de neuf cases.
 
@@ -60,10 +72,10 @@ On adapte les dimensions à une autre grille et on vérifie les limites, les ide
 
 <a id="consolidation"></a>
 
-## 7. Relier les fichiers, le document et la boucle
+## 8. Relier les fichiers, le document et la boucle
 
 Le HTML fournit le conteneur de départ. JavaScript crée des éléments, prépare leurs propriétés et les insère dans le document. Le CSS détermine leur apparence et leur disposition ; une propriété de style peut recevoir une valeur calculée par JavaScript.
 
-La boucle reprend une construction déjà comprise. Son point de départ, sa condition et l’évolution du numéro déterminent les passages. Chaque passage crée une nouvelle case et lui associe le comportement connu, sans exécuter la peinture au chargement.
+La boucle reprend une construction déjà comprise. Son point de départ, sa condition et l’évolution du numéro déterminent les passages. Dans les exercices de console, ces mêmes mécanismes répètent un affichage ; dans Pixelator, chaque passage crée une nouvelle case et lui associe le comportement connu, sans exécuter la peinture au chargement. La valeur disponible après la boucle est celle qui a rendu son dernier test faux ; elle peut dépasser une limite sans lui avoir été égale.
 
 Les changements réalisés dans la console ou par les clics concernent la page en cours. Les instructions enregistrées dans les fichiers permettent de reconstruire la grille au rechargement. Les commits conservent les étapes choisies de cette transformation du programme.

@@ -126,7 +126,9 @@ Les deux groupes suivent la même progression.
 
 3. [Construire quatre cases, puis introduire la boucle](./session_05.md#4-construire-quatre-cases-et-comparer-les-instructions) — comparer les blocs répétés, suivre le numéro et préserver le résultat avec `while`.
 
-4. [Construire une grille de dimensions choisies](./session_05.md#6-construire-une-grille-de-dimensions-choisies) — distinguer quantité et disposition, puis construire 32 colonnes et 16 lignes.
+4. [Pratiquer les boucles dans la console](./exercices/session_05-boucles.md) — seize exercices pour faire varier le départ, la limite, le pas, l’ordre des instructions et les affichages, puis écrire une boucle à partir d’une règle.
+
+5. [Construire une grille de dimensions choisies](./session_05.md#7-construire-une-grille-de-dimensions-choisies) — distinguer quantité et disposition, puis construire 32 colonnes et 16 lignes.
 
 [Fichiers, manipulations et vérifications — construire la grille Pixelator](./exercices/session_05-pixelator-construction.md) · [Consolidation](./session_05.md#consolidation).
 

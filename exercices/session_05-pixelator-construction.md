@@ -212,6 +212,12 @@ On examine également, **sans exécuter cette modification**, l’effet du retra
 
 On rétablit la limite 4 et on conserve cette version dans un commit, par exemple `Construire les quatre cases avec une boucle`.
 
+### Pratiquer la boucle dans la console
+
+On poursuit avec les [exercices de boucles](./session_05-boucles.md). Ils reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
+
+Les fichiers de ces exercices se trouvent dans un dossier distinct, `labo-boucles`. On conserve ici la grille de quatre cases. Après cette pratique, on revient à `construire-grille.html` et à `pixelator-construction.js` pour reprendre l’étape suivante.
+
 ## 6. Distinguer le nombre de cases et leur disposition
 
 Dans la condition, on remplace la limite 4 par 9. On laisse le CSS inchangé, puis on prévoit la forme de la grille avant d’enregistrer et de recharger.
