@@ -130,7 +130,7 @@ Les deux groupes suivent la même progression.
 
 5. [Répéter la construction avec une boucle](./session_05.md#5-répéter-la-construction-avec-une-boucle) — suivre le numéro et préserver le résultat avec `while`.
 
-6. [Pratiquer les boucles dans la console](./exercices/session_05-boucles.md) — créer un fork et un clone de `labo-boucles`, puis réaliser seize exercices pour faire varier le départ, la limite, le pas, l’ordre des instructions et les affichages, jusqu’à écrire une boucle à partir d’une règle.
+6. [Pratiquer les boucles](./exercices/session_05-boucles.md) — créer un fork et un clone de `labo-boucles`, puis réaliser seize exercices pour faire varier le départ, la limite, le pas, l’ordre des instructions et les affichages, jusqu’à écrire une boucle à partir d’une règle.
 
 7. [Revenir à Pixelator et consolider](./session_05.md#consolidation) — expliquer et vérifier la construction des quatre cases, puis conserver et envoyer le travail.
 

@@ -247,9 +247,9 @@ On examine également, **sans exécuter cette modification**, l’effet du retra
 
 On rétablit la limite 4 et on conserve cette version dans un commit, par exemple `Construire les quatre cases avec une boucle`.
 
-### Pratiquer la boucle dans la console
+### Pratiquer les boucles
 
-On poursuit avec les [exercices de boucles](./session_05-boucles.md). Ils reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
+On poursuit avec les [exercices de boucles](./session_05-boucles.md). On écrit le programme dans `boucles.js` et on lit ses résultats dans la console après rechargement de `boucles.html`. Les exercices reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
 
 La fiche fait créer un fork puis un clone du dépôt `labo-boucles`, à côté de `labo-pixelator-construction`. On conserve ici la grille de quatre cases. Après cette pratique, on revient au clone `labo-pixelator-construction`, à `construire-grille.html` et à `pixelator-construction.js` pour consolider et conserver le travail.
 

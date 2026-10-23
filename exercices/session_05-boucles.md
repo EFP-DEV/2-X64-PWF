@@ -40,7 +40,7 @@ Les fichiers de départ se trouvent à la racine du clone :
 - `boucles.html` : la page qui charge le programme et que l’on recharge pour chaque essai.
 - `boucles.js` : le premier programme, à modifier au fil des exercices.
 
-**Toutes les modifications de programme se font dans `boucles.js`**. `boucles.html` charge toujours ce même fichier : le HTML reste inchangé pendant la série.
+**On écrit et on modifie le programme dans `boucles.js`, avec VS Code.** `boucles.html` charge toujours ce même fichier : le HTML reste inchangé pendant la série. La console du navigateur sert à lire les résultats après rechargement de la page.
 
 Le programme de départ est fourni :
 

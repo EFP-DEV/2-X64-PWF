@@ -48,9 +48,9 @@ Après le remplacement des quatre blocs, la grille et les clics doivent produire
 
 [Boucle, suivi des valeurs et cas de vérification](./exercices/session_05-pixelator-construction.md#5-remplacer-les-quatre-blocs-par-une-boucle)
 
-## 6. Pratiquer les boucles dans la console
+## 6. Pratiquer les boucles
 
-On crée un fork du dépôt `labo-boucles`, puis on le clone à côté de `labo-pixelator-construction`. Après vérification de la destination avec `git remote -v`, on retrouve `boucles.html` et `boucles.js` dans ce nouveau clone.
+On crée un fork du dépôt `labo-boucles`, puis on le clone à côté de `labo-pixelator-construction`. Après vérification de la destination avec `git remote -v`, on retrouve `boucles.html` et `boucles.js` dans ce nouveau clone. On écrit le programme dans `boucles.js` avec VS Code. Après enregistrement et rechargement de `boucles.html`, la console du navigateur affiche les résultats.
 
 On reprend la structure de la boucle en affichant seulement un numéro à chaque passage. Une série de seize exercices fait varier progressivement le départ, la limite, la comparaison et le pas. On rencontre une condition fausse dès le départ, puis on inverse le sens du comptage et on compare l’affichage avant ou après la modification du numéro.
 
@@ -58,7 +58,7 @@ Les exercices suivants conservent la boucle et changent ce qu’elle affiche : u
 
 Pour chaque essai, on prévoit les affichages, le nombre de passages et la valeur disponible après la boucle. On enregistre, on recharge, puis on explique la comparaison. Les consignes indiquent les programmes qui se poursuivent et ceux qui repartent du modèle initial. Les cas de vérification comprennent plusieurs passages, un seul passage et aucun passage. Le dernier programme est conservé dans un commit, puis envoyé vers le fork personnel de `labo-boucles`.
 
-[Seize exercices, fichiers et vérifications — boucles dans la console](./exercices/session_05-boucles.md)
+[Seize exercices, fichiers et vérifications — pratiquer les boucles](./exercices/session_05-boucles.md)
 
 <a id="consolidation"></a>
 
@@ -70,7 +70,7 @@ Avant de recharger, on prévoit le nombre de cases, le dernier identifiant et la
 
 Le HTML fournit le conteneur de départ. JavaScript crée des éléments, prépare leurs propriétés et les insère dans le document. Le CSS détermine leur apparence et leur disposition.
 
-Le point de départ, la condition et l’évolution du numéro déterminent les passages. Dans les exercices de console, ces mêmes mécanismes répètent un affichage ; dans Pixelator, chaque passage crée une nouvelle case. La valeur disponible après la boucle est celle qui a rendu son dernier test faux ; elle peut dépasser une limite sans lui avoir été égale.
+Le point de départ, la condition et l’évolution du numéro déterminent les passages. Dans `boucles.js`, ces mêmes mécanismes répètent un affichage dans la console ; dans Pixelator, chaque passage crée une nouvelle case. La valeur disponible après la boucle est celle qui a rendu son dernier test faux ; elle peut dépasser une limite sans lui avoir été égale.
 
 Les changements réalisés dans la console ou par les clics concernent la page en cours. Les instructions enregistrées dans les fichiers permettent de reconstruire la grille au rechargement. On examine les changements éventuels et les commits, puis on envoie les étapes conservées vers le fork personnel de `labo-pixelator-construction`.
 
