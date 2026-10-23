@@ -4,16 +4,43 @@
 
 Dans Pixelator, la boucle construit une case à chaque passage. On reprend la même structure en affichant seulement le numéro dans la console. Les valeurs successives permettent de suivre les passages et l’arrêt.
 
-### Préparer les deux fichiers
+### Créer un fork du laboratoire de boucles et le cloner
 
-Dans le dossier des projets du cours, on crée un dossier `labo-boucles`. On y place les deux fichiers fournis :
+On ouvre le dépôt [EFP-DEV/labo-boucles](https://github.com/EFP-DEV/labo-boucles) sur GitHub. On reprend le parcours déjà utilisé pour Pixelator :
 
-- [boucles.html](./labo-boucles/boucles.html) : la page qui charge le programme et que l’on recharge pour chaque essai.
-- [boucles.js](./labo-boucles/boucles.js) : le premier programme, à modifier au fil des exercices.
+1. On choisit **Fork**, puis le compte personnel comme propriétaire.
+2. On conserve le nom `labo-boucles` et on copie uniquement la branche principale, `main`.
+3. On valide avec **Create fork**, puis on vérifie que le propriétaire est le compte personnel.
+4. Depuis ce **fork personnel**, on copie l’adresse **Code → HTTPS**.
 
-Pour récupérer chaque fichier depuis GitHub, on ouvre son lien, puis on utilise **Download raw file**. On conserve les noms et les extensions. Les deux fichiers se trouvent directement dans `labo-boucles`.
+Dans VS Code, on ouvre le **dossier parent des projets du cours**, puis un nouveau terminal intégré. On remplace toute l’adresse d’exemple par celle du fork personnel, en conservant `git clone` et l’espace qui suit :
 
-On ouvre ce dossier dans VS Code. **Toutes les modifications de programme se font dans `boucles.js`**. `boucles.html` charge toujours ce même fichier : le HTML reste inchangé pendant la série.
+```text
+git clone https://github.com/nom-du-compte/labo-boucles.git
+```
+
+`nom-du-compte` représente le compte personnel ; l’adresse d’exemple doit être remplacée avant d’exécuter la commande. Le clone crée le dossier `labo-boucles` à côté de `labo-pixelator-construction` et récupère les fichiers avec leur historique.
+
+On ouvre **`labo-boucles` dans VS Code**, puis un nouveau terminal intégré depuis ce dossier. On y saisit :
+
+```text
+git status
+git remote -v
+```
+
+`git status` indique la branche `main` et aucun changement en attente. Les deux lignes de `git remote -v` doivent désigner le fork personnel, avec le compte réel à la place de `nom-du-compte` :
+
+```text
+origin  https://github.com/nom-du-compte/labo-boucles.git (fetch)
+origin  https://github.com/nom-du-compte/labo-boucles.git (push)
+```
+
+Les fichiers de départ se trouvent à la racine du clone :
+
+- `boucles.html` : la page qui charge le programme et que l’on recharge pour chaque essai.
+- `boucles.js` : le premier programme, à modifier au fil des exercices.
+
+**Toutes les modifications de programme se font dans `boucles.js`**. `boucles.html` charge toujours ce même fichier : le HTML reste inchangé pendant la série.
 
 Le programme de départ est fourni :
 
@@ -32,7 +59,7 @@ console.log("Après la boucle : " + numero);
 
 Avant d’ouvrir la page, on suit les instructions sur papier. On relève les valeurs affichées dans la boucle, le nombre de passages et la valeur affichée après la boucle. On inclut dans le suivi le premier test qui devient faux.
 
-On ouvre ensuite le fichier local `boucles.html` dans le navigateur, puis sa console. On vide les messages et on recharge la page pour observer le programme depuis son début. La page garde le même aspect ; les résultats apparaissent dans la console.
+On ouvre ensuite `boucles.html` depuis le clone `labo-boucles` dans le navigateur, puis sa console. On vide les messages et on recharge la page pour observer le programme depuis son début. La page garde le même aspect ; les résultats apparaissent dans la console.
 
 <details>
 <summary><strong>Résultat à comparer après la prévision</strong></summary>
@@ -313,11 +340,30 @@ On explique les choix avant l’essai, puis on enregistre et recharge. Pour vér
 
 On conserve les départs pairs indiqués : avec un pas de 2, la parité dépend du départ, comme dans les exercices 6 et 7. On rétablit enfin le départ 4 et la limite 10.
 
+### Conserver le programme et l’envoyer vers le fork
+
+Depuis la racine du clone `labo-boucles`, on examine les changements :
+
+```text
+git status
+git diff
+```
+
+Après les vérifications de l’exercice 16, `boucles.js` conserve le programme des tickets de 4 à 10. On prépare ce fichier, on crée un commit, puis on l’envoie vers le fork personnel de `labo-boucles` :
+
+```text
+git add boucles.js
+git commit -m "Écrire une série de tickets avec une boucle"
+git push
+```
+
+On actualise le fork sur GitHub. Le programme des tickets et le nouveau commit doivent y apparaître. Ce commit conserve le programme final ; les étapes intermédiaires ne figurent dans l’historique que si elles ont fait l’objet de commits.
+
 ## Revenir à Pixelator et consolider
 
 Dans ces exercices, le départ, la condition et le pas ont déterminé les passages. Le corps de la boucle a pu afficher un numéro, un texte ou le résultat d’un calcul. L’ordre des instructions a déterminé la valeur disponible au moment de l’affichage.
 
-On revient dans le clone personnel de Pixelator et on ouvre **`construire-grille.html`**. Son fichier actif est **`pixelator-construction.js`** ; `boucles.js` reste dans `labo-boucles`.
+On ouvre de nouveau le clone personnel **`labo-pixelator-construction`** dans VS Code, puis **`construire-grille.html`** depuis ce dossier dans le navigateur. Son fichier actif est **`pixelator-construction.js`** ; `boucles.js` reste dans le clone distinct `labo-boucles`.
 
 On retrouve dans la boucle de Pixelator le départ, la condition, l’augmentation et les instructions répétées. On explique ce qui change par rapport à l’affichage d’un numéro dans la console : chaque passage crée et insère un élément dans le document.
 

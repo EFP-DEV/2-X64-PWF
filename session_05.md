@@ -2,11 +2,11 @@
 
 ## 1. Retrouver les cases de Pixelator
 
-On ouvre le Pixelator terminé en séance 4. Les quatre cases se peignent et s’effacent indépendamment. Dans le fichier HTML, quatre éléments décrivent ces cases ; dans le JavaScript, quatre associations leur donnent le même comportement au clic.
+On ouvre le Pixelator terminé en séance 4, dans le clone `labo-frontend-pixelator`. Les quatre cases se peignent et s’effacent indépendamment. Dans le fichier HTML, quatre éléments décrivent ces cases ; dans le JavaScript, quatre associations leur donnent le même comportement au clic.
 
 Une grille de 32 colonnes et 16 lignes demande 512 cases. La construction manuelle ferait répéter ces mêmes instructions. On commence par chercher comment créer une seule case avec JavaScript, en conservant le comportement de peinture déjà connu.
 
-Dans le clone personnel, on ajoute une page distincte, `construire-grille.html`, avec sa feuille de style et son fichier JavaScript. Son conteneur est vide : on observe cette nouvelle page avant de construire sa première case.
+On crée un fork du dépôt `labo-pixelator-construction`, puis on clone cette copie personnelle à côté des autres projets du cours. On reprend ainsi le parcours de la séance 4. `git remote -v` permet de vérifier que `origin` désigne le nouveau fork personnel. Le clone contient `construire-grille.html`, sa feuille de style et son fichier JavaScript. Son conteneur est vide : on observe cette page avant de construire sa première case. Le projet de la séance 4 reste disponible dans son propre clone pour les comparaisons.
 
 [Fichiers et point de départ — construire la grille](./exercices/session_05-pixelator-construction.md#1-préparer-une-page-de-construction)
 
@@ -50,11 +50,13 @@ Après le remplacement des quatre blocs, la grille et les clics doivent produire
 
 ## 6. Pratiquer les boucles dans la console
 
+On crée un fork du dépôt `labo-boucles`, puis on le clone à côté de `labo-pixelator-construction`. Après vérification de la destination avec `git remote -v`, on retrouve `boucles.html` et `boucles.js` dans ce nouveau clone.
+
 On reprend la structure de la boucle en affichant seulement un numéro à chaque passage. Une série de seize exercices fait varier progressivement le départ, la limite, la comparaison et le pas. On rencontre une condition fausse dès le départ, puis on inverse le sens du comptage et on compare l’affichage avant ou après la modification du numéro.
 
 Les exercices suivants conservent la boucle et changent ce qu’elle affiche : un message répété, un message numéroté, puis un calcul et sa présentation. On termine en écrivant une série de tickets à partir d’une règle. La progression passe de la modification d’un modèle fourni à la combinaison autonome des mécanismes pratiqués.
 
-Pour chaque essai, on prévoit les affichages, le nombre de passages et la valeur disponible après la boucle. On enregistre, on recharge, puis on explique la comparaison. Les consignes indiquent les programmes qui se poursuivent et ceux qui repartent du modèle initial. Les cas de vérification comprennent plusieurs passages, un seul passage et aucun passage.
+Pour chaque essai, on prévoit les affichages, le nombre de passages et la valeur disponible après la boucle. On enregistre, on recharge, puis on explique la comparaison. Les consignes indiquent les programmes qui se poursuivent et ceux qui repartent du modèle initial. Les cas de vérification comprennent plusieurs passages, un seul passage et aucun passage. Le dernier programme est conservé dans un commit, puis envoyé vers le fork personnel de `labo-boucles`.
 
 [Seize exercices, fichiers et vérifications — boucles dans la console](./exercices/session_05-boucles.md)
 
@@ -62,7 +64,7 @@ Pour chaque essai, on prévoit les affichages, le nombre de passages et la valeu
 
 ## 7. Revenir à Pixelator et consolider
 
-On revient à `construire-grille.html` et à `pixelator-construction.js`. On retrouve le départ, la condition et l’augmentation du numéro dans la boucle qui construit les cases.
+On revient dans le clone `labo-pixelator-construction`, à `construire-grille.html` et à `pixelator-construction.js`. On retrouve le départ, la condition et l’augmentation du numéro dans la boucle qui construit les cases.
 
 Avant de recharger, on prévoit le nombre de cases, le dernier identifiant et la valeur du numéro après la boucle. On vérifie ensuite les quatre cases et leur indépendance au clic. On explique pourquoi chaque passage crée un nouvel élément et pourquoi la peinture attend un clic.
 
@@ -70,7 +72,7 @@ Le HTML fournit le conteneur de départ. JavaScript crée des éléments, prépa
 
 Le point de départ, la condition et l’évolution du numéro déterminent les passages. Dans les exercices de console, ces mêmes mécanismes répètent un affichage ; dans Pixelator, chaque passage crée une nouvelle case. La valeur disponible après la boucle est celle qui a rendu son dernier test faux ; elle peut dépasser une limite sans lui avoir été égale.
 
-Les changements réalisés dans la console ou par les clics concernent la page en cours. Les instructions enregistrées dans les fichiers permettent de reconstruire la grille au rechargement. On examine les changements éventuels et les commits, puis on envoie les étapes conservées vers le fork personnel.
+Les changements réalisés dans la console ou par les clics concernent la page en cours. Les instructions enregistrées dans les fichiers permettent de reconstruire la grille au rechargement. On examine les changements éventuels et les commits, puis on envoie les étapes conservées vers le fork personnel de `labo-pixelator-construction`.
 
 [Vérifier les quatre cases et conserver le travail](./exercices/session_05-pixelator-construction.md#conserver-quatre-cases)
 
@@ -84,6 +86,6 @@ On demande neuf cases sans changer la disposition CSS : la grille garde deux col
 
 On conserve enfin un nombre de colonnes et un nombre de lignes dans deux variables. Leur produit fournit le nombre de cases à construire. La valeur des colonnes sert aussi à préparer la disposition de la grille. On passe ainsi à 32 colonnes et 16 lignes sans recopier les instructions de construction.
 
-On adapte les dimensions à une autre grille et on vérifie les limites, les identifiants et l’indépendance des cases. Le rechargement reconstruit une grille blanche avec les dimensions enregistrées dans le programme. Après examen des changements, on crée un commit et on envoie les étapes vers le fork personnel.
+On adapte les dimensions à une autre grille et on vérifie les limites, les identifiants et l’indépendance des cases. Le rechargement reconstruit une grille blanche avec les dimensions enregistrées dans le programme. Après examen des changements, on crée un commit et on envoie les étapes vers le fork personnel de `labo-pixelator-construction`.
 
 [De neuf à 512 cases — dimensions et vérifications](./exercices/session_05-pixelator-construction.md#6-distinguer-le-nombre-de-cases-et-leur-disposition)

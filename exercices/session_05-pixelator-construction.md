@@ -2,19 +2,54 @@
 
 ## 1. Préparer une page de construction
 
-On ouvre `peindre-au-clic.html` dans le clone personnel de Pixelator terminé en séance 4. Un premier clic peint une case ; un deuxième l’efface. Dans le HTML, on retrouve les quatre éléments `div`. Dans le JavaScript, on retrouve les quatre associations à `peindre`.
+On ouvre `peindre-au-clic.html` dans le clone personnel `labo-frontend-pixelator` terminé en séance 4. Un premier clic peint une case ; un deuxième l’efface. Dans le HTML, on retrouve les quatre éléments `div`. Dans le JavaScript, on retrouve les quatre associations à `peindre`.
 
 Une grille de 32 colonnes et 16 lignes demanderait 512 éléments et autant d’associations au clic. On cherche à construire ces cases avec JavaScript. Le premier résultat attendu reste une seule case, avec le comportement déjà connu.
 
-On ajoute les trois fichiers fournis **à la racine du même clone** :
+### Créer un fork du projet de construction et le cloner
+
+On reprend le parcours de la séance 4 avec un nouveau dépôt, [EFP-DEV/labo-pixelator-construction](https://github.com/EFP-DEV/labo-pixelator-construction) :
+
+1. On choisit **Fork**, puis le compte personnel comme propriétaire.
+2. On conserve le nom `labo-pixelator-construction` et on copie uniquement la branche principale, `main`.
+3. On valide avec **Create fork**. Sur la nouvelle page, on vérifie que le propriétaire est le compte personnel.
+4. Depuis ce **fork personnel**, on copie l’adresse **Code → HTTPS**.
+
+Dans VS Code, on ouvre le **dossier parent des projets du cours**, puis un nouveau terminal intégré. On remplace toute l’adresse d’exemple ci-dessous par celle du fork personnel, en conservant `git clone` et l’espace qui suit :
+
+```text
+git clone https://github.com/nom-du-compte/labo-pixelator-construction.git
+```
+
+`nom-du-compte` représente le compte personnel ; l’adresse d’exemple doit être remplacée avant d’exécuter la commande. Le clone crée le dossier `labo-pixelator-construction` à côté de `labo-frontend-pixelator` et récupère ensemble les fichiers et leur historique.
+
+On ouvre **`labo-pixelator-construction` dans VS Code**, puis un nouveau terminal intégré depuis ce dossier. On y saisit :
+
+```text
+git status
+git remote -v
+```
+
+`git status` indique la branche `main` et aucun changement en attente. Les deux lignes de `git remote -v` doivent désigner le fork personnel, avec le compte réel à la place de `nom-du-compte` :
+
+```text
+origin  https://github.com/nom-du-compte/labo-pixelator-construction.git (fetch)
+origin  https://github.com/nom-du-compte/labo-pixelator-construction.git (push)
+```
+
+Les commits de cette activité seront créés dans ce clone et envoyés vers ce fork. Le projet de la séance 4 reste dans `labo-frontend-pixelator` pour les comparaisons.
+
+### Observer les fichiers du clone
+
+Les trois fichiers de départ se trouvent **à la racine de `labo-pixelator-construction`** :
 
 | Fichier fourni | Rôle et travail prévu |
 | --- | --- |
-| [construire-grille.html](./pixelator/construire-grille.html) | Nouvelle page avec un conteneur vide. On conserve ce HTML pendant l’activité. |
-| [pixelator-construction.css](./pixelator/pixelator-construction.css) | Apparence familière des cases. On modifiera leur disposition et leur taille dans les dernières étapes. |
-| [pixelator-construction.js](./pixelator/pixelator-construction.js) | Sélection de la grille et fonction `peindre` fournies. Les instructions de construction sont à ajouter. |
+| `construire-grille.html` | Nouvelle page avec un conteneur vide. On conserve ce HTML pendant l’activité. |
+| `pixelator-construction.css` | Apparence familière des cases. On modifiera leur disposition et leur taille dans les dernières étapes. |
+| `pixelator-construction.js` | Sélection de la grille et fonction `peindre` fournies. Les instructions de construction sont à ajouter. |
 
-On ouvre désormais **`construire-grille.html`** dans le navigateur. Cette page charge uniquement `pixelator-construction.js` comme JavaScript. `peindre-au-clic.html` reste disponible pour comparer les deux versions.
+On ouvre désormais **`construire-grille.html` depuis `labo-pixelator-construction`** dans le navigateur. Cette page charge uniquement `pixelator-construction.js` comme JavaScript. Pour comparer les deux versions, on ouvre `peindre-au-clic.html` depuis le clone `labo-frontend-pixelator` de la séance 4.
 
 Le titre et le texte apparaissent, mais aucune case n’est visible. Dans l’inspecteur, on retrouve la section portant l’identifiant `grille-pixels` : elle ne contient aucun élément. Le JavaScript fourni conserve une référence à cette section dans `grille` :
 
@@ -145,7 +180,7 @@ On recharge et on reprend les clics suivants sans recharger entre eux :
 | Cliquer sur `pixel2` | `pixel2`, `pixel4` |
 | Cliquer de nouveau sur `pixel4` | `pixel2` |
 
-On compare cette page au Pixelator terminé en séance 4. Le résultat et le comportement sont les mêmes ; la construction des cases a changé.
+On compare cette page à `peindre-au-clic.html`, ouverte depuis `labo-frontend-pixelator` terminé en séance 4. Le résultat et le comportement sont les mêmes ; la construction des cases a changé.
 
 On compare ensuite les quatre blocs de JavaScript. Les opérations et la fonction associée au clic restent identiques. Le numéro utilisé dans l’identifiant passe de 1 à 4. Cette répétition fournit le point de départ de la boucle.
 
@@ -216,31 +251,31 @@ On rétablit la limite 4 et on conserve cette version dans un commit, par exempl
 
 On poursuit avec les [exercices de boucles](./session_05-boucles.md). Ils reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
 
-Les fichiers de ces exercices se trouvent dans un dossier distinct, `labo-boucles`. On conserve ici la grille de quatre cases. Après cette pratique, on revient à `construire-grille.html` et à `pixelator-construction.js` pour consolider et conserver le travail.
+La fiche fait créer un fork puis un clone du dépôt `labo-boucles`, à côté de `labo-pixelator-construction`. On conserve ici la grille de quatre cases. Après cette pratique, on revient au clone `labo-pixelator-construction`, à `construire-grille.html` et à `pixelator-construction.js` pour consolider et conserver le travail.
 
 <a id="conserver-quatre-cases"></a>
 
 ### Revenir aux quatre cases et conserver le travail
 
-Dans le clone personnel de Pixelator, on reprend `pixelator-construction.js`. La limite de la boucle reste 4. Avant de recharger `construire-grille.html`, on prévoit le nombre de cases, le dernier identifiant et le prochain numéro affiché dans la console.
+Dans le clone personnel `labo-pixelator-construction`, on reprend `pixelator-construction.js`. La limite de la boucle reste 4. Avant de recharger `construire-grille.html`, on prévoit le nombre de cases, le dernier identifiant et le prochain numéro affiché dans la console.
 
 Après rechargement, on vérifie les quatre cases blanches, les identifiants de `pixel1` à `pixel4` et le message `Prochain numéro : 5`. Sans recharger entre les clics, on peint `pixel1`, puis `pixel4`, puis on efface `pixel1` : seule `pixel4` doit rester peinte.
 
 On explique le rôle de chaque instruction de la boucle. La création et l’insertion ont lieu à chaque passage ; l’association à `peindre` prépare le comportement au clic. Le rechargement reconstruit les cases à partir des fichiers, sans conserver le dessin réalisé par les clics.
 
-Depuis la racine du clone, on examine l’état du travail :
+Depuis la racine du clone `labo-pixelator-construction`, on examine l’état du travail :
 
 ```text
 git status
 ```
 
-Les étapes de construction d’une case, puis de quatre cases avec une boucle, ont déjà fait l’objet de commits. Si des modifications restent à conserver, on les examine, on les prépare et on crée un commit qui les décrit. On envoie ensuite les commits existants vers le fork personnel :
+Les étapes de construction d’une case, puis de quatre cases avec une boucle, ont déjà fait l’objet de commits. Si des modifications restent à conserver, on les examine, on les prépare et on crée un commit qui les décrit. On envoie ensuite les commits existants vers le fork personnel de `labo-pixelator-construction` :
 
 ```text
 git push
 ```
 
-On actualise le fork sur GitHub. Les fichiers de construction et les commits doivent y apparaître. Cette version de quatre cases constitue le point de reprise du prolongement.
+On actualise le fork personnel de `labo-pixelator-construction` sur GitHub. Les fichiers de construction et les commits doivent y apparaître. Cette version de quatre cases constitue le point de reprise du prolongement.
 
 ## 6. Distinguer le nombre de cases et leur disposition
 
@@ -335,7 +370,7 @@ On enregistre les fichiers et on recharge la page. On vérifie les points suivan
 
 On explique le rôle de `createElement`, de `appendChild`, de la condition de boucle et de l’augmentation du numéro. On distingue le nombre de cases, leur disposition et leur état au clic.
 
-Dans VS Code, on examine les changements. Depuis la racine du clone personnel, on prépare les trois fichiers de cette activité et on conserve la dernière étape :
+Dans VS Code, on examine les changements. Depuis la racine du clone personnel `labo-pixelator-construction`, on prépare les fichiers de cette activité et on conserve la dernière étape :
 
 ```text
 git add construire-grille.html pixelator-construction.css pixelator-construction.js
@@ -343,6 +378,6 @@ git commit -m "Construire une grille aux dimensions choisies"
 git push
 ```
 
-Sur GitHub, on actualise le fork personnel. Les trois fichiers et les commits de l’activité doivent y apparaître. Le JavaScript conserve les instructions de construction ; le dessin réalisé par les clics reste un état temporaire de la page.
+Sur GitHub, on actualise le fork personnel de `labo-pixelator-construction`. Les trois fichiers et les commits de l’activité doivent y apparaître. Le JavaScript conserve les instructions de construction ; le dessin réalisé par les clics reste un état temporaire de la page.
 
 [Séance 5](../session_05.md) · [Séance précédente](../session_04.md)
