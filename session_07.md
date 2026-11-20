@@ -85,4 +85,4 @@ Pour chaque question, on choisit l’expression à saisir et on prévoit le rés
 
 On sait maintenant extraire un caractère du message. Comment décider si on peut le chiffrer ? Dans le défi en binôme, on transmet une phrase chiffrée et le partenaire essaie de retrouver la phrase d’origine.
 
-[Exercice — Message chiffré](./exercices/session_07-message-chiffre.md)
+[Exercice — Message chiffré](https://github.com/EFP-DEV/labo-message-chiffre#readme)
