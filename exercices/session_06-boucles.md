@@ -369,4 +369,4 @@ On retrouve dans la boucle de Pixelator le départ, la condition, l’augmentati
 
 On prévoit le nombre de cases et le prochain numéro, puis on reprend les vérifications sur les quatre cases et la conservation du travail. Le passage à neuf puis 512 cases constitue un prolongement qui peut être repris au cours suivant.
 
-[Suite — vérifier les quatre cases et conserver le travail](./session_05-pixelator-construction.md#conserver-quatre-cases) · [Séance 5](../session_05.md)
+[Suite — vérifier les quatre cases et conserver le travail](./session_06-pixelator-construction.md#conserver-quatre-cases) · [Séance 6](../session_06.md)

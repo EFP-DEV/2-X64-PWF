@@ -249,7 +249,7 @@ On rétablit la limite 4 et on conserve cette version dans un commit, par exempl
 
 ### Pratiquer les boucles
 
-On poursuit avec les [exercices de boucles](./session_05-boucles.md). On écrit le programme dans `boucles.js` et on lit ses résultats dans la console après rechargement de `boucles.html`. Les exercices reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
+On poursuit avec les [exercices de boucles](./session_06-boucles.md). On écrit le programme dans `boucles.js` et on lit ses résultats dans la console après rechargement de `boucles.html`. Les exercices reprennent la structure de `while` avec des affichages simples, en faisant varier le départ, la limite, le pas et l’ordre des instructions.
 
 La fiche fait créer un fork puis un clone du dépôt `labo-boucles`, à côté de `labo-pixelator-construction`. On conserve ici la grille de quatre cases. Après cette pratique, on revient au clone `labo-pixelator-construction`, à `construire-grille.html` et à `pixelator-construction.js` pour consolider et conserver le travail.
 
@@ -380,4 +380,4 @@ git push
 
 Sur GitHub, on actualise le fork personnel de `labo-pixelator-construction`. Les trois fichiers et les commits de l’activité doivent y apparaître. Le JavaScript conserve les instructions de construction ; le dessin réalisé par les clics reste un état temporaire de la page.
 
-[Séance 5](../session_05.md) · [Séance précédente](../session_04.md)
+[Séance 6](../session_06.md) · [Séance précédente](../session_04.md#4-compléter-pierre-papier-ciseaux)

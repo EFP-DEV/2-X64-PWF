@@ -119,15 +119,19 @@ chiffrer
 
 ## 3. Reconnaître une lettre au clic sur « Chiffrer »
 
-Dans `rotation-alphabet.js`, on déclare la phrase à examiner en dehors des fonctions. On enregistre le fichier, puis on recharge la page.
+Dans `rotation-alphabet.js`, on déclare la phrase à examiner en dehors des fonctions.
 
 ```js
 let phrase = "La lettre est sous la porte.";
 ```
 
-Au clic sur « Chiffrer », la console doit afficher `lettre` si le caractère examiné est une lettre de A à Z, majuscule ou minuscule. Pour tout autre caractère, elle doit afficher `autre caractère`.
+Dans `chiffrer`, on lit le premier caractère avec `phrase.charAt(0)`. On remplace le message fixe du bouton par une décision qui dépend du caractère lu. La console doit afficher `lettre` pour les lettres de A à Z et de a à z. Pour tout autre caractère, elle doit afficher `autre caractère`.
 
 Le premier réflexe peut être de chercher une fonction toute faite sur MDN, par exemple sous le nom `isAlphabeticalCaracter`. Ici, le travail consiste justement à formuler la règle qui permet de répondre, puis à la traduire en JavaScript.
+
+On enregistre le fichier, on recharge la page et on clique sur « Chiffrer ». Pour le `L` initial, la console doit afficher `lettre`.
+
+On remplace seulement `phrase.charAt(0)` par `phrase.charAt(2)`. Quel caractère occupe cette position dans la phrase ? On prévoit le message, puis on enregistre, on recharge et on clique à nouveau. Pour l’espace qui suit `La`, la console doit afficher `autre caractère`.
 
 <a id="fonction-lettre"></a>
 
