@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Message chiffré</title>
+  <script src="rotation-alphabet.js" defer></script>
+  <style>
+    body {
+      max-width: 38rem;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      font: 1rem/1.5 system-ui, sans-serif;
+    }
+    label { display: block; }
+    input, textarea, button { font: inherit; }
+    input[type="text"], textarea { box-sizing: border-box; width: 100%; }
+    li { white-space: pre-wrap; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Message chiffré</h1>
+
+    <form id="envoi">
+      <h2>Chiffrer une phrase</h2>
+      <p>
+        <label for="phrase">Phrase à chiffrer</label>
+        <input type="text" id="phrase" value="Le zoo !">
+      </p>
+      <p>
+        <label for="rotation">Rotation de 1 à 25</label>
+        <input type="number" id="rotation" min="1" max="25" value="13">
+      </p>
+      <button type="button" id="chiffrer">Chiffrer</button>
+      <p>
+        <label for="message-chiffre">Texte chiffré à copier et à envoyer</label>
+        <input type="text" id="message-chiffre" readonly>
+      </p>
+    </form>
+
+    <form id="reception">
+      <h2>Retrouver la rotation</h2>
+      <p>
+        <label for="message-recu">Texte chiffré reçu</label>
+        <textarea id="message-recu" rows="2"></textarea>
+      </p>
+      <button type="button" id="dechiffrer">Déchiffrer</button>
+      <ol id="lectures" start="0"></ol>
+    </form>
+  </main>
+</body>
+</html>
