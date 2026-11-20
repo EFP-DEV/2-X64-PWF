@@ -56,7 +56,7 @@ Le module PWF comporte **11 séances** :
 | 5 | 16/10/2026 | [Git, GitHub et pierre, papier, ciseaux](./session_04.md#4-compléter-pierre-papier-ciseaux) |
 | 6 | 23/10/2026 | [JavaScript boucles ↔ HTML / DOM : construire le document](./session_06.md) |
 |  | 13/11/2026 | [REPORTEE]  |
-| 7 | 20/11/2026 | [strings with let, if, while, functions, forms and events](./session_07.md) |
+| 7 | 20/11/2026 | [Chaînes de caractères et chiffrement d’un message](./session_07.md) |
 | 8 | 27/11/2026 | Ergonomie, formulaires et validation |
 | 9 | 04/12/2026 | Organisation frontend et réalisation intégrée |
 

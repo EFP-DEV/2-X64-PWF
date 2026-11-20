@@ -1,4 +1,4 @@
-# Séance 7 — Explorer les chaînes de caractères
+# Séance 7 — Explorer les chaînes de caractères et chiffrer un message
 
 ## Deux lettres identiques, deux positions
 
@@ -83,6 +83,12 @@ Pour chaque question, on choisit l’expression à saisir et on prévoit le rés
 
 4. À quel indice se trouve le premier `s` ? Comment vérifier, à partir de l’indice obtenu, qu’on retrouve bien ce `s` ?
 
-On sait maintenant extraire un caractère du message. Comment décider si on peut le chiffrer ? Dans le défi en binôme, on transmet une phrase chiffrée et le partenaire essaie de retrouver la phrase d’origine.
+## Chiffrer un message en binôme
 
-[Exercice — Message chiffré](https://github.com/EFP-DEV/labo-message-chiffre#readme)
+Dans `Le bus passe.`, on sait retrouver le premier `s` et lire le point final. Si on remplace chaque lettre par une autre et qu’on recopie les espaces et le point, que peut-on prévoir sur la longueur du message et la position du point ?
+
+On poursuit dans le dépôt `labo-message-chiffre`. Son README présente la rotation des lettres et guide la programmation des boutons « Chiffrer » et « Déchiffrer ». Au moment de l’échange, on transmet uniquement le texte chiffré. Le partenaire cherche à retrouver la phrase et la rotation choisie.
+
+[Ouvrir le laboratoire « Message chiffré » — consignes et fichiers de départ](https://github.com/EFP-DEV/labo-message-chiffre#readme)
+
+Une fois le bouton « Chiffrer » opérationnel, on chiffre `Le bus passe.` avec un décalage d’une place. Dans la console de cette page, on saisit le texte obtenu entre guillemets et on utilise `length`, puis `indexOf(".")`, pour vérifier les deux prévisions.
